@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goals.com — The Sales Platform Built Around Winning</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2035;
+  --navy2:#1e2640;
+  --navy3:#242d4a;
+  --teal:#1d9e75;
+  --teal2:#17896a;
+  --teal-light:#22c55e;
+  --teal-bg:rgba(29,158,117,0.08);
+  --teal-border:rgba(29,158,117,0.2);
+  --white:#fff;
+  --off:#f4f6f9;
+  --g50:#f8fafc;
+  --g100:#f1f4f8;
+  --g200:#e4e9f0;
+  --g300:#cbd5e1;
+  --g400:#94a3b8;
+  --g500:#6b7280;
+  --g600:#64748b;
+  --g700:#374151;
+  --g800:#334155;
+  --dark:#1e293b;
+  --amber:#f59e0b;
+  --red:#ef4444;
+  --blue:#3b82f6;
+  --purple:#8b5cf6;
+  --green:#22c55e;
+  --font:'Inter',sans-serif;
+  --mono:'DM Mono',monospace;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--dark);background:var(--white);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(26,32,53,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  padding:0 40px;
+  height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-mark{
+  width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:900;color:#fff;letter-spacing:-1px;
+}
+.nav-logo-text{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.nav-logo-text span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-link{
+  padding:7px 14px;font-size:13.5px;font-weight:500;
+  color:rgba(255,255,255,0.65);text-decoration:none;
+  border-radius:8px;transition:all 0.15s;
+}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,0.07)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.btn-ghost-nav{
+  padding:8px 18px;border-radius:8px;font-size:13.5px;font-weight:600;
+  color:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.15);
+  background:none;cursor:pointer;font-family:var(--font);
+  text-decoration:none;transition:all 0.15s;
+}
+.btn-ghost-nav:hover{color:#fff;border-color:rgba(255,255,255,0.35)}
+.btn-primary-nav{
+  padding:9px 20px;border-radius:8px;font-size:13.5px;font-weight:700;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));
+  color:#fff;border:none;cursor:pointer;font-family:var(--font);
+  text-decoration:none;transition:all 0.2s;
+  box-shadow:0 2px 12px rgba(29,158,117,0.35);
+}
+.btn-primary-nav:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(29,158,117,0.4)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:var(--navy);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:120px 40px 80px;
+  position:relative;overflow:hidden;
+}
+.hero-bg-glow{
+  position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:900px;height:600px;
+  background:radial-gradient(ellipse at center,rgba(29,158,117,0.18) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-bg-dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:28px 28px;
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(29,158,117,0.12);border:1px solid rgba(29,158,117,0.25);
+  color:var(--teal);font-size:12px;font-weight:700;
+  padding:6px 14px;border-radius:40px;
+  letter-spacing:0.3px;margin-bottom:28px;
+  animation:fadeUp 0.6s ease both;
+}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.85)}}
+.hero-title{
+  font-size:clamp(42px,6vw,78px);font-weight:900;
+  color:#fff;text-align:center;line-height:1.06;
+  letter-spacing:-2px;margin-bottom:24px;
+  animation:fadeUp 0.7s 0.1s ease both;
+  max-width:900px;
+}
+.hero-title .teal{
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:clamp(16px,2vw,20px);font-weight:400;
+  color:rgba(255,255,255,0.6);text-align:center;
+  line-height:1.7;max-width:620px;margin-bottom:44px;
+  animation:fadeUp 0.7s 0.2s ease both;
+}
+.hero-actions{
+  display:flex;align-items:center;gap:14px;
+  animation:fadeUp 0.7s 0.3s ease both;
+  flex-wrap:wrap;justify-content:center;
+}
+.btn-hero{
+  padding:15px 32px;border-radius:10px;font-size:15px;font-weight:700;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));
+  color:#fff;border:none;cursor:pointer;font-family:var(--font);
+  text-decoration:none;transition:all 0.2s;
+  box-shadow:0 4px 24px rgba(29,158,117,0.4);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-hero:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(29,158,117,0.5)}
+.btn-hero-ghost{
+  padding:15px 32px;border-radius:10px;font-size:15px;font-weight:600;
+  border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.05);
+  cursor:pointer;font-family:var(--font);text-decoration:none;
+  transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-hero-ghost:hover{border-color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.09);color:#fff}
+.hero-social-proof{
+  display:flex;align-items:center;gap:18px;margin-top:48px;
+  animation:fadeUp 0.7s 0.4s ease both;
+  flex-wrap:wrap;justify-content:center;
+}
+.hero-avatars{display:flex}
+.hero-avatar{
+  width:34px;height:34px;border-radius:50%;border:2.5px solid var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#fff;margin-left:-10px;
+}
+.hero-avatar:first-child{margin-left:0}
+.hero-proof-text{font-size:13px;color:rgba(255,255,255,0.5)}
+.hero-proof-text strong{color:rgba(255,255,255,0.85)}
+.hero-proof-divider{width:1px;height:20px;background:rgba(255,255,255,0.12)}
+.hero-stars{color:#f59e0b;font-size:13px;letter-spacing:1px}
+
+/* ── PLATFORM PREVIEW ── */
+.preview-section{
+  background:var(--navy);
+  padding:0 40px 100px;
+  display:flex;justify-content:center;
+}
+.preview-window{
+  width:100%;max-width:1100px;
+  border-radius:16px;
+  background:var(--navy2);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 40px 120px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.04);
+  overflow:hidden;
+}
+.preview-chrome{
+  height:44px;background:#141929;
+  display:flex;align-items:center;padding:0 16px;gap:8px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.chrome-dot{width:12px;height:12px;border-radius:50%}
+.chrome-dot.red{background:#ff5f57}
+.chrome-dot.yellow{background:#febc2e}
+.chrome-dot.green{background:#28c840}
+.chrome-url{
+  margin:0 auto;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+  border-radius:6px;padding:5px 16px;font-size:12px;
+  color:rgba(255,255,255,0.4);font-family:var(--mono);
+}
+.preview-app{display:flex;height:520px}
+/* Mini sidebar */
+.preview-sidebar{
+  width:64px;background:#141929;
+  border-right:1px solid rgba(255,255,255,0.05);
+  display:flex;flex-direction:column;align-items:center;
+  padding:16px 0;gap:4px;
+}
+.ps-logo{
+  width:30px;height:30px;border-radius:7px;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:900;color:#fff;
+  margin-bottom:12px;
+}
+.ps-item{
+  width:44px;height:40px;border-radius:9px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;cursor:pointer;transition:all 0.15s;
+}
+.ps-item:hover,.ps-item.active{background:rgba(29,158,117,0.15)}
+.ps-icon{font-size:15px;opacity:0.4}
+.ps-item.active .ps-icon{opacity:1;color:var(--teal)}
+.ps-label{font-size:8px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.3px}
+.ps-item.active .ps-label{color:rgba(255,255,255,0.7)}
+/* Main content preview */
+.preview-main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.preview-topbar{
+  height:50px;background:#1a2035;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;padding:0 20px;gap:12px;
+}
+.preview-search{
+  flex:1;max-width:280px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:7px;padding:6px 12px;
+  display:flex;align-items:center;gap:7px;
+  font-size:11px;color:rgba(255,255,255,0.3);
+}
+.preview-topbar-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.preview-ace-btn{
+  padding:5px 12px;border-radius:20px;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));
+  font-size:10px;font-weight:700;color:#fff;
+  display:flex;align-items:center;gap:5px;
+}
+.preview-content{flex:1;padding:20px;background:var(--off);display:grid;grid-template-columns:1fr 200px;gap:12px;overflow:hidden}
+/* Stat cards in preview */
+.preview-stats{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.preview-stat{
+  background:#fff;border-radius:10px;padding:14px 16px;
+  border:1px solid #e4e9f0;
+}
+.preview-stat-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#94a3b8;margin-bottom:5px}
+.preview-stat-val{font-size:20px;font-weight:700;color:var(--dark);font-family:var(--mono);letter-spacing:-0.5px}
+.preview-stat-val.teal{color:var(--teal)}
+.preview-stat-change{font-size:10px;color:var(--teal);margin-top:2px;font-weight:600}
+/* Chart card */
+.preview-chart{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #e4e9f0}
+.preview-chart-title{font-size:10px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.preview-bars{display:flex;align-items:flex-end;gap:4px;height:70px}
+.preview-bar{flex:1;border-radius:3px 3px 0 0;background:rgba(29,158,117,0.2)}
+.preview-bar.hi{background:var(--teal)}
+/* Leaderboard */
+.preview-leader{background:#fff;border-radius:10px;padding:14px;border:1px solid #e4e9f0}
+.preview-leader-title{font-size:10px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.preview-leader-item{display:flex;align-items:center;gap:7px;padding:4px 0;border-bottom:1px solid #f1f4f8}
+.preview-leader-item:last-child{border-bottom:none}
+.preview-rank{font-size:9px;font-weight:700;width:14px;color:#94a3b8}
+.preview-av{width:20px;height:20px;border-radius:50%;font-size:8px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center}
+.preview-lname{font-size:10px;font-weight:500;flex:1;color:var(--dark)}
+.preview-lval{font-size:10px;font-weight:700;color:var(--teal);font-family:var(--mono)}
+/* Pipeline mini */
+.preview-pipeline{background:#fff;border-radius:10px;border:1px solid #e4e9f0;overflow:hidden;grid-column:1/-1}
+.preview-pipeline-header{padding:10px 14px;border-bottom:1px solid #f1f4f8;display:flex;align-items:center;justify-content:space-between}
+.preview-pipeline-title{font-size:10px;font-weight:700;color:var(--dark)}
+.preview-pipeline-stages{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:10px;gap:8px}
+.preview-stage{background:#f8fafc;border-radius:7px;padding:8px}
+.preview-stage-head{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:#94a3b8;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid #e4e9f0}
+.preview-deal{background:#fff;border-radius:5px;padding:5px 7px;margin-bottom:4px;border:1px solid #e4e9f0;font-size:9px;font-weight:500;color:var(--dark)}
+.preview-deal-val{font-size:8px;color:var(--teal);font-family:var(--mono);margin-top:2px;font-weight:700}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── LOGOS STRIP ── */
+.logos-section{
+  background:var(--g50);
+  padding:48px 40px;
+  text-align:center;
+  border-top:1px solid var(--g200);
+  border-bottom:1px solid var(--g200);
+}
+.logos-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--g400);margin-bottom:28px}
+.logos-row{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.logo-item{font-size:15px;font-weight:800;color:var(--g300);letter-spacing:-0.5px;text-transform:uppercase;font-family:var(--mono)}
+
+/* ── SECTION SHARED ── */
+section{padding:96px 40px}
+.section-container{max-width:1100px;margin:0 auto}
+.section-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--teal-bg);border:1px solid var(--teal-border);
+  color:var(--teal);font-size:11.5px;font-weight:700;
+  padding:5px 12px;border-radius:40px;
+  text-transform:uppercase;letter-spacing:0.5px;
+  margin-bottom:18px;
+}
+.section-title{
+  font-size:clamp(30px,4vw,48px);font-weight:800;
+  color:var(--dark);letter-spacing:-1.5px;line-height:1.1;
+  margin-bottom:16px;
+}
+.section-sub{
+  font-size:17px;font-weight:400;color:var(--g500);
+  line-height:1.75;max-width:560px;
+}
+.centered{text-align:center}
+.centered .section-sub{margin:0 auto}
+
+/* ── FEATURES GRID ── */
+.features-section{background:var(--white)}
+.features-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  margin-top:60px;
+}
+.feature-card{
+  background:var(--g50);border:1px solid var(--g200);
+  border-radius:16px;padding:28px 26px;
+  transition:all 0.2s;cursor:default;
+}
+.feature-card:hover{
+  border-color:var(--teal);
+  box-shadow:0 8px 32px rgba(29,158,117,0.1);
+  transform:translateY(-3px);
+  background:#fff;
+}
+.feature-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--teal-bg);border:1px solid var(--teal-border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;margin-bottom:16px;
+}
+.feature-title{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px;letter-spacing:-0.3px}
+.feature-desc{font-size:13.5px;color:var(--g500);line-height:1.7}
+.feature-tag{
+  display:inline-block;margin-top:14px;
+  font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;
+  background:var(--teal-bg);color:var(--teal);
+}
+
+/* ── GOALS FEATURE DEEP DIVE ── */
+.deep-section{
+  background:var(--navy);
+  padding:96px 40px;
+}
+.deep-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;max-width:1100px;margin:0 auto;
+}
+.deep-grid.flip{direction:rtl}
+.deep-grid.flip > *{direction:ltr}
+.deep-content .section-badge{
+  background:rgba(29,158,117,0.12);
+  border-color:rgba(29,158,117,0.25);
+}
+.deep-content .section-title{color:#fff}
+.deep-content .section-sub{color:rgba(255,255,255,0.55)}
+.deep-checklist{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.deep-check{display:flex;align-items:flex-start;gap:12px}
+.deep-check-icon{
+  width:22px;height:22px;border-radius:6px;flex-shrink:0;margin-top:1px;
+  background:rgba(29,158,117,0.15);border:1px solid rgba(29,158,117,0.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:var(--teal);
+}
+.deep-check-text{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.6}
+.deep-check-text strong{color:rgba(255,255,255,0.9);font-weight:600}
+/* Deep visual cards */
+.deep-visual{position:relative}
+.deep-card{
+  background:var(--navy2);border:1px solid rgba(255,255,255,0.09);
+  border-radius:14px;padding:20px 22px;
+  box-shadow:0 12px 48px rgba(0,0,0,0.3);
+}
+.deep-card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:rgba(255,255,255,0.4);margin-bottom:16px}
+.deep-stat-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.deep-stat-row:last-child{border-bottom:none}
+.deep-stat-name{font-size:13px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px}
+.deep-stat-av{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff}
+.deep-stat-pct{font-size:12px;font-weight:600;color:var(--teal);font-family:var(--mono)}
+.deep-stat-bar-wrap{flex:1;margin:0 12px;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
+.deep-stat-bar{height:100%;border-radius:2px;background:var(--teal)}
+/* Float card */
+.float-card{
+  position:absolute;bottom:-30px;right:-24px;
+  background:var(--navy3);border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;padding:14px 16px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+  min-width:180px;
+}
+.float-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:rgba(255,255,255,0.35);margin-bottom:8px}
+.float-metric{font-size:28px;font-weight:800;color:var(--teal);font-family:var(--mono);letter-spacing:-1px}
+.float-metric-sub{font-size:12px;color:rgba(255,255,255,0.45);margin-top:2px}
+.float-up{
+  position:absolute;top:-28px;left:-20px;
+  background:var(--navy3);border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;padding:10px 14px;
+  box-shadow:0 6px 24px rgba(0,0,0,0.25);
+}
+.float-up-val{font-size:16px;font-weight:800;color:var(--green);font-family:var(--mono)}
+.float-up-label{font-size:10px;color:rgba(255,255,255,0.4);margin-top:1px}
+
+/* ── ACE AI SECTION ── */
+.ace-section{
+  background:linear-gradient(160deg,#0f1623 0%,#1a2035 40%,#0d1a12 100%);
+  padding:96px 40px;
+  position:relative;overflow:hidden;
+}
+.ace-bg{
+  position:absolute;bottom:-100px;right:-100px;
+  width:600px;height:600px;
+  background:radial-gradient(ellipse at center,rgba(29,158,117,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.ace-container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ace-content .section-title{color:#fff}
+.ace-content .section-sub{color:rgba(255,255,255,0.55)}
+.ace-features{margin-top:32px;display:flex;flex-direction:column;gap:20px}
+.ace-feat{display:flex;gap:14px}
+.ace-feat-icon{
+  width:36px;height:36px;border-radius:9px;flex-shrink:0;
+  background:rgba(29,158,117,0.12);border:1px solid rgba(29,158,117,0.2);
+  display:flex;align-items:center;justify-content:center;font-size:17px;
+}
+.ace-feat-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.ace-feat-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6}
+/* Ace chat visual */
+.ace-chat{
+  background:var(--navy2);border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 16px 64px rgba(0,0,0,0.4);
+}
+.ace-chat-header{
+  background:#141929;padding:13px 16px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;gap:10px;
+}
+.ace-chat-av{
+  width:30px;height:30px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;color:#fff;
+}
+.ace-chat-name{font-size:13px;font-weight:700;color:#fff}
+.ace-chat-status{font-size:10px;color:var(--teal);display:flex;align-items:center;gap:4px}
+.ace-chat-status::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block}
+.ace-messages{padding:16px;display:flex;flex-direction:column;gap:12px;background:rgba(0,0,0,0.15)}
+.ace-msg{display:flex;gap:8px;align-items:flex-end}
+.ace-msg.user{flex-direction:row-reverse}
+.ace-bubble{padding:10px 14px;border-radius:12px;font-size:12.5px;line-height:1.5;max-width:78%}
+.ace-bubble.them{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);border-radius:12px 12px 12px 3px}
+.ace-bubble.user{background:var(--teal);color:#fff;border-radius:12px 12px 3px 12px}
+.ace-bubble-av{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0}
+.ace-insight-card{
+  margin:4px 0 4px 32px;
+  background:rgba(29,158,117,0.1);border:1px solid rgba(29,158,117,0.2);
+  border-radius:9px;padding:10px 12px;
+}
+.ace-insight-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--teal);margin-bottom:4px}
+.ace-insight-text{font-size:11.5px;color:rgba(255,255,255,0.65);line-height:1.5}
+.ace-chat-input{
+  padding:12px 14px;border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;gap:8px;background:#141929;
+}
+.ace-chat-field{
+  flex:1;background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.1);border-radius:8px;
+  padding:8px 12px;font-size:12px;color:rgba(255,255,255,0.5);
+  font-family:var(--font);
+}
+.ace-chat-send{
+  background:var(--teal);color:#fff;border:none;
+  border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;
+}
+
+/* ── METRICS SECTION ── */
+.metrics-section{background:var(--off);padding:96px 40px}
+.metrics-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+  background:var(--g200);border-radius:16px;overflow:hidden;
+  margin-top:56px;
+  box-shadow:0 4px 32px rgba(0,0,0,0.06);
+}
+.metric-cell{
+  background:#fff;padding:40px 32px;text-align:center;
+}
+.metric-num{
+  font-size:clamp(40px,4vw,60px);font-weight:900;
+  color:var(--teal);font-family:var(--mono);letter-spacing:-2px;
+  line-height:1;margin-bottom:8px;
+}
+.metric-label{font-size:14px;font-weight:500;color:var(--g500);line-height:1.5}
+.metric-sub{font-size:12px;color:var(--g400);margin-top:4px}
+
+/* ── TESTIMONIALS ── */
+.testi-section{background:#fff;padding:96px 40px}
+.testi-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  margin-top:56px;
+}
+.testi-card{
+  background:var(--g50);border:1px solid var(--g200);
+  border-radius:16px;padding:28px;
+  transition:all 0.2s;
+}
+.testi-card:hover{border-color:var(--teal);box-shadow:0 8px 32px rgba(29,158,117,0.08);transform:translateY(-2px);background:#fff}
+.testi-stars{color:#f59e0b;font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.testi-quote{font-size:14px;line-height:1.75;color:var(--g600);margin-bottom:20px;font-style:italic}
+.testi-quote::before{content:'\201C';font-size:40px;color:var(--teal);opacity:0.4;line-height:0;vertical-align:-14px;margin-right:2px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.testi-name{font-size:13px;font-weight:700;color:var(--dark)}
+.testi-role{font-size:12px;color:var(--g400)}
+
+/* ── CTA SECTION ── */
+.cta-section{
+  background:var(--navy);
+  padding:112px 40px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-glow{
+  position:absolute;top:-150px;left:50%;transform:translateX(-50%);
+  width:700px;height:500px;
+  background:radial-gradient(ellipse,rgba(29,158,117,0.2) 0%,transparent 70%);
+}
+.cta-title{
+  font-size:clamp(36px,5vw,62px);font-weight:900;
+  color:#fff;letter-spacing:-2px;line-height:1.08;
+  margin-bottom:20px;max-width:700px;margin-left:auto;margin-right:auto;
+}
+.cta-title .teal{
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.cta-sub{font-size:17px;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:44px;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-actions{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.cta-note{margin-top:20px;font-size:12px;color:rgba(255,255,255,0.3)}
+
+/* ── FOOTER ── */
+footer{
+  background:#0f1623;
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:64px 40px 40px;
+}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
+  max-width:1100px;margin:0 auto;
+  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.footer-brand .nav-logo{margin-bottom:14px;display:inline-flex}
+.footer-desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;max-width:240px}
+.footer-col-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:rgba(255,255,255,0.5);margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-link{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.15s}
+.footer-link:hover{color:rgba(255,255,255,0.8)}
+.footer-bottom{
+  max-width:1100px;margin:28px auto 0;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+.footer-legal{display:flex;gap:20px}
+.footer-legal a{font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.15s}
+.footer-legal a:hover{color:rgba(255,255,255,0.5)}
+/* Footer teal accent */
+.footer-teal{color:var(--teal)}
+
+/* ── PIPELINE FEATURE SECTION ── */
+.pipe-section{background:var(--g50);padding:96px 40px}
+.pipe-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:70px;
+  align-items:center;max-width:1100px;margin:0 auto;
+}
+.pipe-visual{position:relative}
+.pipe-kanban{
+  background:#fff;border:1px solid var(--g200);
+  border-radius:14px;padding:18px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.06);
+}
+.pipe-kanban-title{font-size:11px;font-weight:700;color:var(--dark);margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+.pipe-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pipe-col{background:var(--g50);border-radius:9px;padding:8px}
+.pipe-col-head{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--g400);margin-bottom:6px;padding-bottom:5px;border-bottom:1px solid var(--g200)}
+.pipe-deal{background:#fff;border:1px solid var(--g200);border-radius:6px;padding:7px;margin-bottom:5px}
+.pipe-deal-name{font-size:9.5px;font-weight:600;color:var(--dark)}
+.pipe-deal-val{font-size:9px;color:var(--teal);font-family:var(--mono);font-weight:700;margin-top:2px}
+.pipe-deal-tag{
+  display:inline-block;margin-top:3px;
+  font-size:8px;font-weight:600;padding:1px 5px;border-radius:4px;
+  background:var(--g100);color:var(--g500);
+}
+.pipe-float{
+  position:absolute;top:-20px;right:-20px;
+  background:#fff;border:1px solid var(--g200);
+  border-radius:12px;padding:12px 16px;
+  box-shadow:0 6px 24px rgba(0,0,0,0.1);
+}
+.pipe-float-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--g400);margin-bottom:6px}
+.pipe-float-stat{font-size:24px;font-weight:800;color:var(--dark);font-family:var(--mono);letter-spacing:-1px}
+.pipe-float-sub{font-size:11px;color:var(--teal);font-weight:600;margin-top:2px}
+
+/* ── INTEGRATIONS ── */
+.integrations-section{background:#fff;padding:80px 40px}
+.int-grid{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:12px;
+  margin-top:40px;max-width:800px;margin-left:auto;margin-right:auto;
+}
+.int-pill{
+  display:flex;align-items:center;gap:8px;
+  background:var(--g50);border:1px solid var(--g200);
+  border-radius:12px;padding:10px 18px;
+  font-size:13px;font-weight:600;color:var(--g700);
+  transition:all 0.15s;cursor:default;
+}
+.int-pill:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-bg)}
+.int-icon{font-size:18px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  section{padding:64px 20px}
+  .features-grid{grid-template-columns:1fr}
+  .deep-grid,.ace-container,.pipe-grid{grid-template-columns:1fr;gap:40px}
+  .deep-grid.flip{direction:ltr}
+  .metrics-grid{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:28px}
+  .preview-stats{grid-template-columns:repeat(2,1fr)}
+  .preview-pipeline-stages{grid-template-columns:repeat(2,1fr)}
+  .hero{padding:100px 20px 60px}
+  .logos-section{padding:36px 20px}
+  .logos-row{gap:28px}
+  .preview-section{padding:0 20px 60px}
+}
+@media(max-width:600px){
+  .metrics-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column;width:100%}
+  .btn-hero,.btn-hero-ghost{width:100%;justify-content:center}
+  .preview-app{height:400px}
+  .preview-content{grid-template-columns:1fr}
+}
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* ── HIGHLIGHT STRIP ── */
+.highlight-strip{
+  background:var(--teal);
+  padding:14px 40px;
+  display:flex;align-items:center;justify-content:center;gap:20px;
+  flex-wrap:wrap;
+}
+.highlight-item{
+  display:flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:600;color:#fff;
+}
+.highlight-check{font-size:15px}
+.highlight-divider{width:1px;height:16px;background:rgba(255,255,255,0.3)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">G</div>
+    <span class="nav-logo-text">Goals<span>.com</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#pipeline" class="nav-link">Pipeline</a>
+    <a href="#ace" class="nav-link">Ace AI</a>
+    <a href="#metrics" class="nav-link">Results</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+  </div>
+  <div class="nav-cta">
+    <a href="#" class="btn-ghost-nav">Sign in</a>
+    <a href="#" class="btn-primary-nav">Start free →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-dots"></div>
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Now with Ace AI — your always-on sales intelligence
+  </div>
+  <h1 class="hero-title">
+    The sales platform<br>built around <span class="teal">winning</span>
+  </h1>
+  <p class="hero-sub">
+    Goals.com brings your pipeline, rep performance, and AI-powered insights into one platform — so your team always knows what to focus on and how to close.
+  </p>
+  <div class="hero-actions">
+    <a href="#" class="btn-hero">
+      <span>Get started free</span>
+      <span>→</span>
+    </a>
+    <a href="#" class="btn-hero-ghost">
+      <span>▶</span>
+      <span>Watch demo</span>
+    </a>
+  </div>
+  <div class="hero-social-proof">
+    <div class="hero-avatars">
+      <div class="hero-avatar" style="background:#6366f1">MK</div>
+      <div class="hero-avatar" style="background:#f59e0b">JR</div>
+      <div class="hero-avatar" style="background:#ef4444">SC</div>
+      <div class="hero-avatar" style="background:#1d9e75">TP</div>
+      <div class="hero-avatar" style="background:#8b5cf6">AL</div>
+    </div>
+    <span class="hero-proof-text"><strong>2,400+ reps</strong> hitting quota with Goals.com</span>
+    <span class="hero-proof-divider"></span>
+    <span class="hero-stars">★★★★★</span>
+    <span class="hero-proof-text"><strong>4.9/5</strong> from 600+ reviews</span>
+  </div>
+</section>
+
+<!-- PLATFORM PREVIEW -->
+<div class="preview-section">
+  <div class="preview-window">
+    <div class="preview-chrome">
+      <div class="chrome-dot red"></div>
+      <div class="chrome-dot yellow"></div>
+      <div class="chrome-dot green"></div>
+      <div class="chrome-url">app.goals.com/dashboard</div>
+    </div>
+    <div class="preview-app">
+      <div class="preview-sidebar">
+        <div class="ps-logo">G</div>
+        <div class="ps-item active">
+          <span class="ps-icon">⊞</span>
+          <span class="ps-label">Dash</span>
+        </div>
+        <div class="ps-item">
+          <span class="ps-icon">◎</span>
+          <span class="ps-label">Goals</span>
+        </div>
+        <div class="ps-item">
+          <span class="ps-icon">◈</span>
+          <span class="ps-label">Pipeline</span>
+        </div>
+        <div class="ps-item">
+          <span class="ps-icon">☰</span>
+          <span class="ps-label">Contacts</span>
+        </div>
+        <div class="ps-item">
+          <span class="ps-icon">◷</span>
+          <span class="ps-label">Forecast</span>
+        </div>
+        <div class="ps-item">
+          <span class="ps-icon">✦</span>
+          <span class="ps-label">Ace AI</span>
+        </div>
+      </div>
+      <div class="preview-main">
+        <div class="preview-topbar">
+          <div class="preview-search">
+            🔍 &nbsp;Search anything...
+          </div>
+          <div class="preview-topbar-right">
+            <div class="preview-ace-btn">✦ Ask Ace</div>
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--teal);font-size:9px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;">SM</div>
+          </div>
+        </div>
+        <div class="preview-content">
+          <div class="preview-stats">
+            <div class="preview-stat">
+              <div class="preview-stat-label">Total Sales</div>
+              <div class="preview-stat-val teal">$847K</div>
+              <div class="preview-stat-change">↑ 18% vs last month</div>
+            </div>
+            <div class="preview-stat">
+              <div class="preview-stat-label">Open Pipeline</div>
+              <div class="preview-stat-val">$2.1M</div>
+              <div class="preview-stat-change" style="color:#94a3b8">24 active deals</div>
+            </div>
+            <div class="preview-stat">
+              <div class="preview-stat-label">Quota Attainment</div>
+              <div class="preview-stat-val">84%</div>
+              <div class="preview-stat-change">Team avg · On track</div>
+            </div>
+            <div class="preview-stat">
+              <div class="preview-stat-label">Deals Closing</div>
+              <div class="preview-stat-val">7</div>
+              <div class="preview-stat-change" style="color:#f59e0b">This week</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 160px;gap:10px;">
+            <div class="preview-chart">
+              <div class="preview-chart-title">Revenue vs Goal — June 2025</div>
+              <div class="preview-bars">
+                <div class="preview-bar" style="height:45%"></div>
+                <div class="preview-bar" style="height:55%"></div>
+                <div class="preview-bar" style="height:48%"></div>
+                <div class="preview-bar" style="height:70%"></div>
+                <div class="preview-bar hi" style="height:88%"></div>
+                <div class="preview-bar hi" style="height:95%"></div>
+                <div class="preview-bar" style="height:65%"></div>
+                <div class="preview-bar" style="height:72%"></div>
+                <div class="preview-bar hi" style="height:100%"></div>
+              </div>
+            </div>
+            <div class="preview-leader">
+              <div class="preview-leader-title">🏆 Leaderboard</div>
+              <div class="preview-leader-item">
+                <div class="preview-rank">1</div>
+                <div class="preview-av" style="background:#f59e0b">MK</div>
+                <div class="preview-lname">Marcus K.</div>
+                <div class="preview-lval">$182K</div>
+              </div>
+              <div class="preview-leader-item">
+                <div class="preview-rank">2</div>
+                <div class="preview-av" style="background:#6366f1">JR</div>
+                <div class="preview-lname">Julia R.</div>
+                <div class="preview-lval">$156K</div>
+              </div>
+              <div class="preview-leader-item">
+                <div class="preview-rank">3</div>
+                <div class="preview-av" style="background:#ef4444">SC</div>
+                <div class="preview-lname">Sam C.</div>
+                <div class="preview-lval">$141K</div>
+              </div>
+              <div class="preview-leader-item">
+                <div class="preview-rank">4</div>
+                <div class="preview-av" style="background:#8b5cf6">TP</div>
+                <div class="preview-lname">Taylor P.</div>
+                <div class="preview-lval">$128K</div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-pipeline">
+            <div class="preview-pipeline-header">
+              <div class="preview-pipeline-title">Active Pipeline — Kanban View</div>
+              <div style="font-size:8px;font-weight:600;color:var(--teal);background:var(--teal-bg);padding:2px 7px;border-radius:10px;">24 deals · $2.1M</div>
+            </div>
+            <div class="preview-pipeline-stages">
+              <div class="preview-stage">
+                <div class="preview-stage-head">Prospecting · 8</div>
+                <div class="preview-deal"><div class="preview-deal-name">Acme Corp</div><div class="preview-deal-val">$48,000</div></div>
+                <div class="preview-deal"><div class="preview-deal-name">Bright Solutions</div><div class="preview-deal-val">$32,000</div></div>
+              </div>
+              <div class="preview-stage">
+                <div class="preview-stage-head">Qualified · 6</div>
+                <div class="preview-deal"><div class="preview-deal-name">Vertex Media</div><div class="preview-deal-val">$95,000</div><div class="preview-deal-tag">High value</div></div>
+                <div class="preview-deal"><div class="preview-deal-name">NorthStar Inc</div><div class="preview-deal-val">$67,000</div></div>
+              </div>
+              <div class="preview-stage">
+                <div class="preview-stage-head">Proposal · 5</div>
+                <div class="preview-deal"><div class="preview-deal-name">Cascade Retail</div><div class="preview-deal-val">$140,000</div><div class="preview-deal-tag" style="background:rgba(239,68,68,0.1);color:#ef4444;">At risk</div></div>
+                <div class="preview-deal"><div class="preview-deal-name">MountainView Co</div><div class="preview-deal-val">$88,000</div></div>
+              </div>
+              <div class="preview-stage">
+                <div class="preview-stage-head">Closing · 5</div>
+                <div class="preview-deal"><div class="preview-deal-name">Skyline Group</div><div class="preview-deal-val">$220,000</div><div class="preview-deal-tag" style="background:rgba(34,197,94,0.12);color:#16a34a;">Closing soon</div></div>
+                <div class="preview-deal"><div class="preview-deal-name">Orbit Tech</div><div class="preview-deal-val">$175,000</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HIGHLIGHT STRIP -->
+<div class="highlight-strip">
+  <div class="highlight-item"><span class="highlight-check">✓</span> No spreadsheets</div>
+  <div class="highlight-divider"></div>
+  <div class="highlight-item"><span class="highlight-check">✓</span> Real-time goal tracking</div>
+  <div class="highlight-divider"></div>
+  <div class="highlight-item"><span class="highlight-check">✓</span> AI coaching with Ace</div>
+  <div class="highlight-divider"></div>
+  <div class="highlight-item"><span class="highlight-check">✓</span> 5-minute setup</div>
+  <div class="highlight-divider"></div>
+  <div class="highlight-item"><span class="highlight-check">✓</span> Free 14-day trial</div>
+</div>
+
+<!-- LOGOS STRIP -->
+<div class="logos-section">
+  <div class="logos-label">Trusted by sales teams at</div>
+  <div class="logos-row">
+    <div class="logo-item">Vertex</div>
+    <div class="logo-item">Cascade</div>
+    <div class="logo-item">Orbit</div>
+    <div class="logo-item">NorthStar</div>
+    <div class="logo-item">Skyline</div>
+    <div class="logo-item">Brightwave</div>
+    <div class="logo-item">Apexio</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="section-container">
+    <div class="centered reveal">
+      <div class="section-badge">Everything you need</div>
+      <h2 class="section-title">One platform. Every part<br>of your sales motion.</h2>
+      <p class="section-sub">Goals.com replaces the patchwork of tools your team already ignores and gives you one place to run every part of the sales operation.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Goal Management</div>
+        <div class="feature-desc">Set quota targets for each rep, track daily and monthly progress in real time, and surface who's on track before it's too late to course-correct.</div>
+        <div class="feature-tag">Real-time tracking</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">◈</div>
+        <div class="feature-title">Pipeline CRM</div>
+        <div class="feature-desc">Drag-and-drop Kanban, sortable list view, and calendar view — all synced to your stages. See deal health, aging, and close probability at a glance.</div>
+        <div class="feature-tag">Kanban · List · Calendar</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">✦</div>
+        <div class="feature-title">Ace AI</div>
+        <div class="feature-desc">Ask Ace anything — "Which deals are at risk?" or "Who hasn't called this week?" — and get actionable answers grounded in your actual pipeline data.</div>
+        <div class="feature-tag">Powered by AI</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-title">Rep Performance</div>
+        <div class="feature-desc">Live leaderboards, individual scorecards, call activity tracking, and quota attainment — visible to managers and reps so everyone can self-manage.</div>
+        <div class="feature-tag">Team visibility</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Forecasting</div>
+        <div class="feature-desc">Roll up pipeline into a weighted forecast. See best case, committed, and likely outcomes. No more end-of-quarter surprises.</div>
+        <div class="feature-tag">Predictive</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">☰</div>
+        <div class="feature-title">Contacts & Orgs</div>
+        <div class="feature-desc">A clean contact and organization database with activity history, deal connections, and import from CSV or your existing CRM in minutes.</div>
+        <div class="feature-tag">Import ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS DEEP DIVE -->
+<section class="deep-section" id="goals">
+  <div class="deep-grid">
+    <div class="deep-content reveal">
+      <div class="section-badge">Goal Management</div>
+      <h2 class="section-title">Your team always knows<br>where they stand</h2>
+      <p class="section-sub">Quota clarity drives performance. Goals.com shows every rep their exact attainment, pacing, and gap — updated live throughout the day.</p>
+      <div class="deep-checklist">
+        <div class="deep-check">
+          <div class="deep-check-icon">✓</div>
+          <div class="deep-check-text"><strong>Individual and team-level goals</strong> — set monthly, quarterly, or custom period targets for each rep or the whole team at once.</div>
+        </div>
+        <div class="deep-check">
+          <div class="deep-check-icon">✓</div>
+          <div class="deep-check-text"><strong>Live attainment tracking</strong> — revenue, calls, meetings, and custom KPIs all update in real time as reps log activity.</div>
+        </div>
+        <div class="deep-check">
+          <div class="deep-check-icon">✓</div>
+          <div class="deep-check-text"><strong>At-risk alerts via Ace</strong> — get surfaced before a rep falls behind, not after the month closes.</div>
+        </div>
+        <div class="deep-check">
+          <div class="deep-check-icon">✓</div>
+          <div class="deep-check-text"><strong>Milestone highlights</strong> — automatically celebrate wins with the team so culture and momentum stay high.</div>
+        </div>
+      </div>
+    </div>
+    <div class="deep-visual reveal reveal-delay-2">
+      <div class="deep-card">
+        <div class="deep-card-title">June Quota Attainment — Live</div>
+        <div class="deep-stat-row">
+          <div class="deep-stat-name"><div class="deep-stat-av" style="background:#f59e0b">MK</div> Marcus Kim</div>
+          <div class="deep-stat-bar-wrap"><div class="deep-stat-bar" style="width:94%;background:var(--teal)"></div></div>
+          <div class="deep-stat-pct">94%</div>
+        </div>
+        <div class="deep-stat-row">
+          <div class="deep-stat-name"><div class="deep-stat-av" style="background:#6366f1">JR</div> Julia Ross</div>
+          <div class="deep-stat-bar-wrap"><div class="deep-stat-bar" style="width:82%"></div></div>
+          <div class="deep-stat-pct">82%</div>
+        </div>
+        <div class="deep-stat-row">
+          <div class="deep-stat-name"><div class="deep-stat-av" style="background:#ef4444">SC</div> Sam Chen</div>
+          <div class="deep-stat-bar-wrap"><div class="deep-stat-bar" style="width:77%"></div></div>
+          <div class="deep-stat-pct">77%</div>
+        </div>
+        <div class="deep-stat-row">
+          <div class="deep-stat-name"><div class="deep-stat-av" style="background:#8b5cf6">TP</div> Taylor Park</div>
+          <div class="deep-stat-bar-wrap"><div class="deep-stat-bar" style="width:61%;background:#f59e0b"></div></div>
+          <div class="deep-stat-pct" style="color:#f59e0b">61%</div>
+        </div>
+        <div class="deep-stat-row">
+          <div class="deep-stat-name"><div class="deep-stat-av" style="background:#22c55e">AL</div> Alex Lee</div>
+          <div class="deep-stat-bar-wrap"><div class="deep-stat-bar" style="width:38%;background:#ef4444"></div></div>
+          <div class="deep-stat-pct" style="color:#ef4444">38%</div>
+        </div>
+      </div>
+      <div class="float-card">
+        <div class="float-label">Team Average</div>
+        <div class="float-metric">78%</div>
+        <div class="float-metric-sub">↑ 12 pts from last month</div>
+      </div>
+      <div class="float-up">
+        <div class="float-up-val">+$104K</div>
+        <div class="float-up-label">Above pace this week</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE DEEP DIVE -->
+<section class="pipe-section" id="pipeline">
+  <div class="pipe-grid">
+    <div class="pipe-visual reveal">
+      <div class="pipe-kanban">
+        <div class="pipe-kanban-title">
+          <span>Q3 Pipeline · 24 deals</span>
+          <span style="font-size:11px;font-weight:700;color:var(--teal);font-family:var(--mono);">$2.1M</span>
+        </div>
+        <div class="pipe-cols">
+          <div class="pipe-col" style="border-top:2px solid #6366f1">
+            <div class="pipe-col-head">Prospect · 8</div>
+            <div class="pipe-deal"><div class="pipe-deal-name">Acme Corp</div><div class="pipe-deal-val">$48K</div></div>
+            <div class="pipe-deal"><div class="pipe-deal-name">CloudBase</div><div class="pipe-deal-val">$36K</div></div>
+            <div class="pipe-deal"><div class="pipe-deal-name">Bright Media</div><div class="pipe-deal-val">$22K</div></div>
+          </div>
+          <div class="pipe-col" style="border-top:2px solid #3b82f6">
+            <div class="pipe-col-head">Qualified · 6</div>
+            <div class="pipe-deal"><div class="pipe-deal-name">Vertex Inc</div><div class="pipe-deal-val">$95K</div><div class="pipe-deal-tag" style="background:#ede9fe;color:#7c3aed">Enterprise</div></div>
+            <div class="pipe-deal"><div class="pipe-deal-name">NorthStar</div><div class="pipe-deal-val">$67K</div></div>
+          </div>
+          <div class="pipe-col" style="border-top:2px solid #f59e0b">
+            <div class="pipe-col-head">Proposal · 5</div>
+            <div class="pipe-deal"><div class="pipe-deal-name">Cascade</div><div class="pipe-deal-val">$140K</div><div class="pipe-deal-tag" style="background:rgba(239,68,68,0.08);color:#ef4444">At risk</div></div>
+            <div class="pipe-deal"><div class="pipe-deal-name">MountainView</div><div class="pipe-deal-val">$88K</div></div>
+          </div>
+          <div class="pipe-col" style="border-top:2px solid #22c55e">
+            <div class="pipe-col-head">Closing · 5</div>
+            <div class="pipe-deal"><div class="pipe-deal-name">Skyline Group</div><div class="pipe-deal-val">$220K</div><div class="pipe-deal-tag" style="background:rgba(34,197,94,0.1);color:#16a34a">Hot</div></div>
+            <div class="pipe-deal"><div class="pipe-deal-name">Orbit Tech</div><div class="pipe-deal-val">$175K</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pipe-float">
+        <div class="pipe-float-label">Win Rate</div>
+        <div class="pipe-float-stat">34%</div>
+        <div class="pipe-float-sub">↑ 8 pts year over year</div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="section-badge">Pipeline CRM</div>
+      <h2 class="section-title">A CRM that actually<br>shows you what to do</h2>
+      <p class="section-sub">Stop guessing which deals need attention. Goals.com surfaces deal health, aging, and risk signals so your team always knows the next right move.</p>
+      <div class="deep-checklist" style="margin-top:28px">
+        <div class="deep-check">
+          <div class="deep-check-icon" style="background:var(--teal-bg);border-color:var(--teal-border)">✓</div>
+          <div class="deep-check-text" style="color:var(--g600)"><strong style="color:var(--dark)">Drag-and-drop Kanban</strong> — move deals across stages in one click. Every column shows deal count and total value.</div>
+        </div>
+        <div class="deep-check">
+          <div class="deep-check-icon" style="background:var(--teal-bg);border-color:var(--teal-border)">✓</div>
+          <div class="deep-check-text" style="color:var(--g600)"><strong style="color:var(--dark)">Three views, one dataset</strong> — switch between Kanban, List, and Calendar without ever re-entering data.</div>
+        </div>
+        <div class="deep-check">
+          <div class="deep-check-icon" style="background:var(--teal-bg);border-color:var(--teal-border)">✓</div>
+          <div class="deep-check-text" style="color:var(--g600)"><strong style="color:var(--dark)">Deal aging and risk flags</strong> — automatically tag deals that have gone cold so nothing slips through.</div>
+        </div>
+        <div class="deep-check">
+          <div class="deep-check-icon" style="background:var(--teal-bg);border-color:var(--teal-border)">✓</div>
+          <div class="deep-check-text" style="color:var(--g600)"><strong style="color:var(--dark)">Custom stages</strong> — match your actual sales process. Add, rename, and reorder stages in under 60 seconds.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACE AI SECTION -->
+<section class="ace-section" id="ace">
+  <div class="ace-bg"></div>
+  <div class="ace-container">
+    <div class="ace-content reveal">
+      <div class="section-badge">Ace AI</div>
+      <h2 class="section-title">Your sales intelligence<br>layer — always on</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.55)">Ace lives inside your Goals.com platform and knows your pipeline, your reps, and your history. Ask it anything and get answers that are grounded in your real data.</p>
+      <div class="ace-features">
+        <div class="ace-feat">
+          <div class="ace-feat-icon">🔍</div>
+          <div>
+            <div class="ace-feat-title">Instant pipeline answers</div>
+            <div class="ace-feat-desc">"Which deals close this month?" or "Who hasn't touched their top account?" — Ace answers in seconds.</div>
+          </div>
+        </div>
+        <div class="ace-feat">
+          <div class="ace-feat-icon">⚠️</div>
+          <div>
+            <div class="ace-feat-title">Risk surfacing</div>
+            <div class="ace-feat-desc">Ace flags at-risk deals and underperforming reps before they become a problem — not after the quarter closes.</div>
+          </div>
+        </div>
+        <div class="ace-feat">
+          <div class="ace-feat-icon">✍️</div>
+          <div>
+            <div class="ace-feat-title">Coaching and next steps</div>
+            <div class="ace-feat-desc">Ask Ace to suggest outreach strategies, summarize a rep's activity, or draft a follow-up email based on deal context.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="ace-chat">
+        <div class="ace-chat-header">
+          <div class="ace-chat-av">A</div>
+          <div>
+            <div class="ace-chat-name">Ace AI</div>
+            <div class="ace-chat-status">Online · Connected to your pipeline</div>
+          </div>
+        </div>
+        <div class="ace-messages">
+          <div class="ace-msg user">
+            <div class="ace-bubble-av" style="background:var(--teal)">SM</div>
+            <div class="ace-bubble user">Which deals are at risk of slipping this month?</div>
+          </div>
+          <div class="ace-msg">
+            <div class="ace-bubble-av" style="background:linear-gradient(135deg,#1d9e75,#22c55e)">A</div>
+            <div class="ace-bubble them">I see 3 deals showing risk signals based on aging and activity gaps.</div>
+          </div>
+          <div class="ace-insight-card">
+            <div class="ace-insight-label">⚠️ At Risk — Cascade Retail</div>
+            <div class="ace-insight-text">$140K proposal sent 12 days ago. No response. Last contact was Marcus on Jun 19. Recommend follow-up today.</div>
+          </div>
+          <div class="ace-insight-card">
+            <div class="ace-insight-label">⚠️ Stalled — Bright Media</div>
+            <div class="ace-insight-text">Stuck in Qualified for 22 days. Deal is $32K. Julia hasn't logged a touchpoint in 9 days.</div>
+          </div>
+          <div class="ace-msg user">
+            <div class="ace-bubble-av" style="background:var(--teal)">SM</div>
+            <div class="ace-bubble user">Draft a follow-up email for Cascade.</div>
+          </div>
+          <div class="ace-msg">
+            <div class="ace-bubble-av" style="background:linear-gradient(135deg,#1d9e75,#22c55e)">A</div>
+            <div class="ace-bubble them">Sure — here's a follow-up for your Cascade contact based on their proposal details and last touchpoint...</div>
+          </div>
+        </div>
+        <div class="ace-chat-input">
+          <div class="ace-chat-field">Ask Ace anything about your pipeline...</div>
+          <div class="ace-chat-send">Send →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="metrics-section" id="metrics">
+  <div class="section-container">
+    <div class="centered reveal">
+      <div class="section-badge">Results</div>
+      <h2 class="section-title">What teams see when they<br>switch to Goals.com</h2>
+    </div>
+    <div class="metrics-grid reveal">
+      <div class="metric-cell">
+        <div class="metric-num">38%</div>
+        <div class="metric-label">More deals closed</div>
+        <div class="metric-sub">average increase in 90 days</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-num">2.4×</div>
+        <div class="metric-label">Quota attainment</div>
+        <div class="metric-sub">vs teams using spreadsheets</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-num">62%</div>
+        <div class="metric-label">Less admin time</div>
+        <div class="metric-sub">reps spend more time selling</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-num">5min</div>
+        <div class="metric-label">To get started</div>
+        <div class="metric-sub">import your data, go live today</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="section-container">
+    <div class="centered reveal">
+      <div class="section-badge">From the field</div>
+      <h2 class="section-title">Sales leaders who made<br>the switch</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">We replaced three tools with Goals.com. Pipeline visibility went from a weekly guess to a daily reality. Our team is hitting quota 40% more than last year.</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#6366f1">RW</div>
+          <div>
+            <div class="testi-name">Rachel Wong</div>
+            <div class="testi-role">VP of Sales, Vertex Media</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">Ace AI is the thing nobody told me I needed. I asked it which rep needed coaching this week and it gave me a 3-point breakdown in 10 seconds. That used to take me an hour.</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#f59e0b">DJ</div>
+          <div>
+            <div class="testi-name">Daniel Jacobs</div>
+            <div class="testi-role">Director of Revenue, NorthStar</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">My reps actually log their deals now. The UI is clean enough that nobody complains, and the leaderboard creates healthy competition that we've never been able to manufacture before.</div>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#1d9e75">KP</div>
+          <div>
+            <div class="testi-name">Kira Patel</div>
+            <div class="testi-role">Sales Manager, Cascade Retail</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="integrations-section">
+  <div class="section-container">
+    <div class="centered reveal">
+      <div class="section-badge">Integrations</div>
+      <h2 class="section-title">Plugs into what<br>you already use</h2>
+      <p class="section-sub" style="margin:0 auto">Connect Goals.com to your existing stack in minutes. No engineers required.</p>
+    </div>
+    <div class="int-grid">
+      <div class="int-pill"><span class="int-icon">📧</span>Gmail</div>
+      <div class="int-pill"><span class="int-icon">📅</span>Google Calendar</div>
+      <div class="int-pill"><span class="int-icon">💼</span>Outlook</div>
+      <div class="int-pill"><span class="int-icon">💬</span>Slack</div>
+      <div class="int-pill"><span class="int-icon">📊</span>HubSpot</div>
+      <div class="int-pill"><span class="int-icon">⚡</span>Salesforce</div>
+      <div class="int-pill"><span class="int-icon">🔗</span>Zapier</div>
+      <div class="int-pill"><span class="int-icon">📁</span>Google Drive</div>
+      <div class="int-pill"><span class="int-icon">📞</span>Twilio</div>
+      <div class="int-pill"><span class="int-icon">🎯</span>LinkedIn</div>
+      <div class="int-pill"><span class="int-icon">📋</span>CSV Import</div>
+      <div class="int-pill"><span class="int-icon">🔌</span>REST API</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="pricing">
+  <div class="cta-glow"></div>
+  <div class="reveal">
+    <h2 class="cta-title">Start winning with<br><span class="teal">Goals.com</span> today</h2>
+    <p class="cta-sub">Set up in 5 minutes. No credit card required. Import your data, invite your team, and close your first deal the same day.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn-hero">Start free — no card needed →</a>
+      <a href="#" class="btn-hero-ghost">Talk to sales</a>
+    </div>
+    <div class="cta-note">14-day free trial · No credit card · Cancel anytime</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-mark">G</div>
+        <span class="nav-logo-text">Goals<span>.com</span></span>
+      </a>
+      <p class="footer-desc">The sales platform built for teams that take their numbers seriously.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Product</div>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Features</a>
+        <a href="#" class="footer-link">Pipeline CRM</a>
+        <a href="#" class="footer-link">Ace AI</a>
+        <a href="#" class="footer-link">Forecasting</a>
+        <a href="#" class="footer-link">Integrations</a>
+        <a href="#" class="footer-link">Pricing</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <a href="#" class="footer-link">About</a>
+        <a href="#" class="footer-link">Blog</a>
+        <a href="#" class="footer-link">Careers</a>
+        <a href="#" class="footer-link">Press</a>
+        <a href="#" class="footer-link">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Help Center</a>
+        <a href="#" class="footer-link">Documentation</a>
+        <a href="#" class="footer-link">Status</a>
+        <a href="#" class="footer-link">API</a>
+        <a href="#" class="footer-link">Community</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Goals.com · All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Security</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth nav link scrolling
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Nav background opacity on scroll
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.background = window.scrollY > 40
+    ? 'rgba(26,32,53,0.98)'
+    : 'rgba(26,32,53,0.96)';
+});
+</script>
+</body>
+</html>
