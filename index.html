@@ -3,578 +3,453 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Goals.com — The Sales Platform Built Around Winning</title>
+<title>Goals.com — Sales Performance Software Built Around Winning</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2035;--navy2:#141827;--teal:#1d9e75;--teal2:#17896a;--teal-light:#22c55e;--teal-pale:rgba(29,158,117,.12);--off:#f4f6f9;--g50:#f8fafc;--g100:#f1f5f9;--g200:#e2e8f0;--g300:#cbd5e1;--g400:#94a3b8;--g500:#64748b;--g600:#475569;--g700:#334155;--g800:#1e293b;--dark:#1e293b;--radius:12px;--radius-sm:8px;--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.15)}
+:root{--navy:#1a2035;--navy2:#141827;--teal:#1d9e75;--teal2:#17896a;--teal-light:#22c55e;--teal-pale:rgba(29,158,117,.12);--off:#f4f6f9;--g50:#f8fafc;--g100:#f1f5f9;--g200:#e2e8f0;--g300:#cbd5e1;--g400:#94a3b8;--g500:#64748b;--g600:#475569;--dark:#1e293b;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.18)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark);-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(26,32,53,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-links{display:flex;align-items:center;gap:32px}
-.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.65);letter-spacing:.01em;transition:color .2s}
+/* ── VIEWS ─────────────────────────────────────────────────────────── */
+.view{display:none}
+.view.active{display:block}
+
+/* ── NAV ────────────────────────────────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(20,24,39,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-logo{display:flex;align-items:center;cursor:pointer}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);transition:color .2s}
 .nav-links a:hover{color:#fff}
+.nav-kc-btn{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);cursor:pointer;transition:color .2s;background:none;border:none;font-family:'Inter',sans-serif;padding:0}
+.nav-kc-btn:hover{color:#fff}
+.nav-kc-btn.active{color:var(--teal-light)}
 .nav-cta{display:flex;align-items:center;gap:12px}
-.btn-ghost{font-size:14px;font-weight:500;color:rgba(255,255,255,.75);padding:8px 16px;border:1px solid rgba(255,255,255,.18);border-radius:8px;transition:all .2s}
+.btn-ghost{font-size:14px;font-weight:500;color:rgba(255,255,255,.75);padding:8px 16px;border:1px solid rgba(255,255,255,.18);border-radius:8px;transition:all .2s;cursor:pointer;background:none;font-family:'Inter',sans-serif}
 .btn-ghost:hover{background:rgba(255,255,255,.08)}
-.btn-primary{font-size:14px;font-weight:600;color:#fff;background:var(--teal);padding:9px 20px;border-radius:8px;transition:all .2s}
+.btn-primary{font-size:14px;font-weight:600;color:#fff;background:var(--teal);padding:9px 20px;border-radius:8px;transition:background .2s}
 .btn-primary:hover{background:var(--teal2)}
 
-/* HERO */
-.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 80px 80px;overflow:hidden;position:relative}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 800px 600px at 70% 50%,rgba(29,158,117,.12) 0%,transparent 65%);pointer-events:none}
-.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 500px 400px at 15% 80%,rgba(29,158,117,.07) 0%,transparent 60%);pointer-events:none}
-.hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.15);border:1px solid rgba(29,158,117,.3);color:#4ade80;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:28px}
-.hero-badge span{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s ease-in-out infinite;flex-shrink:0}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-h1{font-size:clamp(38px,4.5vw,56px);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#fff;margin-bottom:24px}
+/* ── HERO ────────────────────────────────────────────────────────────── */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 72px 80px;overflow:hidden;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 700px at 65% 45%,rgba(29,158,117,.11) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(255,255,255,.06)}
+.hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.14);border:1px solid rgba(29,158,117,.28);color:#4ade80;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:24px}
+.hero-eyebrow span{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:blink 2s ease-in-out infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(36px,4.2vw,56px);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#fff;margin-bottom:22px}
 h1 em{font-style:normal;color:var(--teal-light)}
-.hero-sub{font-size:18px;font-weight:400;line-height:1.65;color:rgba(255,255,255,.58);max-width:480px;margin-bottom:40px}
-.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:44px}
-.btn-hero-primary{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:16px;font-weight:700;padding:16px 32px;border-radius:10px;transition:all .25s;letter-spacing:.01em}
-.btn-hero-primary:hover{background:var(--teal2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(29,158,117,.35)}
-.btn-hero-secondary{display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,.8);font-size:16px;font-weight:500;padding:14px 24px;border:1px solid rgba(255,255,255,.18);border-radius:10px;transition:all .25s}
-.btn-hero-secondary:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.35)}
-.hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.hero-trust-item{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.45)}
-.hero-trust-dot{width:3px;height:3px;background:rgba(255,255,255,.2);border-radius:50%}
+.hero-sub{font-size:17px;line-height:1.7;color:rgba(255,255,255,.55);max-width:460px;margin-bottom:38px}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.btn-hero{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:15px;font-weight:700;padding:15px 30px;border-radius:10px;transition:all .25s}
+.btn-hero:hover{background:var(--teal2);transform:translateY(-1px);box-shadow:0 10px 28px rgba(29,158,117,.3)}
+.btn-hero-outline{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.78);font-size:15px;font-weight:500;padding:14px 22px;border:1px solid rgba(255,255,255,.2);border-radius:10px;transition:all .25s}
+.btn-hero-outline:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.35)}
+.hero-trust{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero-trust-item{font-size:12px;color:rgba(255,255,255,.38);display:flex;align-items:center;gap:6px}
+.hero-trust-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.hero-trust-sep{color:rgba(255,255,255,.15);font-size:14px}
 
-/* HERO VISUAL */
-.hero-visual{position:relative;height:540px}
-.hv-card{position:absolute;background:rgba(26,35,60,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,.45);padding:20px}
-.hv-main{left:0;top:0;width:340px;z-index:3}
-.hv-quota-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);letter-spacing:.07em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
-.hv-quota-label span{color:#4ade80;background:rgba(74,222,128,.12);padding:2px 8px;border-radius:100px;font-size:9px}
-.hv-rep-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.hv-rep-row:last-child{margin-bottom:0}
-.hv-avatar{width:28px;height:28px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0}
-.hv-rep-info{flex:1;min-width:0}
-.hv-rep-name{font-size:12px;font-weight:600;color:#fff;margin-bottom:5px}
-.hv-progress-track{height:5px;background:rgba(255,255,255,.1);border-radius:3px}
-.hv-progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--teal),var(--teal-light))}
-.hv-rep-pct{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.45);flex-shrink:0}
-.hv-metric-card{right:10px;top:60px;width:190px;z-index:4}
-.hv-metric-title{font-size:10px;font-weight:600;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px}
-.hv-big-num{font-family:'DM Mono',monospace;font-size:30px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px}
-.hv-num-sub{font-size:11px;color:rgba(255,255,255,.4)}
-.hv-num-sub strong{color:#4ade80}
-.hv-ace{left:30px;bottom:0;width:300px;z-index:5}
-.hv-ace-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.hv-ace-icon{width:28px;height:28px;background:linear-gradient(135deg,var(--teal),#60a5fa);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
-.hv-ace-title{font-size:12px;font-weight:700;color:#fff}
-.hv-ace-sub{font-size:10px;color:rgba(255,255,255,.35)}
-.hv-ace-bubble{background:rgba(255,255,255,.06);border-radius:8px;padding:12px;font-size:12px;color:rgba(255,255,255,.72);line-height:1.55}
-.hv-ace-bubble em{color:#4ade80;font-style:normal;font-weight:600}
-.hv-contest-card{right:0;bottom:80px;width:180px;z-index:4}
-.hv-contest-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
-.hv-contest-prize{font-family:'DM Mono',monospace;font-size:22px;font-weight:700;color:#f59e0b;margin-bottom:4px}
-.hv-contest-name{font-size:11px;color:rgba(255,255,255,.55);margin-bottom:10px}
-.hv-contest-bar-label{display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.35);margin-bottom:5px}
-.hv-contest-track{height:4px;background:rgba(255,255,255,.1);border-radius:2px}
-.hv-contest-fill{height:100%;width:68%;border-radius:2px;background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+/* ── HERO DASHBOARD VISUAL ───────────────────────────────────────────── */
+.dash-window{background:#0f1422;border-radius:14px;border:1px solid rgba(255,255,255,.1);box-shadow:0 32px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04);overflow:hidden}
+.dash-titlebar{height:40px;background:rgba(255,255,255,.035);border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;padding:0 16px;gap:7px}
+.dash-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.dash-titlebar-label{flex:1;text-align:center;font-size:11px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.2);letter-spacing:.04em}
+.dash-body{display:grid;grid-template-columns:52px 1fr;height:380px}
+/* sidebar */
+.dash-sidebar{background:rgba(255,255,255,.025);border-right:1px solid rgba(255,255,255,.06);padding:16px 0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.dash-s-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:background .2s}
+.dash-s-icon:hover,.dash-s-icon.on{background:rgba(255,255,255,.08)}
+.dash-s-icon.on{background:rgba(29,158,117,.18)}
+/* main panel */
+.dash-main{overflow:hidden;display:flex;flex-direction:column}
+.dash-panel-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 0;flex-shrink:0}
+.dash-panel-title{font-size:13px;font-weight:700;color:#fff}
+.dash-panel-badge{font-size:9px;font-weight:700;background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.25);padding:2px 8px;border-radius:100px;letter-spacing:.05em;text-transform:uppercase}
+/* metric row */
+.dash-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px 18px;flex-shrink:0}
+.dash-metric{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:10px 12px}
+.dash-metric-label{font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
+.dash-metric-val{font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:#fff;line-height:1}
+.dash-metric-sub{font-size:9px;color:rgba(255,255,255,.3);margin-top:3px}
+.dash-metric-sub .up{color:#4ade80}
+/* quota list */
+.dash-quota-head{display:flex;align-items:center;justify-content:space-between;padding:0 18px 8px;flex-shrink:0}
+.dash-quota-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em}
+.dash-quota-period{font-size:10px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.25)}
+.dash-rep-list{padding:0 18px;display:flex;flex-direction:column;gap:9px;flex:1;overflow:hidden}
+.dash-rep{display:grid;grid-template-columns:26px 1fr auto;align-items:center;gap:10px}
+.dash-rep-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0}
+.dash-rep-info{min-width:0}
+.dash-rep-name{font-size:11px;font-weight:600;color:#fff;margin-bottom:4px}
+.dash-rep-track{height:4px;background:rgba(255,255,255,.08);border-radius:2px;position:relative}
+.dash-rep-fill{height:100%;border-radius:2px;position:absolute;top:0;left:0}
+.dash-rep-pct{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.5);flex-shrink:0}
+/* ace bar */
+.dash-ace-bar{margin:12px 18px 14px;background:rgba(29,158,117,.08);border:1px solid rgba(29,158,117,.18);border-radius:8px;padding:10px 14px;display:flex;align-items:flex-start;gap:10px;flex-shrink:0}
+.dash-ace-icon{width:22px;height:22px;background:linear-gradient(135deg,var(--teal),#60a5fa);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:1px}
+.dash-ace-text{font-size:11px;color:rgba(255,255,255,.62);line-height:1.5}
+.dash-ace-text strong{color:#4ade80;font-weight:600}
 
-/* SECTIONS */
-.section{padding:100px 80px}
+/* ── TICKER ──────────────────────────────────────────────────────────── */
+.ticker{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:16px 0;overflow:hidden;background:var(--navy2)}
+.ticker-track{display:flex;gap:56px;animation:tick 28s linear infinite;white-space:nowrap}
+.ticker-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:rgba(255,255,255,.38);flex-shrink:0}
+.ticker-dot{color:var(--teal);font-size:14px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTION SHELL ───────────────────────────────────────────────────── */
+.section{padding:96px 72px}
 .section-inner{max-width:1200px;margin:0 auto}
-.section-dark{background:var(--navy)}
+.section-navy{background:var(--navy)}
 .section-navy2{background:var(--navy2)}
 .section-off{background:var(--off)}
 .section-white{background:#fff}
-.section-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;padding:5px 12px;border-radius:100px}
-.tag-teal{color:var(--teal);background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.2)}
-.tag-white{color:rgba(255,255,255,.65);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
-.s-head{text-align:center;max-width:720px;margin:0 auto 72px}
-.s-head h2{font-size:clamp(30px,3.5vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+.s-tag{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}
+.s-tag-teal{color:var(--teal);background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.2)}
+.s-tag-white{color:rgba(255,255,255,.6);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.s-head{text-align:center;max-width:680px;margin:0 auto 64px}
+.s-head h2{font-size:clamp(28px,3.2vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:14px}
 .s-head h2 em{font-style:normal;color:var(--teal-light)}
-.s-head p{font-size:18px;line-height:1.6;color:var(--g500)}
-.s-head-light p{color:rgba(255,255,255,.5)}
-.s-head-light h2{color:#fff}
+.s-head p{font-size:17px;line-height:1.65;color:var(--g500)}
+.s-head-dark h2{color:#fff}
+.s-head-dark p{color:rgba(255,255,255,.5)}
 
-/* TICKER */
-.ticker{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:18px 0;overflow:hidden}
-.ticker-inner{display:flex;gap:64px;animation:ticker 32s linear infinite;white-space:nowrap}
-.ticker-item{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;color:rgba(255,255,255,.4);flex-shrink:0}
-.ticker-dot{color:var(--teal);font-size:16px;line-height:1}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* FEATURE GRID */
-.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden}
+/* ── FEATURE GRID (4 cards) ──────────────────────────────────────────── */
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden}
 .fg-card{background:var(--navy);padding:36px 28px;transition:background .2s}
 .fg-card:hover{background:rgba(255,255,255,.04)}
-.fg-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px}
-.fg-card h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:10px}
-.fg-card p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.48)}
+.fg-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+.fg-card h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:9px}
+.fg-card p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.46)}
 
-/* FEATURE SPLIT */
-.feature-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.feature-split.flip{direction:rtl}
-.feature-split.flip>*{direction:ltr}
-.fs-copy .section-tag{display:block;margin-bottom:16px}
-.fs-copy h2{font-size:clamp(26px,3vw,38px);font-weight:800;letter-spacing:-.025em;line-height:1.2;margin-bottom:16px}
-.fs-copy p{font-size:16px;line-height:1.7;color:var(--g500);margin-bottom:32px}
-.fs-copy-dark p{color:rgba(255,255,255,.52)}
+/* ── FEATURE SPLIT ───────────────────────────────────────────────────── */
+.fsplit{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.fsplit.flip{direction:rtl}
+.fsplit.flip>*{direction:ltr}
+.fs-copy h2{font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-.025em;line-height:1.2;margin-bottom:14px}
+.fs-copy p{font-size:15px;line-height:1.75;color:var(--g500);margin-bottom:28px}
 .fs-copy-dark h2{color:#fff}
-.fs-checklist{display:flex;flex-direction:column;gap:12px}
-.fs-check{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--g600);line-height:1.5}
-.fs-check-dark{color:rgba(255,255,255,.62)}
-.fs-check::before{content:'';width:18px;height:18px;min-width:18px;border-radius:50%;border:2px solid var(--teal);margin-top:1px;background-color:rgba(29,158,117,.12);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%231d9e75' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.fs-copy-dark p{color:rgba(255,255,255,.5)}
+.fs-list{display:flex;flex-direction:column;gap:11px}
+.fs-item{display:flex;align-items:flex-start;gap:11px;font-size:14px;color:var(--g600);line-height:1.5}
+.fs-item-dark{color:rgba(255,255,255,.62)}
+.fs-item::before{content:'';width:18px;height:18px;min-width:18px;border-radius:50%;border:2px solid var(--teal);background-color:rgba(29,158,117,.1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%231d9e75' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;margin-top:1px}
 
-/* MOCK SHELLS */
-.mock-shell{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg)}
-.mock-dark{background:var(--navy2);border:1px solid rgba(255,255,255,.09)}
-.mock-bar{height:38px;background:rgba(255,255,255,.04);display:flex;align-items:center;padding:0 16px;gap:8px;border-bottom:1px solid rgba(255,255,255,.06)}
+/* ── MOCK SHELLS ─────────────────────────────────────────────────────── */
+.mock{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy2);border:1px solid rgba(255,255,255,.08)}
+.mock-bar{height:36px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;padding:0 14px;gap:7px}
 .mock-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.mock-bar-title{flex:1;text-align:center;font-size:11px;font-weight:500;color:rgba(255,255,255,.28);font-family:'DM Mono',monospace}
-.mock-body{padding:24px}
+.mock-title{flex:1;text-align:center;font-size:10px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.25)}
+.mock-body{padding:20px}
 
-/* GOALS MOCK */
-.gm-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-.gm-title{font-size:13px;font-weight:700;color:#fff}
-.gm-period{font-size:11px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.45);padding:3px 10px;border-radius:4px}
-.gm-row{display:grid;grid-template-columns:20px auto 1fr auto;align-items:center;gap:12px;margin-bottom:13px}
-.gm-row:last-child{margin-bottom:0}
-.gm-num{font-size:11px;font-weight:700;color:rgba(255,255,255,.25);font-family:'DM Mono',monospace}
-.gm-rep{display:flex;align-items:center;gap:10px;min-width:0}
-.gm-rep-av{width:26px;height:26px;border-radius:50%;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
-.gm-rep-name{font-size:12px;font-weight:600;color:#fff;white-space:nowrap}
-.gm-rep-pct{font-size:10px;color:rgba(255,255,255,.35)}
-.gm-track{height:4px;background:rgba(255,255,255,.08);border-radius:2px;position:relative}
+/* goals mock */
+.gm-row{display:grid;grid-template-columns:18px auto 1fr auto;align-items:center;gap:10px;margin-bottom:12px}
+.gm-row:last-of-type{margin-bottom:0}
+.gm-n{font-size:10px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.25)}
+.gm-av{width:26px;height:26px;border-radius:50%;font-size:10px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gm-info{display:flex;flex-direction:column;gap:4px;min-width:0}
+.gm-name{font-size:11px;font-weight:600;color:#fff}
+.gm-sub{font-size:10px;color:rgba(255,255,255,.3)}
+.gm-track{height:4px;background:rgba(255,255,255,.08);border-radius:2px;position:relative;flex:1}
 .gm-fill{height:100%;border-radius:2px;position:absolute;top:0;left:0}
-.gm-value{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;color:rgba(255,255,255,.65);white-space:nowrap}
-.gm-alert{margin-top:16px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:8px;padding:10px 14px;font-size:11px;color:#fca5a5;line-height:1.5}
+.gm-pct{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.55);flex-shrink:0}
+.gm-alert{margin-top:14px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:7px;padding:9px 12px;font-size:11px;color:#fca5a5;line-height:1.45}
 
-/* PIPELINE MOCK */
+/* pipeline mock */
 .pm-cols{display:flex;gap:10px}
 .pm-col{flex:1;min-width:0}
-.pm-col-head{font-size:9px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
-.pm-col-count{background:rgba(255,255,255,.08);color:rgba(255,255,255,.4);font-size:9px;padding:1px 6px;border-radius:4px;font-family:'DM Mono',monospace}
-.pm-deal{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px;margin-bottom:8px}
+.pm-col-h{font-size:9px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:9px;display:flex;align-items:center;justify-content:space-between}
+.pm-cnt{background:rgba(255,255,255,.07);color:rgba(255,255,255,.4);font-size:9px;padding:1px 5px;border-radius:3px;font-family:'DM Mono',monospace}
+.pm-deal{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:9px;margin-bottom:7px}
 .pm-deal:last-child{margin-bottom:0}
-.pm-deal-name{font-size:11px;font-weight:600;color:#fff;margin-bottom:7px;line-height:1.3}
-.pm-deal-meta{display:flex;align-items:center;justify-content:space-between;gap:6px}
-.pm-deal-val{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--teal-light)}
-.pm-deal-tag{font-size:9px;padding:2px 6px;border-radius:4px;font-weight:600;flex-shrink:0}
-.tag-hot{background:rgba(239,68,68,.15);color:#f87171}
-.tag-warm{background:rgba(245,158,11,.15);color:#fbbf24}
-.tag-new{background:rgba(99,102,241,.15);color:#a5b4fc}
-.pm-deal-days{font-size:10px;color:rgba(255,255,255,.3)}
+.pm-dname{font-size:11px;font-weight:600;color:#fff;margin-bottom:6px;line-height:1.3}
+.pm-dmeta{display:flex;align-items:center;justify-content:space-between;gap:4px}
+.pm-dval{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;color:var(--teal-light)}
+.pm-dtag{font-size:8px;padding:2px 5px;border-radius:3px;font-weight:700}
+.t-hot{background:rgba(239,68,68,.15);color:#f87171}
+.t-warm{background:rgba(245,158,11,.15);color:#fbbf24}
+.t-new{background:rgba(99,102,241,.15);color:#a5b4fc}
 
-/* BONUSES MOCK */
-.bm-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
-.bm-stat{background:rgba(255,255,255,.05);border-radius:8px;padding:14px}
-.bm-stat-label{font-size:10px;color:rgba(255,255,255,.38);margin-bottom:6px}
-.bm-stat-val{font-family:'DM Mono',monospace;font-size:22px;font-weight:700;color:#fff}
-.bm-stat-val .unit{font-size:13px;font-weight:600;color:rgba(255,255,255,.45)}
-.bm-bonus-list{display:flex;flex-direction:column;gap:10px}
-.bm-bonus-item{background:rgba(255,255,255,.05);border-radius:8px;padding:12px}
-.bm-bonus-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:8px}
-.bm-bonus-name{font-size:12px;font-weight:600;color:#fff}
-.bm-bonus-reward{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80;flex-shrink:0}
-.bm-bar-track{height:4px;background:rgba(255,255,255,.08);border-radius:2px}
-.bm-bar-fill{height:100%;border-radius:2px}
+/* ace mock */
+.ace-shell{background:var(--navy2);border-radius:var(--radius);border:1px solid rgba(255,255,255,.08);overflow:hidden;box-shadow:var(--shadow-lg)}
+.ace-hdr{background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.07);padding:12px 18px;display:flex;align-items:center;gap:10px}
+.ace-hdr-icon{width:30px;height:30px;background:linear-gradient(135deg,var(--teal),#60a5fa);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.ace-hdr-name{font-size:13px;font-weight:700;color:#fff}
+.ace-hdr-sub{font-size:10px;color:rgba(255,255,255,.3)}
+.ace-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;margin-left:auto;flex-shrink:0}
+.ace-msgs{padding:18px;display:flex;flex-direction:column;gap:14px}
+.ace-u{align-self:flex-end;background:var(--teal);color:#fff;border-radius:9px 9px 2px 9px;padding:9px 13px;font-size:12px;max-width:85%;line-height:1.5}
+.ace-r{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:9px 9px 9px 2px;padding:13px;font-size:12px;color:rgba(255,255,255,.75);max-width:95%;line-height:1.6}
+.ace-r em{color:#4ade80;font-style:normal;font-weight:600}
+.ace-label{font-size:9px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.ace-input-row{display:flex;align-items:center;gap:8px;padding:12px 18px;border-top:1px solid rgba(255,255,255,.06)}
+.ace-field{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:7px;padding:8px 12px;font-size:11px;color:rgba(255,255,255,.35);font-family:'Inter',sans-serif}
+.ace-send{width:26px;height:26px;background:var(--teal);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
-/* COMMISSIONS MOCK */
-.cm-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
-.cm-sum-card{background:rgba(255,255,255,.05);border-radius:8px;padding:12px;text-align:center}
-.cm-sum-label{font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
-.cm-sum-val{font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:#fff}
-.cm-sum-val .unit{font-size:11px;color:rgba(255,255,255,.45)}
-.cm-table{width:100%;border-collapse:collapse}
-.cm-table th{font-size:9px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.06em;padding:0 0 8px;text-align:left;border-bottom:1px solid rgba(255,255,255,.06)}
-.cm-table td{font-size:11px;color:rgba(255,255,255,.65);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)}
-.cm-table td.val{font-family:'DM Mono',monospace;font-weight:600;color:#4ade80}
-.cm-table td.rate{font-family:'DM Mono',monospace;color:rgba(255,255,255,.45)}
+/* ── METRICS ─────────────────────────────────────────────────────────── */
+.metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden}
+.m-card{background:var(--navy);padding:38px 28px;text-align:center}
+.m-num{font-family:'DM Mono',monospace;font-size:clamp(34px,4vw,50px);font-weight:700;color:#fff;line-height:1;margin-bottom:8px}
+.m-num em{color:var(--teal-light);font-style:normal}
+.m-label{font-size:13px;color:rgba(255,255,255,.4);line-height:1.5}
 
-/* HIGHLIGHTS MOCK */
-.hl-feed{display:flex;flex-direction:column;gap:10px}
-.hl-card{background:rgba(255,255,255,.05);border-radius:10px;padding:14px}
-.hl-card-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.hl-badge{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:100px;flex-shrink:0}
-.badge-gold{background:rgba(245,158,11,.18);color:#fbbf24}
-.badge-teal{background:rgba(29,158,117,.18);color:#34d399}
-.badge-blue{background:rgba(99,102,241,.18);color:#a5b4fc}
-.hl-card-text{font-size:12px;color:rgba(255,255,255,.65);line-height:1.5}
-.hl-card-text strong{color:#fff;font-weight:600}
-.hl-reactions{display:flex;align-items:center;gap:8px;margin-top:10px}
-.hl-react-btn{font-size:11px;background:rgba(255,255,255,.06);border-radius:6px;padding:4px 10px;color:rgba(255,255,255,.45)}
+/* ── TESTIMONIALS ─────────────────────────────────────────────────────── */
+.testi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t-card{background:#fff;border:1px solid var(--g200);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.t-quote{font-size:14px;line-height:1.7;color:var(--dark);margin-bottom:20px}
+.t-quote::before{content:'\201C';font-size:36px;color:var(--teal);line-height:0;vertical-align:-.35em;margin-right:3px;font-weight:900}
+.t-person{display:flex;align-items:center;gap:12px}
+.t-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.t-name{font-size:13px;font-weight:700;color:var(--dark)}
+.t-role{font-size:11px;color:var(--g500)}
 
-/* ACE */
-.ace-shell{background:var(--navy2);border-radius:var(--radius);border:1px solid rgba(255,255,255,.09);overflow:hidden;box-shadow:var(--shadow-lg)}
-.ace-header{background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.07);padding:14px 20px;display:flex;align-items:center;gap:12px}
-.ace-header-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--teal),#60a5fa);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.ace-header-text{font-size:13px;font-weight:700;color:#fff}
-.ace-header-sub{font-size:11px;color:rgba(255,255,255,.3)}
-.ace-status{width:7px;height:7px;border-radius:50%;background:#4ade80;margin-left:auto;flex-shrink:0}
-.ace-messages{padding:20px;display:flex;flex-direction:column;gap:16px}
-.ace-msg-user{align-self:flex-end;background:var(--teal);color:#fff;border-radius:10px 10px 2px 10px;padding:10px 14px;font-size:12px;max-width:85%;line-height:1.5}
-.ace-msg-ai{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:10px 10px 10px 2px;padding:14px;font-size:12px;color:rgba(255,255,255,.78);max-width:95%;line-height:1.6}
-.ace-msg-ai em{color:#4ade80;font-style:normal;font-weight:600}
-.ai-label{font-size:10px;font-weight:700;color:var(--teal);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
-.ace-input{display:flex;align-items:center;gap:10px;padding:14px 20px;border-top:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02)}
-.ace-input-field{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-size:12px;color:rgba(255,255,255,.38);font-family:'Inter',sans-serif}
-.ace-send{width:28px;height:28px;background:var(--teal);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* ── PRICING ─────────────────────────────────────────────────────────── */
+.pricing-card{max-width:580px;margin:0 auto;background:var(--navy2);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,.4)}
+.p-top{padding:38px 44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.p-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(29,158,117,.14);color:var(--teal-light);font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 11px;border-radius:100px;margin-bottom:16px}
+.p-name{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.p-desc{font-size:13px;color:rgba(255,255,255,.36)}
+.p-price-row{display:flex;align-items:flex-end;gap:6px;margin-top:22px}
+.p-price{font-family:'DM Mono',monospace;font-size:52px;font-weight:700;color:#fff;line-height:1}
+.p-price-info{padding-bottom:6px}
+.p-per{font-size:13px;color:rgba(255,255,255,.36)}
+.p-incl{font-size:11px;color:var(--teal-light);font-weight:600;margin-top:3px}
+.p-bottom{padding:28px 44px}
+.p-feats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.p-feat{display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)}
+.p-feat::before{content:'';width:15px;height:15px;min-width:15px;border-radius:50%;border:1.5px solid var(--teal);background-color:rgba(29,158,117,.1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='7'%3E%3Cpath d='M1 3.5l2 2L7 1' stroke='%231d9e75' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.p-cta{margin-top:24px;background:var(--teal);color:#fff;font-size:15px;font-weight:700;padding:15px;border-radius:9px;text-align:center;display:block;transition:background .25s}
+.p-cta:hover{background:var(--teal2)}
+.p-note{margin-top:12px;text-align:center;font-size:11px;color:rgba(255,255,255,.25)}
 
-/* REPORTS MOCK */
-.rm-export-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
-.rm-export-item{background:rgba(255,255,255,.05);border-radius:8px;padding:12px;display:flex;align-items:center;gap:10px}
-.rm-export-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.rm-export-name{font-size:11px;font-weight:600;color:#fff}
-.rm-export-sub{font-size:10px;color:rgba(255,255,255,.3);font-family:'DM Mono',monospace}
-.rm-sched-label{font-size:10px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
-.rm-sched-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px}
-.rm-sched-row:last-child{border:none}
-.rm-sched-name{color:rgba(255,255,255,.65)}
-.rm-sched-freq{background:rgba(255,255,255,.07);color:rgba(255,255,255,.38);font-size:9px;padding:2px 7px;border-radius:4px}
+/* ── FINAL CTA ───────────────────────────────────────────────────────── */
+.cta-section{background:var(--teal);padding:96px 72px;text-align:center}
+.cta-section h2{font-size:clamp(30px,4vw,46px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:14px}
+.cta-section p{font-size:17px;color:rgba(255,255,255,.72);margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn-cta-w{background:#fff;color:var(--teal2);font-size:15px;font-weight:700;padding:15px 32px;border-radius:9px;transition:all .2s}
+.btn-cta-w:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.btn-cta-o{border:2px solid rgba(255,255,255,.35);color:#fff;font-size:15px;font-weight:600;padding:13px 24px;border-radius:9px;transition:all .2s}
+.btn-cta-o:hover{background:rgba(255,255,255,.1)}
 
-/* METRICS */
-.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden}
-.metric-card{background:var(--navy);padding:40px 32px;text-align:center}
-.metric-num{font-family:'DM Mono',monospace;font-size:clamp(36px,4vw,52px);font-weight:700;color:#fff;line-height:1;margin-bottom:10px}
-.metric-num em{color:var(--teal-light);font-style:normal}
-.metric-label{font-size:14px;color:rgba(255,255,255,.4);line-height:1.5}
-
-/* TESTIMONIALS */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.testi-card{background:#fff;border:1px solid var(--g200);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
-.testi-quote{font-size:15px;line-height:1.65;color:var(--dark);margin-bottom:24px}
-.testi-quote::before{content:'\201C';font-size:40px;color:var(--teal);line-height:0;vertical-align:-.4em;margin-right:4px;font-weight:900}
-.testi-person{display:flex;align-items:center;gap:14px}
-.testi-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
-.testi-name{font-size:14px;font-weight:700;color:var(--dark)}
-.testi-role{font-size:12px;color:var(--g500)}
-
-/* PRICING */
-.pricing-card{max-width:600px;margin:0 auto;background:var(--navy2);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.4)}
-.pricing-top{padding:40px 48px;border-bottom:1px solid rgba(255,255,255,.08)}
-.pricing-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(29,158,117,.15);color:var(--teal-light);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:18px}
-.pricing-headline{font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}
-.pricing-sub{font-size:13px;color:rgba(255,255,255,.38)}
-.pricing-price-row{display:flex;align-items:flex-end;gap:8px;margin-top:24px}
-.pricing-price{font-family:'DM Mono',monospace;font-size:56px;font-weight:700;color:#fff;line-height:1}
-.pricing-price-detail{padding-bottom:8px}
-.pricing-per{font-size:14px;color:rgba(255,255,255,.38)}
-.pricing-includes{font-size:11px;color:var(--teal-light);font-weight:600;margin-top:4px}
-.pricing-bottom{padding:32px 48px}
-.pricing-features{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pricing-feat{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.68)}
-.pricing-feat::before{content:'';width:16px;height:16px;min-width:16px;border-radius:50%;border:1.5px solid var(--teal);background-color:rgba(29,158,117,.12);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='7' viewBox='0 0 8 7'%3E%3Cpath d='M1 3.5l2 2L7 1' stroke='%231d9e75' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
-.pricing-cta{margin-top:28px;background:var(--teal);color:#fff;font-size:15px;font-weight:700;padding:16px;border-radius:10px;text-align:center;display:block;transition:all .25s}
-.pricing-cta:hover{background:var(--teal2)}
-.pricing-note{margin-top:14px;text-align:center;font-size:12px;color:rgba(255,255,255,.28)}
-
-/* FINAL CTA */
-.cta-section{background:var(--teal);padding:100px 80px;text-align:center}
-.cta-section h2{font-size:clamp(32px,4vw,48px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:16px}
-.cta-section p{font-size:18px;color:rgba(255,255,255,.72);margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto}
-.cta-btns{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
-.btn-cta-primary{background:#fff;color:var(--teal2);font-size:16px;font-weight:700;padding:16px 36px;border-radius:10px;transition:all .25s}
-.btn-cta-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.2)}
-.btn-cta-secondary{border:2px solid rgba(255,255,255,.4);color:#fff;font-size:16px;font-weight:600;padding:14px 28px;border-radius:10px;transition:all .25s}
-.btn-cta-secondary:hover{background:rgba(255,255,255,.1)}
-
-/* FOOTER */
-footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);padding:60px 80px 40px}
+/* ── FOOTER ──────────────────────────────────────────────────────────── */
+footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);padding:56px 72px 36px}
 .footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:48px}
-.footer-brand p{font-size:13px;line-height:1.65;color:rgba(255,255,255,.38);margin-top:16px;max-width:280px}
-.footer-col h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
-.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.45);margin-bottom:10px;transition:color .2s}
-.footer-col a:hover{color:#fff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:32px;display:flex;align-items:center;justify-content:space-between}
-.footer-bottom p{font-size:12px;color:rgba(255,255,255,.22)}
-.footer-bottom-links{display:flex;gap:24px}
-.footer-bottom-links a{font-size:12px;color:rgba(255,255,255,.28);transition:color .2s}
-.footer-bottom-links a:hover{color:rgba(255,255,255,.6)}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:44px}
+.fb p{font-size:13px;line-height:1.65;color:rgba(255,255,255,.36);margin-top:14px;max-width:260px}
+.fc h4{font-size:10px;font-weight:700;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.fc a{display:block;font-size:13px;color:rgba(255,255,255,.42);margin-bottom:9px;transition:color .2s}
+.fc a:hover{color:#fff}
+.fb-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:28px;display:flex;align-items:center;justify-content:space-between}
+.fb-bottom p{font-size:11px;color:rgba(255,255,255,.2)}
+.fb-links{display:flex;gap:20px}
+.fb-links a{font-size:11px;color:rgba(255,255,255,.26);transition:color .2s}
+.fb-links a:hover{color:rgba(255,255,255,.6)}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
-.reveal.visible{opacity:1;transform:none}
+/* ── REVEAL ──────────────────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
 
-/* RESPONSIVE */
-@media(max-width:1100px){
-  .hero{padding:100px 40px 80px}
-  .hero-inner{gap:48px}
-  .section{padding:80px 40px}
-  .feature-grid{grid-template-columns:repeat(2,1fr)}
-  .metrics-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-top{grid-template-columns:1fr 1fr;gap:40px}
-}
-@media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-visual{display:none}
-  .feature-split{grid-template-columns:1fr}
-  .feature-split.flip{direction:ltr}
-  .testi-grid{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .pricing-features{grid-template-columns:1fr}
-}
-@media(max-width:640px){
-  .section{padding:64px 24px}
-  .hero{padding:100px 24px 64px}
-  .feature-grid{grid-template-columns:1fr}
-  .metrics-grid{grid-template-columns:1fr 1fr}
-  footer{padding:48px 24px 32px}
-  .footer-top{grid-template-columns:1fr}
-  .cta-section{padding:80px 24px}
-  .pricing-top,.pricing-bottom{padding:28px 28px}
-}
+/* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media(max-width:1100px){.hero{padding:100px 40px 80px}.hero-inner{gap:48px}.section{padding:80px 40px}.fg{grid-template-columns:repeat(2,1fr)}.metrics-row{grid-template-columns:repeat(2,1fr)}.ft{grid-template-columns:1fr 1fr;gap:36px}}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.dash-window{display:none}.fsplit{grid-template-columns:1fr}.fsplit.flip{direction:ltr}.testi-row{grid-template-columns:1fr}.nav-links{display:none}.p-feats{grid-template-columns:1fr}}
+@media(max-width:640px){.section{padding:60px 24px}.hero{padding:100px 24px 60px}.fg{grid-template-columns:1fr}.metrics-row{grid-template-columns:1fr 1fr}footer{padding:44px 24px 28px}.ft{grid-template-columns:1fr}.cta-section{padding:72px 24px}.p-top,.p-bottom{padding:24px 24px}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo">
-    <svg width="41" height="29" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div class="nav-logo" onclick="showView('home')">
+    <svg width="38" height="27" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M23.7469 5.1311C23.9948 3.4409 23.9888 2.05568 23.327 2.03134C21.2165 1.95701 17.8982 9.7314 19.9741 9.54901C22.2617 9.3474 23.7469 5.13152 23.7469 5.13152L23.7369 7.60039C23.7369 7.60039 21.9568 11.2836 18.7937 11.2268C14.3663 11.1474 16.9977 0.843034 22.6624 0.462879C25.2107 0.292023 25.186 2.45677 24.7264 4.2734C24.4589 5.33185 23.6844 5.55909 23.7469 5.1311Z" fill="white"/>
       <path d="M38.3001 13.952C33.9325 13.3967 28.7556 13.3796 24.1151 13.503C26.1517 7.30951 26.8834 1.50039 28.6507 1.03054C28.2239 0.351385 26.7953 -0.064222 25.604 0.676012C24.0626 1.63195 23.4588 7.54272 21.4998 13.609C10.4683 14.207 0.156585 17.0295 0.00185471 23.4644C-0.146942 29.7143 8.69047 30.2709 14.5474 27.1314C18.4389 25.0457 21.0534 21.3701 22.6691 17.3341C22.938 16.663 23.3227 15.6981 23.3227 15.6981L22.1424 15.3816C22.6048 15.3474 23.4706 15.3427 23.4711 15.3389C24.4597 15.3104 25.4654 15.2962 26.4881 15.2962H26.4908C30.5567 15.3017 36.7149 15.7442 40.0012 16.2718C40.0012 16.2748 40.5526 14.2377 38.3001 13.952ZM10.4911 26.7316C4.37036 28.1698 1.34331 25.9119 1.66783 23.1748C2.25206 18.2456 10.7855 16.0531 20.8608 15.4534C18.9369 20.6316 15.924 25.4561 10.4911 26.7316Z" fill="white"/>
     </svg>
   </div>
   <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#pipeline">Pipeline</a>
-    <a href="#commissions">Commissions</a>
-    <a href="#ace">Ace AI</a>
-    <a href="#pricing">Pricing</a>
-    <a href="knowledge.html">Knowledge Center</a>
+    <a href="#features" onclick="showView('home')">Features</a>
+    <a href="#pipeline" onclick="showView('home')">Pipeline</a>
+    <a href="#pricing" onclick="showView('home')">Pricing</a>
+    <button class="nav-kc-btn" id="kcNavBtn" onclick="showView('kc')">Knowledge Center</button>
   </div>
   <div class="nav-cta">
-    <a href="#overview" class="btn-ghost">Watch the overview</a>
-    <a href="#pricing" class="btn-primary">Get started</a>
+    <button class="btn-ghost" onclick="showView('home')">Watch the overview</button>
+    <a href="#pricing" class="btn-primary" onclick="showView('home')">Get started</a>
   </div>
 </nav>
+
+<!-- HOME VIEW -->
+<div class="view active" id="view-home">
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="hero-badge">
-        <span></span>
-        Now with Ace AI — built-in sales intelligence
-      </div>
-      <h1>The sales platform<br><em>built around winning.</em></h1>
-      <p class="hero-sub">Goals.com brings together CRM, quota tracking, commissions, contests, and AI-powered insights — so your team always knows where they stand and what to do next.</p>
+    <div>
+      <div class="hero-eyebrow"><span></span>Sales Performance Software</div>
+      <h1>Built for teams<br>that <em>win on purpose.</em></h1>
+      <p class="hero-sub">Goals.com gives your sales team real-time visibility into quotas, pipeline, commissions, and performance — so every rep knows exactly where they stand and what to do next.</p>
       <div class="hero-actions">
-        <a href="#pricing" class="btn-hero-primary">
-          Start your free trial
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="#overview" class="btn-hero-secondary" id="overview">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 7l5 3-5 3V7z" fill="currentColor"/></svg>
-          Watch the overview
-        </a>
+        <a href="#pricing" class="btn-hero">Start free trial <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#" class="btn-hero-outline"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 6.5l4 2.5-4 2.5V6.5z" fill="currentColor"/></svg>Watch the overview</a>
       </div>
       <div class="hero-trust">
-        <div class="hero-trust-item">No contracts</div>
-        <div class="hero-trust-dot"></div>
-        <div class="hero-trust-item">Cancel anytime</div>
-        <div class="hero-trust-dot"></div>
-        <div class="hero-trust-item">$39 / user — everything included</div>
+        <span class="hero-trust-item">No contracts</span>
+        <span class="hero-trust-sep">/</span>
+        <span class="hero-trust-item">Cancel anytime</span>
+        <span class="hero-trust-sep">/</span>
+        <span class="hero-trust-item">$39 per user, everything included</span>
       </div>
     </div>
 
-    <!-- FLOATING UI CARDS -->
-    <div class="hero-visual">
-      <div class="hv-card hv-main">
-        <div class="hv-quota-label">
-          Quota Attainment — Q3 2025
-          <span>Live</span>
-        </div>
-        <div class="hv-rep-row">
-          <div class="hv-avatar">JM</div>
-          <div class="hv-rep-info">
-            <div class="hv-rep-name">Jordan M.</div>
-            <div class="hv-progress-track"><div class="hv-progress-fill" style="width:94%"></div></div>
-          </div>
-          <div class="hv-rep-pct">94%</div>
-        </div>
-        <div class="hv-rep-row">
-          <div class="hv-avatar" style="background:#6366f1">SK</div>
-          <div class="hv-rep-info">
-            <div class="hv-rep-name">Sarah K.</div>
-            <div class="hv-progress-track"><div class="hv-progress-fill" style="width:81%"></div></div>
-          </div>
-          <div class="hv-rep-pct">81%</div>
-        </div>
-        <div class="hv-rep-row">
-          <div class="hv-avatar" style="background:#f59e0b">TR</div>
-          <div class="hv-rep-info">
-            <div class="hv-rep-name">Tyler R.</div>
-            <div class="hv-progress-track"><div class="hv-progress-fill" style="width:67%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div>
-          </div>
-          <div class="hv-rep-pct">67%</div>
-        </div>
-        <div class="hv-rep-row">
-          <div class="hv-avatar" style="background:#ec4899">AL</div>
-          <div class="hv-rep-info">
-            <div class="hv-rep-name">Amanda L.</div>
-            <div class="hv-progress-track"><div class="hv-progress-fill" style="width:52%;background:linear-gradient(90deg,#ef4444,#f87171)"></div></div>
-          </div>
-          <div class="hv-rep-pct">52%</div>
-        </div>
+    <!-- UNIFIED DASHBOARD VISUAL -->
+    <div class="dash-window">
+      <div class="dash-titlebar">
+        <div class="dash-dot" style="background:#ef4444"></div>
+        <div class="dash-dot" style="background:#f59e0b"></div>
+        <div class="dash-dot" style="background:#22c55e"></div>
+        <div class="dash-titlebar-label">goals.com &mdash; Performance Dashboard</div>
       </div>
-      <div class="hv-card hv-metric-card">
-        <div class="hv-metric-title">YTD Sales</div>
-        <div class="hv-big-num">$2.4M</div>
-        <div class="hv-num-sub"><strong>&#8593; 18%</strong> vs. last year</div>
-      </div>
-      <div class="hv-card hv-ace">
-        <div class="hv-ace-header">
-          <div class="hv-ace-icon">&#10022;</div>
-          <div>
-            <div class="hv-ace-title">Ace AI</div>
-            <div class="hv-ace-sub">Sales intelligence</div>
+      <div class="dash-body">
+        <div class="dash-sidebar">
+          <div class="dash-s-icon on">&#127968;</div>
+          <div class="dash-s-icon">&#127919;</div>
+          <div class="dash-s-icon">&#128203;</div>
+          <div class="dash-s-icon">&#128176;</div>
+          <div class="dash-s-icon">&#127942;</div>
+          <div class="dash-s-icon">&#10022;</div>
+          <div class="dash-s-icon">&#128202;</div>
+          <div class="dash-s-icon">&#127881;</div>
+        </div>
+        <div class="dash-main">
+          <div class="dash-panel-head">
+            <div class="dash-panel-title">Q3 Performance Overview</div>
+            <div class="dash-panel-badge">Live</div>
+          </div>
+          <div class="dash-metrics">
+            <div class="dash-metric"><div class="dash-metric-label">YTD Sales</div><div class="dash-metric-val">$2.4M</div><div class="dash-metric-sub"><span class="up">&#8593;18%</span> vs last yr</div></div>
+            <div class="dash-metric"><div class="dash-metric-label">Team Quota</div><div class="dash-metric-val">84%</div><div class="dash-metric-sub">On pace for Q3</div></div>
+            <div class="dash-metric"><div class="dash-metric-label">Pipeline</div><div class="dash-metric-val">$325K</div><div class="dash-metric-sub">14 active deals</div></div>
+            <div class="dash-metric"><div class="dash-metric-label">Team ROI</div><div class="dash-metric-val">8.2x</div><div class="dash-metric-sub"><span class="up">&#8593;1.1x</span> vs Q2</div></div>
+          </div>
+          <div class="dash-quota-head">
+            <div class="dash-quota-title">Quota Attainment by Rep</div>
+            <div class="dash-quota-period">Q3 2025</div>
+          </div>
+          <div class="dash-rep-list">
+            <div class="dash-rep">
+              <div class="dash-rep-av" style="background:var(--teal)">JM</div>
+              <div class="dash-rep-info"><div class="dash-rep-name" style="font-size:11px;font-weight:600;color:#fff;margin-bottom:4px">Jordan M.</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:94%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
+              <div class="dash-rep-pct">94%</div>
+            </div>
+            <div class="dash-rep">
+              <div class="dash-rep-av" style="background:#6366f1">SK</div>
+              <div class="dash-rep-info"><div class="dash-rep-name" style="font-size:11px;font-weight:600;color:#fff;margin-bottom:4px">Sarah K.</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:81%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
+              <div class="dash-rep-pct">81%</div>
+            </div>
+            <div class="dash-rep">
+              <div class="dash-rep-av" style="background:#f59e0b">TR</div>
+              <div class="dash-rep-info"><div class="dash-rep-name" style="font-size:11px;font-weight:600;color:#fff;margin-bottom:4px">Tyler R.</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:67%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div></div>
+              <div class="dash-rep-pct">67%</div>
+            </div>
+            <div class="dash-rep">
+              <div class="dash-rep-av" style="background:#ec4899">AL</div>
+              <div class="dash-rep-info"><div class="dash-rep-name" style="font-size:11px;font-weight:600;color:#fff;margin-bottom:4px">Amanda L.</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:52%;background:linear-gradient(90deg,#ef4444,#f87171)"></div></div></div>
+              <div class="dash-rep-pct">52%</div>
+            </div>
+          </div>
+          <div class="dash-ace-bar">
+            <div class="dash-ace-icon">&#10022;</div>
+            <div class="dash-ace-text"><strong>Ace AI:</strong> 3 deals in Proposal have been idle 14+ days. Tyler R. has $68K at risk — recommend a pipeline review this week.</div>
           </div>
         </div>
-        <div class="hv-ace-bubble">
-          <em>3 deals</em> in Proposal have been idle 14+ days. Tyler R.'s pipeline has <em>$68K</em> at risk of slipping this quarter.
-        </div>
-      </div>
-      <div class="hv-card hv-contest-card">
-        <div class="hv-contest-title">&#127942; Active Contest</div>
-        <div class="hv-contest-prize">$3,500</div>
-        <div class="hv-contest-name">Spring Kickoff Blitz</div>
-        <div class="hv-contest-bar-label"><span>Progress</span><span>68%</span></div>
-        <div class="hv-contest-track"><div class="hv-contest-fill"></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- TICKER -->
-<div class="ticker section-dark">
-  <div class="ticker-inner">
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Quota tracking &amp; attainment</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Pipeline CRM — Kanban, List &amp; Calendar</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Sales contests with live leaderboards</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Commission tracking &amp; payout schedules</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Team highlights &amp; recognition feed</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Automated reporting &amp; exports</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Ace AI — built-in sales intelligence</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Quota tracking &amp; attainment</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Pipeline CRM — Kanban, List &amp; Calendar</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Sales contests with live leaderboards</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Commission tracking &amp; payout schedules</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Team highlights &amp; recognition feed</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Automated reporting &amp; exports</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span> Ace AI — built-in sales intelligence</div>
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Quota &amp; goal tracking per rep</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Pipeline CRM — Kanban, List &amp; Calendar</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Commission tracking &amp; payout schedules</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Sales contests with live leaderboards</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Ace AI — built-in sales intelligence</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Automated reports &amp; forecasting</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Team highlights &amp; recognition</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Quota &amp; goal tracking per rep</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Pipeline CRM — Kanban, List &amp; Calendar</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Commission tracking &amp; payout schedules</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Sales contests with live leaderboards</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Ace AI — built-in sales intelligence</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Automated reports &amp; forecasting</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Team highlights &amp; recognition</div>
   </div>
 </div>
 
-<!-- FEATURES GRID -->
+<!-- FEATURE GRID (4 cards) -->
 <section class="section section-navy2" id="features">
   <div class="section-inner">
-    <div class="s-head s-head-light reveal">
-      <div class="section-tag tag-white">Everything your team needs</div>
-      <h2>One platform. <em>Every tool to win.</em></h2>
-      <p>No spreadsheets. No separate CRMs. No commission guesswork. Goals.com ties everything together — connected and real-time.</p>
+    <div class="s-head s-head-dark reveal">
+      <div class="s-tag s-tag-white">Core capabilities</div>
+      <h2>Everything your team needs<br><em>in one place.</em></h2>
+      <p>No more juggling a CRM, a spreadsheet for commissions, and a separate tool for goals. Goals.com connects it all — real-time, for every rep.</p>
     </div>
-    <div class="feature-grid reveal">
+    <div class="fg reveal">
       <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(29,158,117,.15)">&#127919;</div>
-        <h3>Goal Tracking</h3>
-        <p>Real-time quota attainment per rep with at-risk alerts, YTD pace, and annual goal visibility for the whole team.</p>
+        <div class="fg-icon" style="background:rgba(29,158,117,.14)">&#127919;</div>
+        <h3>Goals &amp; Quota Tracking</h3>
+        <p>Every rep sees their attainment percentage live. Managers see who's on pace, who's at risk, and where to coach — without a weekly check-in.</p>
       </div>
       <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(99,102,241,.15)">&#128203;</div>
+        <div class="fg-icon" style="background:rgba(99,102,241,.14)">&#128203;</div>
         <h3>Pipeline CRM</h3>
-        <p>Kanban, List, and Calendar views. Drag deals through stages, track aging, and surface risk before it costs you.</p>
+        <p>Kanban, List, and Calendar views. Track deals from first touch to closed-won with aging alerts that flag what's going cold before it does.</p>
       </div>
       <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(245,158,11,.15)">&#127942;</div>
-        <h3>Contests</h3>
-        <p>Run live sales competitions with real prize pools and leaderboards that update as deals close — no manual tracking.</p>
+        <div class="fg-icon" style="background:rgba(244,63,94,.14)">&#128176;</div>
+        <h3>Commissions &amp; Bonuses</h3>
+        <p>Commissions calculate automatically as deals close. Reps see their exact earnings, payout date, and bonus progress without asking anyone.</p>
       </div>
       <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(244,63,94,.15)">&#128176;</div>
-        <h3>Commissions</h3>
-        <p>Per-deal commission breakdowns, YTD totals, and upcoming payout dates visible to every rep in real time.</p>
-      </div>
-      <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(167,139,250,.15)">&#127873;</div>
-        <h3>Bonuses</h3>
-        <p>Tiered bonus structures with live progress tracking. Reps see exactly what they need to unlock the next tier.</p>
-      </div>
-      <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(6,182,212,.15)">&#10022;</div>
-        <h3>Ace AI</h3>
-        <p>Ask your pipeline anything in plain English. Ace surfaces at-risk deals, rep patterns, and gaps before your next review.</p>
-      </div>
-      <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(74,222,128,.15)">&#127881;</div>
-        <h3>Highlights</h3>
-        <p>A team recognition feed where wins get celebrated. Top Performer badges, closes, and milestones visible to everyone.</p>
-      </div>
-      <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(249,115,22,.15)">&#128202;</div>
-        <h3>Reports &amp; Forecasting</h3>
-        <p>Export any dataset in one click. Schedule weekly and monthly reports to run automatically and land in your inbox.</p>
+        <div class="fg-icon" style="background:rgba(6,182,212,.14)">&#10022;</div>
+        <h3>Ace AI Intelligence</h3>
+        <p>Ask your pipeline anything in plain English. Ace surfaces at-risk deals, rep patterns, and revenue forecasts before your next team review.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- GOALS DEEP DIVE -->
-<section class="section section-dark" id="goals">
+<section class="section section-navy" id="goals">
   <div class="section-inner">
-    <div class="feature-split reveal">
+    <div class="fsplit reveal">
       <div class="fs-copy fs-copy-dark">
-        <div class="section-tag tag-white">Goal Tracking</div>
-        <h2>Every rep knows exactly where they stand.</h2>
-        <p>Goals gives every rep a live view of their quota attainment — updated as deals close. Managers see the full picture: who's on pace, who needs coaching, and where to focus this week.</p>
-        <div class="fs-checklist">
-          <div class="fs-check fs-check-dark">Annual and quarterly sales goals per rep with live attainment percentage</div>
-          <div class="fs-check fs-check-dark">YTD pace indicator — green when on track, flagged when falling behind</div>
-          <div class="fs-check fs-check-dark">Automated at-risk alerts when a rep's pace drops below threshold</div>
-          <div class="fs-check fs-check-dark">Team-wide leaderboard updated in real time on the main dashboard</div>
-          <div class="fs-check fs-check-dark">Total Sales, Team ROI, and YTD Revenue rolled up in one view</div>
+        <div class="s-tag s-tag-white" style="display:inline-flex">Goal Tracking</div>
+        <h2>Every rep knows exactly<br>where they stand.</h2>
+        <p>Real-time quota attainment updated as deals close — no manual entry, no end-of-week spreadsheet. Managers see the full team picture at a glance.</p>
+        <div class="fs-list">
+          <div class="fs-item fs-item-dark">Annual and quarterly quotas per rep with live attainment percentage</div>
+          <div class="fs-item fs-item-dark">YTD pace indicator — green when on track, flagged when behind</div>
+          <div class="fs-item fs-item-dark">Automatic at-risk alerts when a rep's pace drops below threshold</div>
+          <div class="fs-item fs-item-dark">Team leaderboard updated in real time on the main dashboard</div>
+          <div class="fs-item fs-item-dark">Total Sales, Team ROI, and YTD Revenue rolled up in one view</div>
         </div>
       </div>
-      <div class="mock-shell mock-dark">
-        <div class="mock-bar">
-          <div class="mock-dot" style="background:#ef4444"></div>
-          <div class="mock-dot" style="background:#f59e0b"></div>
-          <div class="mock-dot" style="background:#22c55e"></div>
-          <div class="mock-bar-title">Goals / Q3 Quota Attainment</div>
-        </div>
+      <div class="mock">
+        <div class="mock-bar"><div class="mock-dot" style="background:#ef4444"></div><div class="mock-dot" style="background:#f59e0b"></div><div class="mock-dot" style="background:#22c55e"></div><div class="mock-title">Goals / Q3 Quota Attainment</div></div>
         <div class="mock-body">
-          <div class="gm-header">
-            <div class="gm-title">Team Quota Attainment</div>
-            <div class="gm-period">Q3 2025</div>
-          </div>
-          <div class="gm-row">
-            <div class="gm-num">01</div>
-            <div class="gm-rep"><div class="gm-rep-av" style="background:var(--teal)">JM</div><div><div class="gm-rep-name">Jordan M.</div><div class="gm-rep-pct">$218K / $230K</div></div></div>
-            <div class="gm-track"><div class="gm-fill" style="width:94%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div>
-            <div class="gm-value">94%</div>
-          </div>
-          <div class="gm-row">
-            <div class="gm-num">02</div>
-            <div class="gm-rep"><div class="gm-rep-av" style="background:#6366f1">SK</div><div><div class="gm-rep-name">Sarah K.</div><div class="gm-rep-pct">$186K / $230K</div></div></div>
-            <div class="gm-track"><div class="gm-fill" style="width:81%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div>
-            <div class="gm-value">81%</div>
-          </div>
-          <div class="gm-row">
-            <div class="gm-num">03</div>
-            <div class="gm-rep"><div class="gm-rep-av" style="background:#f59e0b">TR</div><div><div class="gm-rep-name">Tyler R.</div><div class="gm-rep-pct">$154K / $230K</div></div></div>
-            <div class="gm-track"><div class="gm-fill" style="width:67%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div>
-            <div class="gm-value">67%</div>
-          </div>
-          <div class="gm-row">
-            <div class="gm-num">04</div>
-            <div class="gm-rep"><div class="gm-rep-av" style="background:#ec4899">AL</div><div><div class="gm-rep-name">Amanda L.</div><div class="gm-rep-pct">$119K / $230K</div></div></div>
-            <div class="gm-track"><div class="gm-fill" style="width:52%;background:linear-gradient(90deg,#ef4444,#f87171)"></div></div>
-            <div class="gm-value">52%</div>
-          </div>
-          <div class="gm-alert">&#9888; Amanda L. is 18 pts below pace with 6 weeks left in Q3.</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px"><span style="font-size:12px;font-weight:700;color:#fff">Team Quota Attainment</span><span style="font-size:10px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.4);padding:3px 9px;border-radius:4px">Q3 2025</span></div>
+          <div class="gm-row"><div class="gm-n">01</div><div style="display:flex;align-items:center;gap:9px"><div class="gm-av" style="background:var(--teal)">JM</div><div><div class="gm-name">Jordan M.</div><div class="gm-sub">$218K / $230K</div></div></div><div class="gm-track"><div class="gm-fill" style="width:94%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div><div class="gm-pct">94%</div></div>
+          <div class="gm-row"><div class="gm-n">02</div><div style="display:flex;align-items:center;gap:9px"><div class="gm-av" style="background:#6366f1">SK</div><div><div class="gm-name">Sarah K.</div><div class="gm-sub">$186K / $230K</div></div></div><div class="gm-track"><div class="gm-fill" style="width:81%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div><div class="gm-pct">81%</div></div>
+          <div class="gm-row"><div class="gm-n">03</div><div style="display:flex;align-items:center;gap:9px"><div class="gm-av" style="background:#f59e0b">TR</div><div><div class="gm-name">Tyler R.</div><div class="gm-sub">$154K / $230K</div></div></div><div class="gm-track"><div class="gm-fill" style="width:67%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div><div class="gm-pct">67%</div></div>
+          <div class="gm-row"><div class="gm-n">04</div><div style="display:flex;align-items:center;gap:9px"><div class="gm-av" style="background:#ec4899">AL</div><div><div class="gm-name">Amanda L.</div><div class="gm-sub">$119K / $230K</div></div></div><div class="gm-track"><div class="gm-fill" style="width:52%;background:linear-gradient(90deg,#ef4444,#f87171)"></div></div><div class="gm-pct">52%</div></div>
+          <div class="gm-alert">&#9888; Amanda L. is 18 pts below pace — 6 weeks remaining in Q3.</div>
         </div>
       </div>
     </div>
@@ -584,316 +459,77 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 <!-- PIPELINE DEEP DIVE -->
 <section class="section section-white" id="pipeline">
   <div class="section-inner">
-    <div class="feature-split flip reveal">
-      <div class="mock-shell mock-dark">
-        <div class="mock-bar">
-          <div class="mock-dot" style="background:#ef4444"></div>
-          <div class="mock-dot" style="background:#f59e0b"></div>
-          <div class="mock-dot" style="background:#22c55e"></div>
-          <div class="mock-bar-title">Pipeline / Kanban View</div>
-        </div>
+    <div class="fsplit flip reveal">
+      <div class="mock">
+        <div class="mock-bar"><div class="mock-dot" style="background:#ef4444"></div><div class="mock-dot" style="background:#f59e0b"></div><div class="mock-dot" style="background:#22c55e"></div><div class="mock-title">Pipeline / Kanban View</div></div>
         <div class="mock-body">
           <div class="pm-cols">
-            <div class="pm-col">
-              <div class="pm-col-head">Prospect <span class="pm-col-count">3</span></div>
-              <div class="pm-deal"><div class="pm-deal-name">Meridian Wealth Group</div><div class="pm-deal-meta"><span class="pm-deal-val">$24,000</span><span class="pm-deal-tag tag-new">New</span></div></div>
-              <div class="pm-deal"><div class="pm-deal-name">Coastal Financial</div><div class="pm-deal-meta"><span class="pm-deal-val">$18,500</span><span class="pm-deal-days">Day 4</span></div></div>
+            <div class="pm-col"><div class="pm-col-h">Prospect <span class="pm-cnt">3</span></div>
+              <div class="pm-deal"><div class="pm-dname">Meridian Wealth Group</div><div class="pm-dmeta"><span class="pm-dval">$24,000</span><span class="pm-dtag t-new">New</span></div></div>
+              <div class="pm-deal"><div class="pm-dname">Coastal Financial</div><div class="pm-dmeta"><span class="pm-dval">$18,500</span><span style="font-size:9px;color:rgba(255,255,255,.3)">Day 4</span></div></div>
             </div>
-            <div class="pm-col">
-              <div class="pm-col-head">Proposal <span class="pm-col-count">2</span></div>
-              <div class="pm-deal"><div class="pm-deal-name">Apex Insurance Group</div><div class="pm-deal-meta"><span class="pm-deal-val">$42,000</span><span class="pm-deal-tag tag-hot">Hot</span></div></div>
-              <div class="pm-deal" style="border-color:rgba(239,68,68,.25)"><div class="pm-deal-name">Summit Real Estate</div><div class="pm-deal-meta"><span class="pm-deal-val">$31,200</span><span class="pm-deal-days" style="color:#f87171">&#9888; 16d idle</span></div></div>
+            <div class="pm-col"><div class="pm-col-h">Proposal <span class="pm-cnt">2</span></div>
+              <div class="pm-deal"><div class="pm-dname">Apex Insurance Group</div><div class="pm-dmeta"><span class="pm-dval">$42,000</span><span class="pm-dtag t-hot">Hot</span></div></div>
+              <div class="pm-deal" style="border-color:rgba(239,68,68,.25)"><div class="pm-dname">Summit Real Estate</div><div class="pm-dmeta"><span class="pm-dval">$31,200</span><span style="font-size:9px;color:#f87171">&#9888; 16d idle</span></div></div>
             </div>
-            <div class="pm-col">
-              <div class="pm-col-head">Closing <span class="pm-col-count">1</span></div>
-              <div class="pm-deal" style="border-color:rgba(34,197,94,.2)"><div class="pm-deal-name">Nexus SaaS Solutions</div><div class="pm-deal-meta"><span class="pm-deal-val">$68,000</span><span class="pm-deal-tag tag-warm">&#128293; Close</span></div></div>
+            <div class="pm-col"><div class="pm-col-h">Closing <span class="pm-cnt">1</span></div>
+              <div class="pm-deal" style="border-color:rgba(34,197,94,.2)"><div class="pm-dname">Nexus SaaS Solutions</div><div class="pm-dmeta"><span class="pm-dval">$68,000</span><span class="pm-dtag t-warm">&#128293; Close</span></div></div>
             </div>
           </div>
         </div>
       </div>
       <div class="fs-copy">
-        <div class="section-tag tag-teal">Pipeline CRM</div>
-        <h2>A CRM that actually keeps deals moving.</h2>
-        <p>Track every opportunity from first touch to closed-won. Switch between Kanban, List, and Calendar views — no configuration needed. Linked Accounts and Contacts give you full organization context on every deal.</p>
-        <div class="fs-checklist">
-          <div class="fs-check">Kanban board with drag-and-drop deal stages</div>
-          <div class="fs-check">Deal aging indicators flag opportunities going cold</div>
-          <div class="fs-check">Risk alerts automatically surface stale or idle deals</div>
-          <div class="fs-check">Full Accounts and Contacts management with org history</div>
-          <div class="fs-check">Activity tracking — calls, notes, and follow-ups in one place</div>
-          <div class="fs-check">Calendar view for time-based deal and task management</div>
+        <div class="s-tag s-tag-teal" style="display:inline-flex">Pipeline CRM</div>
+        <h2>A CRM that keeps<br>deals moving forward.</h2>
+        <p>Track every opportunity from first contact to closed-won. Kanban, List, and Calendar views — no configuration needed. Deal aging flags automatically surface what's going cold.</p>
+        <div class="fs-list">
+          <div class="fs-item">Kanban board with drag-and-drop deal stages</div>
+          <div class="fs-item">Deal aging alerts flag idle opportunities before they're lost</div>
+          <div class="fs-item">Linked Accounts and Contacts with full organization history</div>
+          <div class="fs-item">Activity tracking — calls, notes, and follow-ups in one place</div>
+          <div class="fs-item">Calendar view for time-based deal and task management</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BONUSES & CONTESTS -->
-<section class="section section-navy2" id="contests">
-  <div class="section-inner">
-    <div class="feature-split reveal">
-      <div class="fs-copy fs-copy-dark">
-        <div class="section-tag tag-white">Bonuses &amp; Contests</div>
-        <h2>Turn your sales floor into a <em>competitive advantage.</em></h2>
-        <p>Built-in gamification that actually works. Create tiered bonus structures, run time-boxed sales contests with live leaderboards, and watch the competition drive the behavior you want.</p>
-        <div class="fs-checklist">
-          <div class="fs-check fs-check-dark">Tiered bonus structures — reps see exactly what to hit for the next level</div>
-          <div class="fs-check fs-check-dark">Contest leaderboards that update in real time as deals close</div>
-          <div class="fs-check fs-check-dark">Configurable prize pools — cash, gifts, or custom rewards</div>
-          <div class="fs-check fs-check-dark">Full payout history with YTD totals per rep</div>
-          <div class="fs-check fs-check-dark">Past contest archives with winners and final standings</div>
-        </div>
-      </div>
-      <div class="mock-shell mock-dark">
-        <div class="mock-bar">
-          <div class="mock-dot" style="background:#ef4444"></div>
-          <div class="mock-dot" style="background:#f59e0b"></div>
-          <div class="mock-dot" style="background:#22c55e"></div>
-          <div class="mock-bar-title">Bonuses / Active This Quarter</div>
-        </div>
-        <div class="mock-body">
-          <div class="bm-stat-row">
-            <div class="bm-stat">
-              <div class="bm-stat-label">Total Awarded YTD</div>
-              <div class="bm-stat-val"><span class="unit">$</span>14,200</div>
-            </div>
-            <div class="bm-stat">
-              <div class="bm-stat-label">Avg Bonus / Rep</div>
-              <div class="bm-stat-val"><span class="unit">$</span>2,367</div>
-            </div>
-          </div>
-          <div class="bm-bonus-list">
-            <div class="bm-bonus-item">
-              <div class="bm-bonus-top"><div class="bm-bonus-name">&#127942; Spring Kickoff Blitz</div><div class="bm-bonus-reward">$3,500 prize</div></div>
-              <div style="font-size:10px;color:rgba(255,255,255,.3);margin-bottom:6px">Jordan M. in 1st place</div>
-              <div class="bm-bar-track"><div class="bm-bar-fill" style="width:68%;height:4px;border-radius:2px;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div>
-            </div>
-            <div class="bm-bonus-item">
-              <div class="bm-bonus-top"><div class="bm-bonus-name">&#128176; Q3 Closer Bonus</div><div class="bm-bonus-reward">$500 / rep</div></div>
-              <div style="font-size:10px;color:rgba(255,255,255,.3);margin-bottom:6px">Close 5 deals — 3 of 5 complete</div>
-              <div class="bm-bar-track"><div class="bm-bar-fill" style="width:60%;height:4px;border-radius:2px;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div>
-            </div>
-            <div class="bm-bonus-item">
-              <div class="bm-bonus-top"><div class="bm-bonus-name">&#11088; New Logo Bonus</div><div class="bm-bonus-reward">$250 / logo</div></div>
-              <div style="font-size:10px;color:rgba(255,255,255,.3);margin-bottom:6px">2 new logos closed this quarter</div>
-              <div class="bm-bar-track"><div class="bm-bar-fill" style="width:100%;height:4px;border-radius:2px;background:linear-gradient(90deg,#6366f1,#a5b4fc)"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMMISSIONS -->
-<section class="section section-off" id="commissions">
-  <div class="section-inner">
-    <div class="feature-split flip reveal">
-      <div class="mock-shell mock-dark">
-        <div class="mock-bar">
-          <div class="mock-dot" style="background:#ef4444"></div>
-          <div class="mock-dot" style="background:#f59e0b"></div>
-          <div class="mock-dot" style="background:#22c55e"></div>
-          <div class="mock-bar-title">Commissions / Jordan M.</div>
-        </div>
-        <div class="mock-body">
-          <div class="cm-summary">
-            <div class="cm-sum-card"><div class="cm-sum-label">YTD Earned</div><div class="cm-sum-val"><span class="unit">$</span>14,820</div></div>
-            <div class="cm-sum-card"><div class="cm-sum-label">Avg Rate</div><div class="cm-sum-val">6.2<span class="unit">%</span></div></div>
-            <div class="cm-sum-card"><div class="cm-sum-label">Next Payout</div><div class="cm-sum-val" style="font-size:14px;padding-top:4px">Aug 1</div></div>
-          </div>
-          <table class="cm-table">
-            <thead><tr><th>Deal</th><th>Closed</th><th>Amount</th><th>Rate</th><th>Comm.</th></tr></thead>
-            <tbody>
-              <tr><td>Apex Insurance</td><td>Jul 12</td><td>$42,000</td><td class="rate">6.5%</td><td class="val">$2,730</td></tr>
-              <tr><td>Nexus SaaS</td><td>Jul 8</td><td>$68,000</td><td class="rate">6.0%</td><td class="val">$4,080</td></tr>
-              <tr><td>Meridian Wealth</td><td>Jun 28</td><td>$24,000</td><td class="rate">6.2%</td><td class="val">$1,488</td></tr>
-              <tr><td>Summit Real Estate</td><td>Jun 15</td><td>$31,200</td><td class="rate">6.5%</td><td class="val">$2,028</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="fs-copy">
-        <div class="section-tag tag-teal">Commission Tracking</div>
-        <h2>Every rep knows what they've earned. Automatically.</h2>
-        <p>No more end-of-month commission spreadsheets. Goals.com calculates commissions as deals close, gives every rep a personal earnings view, and surfaces upcoming payout dates without anyone having to ask.</p>
-        <div class="fs-checklist">
-          <div class="fs-check">Per-deal commission breakdown with rate and dollar amount</div>
-          <div class="fs-check">YTD commission totals with average rate across closed deals</div>
-          <div class="fs-check">Next payout date visible to every rep on their personal dashboard</div>
-          <div class="fs-check">Full team commission view for managers in one consolidated table</div>
-          <div class="fs-check">Commission history searchable by period, rep, or deal</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HIGHLIGHTS & CHAT -->
-<section class="section section-dark" id="highlights">
-  <div class="section-inner">
-    <div class="feature-split reveal">
-      <div class="fs-copy fs-copy-dark">
-        <div class="section-tag tag-white">Highlights &amp; Team Chat</div>
-        <h2>A sales culture that <em>celebrates wins</em> in real time.</h2>
-        <p>The Highlights feed keeps your whole team connected to what's happening. When someone closes a deal or hits a milestone, it's in the feed instantly — with badges, reactions, and comments that feel human, not robotic.</p>
-        <div class="fs-checklist">
-          <div class="fs-check fs-check-dark">Automatic deal-close announcements posted to the team feed</div>
-          <div class="fs-check fs-check-dark">Top Performer, Monthly Goal, and Birthday badge types</div>
-          <div class="fs-check fs-check-dark">Team members like and comment on each other's wins</div>
-          <div class="fs-check fs-check-dark">Built-in team chat with channels and direct messaging</div>
-          <div class="fs-check fs-check-dark">Keeps remote and distributed sales teams genuinely connected</div>
-        </div>
-      </div>
-      <div class="mock-shell mock-dark">
-        <div class="mock-bar">
-          <div class="mock-dot" style="background:#ef4444"></div>
-          <div class="mock-dot" style="background:#f59e0b"></div>
-          <div class="mock-dot" style="background:#22c55e"></div>
-          <div class="mock-bar-title">Highlights / Team Feed</div>
-        </div>
-        <div class="mock-body">
-          <div class="hl-feed">
-            <div class="hl-card">
-              <div class="hl-card-top">
-                <div class="hv-avatar">JM</div>
-                <div style="flex:1"><div style="font-size:12px;font-weight:700;color:#fff">Jordan M.</div><div style="font-size:10px;color:rgba(255,255,255,.3)">2 hours ago</div></div>
-                <div class="hl-badge badge-gold">&#127942; Top Performer</div>
-              </div>
-              <div class="hl-card-text"><strong>Jordan</strong> just closed <strong>Nexus SaaS Solutions</strong> for <strong style="color:#4ade80">$68,000</strong> — largest deal of the quarter! &#127881;</div>
-              <div class="hl-reactions"><div class="hl-react-btn">&#128293; 12</div><div class="hl-react-btn">&#128079; 8</div><div class="hl-react-btn">&#128172; 3</div></div>
-            </div>
-            <div class="hl-card">
-              <div class="hl-card-top">
-                <div class="hv-avatar" style="background:#6366f1">SK</div>
-                <div style="flex:1"><div style="font-size:12px;font-weight:700;color:#fff">Sarah K.</div><div style="font-size:10px;color:rgba(255,255,255,.3)">Yesterday</div></div>
-                <div class="hl-badge badge-teal">&#10003; Monthly Goal</div>
-              </div>
-              <div class="hl-card-text"><strong>Sarah</strong> hit her <strong>July monthly goal</strong> with 3 days to spare — 4 months in a row! &#128170;</div>
-              <div class="hl-reactions"><div class="hl-react-btn">&#127881; 9</div><div class="hl-react-btn">&#128172; 2</div></div>
-            </div>
-            <div class="hl-card">
-              <div class="hl-card-top">
-                <div class="hv-avatar" style="background:#f59e0b">TR</div>
-                <div style="flex:1"><div style="font-size:12px;font-weight:700;color:#fff">Tyler R.</div><div style="font-size:10px;color:rgba(255,255,255,.3)">2 days ago</div></div>
-                <div class="hl-badge badge-blue">&#127874; Birthday</div>
-              </div>
-              <div class="hl-card-text">Happy birthday to <strong>Tyler</strong>! &#127874; Wishing you a great day — and a monster Q4!</div>
-              <div class="hl-reactions"><div class="hl-react-btn">&#127874; 14</div><div class="hl-react-btn">&#128172; 6</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ACE AI -->
+<!-- ACE AI DEEP DIVE -->
 <section class="section section-navy2" id="ace">
   <div class="section-inner">
-    <div class="s-head s-head-light reveal">
-      <div class="section-tag tag-white">Ace AI</div>
+    <div class="s-head s-head-dark reveal" style="margin-bottom:48px">
+      <div class="s-tag s-tag-white">Ace AI</div>
       <h2>Your team's <em>built-in intelligence layer.</em></h2>
-      <p>Ace isn't a bolt-on chatbot. It knows your pipeline, your reps, and your history. Ask it anything — and it answers with actual data from your account, not generic advice.</p>
+      <p>Ace knows your pipeline, your reps, and your history. Ask it anything — it answers with real data from your account, not generic advice.</p>
     </div>
-    <div class="ace-shell reveal" style="max-width:680px;margin:0 auto">
-      <div class="ace-header">
-        <div class="ace-header-icon">&#10022;</div>
-        <div>
-          <div class="ace-header-text">Ace — Sales Intelligence</div>
-          <div class="ace-header-sub">Powered by your Goals.com data</div>
-        </div>
-        <div class="ace-status"></div>
+    <div class="ace-shell reveal" style="max-width:640px;margin:0 auto">
+      <div class="ace-hdr">
+        <div class="ace-hdr-icon">&#10022;</div>
+        <div><div class="ace-hdr-name">Ace — Sales Intelligence</div><div class="ace-hdr-sub">Powered by your Goals.com data</div></div>
+        <div class="ace-dot"></div>
       </div>
-      <div class="ace-messages">
-        <div class="ace-msg-user">Which deals are at risk of slipping this quarter?</div>
-        <div class="ace-msg-ai">
-          <div class="ai-label">&#10022; Ace</div>
-          I'm seeing <em>3 deals</em> at risk this quarter:<br><br>
-          <em>Summit Real Estate ($31,200)</em> — in Proposal for 16 days, no activity logged.<br><br>
-          <em>Coastal Financial ($18,500)</em> — decision-maker hasn't been contacted in 9 days.<br><br>
-          <em>Tyler R.'s pipeline</em> has $68K behind pace. I'd recommend a pipeline review with him this week.
-        </div>
-        <div class="ace-msg-user">What's our total pipeline value right now?</div>
-        <div class="ace-msg-ai">
-          <div class="ai-label">&#10022; Ace</div>
-          Your pipeline is <em>$324,800</em> across 14 active opportunities. <em>$68K</em> is in the Closing stage. Based on historical close rates, I'm projecting <em>$187K–$210K</em> in closed revenue this quarter.
-        </div>
+      <div class="ace-msgs">
+        <div class="ace-u">Which deals are at risk this quarter?</div>
+        <div class="ace-r"><div class="ace-label">&#10022; Ace</div>I'm seeing <em>3 deals</em> at risk: <em>Summit Real Estate ($31K)</em> — 16 days idle in Proposal. <em>Coastal Financial ($18.5K)</em> — decision-maker unreachable for 9 days. <em>Tyler R.'s pipeline</em> has $68K behind pace. I'd recommend a 1:1 with Tyler this week.</div>
+        <div class="ace-u">What's our projected close for Q3?</div>
+        <div class="ace-r"><div class="ace-label">&#10022; Ace</div>Current pipeline is <em>$324,800</em> across 14 deals. Based on your historical win rate, I'm projecting <em>$187K–$210K</em> in closed revenue this quarter. <em>$68K</em> in Closing stage is most likely to land.</div>
       </div>
-      <div class="ace-input">
-        <div class="ace-input-field">Ask Ace anything about your pipeline…</div>
-        <div class="ace-send">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REPORTS & FORECASTING -->
-<section class="section section-white" id="reports">
-  <div class="section-inner">
-    <div class="feature-split flip reveal">
-      <div class="mock-shell mock-dark">
-        <div class="mock-bar">
-          <div class="mock-dot" style="background:#ef4444"></div>
-          <div class="mock-dot" style="background:#f59e0b"></div>
-          <div class="mock-dot" style="background:#22c55e"></div>
-          <div class="mock-bar-title">Reports / Export Center</div>
-        </div>
-        <div class="mock-body">
-          <div class="rm-export-grid">
-            <div class="rm-export-item"><div class="rm-export-icon" style="background:rgba(99,102,241,.15)">&#128202;</div><div><div class="rm-export-name">Opportunities</div><div class="rm-export-sub">CSV / XLSX</div></div></div>
-            <div class="rm-export-item"><div class="rm-export-icon" style="background:rgba(29,158,117,.15)">&#128101;</div><div><div class="rm-export-name">Contacts</div><div class="rm-export-sub">CSV / XLSX</div></div></div>
-            <div class="rm-export-item"><div class="rm-export-icon" style="background:rgba(245,158,11,.15)">&#127919;</div><div><div class="rm-export-name">Goals &amp; Performance</div><div class="rm-export-sub">CSV / XLSX</div></div></div>
-            <div class="rm-export-item"><div class="rm-export-icon" style="background:rgba(244,63,94,.15)">&#128176;</div><div><div class="rm-export-name">Commissions</div><div class="rm-export-sub">CSV / XLSX</div></div></div>
-          </div>
-          <div class="rm-sched-label">Scheduled Reports</div>
-          <div class="rm-sched-row"><div class="rm-sched-name">Weekly Team Summary</div><div class="rm-sched-freq">Every Monday 7am</div></div>
-          <div class="rm-sched-row"><div class="rm-sched-name">Monthly Commission Report</div><div class="rm-sched-freq">1st of month</div></div>
-          <div class="rm-sched-row"><div class="rm-sched-name">Pipeline Health Digest</div><div class="rm-sched-freq">Every Friday 5pm</div></div>
-        </div>
-      </div>
-      <div class="fs-copy">
-        <div class="section-tag tag-teal">Reports &amp; Forecasting</div>
-        <h2>Every report your team needs. On autopilot.</h2>
-        <p>Export any dataset in seconds — opportunities, contacts, activities, commissions, and goals performance. Schedule reports to deliver automatically so leadership always has the full picture without anyone pulling it manually.</p>
-        <div class="fs-checklist">
-          <div class="fs-check">One-click CSV and XLSX exports across all data types</div>
-          <div class="fs-check">Scheduled reports — set once, receive automatically</div>
-          <div class="fs-check">Pipeline forecasting with projected close amounts by quarter</div>
-          <div class="fs-check">Activity reports by rep — calls, emails, and tasks tracked</div>
-          <div class="fs-check">Custom report builder for anything not covered out of the box</div>
-        </div>
+      <div class="ace-input-row">
+        <div class="ace-field">Ask Ace anything about your pipeline…</div>
+        <div class="ace-send"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 2.5l3 3-3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- METRICS -->
-<section class="section section-navy2">
+<section class="section section-navy">
   <div class="section-inner">
-    <div class="s-head s-head-light reveal" style="margin-bottom:48px">
-      <div class="section-tag tag-white">By the numbers</div>
-      <h2>Built for teams that take <em>performance seriously.</em></h2>
-    </div>
-    <div class="metrics-grid reveal">
-      <div class="metric-card">
-        <div class="metric-num"><em>$39</em></div>
-        <div class="metric-label">Per user, per month<br>CRM + everything included</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-num">1<em>x</em></div>
-        <div class="metric-label">Platform for CRM, goals,<br>contests, commissions &amp; AI</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-num">&#8734;</div>
-        <div class="metric-label">No limits on contacts,<br>deals, reports, or users</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-num">24<em>/7</em></div>
-        <div class="metric-label">Real-time data across<br>every feature, all the time</div>
-      </div>
+    <div class="metrics-row reveal">
+      <div class="m-card"><div class="m-num"><em>$39</em></div><div class="m-label">Per user / month<br>Everything included</div></div>
+      <div class="m-card"><div class="m-num">1<em>x</em></div><div class="m-label">Platform for CRM, goals,<br>commissions &amp; AI</div></div>
+      <div class="m-card"><div class="m-num">&#8734;</div><div class="m-label">No limits on contacts,<br>deals, or reports</div></div>
+      <div class="m-card"><div class="m-num">24<em>/7</em></div><div class="m-label">Real-time data across<br>every feature</div></div>
     </div>
   </div>
 </section>
@@ -901,32 +537,14 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 <!-- TESTIMONIALS -->
 <section class="section section-off">
   <div class="section-inner">
-    <div class="s-head reveal" style="margin-bottom:56px">
-      <div class="section-tag tag-teal">What people are saying</div>
-      <h2>Real teams. <em>Real results.</em></h2>
+    <div class="s-head reveal" style="margin-bottom:48px">
+      <div class="s-tag s-tag-teal">What teams are saying</div>
+      <h2>Real results from <em>real sales teams.</em></h2>
     </div>
-    <div class="testi-grid reveal">
-      <div class="testi-card">
-        <div class="testi-quote">We finally stopped losing deals in pipeline blind spots. Goals.com surfaces the ones going cold before it's too late — our close rate went up within the first month.</div>
-        <div class="testi-person">
-          <div class="testi-av" style="background:var(--teal)">MR</div>
-          <div><div class="testi-name">Marcus R.</div><div class="testi-role">VP of Sales</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote">The contest and bonus features changed how our team shows up every morning. There's real energy around the leaderboard now — people check it constantly and it drives behavior.</div>
-        <div class="testi-person">
-          <div class="testi-av" style="background:#6366f1">JT</div>
-          <div><div class="testi-name">Jessica T.</div><div class="testi-role">Sales Manager</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote">Commissions used to be a monthly argument. Now every rep can see exactly what they've earned as deals close. No spreadsheets, no surprises, no end-of-month scramble.</div>
-        <div class="testi-person">
-          <div class="testi-av" style="background:#f59e0b">DK</div>
-          <div><div class="testi-name">David K.</div><div class="testi-role">Director of Revenue</div></div>
-        </div>
-      </div>
+    <div class="testi-row reveal">
+      <div class="t-card"><div class="t-quote">We finally stopped losing deals in pipeline blind spots. Goals.com surfaces what's going cold before it's too late — our close rate improved in the first month.</div><div class="t-person"><div class="t-av" style="background:var(--teal)">MR</div><div><div class="t-name">Marcus R.</div><div class="t-role">VP of Sales</div></div></div></div>
+      <div class="t-card"><div class="t-quote">The contest and leaderboard features changed how our team shows up every day. There's real energy now — people check the board constantly and it drives the behavior we want.</div><div class="t-person"><div class="t-av" style="background:#6366f1">JT</div><div><div class="t-name">Jessica T.</div><div class="t-role">Sales Manager</div></div></div></div>
+      <div class="t-card"><div class="t-quote">Commissions used to be a monthly argument. Now every rep sees exactly what they've earned as deals close. No spreadsheets, no surprises at the end of the month.</div><div class="t-person"><div class="t-av" style="background:#f59e0b">DK</div><div><div class="t-name">David K.</div><div class="t-role">Director of Revenue</div></div></div></div>
     </div>
   </div>
 </section>
@@ -934,41 +552,35 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 <!-- PRICING -->
 <section class="section section-navy2" id="pricing">
   <div class="section-inner">
-    <div class="s-head s-head-light reveal" style="margin-bottom:56px">
-      <div class="section-tag tag-white">Pricing</div>
-      <h2>Simple, flat pricing.<br><em>Everything included.</em></h2>
-      <p>One plan. No feature tiers, no add-ons, no surprises at the end of the month.</p>
+    <div class="s-head s-head-dark reveal" style="margin-bottom:48px">
+      <div class="s-tag s-tag-white">Pricing</div>
+      <h2>Simple pricing.<br><em>Everything included.</em></h2>
+      <p>One plan. No tiers, no add-ons, no end-of-month surprises.</p>
     </div>
     <div class="pricing-card reveal">
-      <div class="pricing-top">
-        <div class="pricing-badge">&#10022; Full platform — all features included</div>
-        <div class="pricing-headline">Goals.com Complete</div>
-        <div class="pricing-sub">CRM, goals, contests, commissions, bonuses, Ace AI, reports, and more</div>
-        <div class="pricing-price-row">
-          <div class="pricing-price">$39</div>
-          <div class="pricing-price-detail">
-            <div class="pricing-per">/ user / month</div>
-            <div class="pricing-includes">Everything included &nbsp;&#183;&nbsp; No contracts</div>
-          </div>
-        </div>
+      <div class="p-top">
+        <div class="p-badge">&#10022; Full platform — all features</div>
+        <div class="p-name">Goals.com Complete</div>
+        <div class="p-desc">CRM, goals, commissions, contests, Ace AI, and more — one price.</div>
+        <div class="p-price-row"><div class="p-price">$39</div><div class="p-price-info"><div class="p-per">/ user / month</div><div class="p-incl">Everything included &nbsp;&#183;&nbsp; No contracts</div></div></div>
       </div>
-      <div class="pricing-bottom">
-        <div class="pricing-features">
-          <div class="pricing-feat">Pipeline CRM (Kanban + List + Calendar)</div>
-          <div class="pricing-feat">Quota &amp; goal tracking per rep</div>
-          <div class="pricing-feat">Sales contests with prize pools</div>
-          <div class="pricing-feat">Commission tracking &amp; payout schedules</div>
-          <div class="pricing-feat">Bonus tiers with progress tracking</div>
-          <div class="pricing-feat">Ace AI — built-in sales intelligence</div>
-          <div class="pricing-feat">Team Highlights &amp; recognition feed</div>
-          <div class="pricing-feat">Reports, exports &amp; scheduling</div>
-          <div class="pricing-feat">Team chat &amp; direct messaging</div>
-          <div class="pricing-feat">Pipeline forecasting</div>
-          <div class="pricing-feat">Accounts &amp; contacts management</div>
-          <div class="pricing-feat">Marketplace integrations</div>
+      <div class="p-bottom">
+        <div class="p-feats">
+          <div class="p-feat">Pipeline CRM (Kanban + List + Calendar)</div>
+          <div class="p-feat">Quota &amp; goal tracking per rep</div>
+          <div class="p-feat">Commission tracking &amp; payout schedules</div>
+          <div class="p-feat">Sales contests with prize pools</div>
+          <div class="p-feat">Bonus tiers with progress tracking</div>
+          <div class="p-feat">Ace AI — sales intelligence</div>
+          <div class="p-feat">Team highlights &amp; recognition</div>
+          <div class="p-feat">Reports, exports &amp; scheduling</div>
+          <div class="p-feat">Team chat &amp; messaging</div>
+          <div class="p-feat">Pipeline forecasting</div>
+          <div class="p-feat">Accounts &amp; contacts management</div>
+          <div class="p-feat">Marketplace integrations</div>
         </div>
-        <a href="#" class="pricing-cta">Start your free trial</a>
-        <div class="pricing-note">No credit card required &nbsp;&#183;&nbsp; Cancel anytime</div>
+        <a href="#" class="p-cta">Start your free trial</a>
+        <div class="p-note">No credit card required &nbsp;&#183;&nbsp; Cancel anytime</div>
       </div>
     </div>
   </div>
@@ -976,75 +588,605 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 
 <!-- FINAL CTA -->
 <section class="cta-section">
-  <h2>Ready to build a team<br>that wins consistently?</h2>
-  <p>Give your sales team the platform that ties goals, pipeline, compensation, and culture into one connected system.</p>
+  <h2>Ready to build a team<br>that wins on purpose?</h2>
+  <p>Goals.com gives your reps clarity, your managers visibility, and your whole team a reason to compete.</p>
   <div class="cta-btns">
-    <a href="#pricing" class="btn-cta-primary">Start free today</a>
-    <a href="#overview" class="btn-cta-secondary">Watch the overview</a>
+    <a href="#pricing" class="btn-cta-w">Start free today</a>
+    <a href="#" class="btn-cta-o">Watch the overview</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <svg width="41" height="29" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M23.7469 5.1311C23.9948 3.4409 23.9888 2.05568 23.327 2.03134C21.2165 1.95701 17.8982 9.7314 19.9741 9.54901C22.2617 9.3474 23.7469 5.13152 23.7469 5.13152L23.7369 7.60039C23.7369 7.60039 21.9568 11.2836 18.7937 11.2268C14.3663 11.1474 16.9977 0.843034 22.6624 0.462879C25.2107 0.292023 25.186 2.45677 24.7264 4.2734C24.4589 5.33185 23.6844 5.55909 23.7469 5.1311Z" fill="white" fill-opacity="0.5"/>
-          <path d="M38.3001 13.952C33.9325 13.3967 28.7556 13.3796 24.1151 13.503C26.1517 7.30951 26.8834 1.50039 28.6507 1.03054C28.2239 0.351385 26.7953 -0.064222 25.604 0.676012C24.0626 1.63195 23.4588 7.54272 21.4998 13.609C10.4683 14.207 0.156585 17.0295 0.00185471 23.4644C-0.146942 29.7143 8.69047 30.2709 14.5474 27.1314C18.4389 25.0457 21.0534 21.3701 22.6691 17.3341C22.938 16.663 23.3227 15.6981 23.3227 15.6981L22.1424 15.3816C22.6048 15.3474 23.4706 15.3427 23.4711 15.3389C24.4597 15.3104 25.4654 15.2962 26.4881 15.2962H26.4908C30.5567 15.3017 36.7149 15.7442 40.0012 16.2718C40.0012 16.2748 40.5526 14.2377 38.3001 13.952ZM10.4911 26.7316C4.37036 28.1698 1.34331 25.9119 1.66783 23.1748C2.25206 18.2456 10.7855 16.0531 20.8608 15.4534C18.9369 20.6316 15.924 25.4561 10.4911 26.7316Z" fill="white" fill-opacity="0.5"/>
-        </svg>
-        <p>The sales platform built around winning. Pipeline, goals, commissions, contests, and team culture — all in one place.</p>
+    <div class="ft">
+      <div class="fb">
+        <svg width="38" height="27" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.7469 5.1311C23.9948 3.4409 23.9888 2.05568 23.327 2.03134C21.2165 1.95701 17.8982 9.7314 19.9741 9.54901C22.2617 9.3474 23.7469 5.13152 23.7469 5.13152L23.7369 7.60039C23.7369 7.60039 21.9568 11.2836 18.7937 11.2268C14.3663 11.1474 16.9977 0.843034 22.6624 0.462879C25.2107 0.292023 25.186 2.45677 24.7264 4.2734C24.4589 5.33185 23.6844 5.55909 23.7469 5.1311Z" fill="white" fill-opacity=".45"/><path d="M38.3001 13.952C33.9325 13.3967 28.7556 13.3796 24.1151 13.503C26.1517 7.30951 26.8834 1.50039 28.6507 1.03054C28.2239 0.351385 26.7953 -0.064222 25.604 0.676012C24.0626 1.63195 23.4588 7.54272 21.4998 13.609C10.4683 14.207 0.156585 17.0295 0.00185471 23.4644C-0.146942 29.7143 8.69047 30.2709 14.5474 27.1314C18.4389 25.0457 21.0534 21.3701 22.6691 17.3341C22.938 16.663 23.3227 15.6981 23.3227 15.6981L22.1424 15.3816C22.6048 15.3474 23.4706 15.3427 23.4711 15.3389C24.4597 15.3104 25.4654 15.2962 26.4881 15.2962H26.4908C30.5567 15.3017 36.7149 15.7442 40.0012 16.2718C40.0012 16.2748 40.5526 14.2377 38.3001 13.952ZM10.4911 26.7316C4.37036 28.1698 1.34331 25.9119 1.66783 23.1748C2.25206 18.2456 10.7855 16.0531 20.8608 15.4534C18.9369 20.6316 15.924 25.4561 10.4911 26.7316Z" fill="white" fill-opacity=".45"/></svg>
+        <p>Sales Performance Software built around winning. Pipeline, goals, commissions, contests, and AI — all in one place.</p>
       </div>
-      <div class="footer-col">
-        <h4>Platform</h4>
-        <a href="#goals">Goals &amp; Quotas</a>
-        <a href="#pipeline">Pipeline CRM</a>
-        <a href="#commissions">Commissions</a>
-        <a href="#contests">Contests &amp; Bonuses</a>
-        <a href="#ace">Ace AI</a>
-        <a href="#reports">Reports</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-        <a href="#">Blog</a>
-        <a href="#">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="#">Documentation</a>
-        <a href="#">Changelog</a>
-        <a href="#">Status</a>
-        <a href="#pricing">Pricing</a>
-      </div>
+      <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#pipeline" onclick="showView('home')">Pipeline CRM</a><a href="#ace" onclick="showView('home')">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
+      <div class="fc"><h4>Company</h4><a href="#">About</a><a href="#">Careers</a><a href="#">Blog</a><a href="#">Contact</a></div>
+      <div class="fc"><h4>Resources</h4><a href="#" onclick="showView('kc');return false;">Knowledge Center</a><a href="#">Documentation</a><a href="#">Status</a><a href="#">Changelog</a></div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Goals.com. All rights reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Security</a>
-      </div>
-    </div>
+    <div class="fb-bottom"><p>&copy; 2025 Goals.com. All rights reserved.</p><div class="fb-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div></div>
   </div>
 </footer>
 
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(el => {
-    if (el.isIntersecting) {
-      el.target.classList.add('visible');
-      observer.unobserve(el.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</div><!-- /view-home -->
 
-const nav = document.querySelector('.nav');
+<!-- KNOWLEDGE CENTER VIEW -->
+<div class="view" id="view-kc">
+<style>
+/* KC styles scoped */
+.kc-hero{background:var(--navy);padding:120px 72px 60px;text-align:center;position:relative;overflow:hidden}
+.kc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 400px at 50% 100%,rgba(29,158,117,.1) 0%,transparent 65%);pointer-events:none}
+.kc-hero-inner{max-width:720px;margin:0 auto;position:relative;z-index:1}
+.kc-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(29,158,117,.14);border:1px solid rgba(29,158,117,.28);color:#4ade80;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:18px}
+.kc-hero h2{font-size:clamp(30px,4vw,48px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:12px}
+.kc-hero h2 em{font-style:normal;color:var(--teal-light)}
+.kc-hero p{font-size:17px;color:rgba(255,255,255,.5);margin-bottom:36px;line-height:1.6}
+.kc-search-wrap{position:relative;max-width:580px;margin:0 auto}
+.kc-search{width:100%;padding:17px 50px 17px 48px;font-size:15px;font-family:'Inter',sans-serif;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);border-radius:11px;color:#fff;outline:none;transition:all .2s}
+.kc-search::placeholder{color:rgba(255,255,255,.28)}
+.kc-search:focus{background:rgba(255,255,255,.1);border-color:var(--teal)}
+.kc-search-ico{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.3);pointer-events:none}
+.kc-clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;border-radius:5px;color:rgba(255,255,255,.45);cursor:pointer;font-size:12px;padding:3px 7px;display:none;font-family:'Inter',sans-serif}
+.kc-clear.show{display:block}
+.kc-count{margin-top:10px;font-size:12px;color:rgba(255,255,255,.3);min-height:18px}
+.kc-chips{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:22px}
+.kc-chip{font-size:12px;font-weight:500;color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:5px 14px;cursor:pointer;transition:all .18s}
+.kc-chip:hover{color:#fff;background:rgba(255,255,255,.1)}
+
+.kc-layout{display:grid;grid-template-columns:220px 1fr;max-width:1240px;margin:0 auto;padding:48px 72px;gap:0;align-items:start;background:var(--off);min-height:60vh}
+.kc-sidebar{position:sticky;top:84px}
+.kc-sb-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--g400);margin-bottom:10px}
+.kc-sb-nav{display:flex;flex-direction:column;gap:2px}
+.kc-sb-item{display:flex;align-items:center;gap:9px;padding:8px 11px;border-radius:8px;font-size:13px;font-weight:500;color:var(--g600);cursor:pointer;transition:all .18s}
+.kc-sb-item:hover{background:var(--g200);color:var(--dark)}
+.kc-sb-item.on{background:rgba(29,158,117,.1);color:var(--teal2);font-weight:600}
+.kc-sb-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
+.kc-sb-cnt{margin-left:auto;font-size:10px;background:var(--g200);color:var(--g500);padding:1px 6px;border-radius:100px}
+.kc-sb-item.on .kc-sb-cnt{background:rgba(29,158,117,.14);color:var(--teal)}
+.kc-sb-div{height:1px;background:var(--g200);margin:14px 0}
+.kc-popular{background:#fff;border:1px solid var(--g200);border-radius:var(--radius);padding:20px;margin-top:4px}
+.kc-pop-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--g400);margin-bottom:14px}
+.kc-pop-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--g100);font-size:12px;color:var(--g600);cursor:pointer;transition:color .18s}
+.kc-pop-item:last-child{border:none;padding-bottom:0}
+.kc-pop-item:hover{color:var(--teal)}
+.kc-pop-n{font-family:'DM Mono',monospace;font-size:10px;color:var(--g300);width:14px;flex-shrink:0}
+.kc-pop-arr{margin-left:auto;color:var(--g300)}
+
+.kc-content{padding-left:44px;min-width:0}
+.kc-section{margin-bottom:52px}
+.kc-sec-hdr{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:18px;border-bottom:1.5px solid var(--g200)}
+.kc-sec-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.kc-sec-title{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--dark)}
+.kc-sec-desc{font-size:13px;color:var(--g500);margin-top:2px}
+.kc-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.kc-card{background:#fff;border:1px solid var(--g200);border-radius:var(--radius);padding:20px;cursor:pointer;transition:all .18s}
+.kc-card:hover{border-color:var(--teal);box-shadow:0 4px 18px rgba(29,158,117,.1);transform:translateY(-1px)}
+.kc-card.hidden{display:none}
+.kc-art-type{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:3px 7px;border-radius:100px;margin-bottom:10px}
+.type-tut{background:rgba(99,102,241,.1);color:#6366f1}
+.type-guide{background:rgba(29,158,117,.1);color:var(--teal)}
+.type-faq{background:rgba(245,158,11,.1);color:#d97706}
+.type-walk{background:rgba(6,182,212,.1);color:#0891b2}
+.type-tip{background:rgba(244,63,94,.1);color:#e11d48}
+.kc-art-title{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:7px;line-height:1.35}
+.kc-art-desc{font-size:12px;color:var(--g500);line-height:1.6}
+.kc-art-foot{display:flex;align-items:center;gap:8px;margin-top:12px}
+.kc-art-time{font-size:10px;color:var(--g400)}
+.kc-art-tags{display:flex;gap:5px;flex-wrap:wrap;margin-left:auto}
+.kc-art-tag{font-size:9px;background:var(--g100);color:var(--g500);padding:2px 6px;border-radius:3px}
+.kc-no-res{text-align:center;padding:72px 40px;display:none}
+.kc-no-res.show{display:block}
+.kc-no-res-icon{font-size:44px;margin-bottom:14px}
+.kc-no-res h3{font-size:18px;font-weight:700;margin-bottom:7px}
+.kc-no-res p{font-size:14px;color:var(--g500)}
+
+/* ARTICLE VIEW */
+.art-view{display:none;background:#fff;min-height:100vh;padding-top:68px}
+.art-view.show{display:block}
+.art-hero{background:var(--navy2);padding:48px 72px;border-bottom:1px solid rgba(255,255,255,.07)}
+.art-hero-inner{max-width:820px;margin:0 auto}
+.art-breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.35);margin-bottom:18px;flex-wrap:wrap}
+.art-breadcrumb a{color:rgba(255,255,255,.45);cursor:pointer;transition:color .2s}
+.art-breadcrumb a:hover{color:#fff}
+.art-breadcrumb span{color:rgba(255,255,255,.2)}
+.art-h1{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-.025em;color:#fff;margin-bottom:14px;line-height:1.2}
+.art-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.art-meta-type{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:3px 9px;border-radius:100px}
+.art-meta-time{font-size:12px;color:rgba(255,255,255,.35)}
+.art-body-wrap{max-width:820px;margin:0 auto;padding:52px 72px}
+.art-body h2{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--dark);margin:36px 0 14px}
+.art-body h3{font-size:17px;font-weight:700;color:var(--dark);margin:28px 0 10px}
+.art-body p{font-size:15px;line-height:1.78;color:var(--g600);margin-bottom:16px}
+.art-body ul,.art-body ol{padding-left:22px;margin-bottom:16px}
+.art-body li{font-size:15px;line-height:1.75;color:var(--g600);margin-bottom:6px}
+.art-body strong{color:var(--dark);font-weight:600}
+.art-tip{background:rgba(29,158,117,.07);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--dark);line-height:1.65}
+.art-tip strong{color:var(--teal2)}
+.art-warn{background:rgba(245,158,11,.07);border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--dark);line-height:1.65}
+.art-steps{counter-reset:step;display:flex;flex-direction:column;gap:16px;margin:20px 0}
+.art-step{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--g50);border:1px solid var(--g200);border-radius:10px}
+.art-step::before{counter-increment:step;content:counter(step);width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.art-step-content h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.art-step-content p{font-size:13px;color:var(--g600);line-height:1.6;margin:0}
+.art-nav-footer{border-top:1px solid var(--g200);padding:32px 72px;max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.art-nav-btn{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--teal);cursor:pointer;transition:color .2s}
+.art-nav-btn:hover{color:var(--teal2)}
+.art-nav-btn svg{flex-shrink:0}
+</style>
+
+<!-- KC LIST PAGE -->
+<div id="kc-list-page">
+<div class="kc-hero">
+  <div class="kc-hero-inner">
+    <div class="kc-tag">&#10022; Knowledge Center</div>
+    <h2>How can we <em>help you?</em></h2>
+    <p>Tutorials, guides, and walkthroughs for every part of Goals.com — written in plain language.</p>
+    <div class="kc-search-wrap">
+      <svg class="kc-search-ico" width="17" height="17" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M13 13l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <input type="text" class="kc-search" id="kcSearch" placeholder='Search — try "commissions" or "how to add a deal"' autocomplete="off">
+      <button class="kc-clear" id="kcClear">Clear</button>
+    </div>
+    <div class="kc-count" id="kcCount"></div>
+    <div class="kc-chips">
+      <span class="kc-chip" onclick="kcDoSearch('getting started')">Getting started</span>
+      <span class="kc-chip" onclick="kcDoSearch('pipeline')">How does pipeline work?</span>
+      <span class="kc-chip" onclick="kcDoSearch('commission')">Understanding commissions</span>
+      <span class="kc-chip" onclick="kcDoSearch('contest')">Setting up contests</span>
+      <span class="kc-chip" onclick="kcDoSearch('Ace AI')">What is Ace AI?</span>
+    </div>
+  </div>
+</div>
+
+<div class="kc-layout">
+  <aside class="kc-sidebar">
+    <div class="kc-sb-label">Browse by topic</div>
+    <div class="kc-sb-nav">
+      <div class="kc-sb-item on" onclick="kcScrollTo('gs',this)"><span class="kc-sb-icon">&#127968;</span>Getting Started<span class="kc-sb-cnt">5</span></div>
+      <div class="kc-sb-item" onclick="kcScrollTo('gq',this)"><span class="kc-sb-icon">&#127919;</span>Goals &amp; Quotas<span class="kc-sb-cnt">4</span></div>
+      <div class="kc-sb-item" onclick="kcScrollTo('pl',this)"><span class="kc-sb-icon">&#128203;</span>Pipeline CRM<span class="kc-sb-cnt">5</span></div>
+      <div class="kc-sb-item" onclick="kcScrollTo('cm',this)"><span class="kc-sb-icon">&#128176;</span>Commissions<span class="kc-sb-cnt">4</span></div>
+      <div class="kc-sb-item" onclick="kcScrollTo('bn',this)"><span class="kc-sb-icon">&#127873;</span>Bonuses &amp; Contests<span class="kc-sb-cnt">4</span></div>
+      <div class="kc-sb-item" onclick="kcScrollTo('ac',this)"><span class="kc-sb-icon">&#10022;</span>Ace AI<span class="kc-sb-cnt">4</span></div>
+      <div class="kc-sb-item" onclick="kcScrollTo('rp',this)"><span class="kc-sb-icon">&#128202;</span>Reports<span class="kc-sb-cnt">3</span></div>
+    </div>
+    <div class="kc-sb-div"></div>
+    <div class="kc-popular">
+      <div class="kc-pop-title">Most popular</div>
+      <div class="kc-pop-item" onclick="openArticle('gs-setup')"><span class="kc-pop-n">1</span>Setting up your account<span class="kc-pop-arr">&#8594;</span></div>
+      <div class="kc-pop-item" onclick="openArticle('gs-invite')"><span class="kc-pop-n">2</span>Inviting your team<span class="kc-pop-arr">&#8594;</span></div>
+      <div class="kc-pop-item" onclick="openArticle('gs-tour')"><span class="kc-pop-n">3</span>Full platform tour<span class="kc-pop-arr">&#8594;</span></div>
+      <div class="kc-pop-item" onclick="openArticle('gs-import')"><span class="kc-pop-n">4</span>Importing your CRM data<span class="kc-pop-arr">&#8594;</span></div>
+      <div class="kc-pop-item" onclick="openArticle('gs-nav')"><span class="kc-pop-n">5</span>Navigating the platform<span class="kc-pop-arr">&#8594;</span></div>
+    </div>
+  </aside>
+
+  <main class="kc-content">
+    <div class="kc-no-res" id="kcNoRes"><div class="kc-no-res-icon">&#128269;</div><h3>No results found</h3><p>Try different keywords or browse the sections below.</p></div>
+
+    <!-- GETTING STARTED -->
+    <div class="kc-section" id="gs">
+      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(29,158,117,.1)">&#127968;</div><div><div class="kc-sec-title">Getting Started</div><div class="kc-sec-desc">New to Goals.com? Start here.</div></div></div>
+      <div class="kc-cards">
+        <div class="kc-card" data-tags="setup account first time configure workspace new" onclick="openArticle('gs-setup')"><div class="kc-art-type type-walk">&#128249; Walkthrough</div><div class="kc-art-title">Setting up your Goals.com account for the first time</div><div class="kc-art-desc">Step-by-step guide to creating your workspace, inviting your team, and going live quickly.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span><div class="kc-art-tags"><span class="kc-art-tag">Setup</span><span class="kc-art-tag">Onboarding</span></div></div></div>
+        <div class="kc-card" data-tags="invite team users roles add members reps managers" onclick="openArticle('gs-invite')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Inviting your sales team and setting up user roles</div><div class="kc-art-desc">How to add reps, managers, and admins — and what access each role gets by default.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span><div class="kc-art-tags"><span class="kc-art-tag">Team</span><span class="kc-art-tag">Users</span></div></div></div>
+        <div class="kc-card" data-tags="tour overview platform features what is goals guide" onclick="openArticle('gs-tour')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">A complete tour of the Goals.com platform</div><div class="kc-art-desc">Every feature explained in plain language — from pipeline to commissions to Ace AI.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 8 min read</span><div class="kc-art-tags"><span class="kc-art-tag">Overview</span></div></div></div>
+        <div class="kc-card" data-tags="import migrate crm contacts deals csv data existing" onclick="openArticle('gs-import')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Importing your contacts and deals from another CRM</div><div class="kc-art-desc">How to bring your existing pipeline data in via CSV and what to do after the import completes.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 6 min read</span><div class="kc-art-tags"><span class="kc-art-tag">Import</span><span class="kc-art-tag">Migration</span></div></div></div>
+        <div class="kc-card" data-tags="navigate navigation layout find where home section menu" onclick="openArticle('gs-nav')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Finding your way around — navigating Goals.com</div><div class="kc-art-desc">A quick map of the navigation, what each section does, and how to find what you use most.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 2 min read</span><div class="kc-art-tags"><span class="kc-art-tag">Navigation</span></div></div></div>
+      </div>
+    </div>
+
+    <!-- GOALS -->
+    <div class="kc-section" id="gq">
+      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(29,158,117,.12)">&#127919;</div><div><div class="kc-sec-title">Goals &amp; Quotas</div><div class="kc-sec-desc">Set quotas, track attainment, and keep every rep accountable.</div></div></div>
+      <div class="kc-cards">
+        <div class="kc-card" data-tags="goals quota set up create annual quarterly attainment rep"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">How to set up sales goals for your team</div><div class="kc-art-desc">Creating annual and quarterly quotas, understanding attainment percentage, and how Goals calculates it automatically.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
+        <div class="kc-card" data-tags="quota attainment calculated deals percentage how works"><div class="kc-art-type type-faq">&#10067; FAQ</div><div class="kc-art-title">How is quota attainment calculated?</div><div class="kc-art-desc">When a deal counts toward quota, how it rolls up, and what triggers a real-time update.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
+        <div class="kc-card" data-tags="at-risk alert warning behind pace rep flag goals"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Understanding at-risk alerts — when Goals flags a rep as behind</div><div class="kc-art-desc">What triggers an alert, how pace is calculated, and what to do when a rep shows up in red.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="leaderboard team dashboard ranking performance top rep goals"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Reading the team leaderboard and performance dashboard</div><div class="kc-art-desc">What each stat on the leaderboard means and how reps rank against each other in real time.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
+      </div>
+    </div>
+
+    <!-- PIPELINE -->
+    <div class="kc-section" id="pl">
+      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(99,102,241,.1)">&#128203;</div><div><div class="kc-sec-title">Pipeline CRM</div><div class="kc-sec-desc">Track deals, contacts, and accounts from first touch to closed-won.</div></div></div>
+      <div class="kc-cards">
+        <div class="kc-card" data-tags="pipeline add deal opportunity create new first"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Adding your first deal to the pipeline</div><div class="kc-art-desc">How to create an opportunity, fill the key fields, link it to a contact, and move it into the right stage.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="pipeline kanban list calendar view switch board drag drop"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Kanban, List, and Calendar view — which one to use?</div><div class="kc-art-desc">A comparison of all three pipeline views, what each is best for, and how to switch between them.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="pipeline deal aging idle stale risk flag days warning"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Deal aging — what it means when a deal is flagged as idle</div><div class="kc-art-desc">How Goals.com tracks stage duration, when it flags a deal as idle, and what to do about a stale pipeline.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
+        <div class="kc-card" data-tags="pipeline contacts add link organization account crm"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Managing contacts and linking them to deals</div><div class="kc-art-desc">How to create contacts, tie them to an organization, and link them to one or more pipeline deals.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
+        <div class="kc-card" data-tags="pipeline activity log note call email task follow up"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Logging activities — calls, notes, tasks, and follow-ups</div><div class="kc-art-desc">How to keep a complete deal history by logging calls, writing notes, and setting follow-up tasks.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+      </div>
+    </div>
+
+    <!-- COMMISSIONS -->
+    <div class="kc-section" id="cm">
+      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(244,63,94,.1)">&#128176;</div><div><div class="kc-sec-title">Commissions</div><div class="kc-sec-desc">Track, calculate, and understand commission payouts.</div></div></div>
+      <div class="kc-cards">
+        <div class="kc-card" data-tags="commissions how works calculated rate deal closed earned"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">How commissions work in Goals.com — the complete guide</div><div class="kc-art-desc">End-to-end explanation: when a deal closes, how the rate applies, and where the numbers appear.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 6 min read</span></div></div>
+        <div class="kc-card" data-tags="commissions set rate configure percentage per rep setup"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Setting up commission rates for your reps</div><div class="kc-art-desc">How to configure rates — same for everyone or custom per rep — without affecting historical data.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="commissions payout date schedule when paid next rep"><div class="kc-art-type type-faq">&#10067; FAQ</div><div class="kc-art-title">How does the payout date work?</div><div class="kc-art-desc">How to set a payout schedule, where reps see their next payout date, and what happens after the cutoff.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
+        <div class="kc-card" data-tags="commissions manager team view all reps full table history"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">The manager view — all commissions across the team</div><div class="kc-art-desc">How managers see the full commission picture for every rep in one table and export for payroll.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+      </div>
+    </div>
+
+    <!-- BONUSES & CONTESTS -->
+    <div class="kc-section" id="bn">
+      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(245,158,11,.1)">&#127873;</div><div><div class="kc-sec-title">Bonuses &amp; Contests</div><div class="kc-sec-desc">Create incentives that drive the behavior you want.</div></div></div>
+      <div class="kc-cards">
+        <div class="kc-card" data-tags="bonus create set up tier structure reward new"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Creating your first bonus — a step-by-step walkthrough</div><div class="kc-art-desc">Build a bonus from scratch: naming it, setting the target, configuring the reward, and going live.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
+        <div class="kc-card" data-tags="contest create set up leaderboard prize competition launch"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Running your first sales contest from setup to launch</div><div class="kc-art-desc">Everything to get a contest live: setting the goal, adding a prize pool, and letting the leaderboard do the work.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 6 min read</span></div></div>
+        <div class="kc-card" data-tags="contest leaderboard live real time update rank score"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">How the contest leaderboard updates in real time</div><div class="kc-art-desc">What triggers a rank change, how standings update as deals close, and where reps see it live.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
+        <div class="kc-card" data-tags="bonus contest history payout awarded past archive results"><div class="kc-art-type type-faq">&#10067; FAQ</div><div class="kc-art-title">Where to find past bonus and contest history</div><div class="kc-art-desc">How to view payout history, total YTD awarded, and past contest archives with final standings.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 2 min read</span></div></div>
+      </div>
+    </div>
+
+    <!-- ACE AI -->
+    <div class="kc-section" id="ac">
+      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(6,182,212,.1)">&#10022;</div><div><div class="kc-sec-title">Ace AI</div><div class="kc-sec-desc">Your built-in sales intelligence assistant.</div></div></div>
+      <div class="kc-cards">
+        <div class="kc-card" data-tags="Ace AI what is how works intelligence assistant pipeline"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">What is Ace AI and what can it do?</div><div class="kc-art-desc">An intro to Ace — what questions it can answer, what data it accesses, and how it differs from a generic chatbot.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="Ace AI ask question examples pipeline deals at risk prompt"><div class="kc-art-type type-tip">&#128161; Tip</div><div class="kc-art-title">10 questions to ask Ace that will change how you run your pipeline</div><div class="kc-art-desc">Real example prompts — from surfacing at-risk deals to forecasting end-of-quarter revenue.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
+        <div class="kc-card" data-tags="Ace AI at risk deal flag surface identify pipeline stale"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">How Ace surfaces at-risk deals before they slip</div><div class="kc-art-desc">How Ace analyzes deal age, activity history, and stage duration to flag deals likely to be lost.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="Ace AI forecast predict revenue quarter projected close"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Using Ace to forecast your quarter</div><div class="kc-art-desc">How Ace uses historical close rates and current pipeline to project revenue — and how to stress-test it.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+      </div>
+    </div>
+
+    <!-- REPORTS -->
+    <div class="kc-section" id="rp">
+      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(249,115,22,.1)">&#128202;</div><div><div class="kc-sec-title">Reports &amp; Forecasting</div><div class="kc-sec-desc">Export data, schedule reports, and forecast revenue.</div></div></div>
+      <div class="kc-cards">
+        <div class="kc-card" data-tags="report export csv xlsx download data opportunities commissions"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Exporting your data — opportunities, contacts, commissions, and goals</div><div class="kc-art-desc">How to export any dataset in CSV or XLSX, filter before exporting, and what each export includes.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="report scheduled automatic weekly monthly deliver recurring email"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Setting up scheduled reports that run automatically</div><div class="kc-art-desc">Schedule a weekly or monthly report so leadership always has the numbers without anyone pulling them.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="report forecast pipeline quarter revenue projected win rate"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Understanding pipeline forecasting — what the numbers mean</div><div class="kc-art-desc">How forecast ranges are calculated, what high and low estimates represent, and how often to revisit.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
+      </div>
+    </div>
+
+  </main>
+</div><!-- /kc-list-page -->
+
+<!-- ARTICLE PAGES (all 5 Getting Started) -->
+<div class="art-view" id="art-gs-setup">
+  <div class="art-hero">
+    <div class="art-hero-inner">
+      <div class="art-breadcrumb"><a onclick="closeArticle()">Knowledge Center</a><span>&#8250;</span><a onclick="closeArticle()">Getting Started</a><span>&#8250;</span>Setting up your account</div>
+      <div class="art-h1">Setting up your Goals.com account for the first time</div>
+      <div class="art-meta"><span class="art-meta-type type-walk">&#128249; Walkthrough</span><span class="art-meta-time">&#128336; 5 min read</span></div>
+    </div>
+  </div>
+  <div class="art-body-wrap">
+    <div class="art-body">
+      <p>Welcome to Goals.com. This walkthrough covers everything you need to get your workspace up and running — from the moment you create your account to the moment your first rep logs in and sees their quota on the dashboard.</p>
+      <p>The whole setup typically takes under 30 minutes. Here's what you'll do:</p>
+
+      <h2>Step 1 — Create your workspace</h2>
+      <p>When you first sign up, Goals.com creates a workspace tied to your organization. Your workspace is the central environment where all your team's data lives — pipeline, goals, commissions, and everything else.</p>
+      <div class="art-steps">
+        <div class="art-step"><div class="art-step-content"><h4>Sign up at Goals.com</h4><p>Enter your name, work email, and create a password. You'll receive a confirmation email — click the link to verify and you're in.</p></div></div>
+        <div class="art-step"><div class="art-step-content"><h4>Name your workspace</h4><p>This is usually your company name. It appears in the nav bar and in all team notifications. You can change it later in Settings.</p></div></div>
+        <div class="art-step"><div class="art-step-content"><h4>Set your fiscal year and quota period</h4><p>Goals.com needs to know when your year starts and how you measure quota (annual, quarterly, or monthly). This determines how attainment is tracked and how the leaderboard calculates pace.</p></div></div>
+      </div>
+
+      <div class="art-tip"><strong>Tip:</strong> If your team runs on a non-calendar fiscal year (e.g., April–March), set that now. Changing it after reps have been added will affect historical attainment data.</div>
+
+      <h2>Step 2 — Configure your basics</h2>
+      <p>Before you invite anyone, spend a few minutes setting up the core configuration so your team has a clean experience from day one.</p>
+      <ul>
+        <li><strong>Deal stages</strong> — Set up the stages in your sales process (e.g., Prospect, Qualify, Proposal, Negotiation, Closed-Won, Closed-Lost). These become the columns in your Kanban pipeline view.</li>
+        <li><strong>Currency and timezone</strong> — Set these in Settings &gt; Workspace so deal values and timestamps display correctly for your team.</li>
+        <li><strong>Commission defaults</strong> — If all your reps earn the same commission rate, set the default now. You can override per-rep later.</li>
+      </ul>
+
+      <h2>Step 3 — Invite your team</h2>
+      <p>Go to <strong>Settings &gt; Team</strong> and click <strong>Invite Members</strong>. Enter each person's email address and assign them a role — Rep, Manager, or Admin. Each invited person gets an email with a link to set their password and join the workspace.</p>
+
+      <div class="art-warn"><strong>Note:</strong> Only Admins can invite new users, change billing settings, and configure workspace-level options. Managers can view all rep data but cannot change org-wide settings.</div>
+
+      <h2>Step 4 — Set your first round of goals</h2>
+      <p>Navigate to <strong>Goals</strong> in the left nav. Click <strong>Set Goal</strong> for each rep and enter their annual (or quarterly) quota. Once saved, each rep will see their quota and current attainment percentage on their personal dashboard the moment they log in.</p>
+
+      <div class="art-tip"><strong>Tip:</strong> Start with your current period's goals even if the period is already underway. Goals.com will calculate attainment from the deals already closed — it won't start from zero.</div>
+
+      <h2>Step 5 — You're live</h2>
+      <p>That's it. Your reps can now log in, see their quotas, add deals to the pipeline, and track their progress. As deals close, attainment updates in real time — no manual entry required.</p>
+      <p>From here, explore the rest of the Getting Started articles to learn how to import existing deal data, set up commissions, and run your first contest.</p>
+    </div>
+    <div class="art-nav-footer">
+      <div class="art-nav-btn" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Back to Knowledge Center</div>
+      <div class="art-nav-btn" onclick="openArticle('gs-invite')">Next: Inviting your team <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<div class="art-view" id="art-gs-invite">
+  <div class="art-hero">
+    <div class="art-hero-inner">
+      <div class="art-breadcrumb"><a onclick="closeArticle()">Knowledge Center</a><span>&#8250;</span><a onclick="closeArticle()">Getting Started</a><span>&#8250;</span>Inviting your team</div>
+      <div class="art-h1">Inviting your sales team and setting up user roles</div>
+      <div class="art-meta"><span class="art-meta-type type-tut">&#127891; Tutorial</span><span class="art-meta-time">&#128336; 3 min read</span></div>
+    </div>
+  </div>
+  <div class="art-body-wrap">
+    <div class="art-body">
+      <p>Goals.com has three user roles: <strong>Rep</strong>, <strong>Manager</strong>, and <strong>Admin</strong>. Each role controls what a person can see, edit, and configure. Getting roles right from the start means your team sees exactly what they need — nothing more, nothing less.</p>
+
+      <h2>The three roles</h2>
+      <h3>Rep</h3>
+      <p>Reps see their own pipeline, quota attainment, commissions, bonuses, and the team Highlights feed. They can add and update deals, log activities, and interact with Ace AI. They <strong>cannot</strong> see other reps' commissions or edit team-wide settings.</p>
+
+      <h3>Manager</h3>
+      <p>Managers see everything reps see, plus the full team view — all reps' pipelines, quota attainment, and commissions in one consolidated dashboard. Managers can create goals, run contests, set bonuses, and export reports. They <strong>cannot</strong> change billing, invite new users, or edit workspace settings.</p>
+
+      <h3>Admin</h3>
+      <p>Admins have full access to everything — including workspace settings, billing, user management, and all data across the organization. Assign this role carefully. Most teams have one or two Admins maximum.</p>
+
+      <h2>How to invite someone</h2>
+      <div class="art-steps">
+        <div class="art-step"><div class="art-step-content"><h4>Go to Settings &gt; Team</h4><p>You'll see a list of existing team members and an Invite Members button in the top right.</p></div></div>
+        <div class="art-step"><div class="art-step-content"><h4>Enter their email address and select a role</h4><p>You can invite multiple people at once by adding multiple email addresses. Each gets their own role assignment.</p></div></div>
+        <div class="art-step"><div class="art-step-content"><h4>Click Send Invite</h4><p>Goals.com sends each person an email with a link to join. The link is valid for 72 hours. If it expires, resend from the Team settings page.</p></div></div>
+        <div class="art-step"><div class="art-step-content"><h4>Set their goal once they join</h4><p>After a rep accepts the invite, head to Goals and set their quota. They won't see their attainment until a goal is set.</p></div></div>
+      </div>
+
+      <div class="art-tip"><strong>Tip:</strong> You can change a user's role at any time from Settings &gt; Team. Role changes take effect immediately — no need to re-invite.</div>
+
+      <h2>Removing a team member</h2>
+      <p>If someone leaves your team, go to <strong>Settings &gt; Team</strong>, find their name, and click <strong>Deactivate</strong>. Their historical data (deals, commissions, activity) stays intact in the system — only their ability to log in is removed. This is important for accurate commission and performance records.</p>
+
+      <div class="art-warn"><strong>Important:</strong> Deactivating a user does not delete their data. If you want to permanently remove a user's data, contact Goals.com support.</div>
+    </div>
+    <div class="art-nav-footer">
+      <div class="art-nav-btn" onclick="openArticle('gs-setup')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Setting up your account</div>
+      <div class="art-nav-btn" onclick="openArticle('gs-tour')">Next: Platform tour <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<div class="art-view" id="art-gs-tour">
+  <div class="art-hero">
+    <div class="art-hero-inner">
+      <div class="art-breadcrumb"><a onclick="closeArticle()">Knowledge Center</a><span>&#8250;</span><a onclick="closeArticle()">Getting Started</a><span>&#8250;</span>Platform tour</div>
+      <div class="art-h1">A complete tour of the Goals.com platform</div>
+      <div class="art-meta"><span class="art-meta-type type-guide">&#128218; Guide</span><span class="art-meta-time">&#128336; 8 min read</span></div>
+    </div>
+  </div>
+  <div class="art-body-wrap">
+    <div class="art-body">
+      <p>Goals.com is a Sales Performance Software — every feature is designed around one question: <em>Is your team winning, and what do they need to win more?</em> This guide walks through every major section so you know what's there and why it matters.</p>
+
+      <h2>Dashboard</h2>
+      <p>The Dashboard is the first thing everyone sees when they log in. For managers, it shows the full team picture: Annual Sales Goal, Total Sales YTD, Team ROI, YTD Pace, and a live leaderboard ranked by quota attainment. For reps, it shows their personal performance — their quota, how far along they are, and where they sit on the leaderboard.</p>
+      <p>Everything on the Dashboard updates in real time. When a deal closes, the numbers move immediately — no refresh required.</p>
+
+      <h2>Goals</h2>
+      <p>The Goals section is where quota lives. Each rep has an individual goal page showing their annual or quarterly quota, current attainment as a percentage and dollar amount, YTD pace (whether they're on track to hit their number by period end), and a deal-by-deal breakdown of what's contributed to their quota so far.</p>
+      <p>When a rep's pace falls below a threshold you configure, Goals flags them as at-risk — automatically, without anyone having to check a spreadsheet.</p>
+
+      <h2>Pipeline</h2>
+      <p>Pipeline is the CRM. Every deal your team is working lives here, organized by stage. You can view it as a <strong>Kanban board</strong> (drag and drop), a <strong>List</strong> (sortable table), or a <strong>Calendar</strong> (deals and tasks by date). Deals are linked to Contacts and Accounts, so you always have the full context on who you're selling to and what else is happening with that organization.</p>
+
+      <h2>Highlights</h2>
+      <p>Highlights is the team culture layer. When a rep closes a deal, hits their monthly goal, or reaches a milestone, it posts automatically to the Highlights feed — and the whole team can react and comment. It's how Goals.com keeps wins visible and recognition organic, especially for remote or distributed teams.</p>
+
+      <h2>Bonuses</h2>
+      <p>Bonuses lets you create incentive structures on top of base commission. You define the target (close 5 deals, generate $50K in revenue, make 100 calls) and the reward, and Goals.com tracks each rep's progress automatically. Reps see a progress bar showing how close they are to unlocking each bonus.</p>
+
+      <h2>Contests</h2>
+      <p>Contests are time-boxed competitions with a live leaderboard. You set a goal (most deals closed, most revenue, most activity logged), a time frame, and a prize. The leaderboard updates in real time as deals close. Past contests are archived so you can see final standings and winners.</p>
+
+      <h2>Commissions</h2>
+      <p>Every rep has a personal commissions page showing exactly what they've earned — broken down by deal, with the commission rate applied and the dollar amount calculated. There's also a YTD total and a next payout date. Managers can see the full team view and export commission data for payroll.</p>
+
+      <h2>Reports</h2>
+      <p>Reports is the export center. You can export Opportunities, Contacts, Activities, Goals &amp; Performance, and Commissions as CSV or XLSX files in one click. You can also schedule reports to run automatically — weekly, monthly, or on a custom cadence — and have them delivered to your inbox.</p>
+
+      <h2>Ace AI</h2>
+      <p>Ace is the built-in AI assistant. It knows your pipeline, your reps, and your history. You can ask it anything in plain English — "which deals are at risk this quarter?" or "what's our projected close for Q3?" — and it answers with real data from your account. It's available from any page in the platform via the Ace icon in the left nav.</p>
+
+      <h2>Chat</h2>
+      <p>Chat is built-in team messaging. You can create topic-specific channels (e.g., #closers, #deals, #announcements) and send direct messages to individual team members. It keeps sales communication inside the same tool where the work is happening — so context doesn't get lost across apps.</p>
+
+      <div class="art-tip"><strong>Where to go next:</strong> Now that you know what's here, work through the rest of the Getting Started articles to import your data, configure your pipeline stages, and set your first goals.</div>
+    </div>
+    <div class="art-nav-footer">
+      <div class="art-nav-btn" onclick="openArticle('gs-invite')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Inviting your team</div>
+      <div class="art-nav-btn" onclick="openArticle('gs-import')">Next: Importing your data <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<div class="art-view" id="art-gs-import">
+  <div class="art-hero">
+    <div class="art-hero-inner">
+      <div class="art-breadcrumb"><a onclick="closeArticle()">Knowledge Center</a><span>&#8250;</span><a onclick="closeArticle()">Getting Started</a><span>&#8250;</span>Importing your data</div>
+      <div class="art-h1">Importing your contacts and deals from another CRM</div>
+      <div class="art-meta"><span class="art-meta-type type-tut">&#127891; Tutorial</span><span class="art-meta-time">&#128336; 6 min read</span></div>
+    </div>
+  </div>
+  <div class="art-body-wrap">
+    <div class="art-body">
+      <p>If you're moving to Goals.com from another CRM — Salesforce, HubSpot, Pipedrive, or a spreadsheet — the import tool lets you bring your existing contacts, accounts, and deals without starting from zero.</p>
+      <p>Goals.com accepts <strong>CSV files</strong> for all import types. If your current CRM exports in another format (XLSX, JSON), convert to CSV first using Google Sheets or Excel.</p>
+
+      <h2>What you can import</h2>
+      <ul>
+        <li><strong>Contacts</strong> — names, emails, phone numbers, titles, and linked organizations</li>
+        <li><strong>Accounts</strong> — company names, industries, website, and notes</li>
+        <li><strong>Opportunities (Deals)</strong> — deal name, value, stage, linked contact, linked account, close date, and assigned rep</li>
+      </ul>
+      <p>Commission history and activity logs (calls, notes) cannot be imported — those are entered going forward inside Goals.com.</p>
+
+      <h2>Preparing your CSV</h2>
+      <p>Before importing, clean up your data. A few things that cause issues:</p>
+      <ul>
+        <li><strong>Duplicate contacts</strong> — Goals.com uses email address as the unique identifier for contacts. If the same email appears twice, only one record will import.</li>
+        <li><strong>Deal stages that don't match</strong> — Your CSV deal stages need to match the stage names you configured in Goals.com exactly (case-sensitive). If your CSV says "In Negotiation" but Goals.com has "Negotiation," the deal will import into the default first stage.</li>
+        <li><strong>Currency formatting</strong> — Deal values should be plain numbers (42000, not $42,000). Remove currency symbols and commas before importing.</li>
+      </ul>
+
+      <div class="art-tip"><strong>Tip:</strong> Download the Goals.com import template from the Import page (Settings &gt; Import &gt; Download Template) before formatting your data. It shows exactly which column headers are expected.</div>
+
+      <h2>Running the import</h2>
+      <div class="art-steps">
+        <div class="art-step"><div class="art-step-content"><h4>Go to Settings &gt; Import</h4><p>You'll see separate import options for Contacts, Accounts, and Opportunities. Always import in this order: Accounts first, then Contacts, then Opportunities — because deals need to be linked to contacts and accounts that already exist.</p></div></div>
+        <div class="art-step"><div class="art-step-content"><h4>Upload your CSV file</h4><p>Click Upload and select your file. Goals.com will preview the first few rows and ask you to map columns to fields.</p></div></div>
+        <div class="art-step"><div class="art-step-content"><h4>Map your columns</h4><p>Each column in your CSV needs to be matched to a Goals.com field. Required fields are marked with a red asterisk. Unmapped columns are skipped — they won't cause errors, just won't import.</p></div></div>
+        <div class="art-step"><div class="art-step-content"><h4>Review and confirm</h4><p>Goals.com shows a summary: X records will import, Y have errors (with explanations). Fix errors in your CSV and re-upload, or skip the problem rows and import the clean records now.</p></div></div>
+        <div class="art-step"><div class="art-step-content"><h4>Check your data</h4><p>After import, spot-check a few records in Pipeline and Contacts to confirm everything landed correctly. Pay particular attention to deal stages and assigned rep names.</p></div></div>
+      </div>
+
+      <h2>After the import</h2>
+      <p>Imported deals do not automatically count toward quota attainment unless their Close Date is within the current quota period and their status is Closed-Won. Open deals import as active pipeline — they'll count toward attainment when they're marked closed inside Goals.com.</p>
+
+      <div class="art-warn"><strong>Note:</strong> Imports cannot be undone in bulk. If you import incorrect data, you'll need to delete records individually or contact support. Always test with a small sample file first.</div>
+    </div>
+    <div class="art-nav-footer">
+      <div class="art-nav-btn" onclick="openArticle('gs-tour')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Platform tour</div>
+      <div class="art-nav-btn" onclick="openArticle('gs-nav')">Next: Navigating Goals.com <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<div class="art-view" id="art-gs-nav">
+  <div class="art-hero">
+    <div class="art-hero-inner">
+      <div class="art-breadcrumb"><a onclick="closeArticle()">Knowledge Center</a><span>&#8250;</span><a onclick="closeArticle()">Getting Started</a><span>&#8250;</span>Navigating Goals.com</div>
+      <div class="art-h1">Finding your way around — navigating Goals.com</div>
+      <div class="art-meta"><span class="art-meta-type type-guide">&#128218; Guide</span><span class="art-meta-time">&#128336; 2 min read</span></div>
+    </div>
+  </div>
+  <div class="art-body-wrap">
+    <div class="art-body">
+      <p>Goals.com uses a left sidebar for all navigation. Every section of the platform is one click away from anywhere. Here's a quick reference for what lives where.</p>
+
+      <h2>The left navigation</h2>
+      <ul>
+        <li><strong>Dashboard</strong> — The home screen. Shows your team leaderboard, key metrics (YTD Sales, Team ROI, Quota Pace), and the Highlights feed preview.</li>
+        <li><strong>Goals</strong> — Individual rep quota pages and team-wide goal tracking. This is where you set, view, and manage sales quotas.</li>
+        <li><strong>Pipeline</strong> — Your CRM. All deals, contacts, and accounts live here. Toggle between Kanban, List, and Calendar views from the top of this page.</li>
+        <li><strong>Highlights</strong> — The team recognition feed. Deal closes, badges, milestones, and reactions.</li>
+        <li><strong>Chat</strong> — Internal team messaging. Channels and direct messages.</li>
+        <li><strong>Bonuses</strong> — Active and past bonus structures. Reps see their own progress; managers see everyone's.</li>
+        <li><strong>Contests</strong> — Active and past sales competitions with live leaderboards.</li>
+        <li><strong>Commissions</strong> — Per-deal commission breakdowns, YTD totals, and payout schedules.</li>
+        <li><strong>Reports</strong> — The export center. One-click data exports and scheduled report configuration.</li>
+        <li><strong>Ace &#10022;</strong> — The AI assistant. Available from any page.</li>
+      </ul>
+
+      <h2>The top bar</h2>
+      <p>The top bar contains <strong>global search</strong> (search for any deal, contact, or account by name), your <strong>notification bell</strong> (alerts for at-risk deals, contest updates, and new Highlights), and your <strong>profile menu</strong> (account settings, workspace settings, and sign out).</p>
+
+      <h2>Quick tips</h2>
+      <ul>
+        <li>Press <strong>/</strong> from anywhere to open global search instantly.</li>
+        <li>Click any rep's name on the Dashboard leaderboard to jump directly to their Goal page.</li>
+        <li>In Pipeline, use the <strong>My Deals</strong> filter to see only your own opportunities — useful if you're a rep looking at a busy team pipeline.</li>
+        <li>Ace AI is always one click away — look for the &#10022; icon at the bottom of the left nav.</li>
+      </ul>
+
+      <div class="art-tip"><strong>Tip:</strong> Bookmark your most-used section (usually Pipeline or Goals) so you land there directly each day instead of routing through the Dashboard.</div>
+    </div>
+    <div class="art-nav-footer">
+      <div class="art-nav-btn" onclick="openArticle('gs-import')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Importing your data</div>
+      <div class="art-nav-btn" onclick="closeArticle()">Back to Knowledge Center <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /view-kc -->
+
+<script>
+// ── VIEW SWITCHING ─────────────────────────────────────────
+function showView(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const el = document.getElementById('view-' + id);
+  if (el) { el.classList.add('active'); window.scrollTo(0,0); }
+  document.getElementById('kcNavBtn').classList.toggle('active', id === 'kc');
+  // hide article if switching views
+  document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
+  document.getElementById('kc-list-page').style.display = '';
+}
+
+// ── ARTICLE ROUTING ────────────────────────────────────────
+function openArticle(id) {
+  document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
+  const art = document.getElementById('art-' + id);
+  if (art) { art.classList.add('show'); document.getElementById('kc-list-page').style.display = 'none'; }
+  window.scrollTo(0,0);
+}
+function closeArticle() {
+  document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
+  document.getElementById('kc-list-page').style.display = '';
+  window.scrollTo(0,0);
+}
+
+// ── KC SEARCH ──────────────────────────────────────────────
+const kcSearchEl = document.getElementById('kcSearch');
+const kcClearEl = document.getElementById('kcClear');
+const kcCountEl = document.getElementById('kcCount');
+const kcNoRes = document.getElementById('kcNoRes');
+const kcCards = document.querySelectorAll('.kc-card');
+const kcSections = document.querySelectorAll('.kc-section');
+
+function kcDoSearch(q) {
+  kcSearchEl.value = q;
+  kcSearchEl.dispatchEvent(new Event('input'));
+  window.scrollTo({top: document.querySelector('.kc-hero').offsetHeight, behavior:'smooth'});
+}
+
+kcSearchEl.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  kcClearEl.classList.toggle('show', q.length > 0);
+  if (!q) {
+    kcCards.forEach(c => c.classList.remove('hidden'));
+    kcSections.forEach(s => s.style.display = '');
+    kcCountEl.textContent = '';
+    kcNoRes.classList.remove('show');
+    return;
+  }
+  let n = 0;
+  kcCards.forEach(card => {
+    const txt = (card.dataset.tags + ' ' + card.querySelector('.kc-art-title').textContent + ' ' + card.querySelector('.kc-art-desc').textContent).toLowerCase();
+    const match = q.split(' ').some(w => w && txt.includes(w));
+    card.classList.toggle('hidden', !match);
+    if (match) n++;
+  });
+  kcSections.forEach(s => {
+    const vis = [...s.querySelectorAll('.kc-card')].some(c => !c.classList.contains('hidden'));
+    s.style.display = vis ? '' : 'none';
+  });
+  kcNoRes.classList.toggle('show', n === 0);
+  kcCountEl.textContent = n > 0 ? n + ' article' + (n !== 1 ? 's' : '') + ' found' : '';
+});
+
+kcClearEl.addEventListener('click', () => { kcSearchEl.value = ''; kcSearchEl.dispatchEvent(new Event('input')); kcSearchEl.focus(); });
+
+function kcScrollTo(id, el) {
+  document.querySelectorAll('.kc-sb-item').forEach(i => i.classList.remove('on'));
+  el.classList.add('on');
+  const t = document.getElementById(id);
+  if (t) window.scrollTo({top: t.getBoundingClientRect().top + window.scrollY - 90, behavior:'smooth'});
+}
+
+// sidebar active on scroll (kc list page)
+const kcSecIds = ['gs','gq','pl','cm','bn','ac','rp'];
 window.addEventListener('scroll', () => {
-  nav.style.borderBottomColor = window.scrollY > 40 ? 'rgba(255,255,255,.1)' : 'rgba(255,255,255,.06)';
-}, { passive: true });
+  if (!document.getElementById('view-kc').classList.contains('active')) return;
+  if (document.getElementById('kc-list-page').style.display === 'none') return;
+  const sy = window.scrollY + 130;
+  let cur = kcSecIds[0];
+  kcSecIds.forEach(id => { const el = document.getElementById(id); if (el && el.offsetTop <= sy) cur = id; });
+  document.querySelectorAll('.kc-sb-item').forEach((item, i) => item.classList.toggle('on', kcSecIds[i] === cur));
+}, {passive:true});
+
+// ── SCROLL REVEAL (home) ───────────────────────────────────
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+}, {threshold:.08, rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 </script>
 </body>
 </html>
