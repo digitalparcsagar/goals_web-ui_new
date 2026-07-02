@@ -19,7 +19,7 @@ a{text-decoration:none;color:inherit}
 .view.active{display:block}
 
 /* ── NAV ────────────────────────────────────────────────────────────── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(20,24,39,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:76px;display:flex;align-items:center;justify-content:space-between;background:rgba(20,24,39,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
 .nav-logo{display:flex;align-items:center;cursor:pointer}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);transition:color .2s}
@@ -34,17 +34,17 @@ a{text-decoration:none;color:inherit}
 .btn-primary:hover{background:var(--teal2)}
 
 /* ── HERO ────────────────────────────────────────────────────────────── */
-.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 72px 80px;overflow:hidden;position:relative}
+.hero{min-height:100vh;background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:88px 72px 0;overflow:hidden;position:relative}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 700px at 65% 45%,rgba(29,158,117,.11) 0%,transparent 65%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(255,255,255,.06)}
-.hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;position:relative;z-index:1}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.14);border:1px solid rgba(29,158,117,.28);color:#4ade80;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:24px}
+.hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;position:relative;z-index:1;flex:1;padding-bottom:40px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.14);border:1px solid rgba(29,158,117,.28);color:#4ade80;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:16px}
 .hero-eyebrow span{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:blink 2s ease-in-out infinite;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-h1{font-size:clamp(36px,4.2vw,56px);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#fff;margin-bottom:22px}
+h1{font-size:clamp(30px,3.4vw,46px);font-weight:900;line-height:1.12;letter-spacing:-.03em;color:#fff;margin-bottom:18px}
 h1 em{font-style:normal;color:var(--teal-light)}
-.hero-sub{font-size:17px;line-height:1.7;color:rgba(255,255,255,.55);max-width:460px;margin-bottom:38px}
-.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.hero-sub{font-size:16px;line-height:1.65;color:rgba(255,255,255,.55);max-width:460px;margin-bottom:26px}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}
 .btn-hero{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:15px;font-weight:700;padding:15px 30px;border-radius:10px;transition:all .25s}
 .btn-hero:hover{background:var(--teal2);transform:translateY(-1px);box-shadow:0 10px 28px rgba(29,158,117,.3)}
 .btn-hero-outline{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.78);font-size:15px;font-weight:500;padding:14px 22px;border:1px solid rgba(255,255,255,.2);border-radius:10px;transition:all .25s}
@@ -96,7 +96,7 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .dash-ace-text strong{color:#4ade80;font-weight:600}
 
 /* ── TICKER ──────────────────────────────────────────────────────────── */
-.ticker{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:16px 0;overflow:hidden;background:var(--navy2)}
+.ticker{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.08);padding:18px 0;overflow:hidden;position:relative}
 .ticker-track{display:flex;gap:56px;animation:tick 28s linear infinite;white-space:nowrap}
 .ticker-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:rgba(255,255,255,.38);flex-shrink:0}
 .ticker-dot{color:var(--teal);font-size:14px}
@@ -322,8 +322,16 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .stage-signed{background:rgba(16,185,129,.18);color:#34d399}
 
 /* ── HERO VIZ WRAPPER + FLOATING CARDS ───────────────────────────────── */
-.hero-viz-wrap{position:relative;padding:32px 28px 32px 8px}
-.hero-float-card{position:absolute;background:rgba(15,20,34,.92);border:1px solid rgba(255,255,255,.13);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;backdrop-filter:blur(16px);box-shadow:0 8px 32px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.04);z-index:10;white-space:nowrap;min-width:160px}
+.hero-viz-wrap{position:relative;padding:32px 28px 32px 8px;overflow:visible}
+.hero-float-card{position:absolute;background:rgba(12,17,30,.94);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;backdrop-filter:blur(20px);box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.05),inset 0 1px 0 rgba(255,255,255,.06);z-index:10;white-space:nowrap}
+.hfc-lg{padding:14px 18px;border-radius:14px;min-width:190px}
+.hfc-sm{padding:8px 12px;border-radius:10px;gap:8px}
+.hfc-sm .hfc-label{font-size:8px}
+.hfc-sm .hfc-val{font-size:12px}
+.hfc-sm .hfc-icon{width:24px;height:24px;border-radius:7px}
+.hfc-lg .hfc-label{font-size:10px}
+.hfc-lg .hfc-val{font-size:18px}
+.hfc-lg .hfc-icon{width:36px;height:36px;border-radius:10px}
 .hfc-1{top:-16px;left:-8px;animation:float1 5s ease-in-out infinite}
 .hfc-2{top:50%;right:-24px;transform:translateY(-50%);animation:float2 5.5s ease-in-out infinite}
 .hfc-3{bottom:-16px;right:16px;animation:float3 4.8s ease-in-out infinite}
@@ -335,7 +343,6 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .hfc-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#1d9e75,#22c55e)}
 .hfc-insight{font-size:11px;color:rgba(255,255,255,.7);line-height:1.3;max-width:120px;white-space:normal}
 
-@keyframes float1{0%,100%{transform:translateY(0) rotate(-.5deg)}50%{transform:translateY(-10px) rotate(.5deg)}}
 @keyframes float2{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(calc(-50% - 8px)) translateX(3px)}}
 @keyframes float3{0%,100%{transform:translateY(0) rotate(.3deg)}50%{transform:translateY(-9px) rotate(-.3deg)}}
 
@@ -375,19 +382,22 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .reveal-right{transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 
 /* ── HERO VIZ BACKGROUND ─────────────────────────────────────────────── */
-.hero-viz-bg{position:absolute;inset:0;border-radius:20px;overflow:hidden;pointer-events:none;z-index:0}
-.hvb-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:520px;height:520px;background:radial-gradient(ellipse at center,rgba(29,158,117,.13) 0%,rgba(29,158,117,.06) 40%,transparent 70%);border-radius:50%}
-.hvb-glow2{position:absolute;top:20%;right:10%;width:280px;height:280px;background:radial-gradient(ellipse at center,rgba(99,102,241,.08) 0%,transparent 65%);border-radius:50%}
-.hvb-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.065) 1px,transparent 1px);background-size:24px 24px}
-.hvb-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;border:1px solid rgba(29,158,117,.06)}
-.hvb-ring2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:420px;height:420px;border-radius:50%;border:1px solid rgba(255,255,255,.04)}
-.hvb-line-h{position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(29,158,117,.08),transparent)}
-.hvb-line-v{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(29,158,117,.06),transparent)}
+.hero-viz-bg{position:absolute;inset:-60px;pointer-events:none;z-index:0}
+.hvb-glow{position:absolute;top:45%;left:45%;transform:translate(-50%,-50%);width:580px;height:580px;background:radial-gradient(ellipse at center,rgba(29,158,117,.22) 0%,rgba(29,158,117,.1) 38%,transparent 68%);border-radius:50%;animation:glowPulse 6s ease-in-out infinite}
+.hvb-glow2{position:absolute;top:15%;right:5%;width:320px;height:320px;background:radial-gradient(ellipse at center,rgba(99,102,241,.16) 0%,rgba(99,102,241,.06) 50%,transparent 70%);border-radius:50%;animation:glowPulse 8s 2s ease-in-out infinite}
+.hvb-glow3{position:absolute;bottom:10%;left:10%;width:240px;height:240px;background:radial-gradient(ellipse at center,rgba(6,182,212,.1) 0%,transparent 65%);border-radius:50%}
+.hvb-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.1) 1px,transparent 1px);background-size:22px 22px}
+.hvb-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:620px;height:620px;border-radius:50%;border:1px solid rgba(29,158,117,.12)}
+.hvb-ring2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:430px;height:430px;border-radius:50%;border:1px solid rgba(29,158,117,.07)}
+.hvb-ring3{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,255,255,.05)}
+.hvb-line-h{position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(29,158,117,.14) 40%,rgba(29,158,117,.14) 60%,transparent)}
+.hvb-line-v{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(29,158,117,.1) 30%,rgba(29,158,117,.1) 70%,transparent)}
+@keyframes glowPulse{0%,100%{opacity:.8;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
 
 /* ── EXTRA FLOAT CARDS ───────────────────────────────────────────────── */
-.hfc-4{top:-14px;right:20px;animation:float4 6s ease-in-out infinite,heroIn .5s .7s ease both}
-.hfc-5{bottom:-14px;left:-4px;animation:float5 5.2s ease-in-out infinite,heroIn .5s .9s ease both}
-.hfc-6{top:30%;left:-28px;animation:float6 5.8s ease-in-out infinite,heroIn .5s 1.1s ease both}
+.hfc-4{top:-22px;left:55px;animation:float4 6s ease-in-out infinite,heroIn .5s .55s ease both}
+.hfc-5{bottom:22%;left:-34px;animation:float5 5.2s ease-in-out infinite,heroIn .5s .75s ease both}
+.hfc-6{bottom:-18px;left:24px;animation:float6 5.8s ease-in-out infinite,heroIn .5s .9s ease both}
 
 @keyframes float4{0%,100%{transform:translateY(0) rotate(.4deg)}50%{transform:translateY(-9px) rotate(-.4deg)}}
 @keyframes float5{0%,100%{transform:translateY(0) rotate(-.3deg)}50%{transform:translateY(-11px) rotate(.3deg)}}
@@ -396,18 +406,44 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 /* hero-viz-wrap needs z-index context */
 .hero-viz-wrap{isolation:isolate}
 .dash-window{position:relative;z-index:2}
+
+/* ── GOALS SECTION BG DECORATION ─────────────────────────────────────── */
+#goals{position:relative;overflow:hidden}
+#goals::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.055) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0}
+#goals::after{content:'';position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(ellipse at center,rgba(29,158,117,.16) 0%,rgba(29,158,117,.06) 45%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;animation:glowPulse 7s ease-in-out infinite}
+#goals .section-inner{position:relative;z-index:1}
+.goals-ring{position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;border:1px solid rgba(29,158,117,.1);pointer-events:none;z-index:0}
+.goals-ring2{position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(255,255,255,.05);pointer-events:none;z-index:0}
+
+/* ── PIPELINE SECTION BG DECORATION ──────────────────────────────────── */
+#pipeline{position:relative;overflow:hidden}
+#pipeline::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,.13) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(99,102,241,.13) 1.5px,transparent 1.5px);background-size:44px 44px;pointer-events:none;z-index:0}
+#pipeline::after{content:'';position:absolute;bottom:-100px;right:-80px;width:460px;height:460px;background:radial-gradient(ellipse at center,rgba(99,102,241,.08) 0%,rgba(99,102,241,.03) 50%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0}
+#pipeline .section-inner{position:relative;z-index:1}
+.pipeline-blob{position:absolute;top:-80px;left:-60px;width:300px;height:300px;background:radial-gradient(ellipse at center,rgba(29,158,117,.07) 0%,transparent 65%);border-radius:50%;pointer-events:none;z-index:0}
+
+/* ── ARTICLE LAYOUT (new format) ────────────────────────────────────── */
+.art-inner{max-width:720px;margin:0 auto;padding:32px 40px 80px}
+.art-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--teal);cursor:pointer;margin-bottom:32px;transition:color .2s}
+.art-back:hover{color:var(--teal2)}
+.art-back svg{flex-shrink:0}
+.art-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.art-section-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--teal2);background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.2);padding:3px 10px;border-radius:100px}
+.art-read-time{font-size:12px;color:var(--g400)}
+.art-lead{font-size:17px;line-height:1.75;color:var(--g600);margin-bottom:36px;border-bottom:1px solid var(--g200);padding-bottom:28px}
+.art-h2{font-size:20px;font-weight:700;color:var(--dark);margin:36px 0 12px;letter-spacing:-.015em}
+.art-p{font-size:15px;line-height:1.75;color:var(--g600);margin-bottom:18px}
+.art-steps ol,.art-steps{counter-reset:step;display:flex;flex-direction:column;gap:12px;margin:20px 0;padding-left:0;list-style:none}
+li.art-step{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;background:var(--g50);border:1px solid var(--g200);border-radius:10px;font-size:14px;color:var(--g600);line-height:1.6;counter-increment:step}
+li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo" onclick="showView('home')" style="display:flex;align-items:center;gap:10px;cursor:pointer">
-    <svg width="38" height="27" viewBox="0 0 41 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M23.7469 5.1311C23.9948 3.4409 23.9888 2.05568 23.327 2.03134C21.2165 1.95701 17.8982 9.7314 19.9741 9.54901C22.2617 9.3474 23.7469 5.13152 23.7469 5.13152L23.7369 7.60039C23.7369 7.60039 21.9568 11.2836 18.7937 11.2268C14.3663 11.1474 16.9977 0.843034 22.6624 0.462879C25.2107 0.292023 25.186 2.45677 24.7264 4.2734C24.4589 5.33185 23.6844 5.55909 23.7469 5.1311Z" fill="white"/>
-      <path d="M38.3001 13.952C33.9325 13.3967 28.7556 13.3796 24.1151 13.503C26.1517 7.30951 26.8834 1.50039 28.6507 1.03054C28.2239 0.351385 26.7953 -0.064222 25.604 0.676012C24.0626 1.63195 23.4588 7.54272 21.4998 13.609C10.4683 14.207 0.156585 17.0295 0.00185471 23.4644C-0.146942 29.7143 8.69047 30.2709 14.5474 27.1314C18.4389 25.0457 21.0534 21.3701 22.6691 17.3341C22.938 16.663 23.3227 15.6981 23.3227 15.6981L22.1424 15.3816C22.6048 15.3474 23.4706 15.3427 23.4711 15.3389C24.4597 15.3104 25.4654 15.2962 26.4881 15.2962H26.4908C30.5567 15.3017 36.7149 15.7442 40.0012 16.2718C40.0012 16.2748 40.5526 14.2377 38.3001 13.952ZM10.4911 26.7316C4.37036 28.1698 1.34331 25.9119 1.66783 23.1748C2.25206 18.2456 10.7855 16.0531 20.8608 15.4534C18.9369 20.6316 15.924 25.4561 10.4911 26.7316Z" fill="white"/>
-    </svg>
-    <span style="font-size:17px;font-weight:800;color:#fff;letter-spacing:-.03em;font-family:'Inter',sans-serif">goals<span style="color:var(--teal-light)">.com</span></span>
+  <div class="nav-logo" onclick="showView('home')" style="cursor:pointer;display:flex;align-items:center;padding:16px 0">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"> <g id="Group_431" data-name="Group 431"> <path id="Path_965" data-name="Path 965" d="M923.533,288.136a.569.569,0,0,0-.445.326c-1.032,2.243-8.727,15.094-3.092,16.044,3.366.568,6.608-3.472,9.867-8.338.561-.57,0-.616-.488-.254-3.2,4.5-5.528,6.782-7.217,6.654-2.154-.163,4.979-11.671,4.678-13.3-.256-1.393-2.442-1.24-3.3-1.129" transform="translate(-847.476 -265.951)" fill="#ffffff"/> <path id="Path_966" data-name="Path 966" d="M817.8,292.888c1.577-2.97,1.2-4.435.3-4.606-2.864-.545-8.309,10.353-5.45,10.592,2.051.171,5.152-5.986,5.152-5.986l.632,2.48s-3.457,7.654-8.371,6.905c-6.019-.917-1.339-16.714,7.231-16.512,3.514.083,3.727,2.622,3.137,5.571-.313,1.567-2.925,2.112-2.629,1.556" transform="translate(-745.359 -263.82)" fill="#ffffff"/> <path id="Path_967" data-name="Path 967" d="M374.992,278.237c.416-3.038.407-5.53-.706-5.572-3.551-.133-9.132,13.84-5.64,13.512,3.847-.362,6.346-7.94,6.346-7.94l-.017,4.438s-2.993,6.62-8.315,6.518c-7.448-.143-3.021-18.665,6.508-19.351,4.286-.309,4.245,3.583,3.472,6.849-.45,1.9-1.753,2.315-1.648,1.546" transform="translate(-335.05 -249.109)" fill="#ffffff"/> <path id="Path_968" data-name="Path 968" d="M766.4,319.932s.045,2.046,1.094,2.783c.892.627,3.059.352,4.816-1.2.18.538-.4,1.146-.4,1.146-1.668,1.235-3.887,1.694-5.259,1.086Z" transform="translate(-707.556 -295.369)" fill="#ffffff"/> <path id="Path_969" data-name="Path 969" d="M1141.115,283.344c-2.015-.438-9.943-.206-16.766.93a4.114,4.114,0,0,1-1.066-3.458c.691-1.895,3.456-2.132,5.806-1.726,0,0,.857-2.182-.4-3.094-2.334-1.7-7.691-.342-8.586,3.094a6.916,6.916,0,0,0,1.382,5.7c-3.719.888-6.883,2.015-7.573,3.775-2.536,6.467,11.169,6.068,12.549,1.488a2.811,2.811,0,0,0,.119-.469c.286-2.434-2.274-3.272-2.286-3.273s.349-.057,1.252-.118h.019c.212-.012.426-.022.642-.031.544-.024.944-.041,1.5-.052h.052a79.214,79.214,0,0,1,8.583.306l.018,0a25.62,25.62,0,0,1,6.409,1.2s2.074-3.458-1.658-4.271m-17.863,4.676c-.138,1.759-6.665,2.985-6.585.682.039-1.139,2.763-1.868,6.053-2.258a3.05,3.05,0,0,1,.532,1.576" transform="translate(-1028.104 -254.132)" fill="#ffffff"/> <path id="Path_970" data-name="Path 970" d="M1165.923,576.208a1.1,1.1,0,0,0-.836-.384,1.225,1.225,0,1,0,.874,2.094l.874,1.066a2.593,2.593,0,0,1-1.768.615,2.549,2.549,0,1,1-.01-5.091,2.634,2.634,0,0,1,1.777.644Z" transform="translate(-1073.145 -530.4)" fill="#ffffff"/> <path id="Path_971" data-name="Path 971" d="M1232.978,579.6a2.531,2.531,0,0,1-2.651-2.565,2.659,2.659,0,0,1,5.312,0,2.534,2.534,0,0,1-2.661,2.565m0-3.785a1.135,1.135,0,0,0-1.124,1.22,1.137,1.137,0,1,0,1.124-1.22" transform="translate(-1135.868 -530.399)" fill="#ffffff"/> <path id="Path_972" data-name="Path 972" d="M1321.142,579.676v-2.613c0-.548-.125-1.009-.682-1.009-.538,0-.8.5-.8,1.037v2.584h-1.575v-2.728c0-.548-.211-.893-.682-.893-.5,0-.788.451-.788,1.028v2.594h-1.585v-4.784h1.527v.663h.019a1.6,1.6,0,0,1,1.431-.8,1.507,1.507,0,0,1,1.441.817,1.711,1.711,0,0,1,1.527-.817,1.75,1.75,0,0,1,1.739,1.96v2.959Z" transform="translate(-1214.07 -530.63)" fill="#ffffff"/> <path id="Path_973" data-name="Path 973" d="M1086.832,589.725a1.732,1.732,0,1,1-1.732-1.732,1.732,1.732,0,0,1,1.732,1.732" transform="translate(-1000.192 -542.849)" fill="#ffffff"/> <path id="Path_974" data-name="Path 974" d="M1409.885,416.474h0l-.018,0,.019,0" transform="translate(-1301.624 -384.497)" fill="#ffffff"/> <path id="Path_975" data-name="Path 975" d="M993.839,0c-7.377.292-16.969,20.887-21.887,36.3a21.435,21.435,0,0,0,2.618-2.427,21.092,21.092,0,0,1-3.23,4.041,58.708,58.708,0,0,0-2.6,12.695c-.089,4.423,2.9,4.9,2.9,4.9a98.882,98.882,0,0,1,5.773-23.883C987.223,22.251,1002.943-.356,993.839,0m.187,2.134c3.628.39-7.663,19.3-15.848,27.338,5.976-15.388,14.007-27.536,15.848-27.338" transform="translate(-894.36 0)" fill="#ffffff"/> <path id="Path_976" data-name="Path 976" d="M613.139,285.37a6.333,6.333,0,0,0,2.065.164c.729-3.589.057-6.834-2.307-6.953a3.088,3.088,0,0,0-1.262.178,3.4,3.4,0,0,0-2.349-.478c-8.482.322-12.937,16.656-4.307,17.373,5.181.431,8.787-4.714,10.059-9.38a7.113,7.113,0,0,1-1.9-.905m-6.979,7.213c-4.025.229-.389-10.041,3.8-11.395a3.869,3.869,0,0,0,1.522,3.737s-1.713,7.452-5.323,7.658" transform="translate(-554.223 -256.91)" fill="#ffffff"/> <path id="Path_977" data-name="Path 977" d="M64.422,290.467a154.386,154.386,0,0,0-23.86-.807c3.425-11.131,4.656-21.578,7.629-22.422-.718-1.217-3.121-1.965-5.125-.636-2.592,1.719-3.606,12.342-6.9,23.246C17.607,290.923.261,296,0,307.563c-.25,11.234,14.615,12.234,24.467,6.591,6.545-3.749,10.943-10.356,13.661-17.61.452-1.207,1.1-2.941,1.1-2.941l-1.985-.568c.778-.061,2.234-.07,2.235-.073q2.493-.077,5.074-.073h0a167.017,167.017,0,0,1,22.723,1.753s.927-3.661-2.861-4.174M17.645,313.439c-10.3,2.585-15.388-1.473-14.842-6.393.983-8.86,15.337-12.8,32.284-13.879-3.236,9.3-8.3,17.977-17.443,20.272" transform="translate(0 -245.484)" fill="#ffffff"/> </g> </svg>
   </div>
   <div class="nav-links">
     <a href="#features" onclick="showView('home')">Features</a>
@@ -429,7 +465,7 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow"><span></span>Sales Performance Software</div>
-      <h1>The sales performance software<br><em>built around winning.</em></h1>
+      <h1>The sales performance software <em>built around&nbsp;winning.</em></h1>
       <p class="hero-sub">Goals.com gives your sales team real-time visibility into quotas, pipeline, commissions, and performance — so every rep knows exactly where they stand and what to do next.</p>
       <div class="hero-actions">
         <a href="https://calendly.com/goals-demo/30min?month=2026-07" target="_blank" rel="noopener" class="btn-hero">Book a Demo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -455,22 +491,14 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
         <div class="hvb-dots"></div>
         <div class="hvb-ring"></div>
         <div class="hvb-ring2"></div>
+        <div class="hvb-ring3"></div>
+        <div class="hvb-glow3"></div>
         <div class="hvb-line-h"></div>
         <div class="hvb-line-v"></div>
       </div>
 
-      <!-- Float card 1: top-left — quota status -->
-      <div class="hero-float-card hfc-1">
-        <div class="hfc-icon" style="background:rgba(29,158,117,.2)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#22c55e" stroke-width="1.3"/><circle cx="6.5" cy="6.5" r="2.5" stroke="#22c55e" stroke-width="1.3"/><circle cx="6.5" cy="6.5" r="1" fill="#22c55e"/></svg></div>
-        <div class="hfc-body">
-          <div class="hfc-label">Team Quota Pace</div>
-          <div class="hfc-val">41% <span class="hfc-tag">YTD</span></div>
-          <div class="hfc-bar"><div class="hfc-fill" style="width:41%"></div></div>
-        </div>
-      </div>
-
       <!-- Float card 2: right-middle — Ace AI insight -->
-      <div class="hero-float-card hfc-2">
+      <div class="hero-float-card hfc-lg hfc-2">
         <div class="hfc-icon" style="background:linear-gradient(135deg,#1d9e75,#3b82f6)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.2 3.8L11.5 6.5l-3.8 1.7L6.5 12l-1.2-3.8L1.5 6.5l3.8-1.7z" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
         <div class="hfc-body">
           <div class="hfc-label">Ace AI</div>
@@ -479,7 +507,7 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
       </div>
 
       <!-- Float card 3: bottom-right — win rate -->
-      <div class="hero-float-card hfc-3">
+      <div class="hero-float-card hfc-sm hfc-3">
         <div class="hfc-icon" style="background:rgba(99,102,241,.2)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1.5" y="5" width="3" height="6" rx="1" fill="#818cf8"/><rect x="5.5" y="3" width="3" height="8" rx="1" fill="#818cf8"/><rect x="9.5" y="1.5" width="3" height="9.5" rx="1" fill="#818cf8"/></svg></div>
         <div class="hfc-body">
           <div class="hfc-label">Win Rate</div>
@@ -497,7 +525,7 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
       </div>
 
       <!-- Float card 5: bottom-left — commission YTD -->
-      <div class="hero-float-card hfc-5">
+      <div class="hero-float-card hfc-sm hfc-5">
         <div class="hfc-icon" style="background:rgba(244,63,94,.15)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5v10M4.5 4c0-.83.67-1.5 1.5-1.5h1.5a1.5 1.5 0 0 1 0 3H5A1.5 1.5 0 0 0 5 9h3a1.5 1.5 0 0 1 0 3H4" stroke="#f87171" stroke-width="1.3" stroke-linecap="round"/></svg></div>
         <div class="hfc-body">
           <div class="hfc-label">Commission YTD</div>
@@ -591,10 +619,9 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
     </div><!-- /dash-window -->
     </div><!-- /hero-viz-wrap -->
   </div>
-</section>
 
-<!-- TICKER -->
-<div class="ticker">
+  <!-- TICKER anchored to bottom of hero -->
+  <div class="ticker" style="position:relative;z-index:5;margin:0 -72px;width:calc(100% + 144px)">
   <div class="ticker-track">
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Quota &amp; goal tracking per rep</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Pipeline CRM — Kanban, List &amp; Calendar</div>
@@ -611,7 +638,8 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Automated reports &amp; forecasting</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Team highlights &amp; recognition</div>
   </div>
-</div>
+</div><!-- /ticker inside hero -->
+</section>
 
 <!-- FEATURE GRID (4 cards) -->
 <section class="section section-navy2" id="features">
@@ -648,6 +676,8 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 
 <!-- GOALS DEEP DIVE -->
 <section class="section section-navy" id="goals">
+  <div class="goals-ring"></div>
+  <div class="goals-ring2"></div>
   <div class="section-inner">
     <div class="fsplit reveal">
       <div class="fs-copy fs-copy-dark reveal-left">
@@ -706,6 +736,7 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 
 <!-- PIPELINE DEEP DIVE -->
 <section class="section section-white" id="pipeline">
+  <div class="pipeline-blob"></div>
   <div class="section-inner">
     <div class="fsplit reveal">
       <div class="mock reveal-left">
@@ -821,9 +852,9 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
       <h2>Real results from <em>real sales teams.</em></h2>
     </div>
     <div class="testi-row reveal">
-      <div class="t-card"><div class="t-quote">We finally stopped losing deals in pipeline blind spots. Goals.com surfaces what's going cold before it's too late — our close rate improved in the first month.</div><div class="t-person"><div class="t-av" style="background:var(--teal)">MR</div><div><div class="t-name">Marcus R.</div><div class="t-role">VP of Sales</div></div></div></div>
-      <div class="t-card"><div class="t-quote">The contest and leaderboard features changed how our team shows up every day. There's real energy now — people check the board constantly and it drives the behavior we want.</div><div class="t-person"><div class="t-av" style="background:#6366f1">JT</div><div><div class="t-name">Jessica T.</div><div class="t-role">Sales Manager</div></div></div></div>
-      <div class="t-card"><div class="t-quote">Commissions used to be a monthly argument. Now every rep sees exactly what they've earned as deals close. No spreadsheets, no surprises at the end of the month.</div><div class="t-person"><div class="t-av" style="background:#f59e0b">DK</div><div><div class="t-name">David K.</div><div class="t-role">Director of Revenue</div></div></div></div>
+      <div class="t-card"><div class="t-quote">Onboarding only took a couple of hours and was super easy and straightforward. Our team quickly adopted the tool and are enjoying how easy it is to use. I would recommend this to anyone who wants their goals and commissions tied into their CRM.</div><div class="t-person"><div class="t-av" style="background:var(--teal)">DG</div><div><div class="t-name">Dan G.</div><div class="t-role">Goals.com Customer</div></div></div></div>
+      <div class="t-card"><div class="t-quote">Our team loves Goals.com! Total breath of fresh air compared to our last platform. Setup was a breeze, the team there is so great to work with. This simple platform packs quite a punch. Checks all the boxes, and then some.</div><div class="t-person"><div class="t-av" style="background:#6366f1">GW</div><div><div class="t-name">Garrett W.</div><div class="t-role">Goals.com Customer</div></div></div></div>
+      <div class="t-card"><div class="t-quote">Our team is always out and about completing projects for our clients and it's once in a blue moon when all of us are around the shop at the same time. This helps us keep track of everything we need without adding more office time.</div><div class="t-person"><div class="t-av" style="background:#f59e0b">JT</div><div><div class="t-name">John T.</div><div class="t-role">Goals.com Customer</div></div></div></div>
     </div>
   </div>
 </section>
@@ -967,15 +998,15 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .kc-no-res p{font-size:14px;color:var(--g500)}
 
 /* ARTICLE VIEW */
-.art-view{display:none;background:#fff;min-height:100vh;padding-top:68px}
-.art-view.show{display:block}
+.art-view{display:none;background:#fff}
+.art-view.show{display:block;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;overflow-y:auto;padding-top:72px;box-sizing:border-box}
 .art-hero{background:var(--navy2);padding:48px 72px;border-bottom:1px solid rgba(255,255,255,.07)}
 .art-hero-inner{max-width:820px;margin:0 auto}
 .art-breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.35);margin-bottom:18px;flex-wrap:wrap}
 .art-breadcrumb a{color:rgba(255,255,255,.45);cursor:pointer;transition:color .2s}
 .art-breadcrumb a:hover{color:#fff}
 .art-breadcrumb span{color:rgba(255,255,255,.2)}
-.art-h1{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-.025em;color:#fff;margin-bottom:14px;line-height:1.2}
+.art-h1{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-.025em;color:var(--dark);margin-bottom:14px;line-height:1.2}
 .art-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .art-meta-type{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:3px 9px;border-radius:100px}
 .art-meta-time{font-size:12px;color:rgba(255,255,255,.35)}
@@ -1065,10 +1096,10 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
     <div class="kc-section" id="gq">
       <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(29,158,117,.12)">&#127919;</div><div><div class="kc-sec-title">Goals &amp; Quotas</div><div class="kc-sec-desc">Set quotas, track attainment, and keep every rep accountable.</div></div></div>
       <div class="kc-cards">
-        <div class="kc-card" data-tags="goals quota set up create annual quarterly attainment rep"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">How to set up sales goals for your team</div><div class="kc-art-desc">Creating annual and quarterly quotas, understanding attainment percentage, and how Goals calculates it automatically.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
-        <div class="kc-card" data-tags="quota attainment calculated deals percentage how works"><div class="kc-art-type type-faq">&#10067; FAQ</div><div class="kc-art-title">How is quota attainment calculated?</div><div class="kc-art-desc">When a deal counts toward quota, how it rolls up, and what triggers a real-time update.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
-        <div class="kc-card" data-tags="at-risk alert warning behind pace rep flag goals"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Understanding at-risk alerts — when Goals flags a rep as behind</div><div class="kc-art-desc">What triggers an alert, how pace is calculated, and what to do when a rep shows up in red.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
-        <div class="kc-card" data-tags="leaderboard team dashboard ranking performance top rep goals"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Reading the team leaderboard and performance dashboard</div><div class="kc-art-desc">What each stat on the leaderboard means and how reps rank against each other in real time.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
+        <div class="kc-card" data-tags="goals quota set up create annual quarterly attainment rep" onclick="openArticle('gq-setup')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">How to set up sales goals for your team</div><div class="kc-art-desc">Creating annual and quarterly quotas, understanding attainment percentage, and how Goals calculates it automatically.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
+        <div class="kc-card" data-tags="quota attainment calculated deals percentage how works" onclick="openArticle('gq-calc')"><div class="kc-art-type type-faq">&#10067; FAQ</div><div class="kc-art-title">How is quota attainment calculated?</div><div class="kc-art-desc">When a deal counts toward quota, how it rolls up, and what triggers a real-time update.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
+        <div class="kc-card" data-tags="at-risk alert warning behind pace rep flag goals" onclick="openArticle('gq-risk')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Understanding at-risk alerts — when Goals flags a rep as behind</div><div class="kc-art-desc">What triggers an alert, how pace is calculated, and what to do when a rep shows up in red.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="leaderboard team dashboard ranking performance top rep goals" onclick="openArticle('gq-board')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Reading the team leaderboard and performance dashboard</div><div class="kc-art-desc">What each stat on the leaderboard means and how reps rank against each other in real time.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
       </div>
     </div>
 
@@ -1076,11 +1107,11 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
     <div class="kc-section" id="pl">
       <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(99,102,241,.1)">&#128203;</div><div><div class="kc-sec-title">Pipeline CRM</div><div class="kc-sec-desc">Track deals, contacts, and accounts from first touch to closed-won.</div></div></div>
       <div class="kc-cards">
-        <div class="kc-card" data-tags="pipeline add deal opportunity create new first"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Adding your first deal to the pipeline</div><div class="kc-art-desc">How to create an opportunity, fill the key fields, link it to a contact, and move it into the right stage.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
-        <div class="kc-card" data-tags="pipeline kanban list calendar view switch board drag drop"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Kanban, List, and Calendar view — which one to use?</div><div class="kc-art-desc">A comparison of all three pipeline views, what each is best for, and how to switch between them.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
-        <div class="kc-card" data-tags="pipeline deal aging idle stale risk flag days warning"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Deal aging — what it means when a deal is flagged as idle</div><div class="kc-art-desc">How Goals.com tracks stage duration, when it flags a deal as idle, and what to do about a stale pipeline.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
-        <div class="kc-card" data-tags="pipeline contacts add link organization account crm"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Managing contacts and linking them to deals</div><div class="kc-art-desc">How to create contacts, tie them to an organization, and link them to one or more pipeline deals.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
-        <div class="kc-card" data-tags="pipeline activity log note call email task follow up"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Logging activities — calls, notes, tasks, and follow-ups</div><div class="kc-art-desc">How to keep a complete deal history by logging calls, writing notes, and setting follow-up tasks.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="pipeline add deal opportunity create new first" onclick="openArticle('pl-deal')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Adding your first deal to the pipeline</div><div class="kc-art-desc">How to create an opportunity, fill the key fields, link it to a contact, and move it into the right stage.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="pipeline kanban list calendar view switch board drag drop" onclick="openArticle('pl-views')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Kanban, List, and Calendar view — which one to use?</div><div class="kc-art-desc">A comparison of all three pipeline views, what each is best for, and how to switch between them.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="pipeline deal aging idle stale risk flag days warning" onclick="openArticle('pl-aging')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Deal aging — what it means when a deal is flagged as idle</div><div class="kc-art-desc">How Goals.com tracks stage duration, when it flags a deal as idle, and what to do about a stale pipeline.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
+        <div class="kc-card" data-tags="pipeline contacts add link organization account crm" onclick="openArticle('pl-contacts')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Managing contacts and linking them to deals</div><div class="kc-art-desc">How to create contacts, tie them to an organization, and link them to one or more pipeline deals.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
+        <div class="kc-card" data-tags="pipeline activity log note call email task follow up" onclick="openArticle('pl-activity')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Logging activities — calls, notes, tasks, and follow-ups</div><div class="kc-art-desc">How to keep a complete deal history by logging calls, writing notes, and setting follow-up tasks.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
       </div>
     </div>
 
@@ -1088,10 +1119,10 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
     <div class="kc-section" id="cm">
       <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(244,63,94,.1)">&#128176;</div><div><div class="kc-sec-title">Commissions</div><div class="kc-sec-desc">Track, calculate, and understand commission payouts.</div></div></div>
       <div class="kc-cards">
-        <div class="kc-card" data-tags="commissions how works calculated rate deal closed earned"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">How commissions work in Goals.com — the complete guide</div><div class="kc-art-desc">End-to-end explanation: when a deal closes, how the rate applies, and where the numbers appear.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 6 min read</span></div></div>
-        <div class="kc-card" data-tags="commissions set rate configure percentage per rep setup"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Setting up commission rates for your reps</div><div class="kc-art-desc">How to configure rates — same for everyone or custom per rep — without affecting historical data.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
-        <div class="kc-card" data-tags="commissions payout date schedule when paid next rep"><div class="kc-art-type type-faq">&#10067; FAQ</div><div class="kc-art-title">How does the payout date work?</div><div class="kc-art-desc">How to set a payout schedule, where reps see their next payout date, and what happens after the cutoff.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
-        <div class="kc-card" data-tags="commissions manager team view all reps full table history"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">The manager view — all commissions across the team</div><div class="kc-art-desc">How managers see the full commission picture for every rep in one table and export for payroll.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="commissions how works calculated rate deal closed earned" onclick="openArticle('cm-how')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">How commissions work in Goals.com — the complete guide</div><div class="kc-art-desc">End-to-end explanation: when a deal closes, how the rate applies, and where the numbers appear.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 6 min read</span></div></div>
+        <div class="kc-card" data-tags="commissions set rate configure percentage per rep setup" onclick="openArticle('cm-rates')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Setting up commission rates for your reps</div><div class="kc-art-desc">How to configure rates — same for everyone or custom per rep — without affecting historical data.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="commissions payout date schedule when paid next rep" onclick="openArticle('cm-payout')"><div class="kc-art-type type-faq">&#10067; FAQ</div><div class="kc-art-title">How does the payout date work?</div><div class="kc-art-desc">How to set a payout schedule, where reps see their next payout date, and what happens after the cutoff.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
+        <div class="kc-card" data-tags="commissions manager team view all reps full table history" onclick="openArticle('cm-manager')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">The manager view — all commissions across the team</div><div class="kc-art-desc">How managers see the full commission picture for every rep in one table and export for payroll.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
       </div>
     </div>
 
@@ -1099,10 +1130,10 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
     <div class="kc-section" id="bn">
       <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(245,158,11,.1)">&#127873;</div><div><div class="kc-sec-title">Bonuses &amp; Contests</div><div class="kc-sec-desc">Create incentives that drive the behavior you want.</div></div></div>
       <div class="kc-cards">
-        <div class="kc-card" data-tags="bonus create set up tier structure reward new"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Creating your first bonus — a step-by-step walkthrough</div><div class="kc-art-desc">Build a bonus from scratch: naming it, setting the target, configuring the reward, and going live.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
-        <div class="kc-card" data-tags="contest create set up leaderboard prize competition launch"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Running your first sales contest from setup to launch</div><div class="kc-art-desc">Everything to get a contest live: setting the goal, adding a prize pool, and letting the leaderboard do the work.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 6 min read</span></div></div>
-        <div class="kc-card" data-tags="contest leaderboard live real time update rank score"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">How the contest leaderboard updates in real time</div><div class="kc-art-desc">What triggers a rank change, how standings update as deals close, and where reps see it live.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
-        <div class="kc-card" data-tags="bonus contest history payout awarded past archive results"><div class="kc-art-type type-faq">&#10067; FAQ</div><div class="kc-art-title">Where to find past bonus and contest history</div><div class="kc-art-desc">How to view payout history, total YTD awarded, and past contest archives with final standings.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 2 min read</span></div></div>
+        <div class="kc-card" data-tags="bonus create set up tier structure reward new" onclick="openArticle('bn-bonus')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Creating your first bonus — a step-by-step walkthrough</div><div class="kc-art-desc">Build a bonus from scratch: naming it, setting the target, configuring the reward, and going live.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
+        <div class="kc-card" data-tags="contest create set up leaderboard prize competition launch" onclick="openArticle('bn-contest')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Running your first sales contest from setup to launch</div><div class="kc-art-desc">Everything to get a contest live: setting the goal, adding a prize pool, and letting the leaderboard do the work.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 6 min read</span></div></div>
+        <div class="kc-card" data-tags="contest leaderboard live real time update rank score" onclick="openArticle('bn-live')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">How the contest leaderboard updates in real time</div><div class="kc-art-desc">What triggers a rank change, how standings update as deals close, and where reps see it live.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
+        <div class="kc-card" data-tags="bonus contest history payout awarded past archive results" onclick="openArticle('bn-history')"><div class="kc-art-type type-faq">&#10067; FAQ</div><div class="kc-art-title">Where to find past bonus and contest history</div><div class="kc-art-desc">How to view payout history, total YTD awarded, and past contest archives with final standings.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 2 min read</span></div></div>
       </div>
     </div>
 
@@ -1110,10 +1141,10 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
     <div class="kc-section" id="ac">
       <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(6,182,212,.1)">&#10022;</div><div><div class="kc-sec-title">Ace AI</div><div class="kc-sec-desc">Your built-in sales intelligence assistant.</div></div></div>
       <div class="kc-cards">
-        <div class="kc-card" data-tags="Ace AI what is how works intelligence assistant pipeline"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">What is Ace AI and what can it do?</div><div class="kc-art-desc">An intro to Ace — what questions it can answer, what data it accesses, and how it differs from a generic chatbot.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
-        <div class="kc-card" data-tags="Ace AI ask question examples pipeline deals at risk prompt"><div class="kc-art-type type-tip">&#128161; Tip</div><div class="kc-art-title">10 questions to ask Ace that will change how you run your pipeline</div><div class="kc-art-desc">Real example prompts — from surfacing at-risk deals to forecasting end-of-quarter revenue.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
-        <div class="kc-card" data-tags="Ace AI at risk deal flag surface identify pipeline stale"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">How Ace surfaces at-risk deals before they slip</div><div class="kc-art-desc">How Ace analyzes deal age, activity history, and stage duration to flag deals likely to be lost.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
-        <div class="kc-card" data-tags="Ace AI forecast predict revenue quarter projected close"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Using Ace to forecast your quarter</div><div class="kc-art-desc">How Ace uses historical close rates and current pipeline to project revenue — and how to stress-test it.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="Ace AI what is how works intelligence assistant pipeline" onclick="openArticle('ac-what')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">What is Ace AI and what can it do?</div><div class="kc-art-desc">An intro to Ace — what questions it can answer, what data it accesses, and how it differs from a generic chatbot.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="Ace AI ask question examples pipeline deals at risk prompt" onclick="openArticle('ac-prompts')"><div class="kc-art-type type-tip">&#128161; Tip</div><div class="kc-art-title">10 questions to ask Ace that will change how you run your pipeline</div><div class="kc-art-desc">Real example prompts — from surfacing at-risk deals to forecasting end-of-quarter revenue.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
+        <div class="kc-card" data-tags="Ace AI at risk deal flag surface identify pipeline stale" onclick="openArticle('ac-risk')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">How Ace surfaces at-risk deals before they slip</div><div class="kc-art-desc">How Ace analyzes deal age, activity history, and stage duration to flag deals likely to be lost.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="Ace AI forecast predict revenue quarter projected close" onclick="openArticle('ac-forecast')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Using Ace to forecast your quarter</div><div class="kc-art-desc">How Ace uses historical close rates and current pipeline to project revenue — and how to stress-test it.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
       </div>
     </div>
 
@@ -1121,9 +1152,9 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
     <div class="kc-section" id="rp">
       <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(249,115,22,.1)">&#128202;</div><div><div class="kc-sec-title">Reports &amp; Forecasting</div><div class="kc-sec-desc">Export data, schedule reports, and forecast revenue.</div></div></div>
       <div class="kc-cards">
-        <div class="kc-card" data-tags="report export csv xlsx download data opportunities commissions"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Exporting your data — opportunities, contacts, commissions, and goals</div><div class="kc-art-desc">How to export any dataset in CSV or XLSX, filter before exporting, and what each export includes.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
-        <div class="kc-card" data-tags="report scheduled automatic weekly monthly deliver recurring email"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Setting up scheduled reports that run automatically</div><div class="kc-art-desc">Schedule a weekly or monthly report so leadership always has the numbers without anyone pulling them.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
-        <div class="kc-card" data-tags="report forecast pipeline quarter revenue projected win rate"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Understanding pipeline forecasting — what the numbers mean</div><div class="kc-art-desc">How forecast ranges are calculated, what high and low estimates represent, and how often to revisit.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
+        <div class="kc-card" data-tags="report export csv xlsx download data opportunities commissions" onclick="openArticle('rp-export')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Exporting your data — opportunities, contacts, commissions, and goals</div><div class="kc-art-desc">How to export any dataset in CSV or XLSX, filter before exporting, and what each export includes.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="report scheduled automatic weekly monthly deliver recurring email" onclick="openArticle('rp-sched')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Setting up scheduled reports that run automatically</div><div class="kc-art-desc">Schedule a weekly or monthly report so leadership always has the numbers without anyone pulling them.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 4 min read</span></div></div>
+        <div class="kc-card" data-tags="report forecast pipeline quarter revenue projected win rate" onclick="openArticle('rp-forecast')"><div class="kc-art-type type-guide">&#128218; Guide</div><div class="kc-art-title">Understanding pipeline forecasting — what the numbers mean</div><div class="kc-art-desc">How forecast ranges are calculated, what high and low estimates represent, and how often to revisit.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
       </div>
     </div>
 
@@ -1378,6 +1409,463 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
   </div>
 </div>
 
+
+<div class="art-view" id="art-gq-setup">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Goals & Quotas</span><span class="art-read-time">&#128336; 5 min read</span></div>
+    <h1 class="art-h1">How to set up sales goals for your team</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Navigate to Goals from the left sidebar</li><li class="art-step">Click "Goal Setting" in the top-right corner</li><li class="art-step">Select the rep or team you want to configure</li><li class="art-step">Enter the annual quota amount and choose a period (annual or quarterly)</li><li class="art-step">Save — the goal goes live immediately and begins tracking attainment</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> You can set different quota amounts per rep. Managers always see the full team view regardless of their own quota settings.</div><div class="art-tip"><strong>Tip:</strong> Goals update in real time as deals close — no manual refresh needed.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div></div><div class="art-nav-btn" onclick="openArticle('gq-calc')">Next: How quota attainment is calculated <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-gq-calc">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Goals & Quotas</span><span class="art-read-time">&#128336; 3 min read</span></div>
+    <h1 class="art-h1">How is quota attainment calculated?</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">A deal closes (moves to Closed/Won stage in Pipeline)</li><li class="art-step">Goals.com reads the deal value and the rep it is assigned to</li><li class="art-step">The value is added to that rep's YTD total</li><li class="art-step">Attainment percentage updates instantly on the dashboard</li><li class="art-step">Team totals roll up automatically across all reps</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Only Closed/Won deals count toward quota. Deals in any other stage — even Closing — do not count until they are marked won.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('gq-setup')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Setting up goals</div><div class="art-nav-btn" onclick="openArticle('gq-risk')">Next: Understanding at-risk alerts <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-gq-risk">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Goals & Quotas</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">Understanding at-risk alerts</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Goals.com calculates expected pace based on days elapsed in the year</li><li class="art-step">It compares each rep's YTD total against where they should be by that date</li><li class="art-step">If a rep is more than 15% behind expected pace, they are flagged as At Risk</li><li class="art-step">The flag appears on their individual card and on the manager dashboard</li><li class="art-step">Ace AI also surfaces at-risk reps in its daily insight feed</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> The at-risk threshold is configurable. Ask your admin to adjust it in Goal Settings if 15% is too sensitive or too lenient for your team.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('gq-calc')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: How quota is calculated</div><div class="art-nav-btn" onclick="openArticle('gq-board')">Next: Reading the team leaderboard <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-gq-board">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Goals & Quotas</span><span class="art-read-time">&#128336; 3 min read</span></div>
+    <h1 class="art-h1">Reading the team leaderboard</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Dashboard from the left sidebar</li><li class="art-step">Scroll to the Leaderboard section</li><li class="art-step">Each row shows: Rep name, Sales YTD, This Month, Wins, Proposals, Commission YTD</li><li class="art-step">Click "Full team →" to see all reps in an expanded view</li><li class="art-step">Use Sort to rank by any column</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> The leaderboard updates in real time. If two reps close deals simultaneously you may see ranks change within seconds.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('gq-risk')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: At-risk alerts</div><div class="art-nav-btn" onclick="closeArticle()">Back to Knowledge Center <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-pl-deal">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Pipeline CRM</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">Adding your first deal to the pipeline</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Click "+ Add Opportunity" in the top-right of the Pipeline page</li><li class="art-step">Enter the opportunity name (usually: Company — Deal Type)</li><li class="art-step">Set the stage (start with Prospect Registered for new deals)</li><li class="art-step">Add the deal value and expected close date</li><li class="art-step">Link a contact and organization</li><li class="art-step">Click Save — the deal appears in your pipeline immediately</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Name deals consistently: "Company Name — Product/Service Type" makes the pipeline much easier to scan at a glance.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div></div><div class="art-nav-btn" onclick="openArticle('pl-views')">Next: Pipeline views explained <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-pl-views">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Pipeline CRM</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">Kanban, List, and Calendar view — which one to use?</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Board view: drag-and-drop cards across stages — best for visual pipeline management</li><li class="art-step">List view: a sortable table with all deal details — best for bulk review and sorting by value or date</li><li class="art-step">Calendar view: deals plotted on a calendar by close date — best for time-based planning</li><li class="art-step">Switch between views using the Board / List buttons in the top-right</li><li class="art-step">Your view preference is saved per session</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Most managers prefer List view for weekly pipeline reviews — it's easier to sort by value and spot what needs attention.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('pl-deal')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Adding a deal</div><div class="art-nav-btn" onclick="openArticle('pl-aging')">Next: Deal aging explained <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-pl-aging">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Pipeline CRM</span><span class="art-read-time">&#128336; 3 min read</span></div>
+    <h1 class="art-h1">Deal aging — what it means when a deal is flagged as idle</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Goals.com tracks how long each deal has been in its current stage</li><li class="art-step">If a deal has not moved or had activity logged in 14+ days, it is marked idle</li><li class="art-step">The deal card shows a red "⚠ Xd idle" badge in Board view</li><li class="art-step">In List view, the Activity column shows "Overdue" in red</li><li class="art-step">Ace AI will surface idle deals in its daily insight feed automatically</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> 14 days is the default idle threshold. This can be adjusted per pipeline stage in Pipeline Settings.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('pl-views')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Pipeline views</div><div class="art-nav-btn" onclick="openArticle('pl-contacts')">Next: Managing contacts <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-pl-contacts">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Pipeline CRM</span><span class="art-read-time">&#128336; 5 min read</span></div>
+    <h1 class="art-h1">Managing contacts and linking them to deals</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Accounts in the left sidebar to create or find an organization</li><li class="art-step">Within the organization, click "Add Contact" to create a person record</li><li class="art-step">Fill in name, title, email, and phone</li><li class="art-step">From any deal, open the deal detail and click "Link Contact"</li><li class="art-step">Search for the contact and confirm — they are now linked to that deal</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> One contact can be linked to multiple deals. This is useful for contacts who appear in several opportunities across different products or time periods.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('pl-aging')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Deal aging</div><div class="art-nav-btn" onclick="openArticle('pl-activity')">Next: Logging activities <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-pl-activity">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Pipeline CRM</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">Logging activities — calls, notes, tasks, and follow-ups</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Open a deal from the pipeline</li><li class="art-step">In the deal detail panel, click "Log Activity"</li><li class="art-step">Choose the type: Call, Note, Email, or Task</li><li class="art-step">Fill in the details and set a follow-up date if needed</li><li class="art-step">Save — the activity appears in the deal history timeline immediately</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Logging activities keeps your deal history accurate and gives Ace AI better context when you ask about deal health or pipeline risk.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('pl-contacts')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Managing contacts</div><div class="art-nav-btn" onclick="closeArticle()">Back to Knowledge Center <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-cm-how">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Commissions</span><span class="art-read-time">&#128336; 6 min read</span></div>
+    <h1 class="art-h1">How commissions work in Goals.com</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">A deal is marked Closed/Won in the Pipeline</li><li class="art-step">Goals.com reads the deal value and the assigned rep</li><li class="art-step">The commission rate configured for that rep is applied to the deal value</li><li class="art-step">The calculated commission is added to the rep's Commission YTD total</li><li class="art-step">The rep sees their updated earnings in the Commissions section immediately</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Commissions calculate automatically — there is no manual step. The only thing that triggers a commission entry is a deal being marked Closed/Won.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div></div><div class="art-nav-btn" onclick="openArticle('cm-rates')">Next: Setting up commission rates <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-cm-rates">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Commissions</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">Setting up commission rates for your reps</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Commissions in the left sidebar</li><li class="art-step">Click "Settings" or the gear icon</li><li class="art-step">You can set a default rate for all reps, or configure per-rep rates</li><li class="art-step">Enter the percentage (e.g., 8 for 8%)</li><li class="art-step">Save — the new rate applies to all future closed deals immediately</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Changing a rate does not affect past commission entries. Historical commissions always reflect the rate that was active when the deal closed.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('cm-how')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: How commissions work</div><div class="art-nav-btn" onclick="openArticle('cm-payout')">Next: How payout dates work <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-cm-payout">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Commissions</span><span class="art-read-time">&#128336; 3 min read</span></div>
+    <h1 class="art-h1">How does the payout date work?</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Commissions → Settings</li><li class="art-step">Set a payout schedule: monthly, bi-weekly, or custom date</li><li class="art-step">Goals.com displays the next payout date on each rep's commission view</li><li class="art-step">Reps see: earnings since last payout, next payout date, and total YTD paid</li><li class="art-step">After each payout period, totals reset for the new cycle</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Reps can always see their full commission history — even after a payout period resets their current cycle counter.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('cm-rates')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Commission rates</div><div class="art-nav-btn" onclick="openArticle('cm-manager')">Next: Manager view <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-cm-manager">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Commissions</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">The manager view — all commissions across the team</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Commissions in the left sidebar — managers see the full team table by default</li><li class="art-step">Each row shows: Rep name, Commission YTD, This Month, Next Payout, Status</li><li class="art-step">Click any rep's name to see their full commission breakdown by deal</li><li class="art-step">Use the Export button to download a CSV for payroll processing</li><li class="art-step">Filter by date range to see any custom period</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> The Export CSV includes deal name, close date, deal value, rate applied, and commission earned — everything payroll needs.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('cm-payout')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Payout dates</div><div class="art-nav-btn" onclick="closeArticle()">Back to Knowledge Center <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-bn-bonus">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Bonuses & Contests</span><span class="art-read-time">&#128336; 5 min read</span></div>
+    <h1 class="art-h1">Creating your first bonus</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Bonuses in the left sidebar</li><li class="art-step">Click "+ New Bonus"</li><li class="art-step">Name the bonus and add a description reps will see</li><li class="art-step">Set the target: a dollar amount, number of deals, or activity count</li><li class="art-step">Set the reward amount or type</li><li class="art-step">Choose who it applies to: all reps or specific individuals</li><li class="art-step">Click Launch — it goes live immediately</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Keep bonus names short and motivating. Reps see these on their dashboard every day — "Q3 Revenue Sprint" lands better than "Bonus Program 4".</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div></div><div class="art-nav-btn" onclick="openArticle('bn-contest')">Next: Running a sales contest <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-bn-contest">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Bonuses & Contests</span><span class="art-read-time">&#128336; 6 min read</span></div>
+    <h1 class="art-h1">Running your first sales contest</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Contests in the left sidebar</li><li class="art-step">Click "+ New Contest"</li><li class="art-step">Set the contest name, start date, and end date</li><li class="art-step">Choose the metric: Deals Closed, Revenue, Calls, or Proposals</li><li class="art-step">Set the prize pool and how it distributes (winner takes all or tiered)</li><li class="art-step">Add participants — all reps or a custom group</li><li class="art-step">Click Launch — the leaderboard appears immediately</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Contests with a visible countdown and real-time leaderboard generate the most engagement. Reps check the standings constantly when they can see how close they are.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('bn-bonus')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Creating a bonus</div><div class="art-nav-btn" onclick="openArticle('bn-live')">Next: How the leaderboard updates <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-bn-live">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Bonuses & Contests</span><span class="art-read-time">&#128336; 3 min read</span></div>
+    <h1 class="art-h1">How the contest leaderboard updates in real time</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">A qualifying action occurs (deal closed, call logged, etc.)</li><li class="art-step">Goals.com reads the event and checks if it qualifies for any active contest</li><li class="art-step">The participant's score updates within seconds</li><li class="art-step">The leaderboard re-ranks all participants</li><li class="art-step">All participants see the updated standings on their dashboard</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Reps can see the live leaderboard from their Dashboard — they do not need to navigate to Contests to check their rank.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('bn-contest')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Running a contest</div><div class="art-nav-btn" onclick="openArticle('bn-history')">Next: Finding past results <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-bn-history">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Bonuses & Contests</span><span class="art-read-time">&#128336; 2 min read</span></div>
+    <h1 class="art-h1">Where to find past bonus and contest history</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Bonuses or Contests in the left sidebar</li><li class="art-step">Click the "Past" or "Archive" tab</li><li class="art-step">All completed bonuses and contests are listed with final results</li><li class="art-step">Click any entry to see full standings, payout amounts, and participants</li><li class="art-step">Use the date filter to narrow by quarter or year</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Past contest archives include the final leaderboard snapshot with all participant scores — useful for reviewing what drove results.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('bn-live')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Leaderboard updates</div><div class="art-nav-btn" onclick="closeArticle()">Back to Knowledge Center <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-ac-what">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Ace AI</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">What is Ace AI and what can it do?</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Ace is Goals.com's built-in AI assistant trained on your account data</li><li class="art-step">It has access to your pipeline, rep performance, commissions, and goals</li><li class="art-step">Ask Ace questions in plain English from anywhere using the "Ask Ace" button</li><li class="art-step">Ace responds with data pulled directly from your account — not generic advice</li><li class="art-step">You can ask about deals, rep performance, forecasts, or anything in your pipeline</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Ace works best when you ask specific questions. "Which deals are at risk this week?" gets a better answer than "How is the pipeline doing?"</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div></div><div class="art-nav-btn" onclick="openArticle('ac-prompts')">Next: 10 questions to ask Ace <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-ac-prompts">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Ace AI</span><span class="art-read-time">&#128336; 5 min read</span></div>
+    <h1 class="art-h1">10 questions to ask Ace that will change how you run your pipeline</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">"Which deals have been idle for more than 14 days?"</li><li class="art-step">"Who is behind quota pace this month and by how much?"</li><li class="art-step">"What is our projected close for this quarter?"</li><li class="art-step">"Which rep has the highest win rate this year?"</li><li class="art-step">"What deals are in Closing stage right now?"</li><li class="art-step">"How much commission has the team earned this month?"</li><li class="art-step">"Which contacts have not been reached in 30 days?"</li><li class="art-step">"What was our average deal size last quarter?"</li><li class="art-step">"Who closed the most deals in Q2?"</li><li class="art-step">"What is at risk of slipping past our quarter end?"</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Save your most-used prompts — Ace remembers context within a session so you can ask follow-up questions without repeating yourself.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('ac-what')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: What is Ace</div><div class="art-nav-btn" onclick="openArticle('ac-risk')">Next: How Ace surfaces at-risk deals <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-ac-risk">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Ace AI</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">How Ace surfaces at-risk deals before they slip</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Ace continuously monitors deal age, last activity date, and stage duration</li><li class="art-step">It compares each deal against your team's historical close patterns</li><li class="art-step">Deals that fall outside normal patterns are flagged as at-risk</li><li class="art-step">Ace surfaces these in the Today's Priorities panel on the right side of your dashboard</li><li class="art-step">You can also ask Ace directly: "What deals are at risk this week?"</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Ace's at-risk detection gets more accurate over time as it learns your team's normal close cycles and activity patterns.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('ac-prompts')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Questions to ask Ace</div><div class="art-nav-btn" onclick="openArticle('ac-forecast')">Next: Using Ace to forecast <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-ac-forecast">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Ace AI</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">Using Ace to forecast your quarter</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Ask Ace: "What is our projected close for this quarter?"</li><li class="art-step">Ace reads all deals in your pipeline and their current stages</li><li class="art-step">It applies your historical win rate by stage to project expected revenue</li><li class="art-step">It gives you a range: conservative (low) and optimistic (high) estimates</li><li class="art-step">Ask follow-up questions like "What if we close the Closing stage deals?" to stress-test the forecast</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Ace's forecast is based on your actual historical win rate — not industry averages. The more deal history in your account, the more accurate it gets.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('ac-risk')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: At-risk deals</div><div class="art-nav-btn" onclick="closeArticle()">Back to Knowledge Center <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-rp-export">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Reports</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">Exporting your data from Goals.com</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Reports in the left sidebar</li><li class="art-step">Choose the dataset: Opportunities, Contacts, Goals, or Commissions</li><li class="art-step">Use filters to narrow the data (date range, rep, stage, etc.)</li><li class="art-step">Click Export and choose CSV or XLSX</li><li class="art-step">The file downloads immediately to your computer</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Filter before you export — exporting your full pipeline without filters can produce very large files. Most teams export by quarter or by rep for cleaner data.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div></div><div class="art-nav-btn" onclick="openArticle('rp-sched')">Next: Setting up scheduled reports <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-rp-sched">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Reports</span><span class="art-read-time">&#128336; 4 min read</span></div>
+    <h1 class="art-h1">Setting up scheduled reports that run automatically</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Reports → Scheduled</li><li class="art-step">Click "+ New Scheduled Report"</li><li class="art-step">Choose the report type and apply any filters you want to run on each delivery</li><li class="art-step">Set the frequency: weekly (Monday morning) or monthly (1st of the month)</li><li class="art-step">Enter the email addresses to deliver to</li><li class="art-step">Click Save — the first report runs on the next scheduled date</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Scheduled reports deliver at 7am in the account timezone. Recipients do not need a Goals.com login to view the report — it arrives as a formatted email with a CSV attachment.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('rp-export')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Exporting data</div><div class="art-nav-btn" onclick="openArticle('rp-forecast')">Next: Understanding forecasting <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
+<div class="art-view" id="art-rp-forecast">
+  <div class="art-inner">
+    <div class="art-back" onclick="closeArticle()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Knowledge Center</div>
+    <div class="art-meta"><span class="art-section-tag">Reports</span><span class="art-read-time">&#128336; 5 min read</span></div>
+    <h1 class="art-h1">Understanding pipeline forecasting</h1>
+    <p class="art-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <h2 class="art-h2">Getting started</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <ol class="art-steps"><li class="art-step">Go to Forecast in the left sidebar</li><li class="art-step">The main view shows your projected revenue for the current period</li><li class="art-step">The chart displays: Current pipeline value, Expected close based on win rate, and Closed/Won to date</li><li class="art-step">The High estimate assumes all Closing-stage deals close</li><li class="art-step">The Low estimate uses your historical win rate across all open stages</li><li class="art-step">Hover over any point on the chart to see the breakdown</li></ol>
+    <h2 class="art-h2">What to expect</h2>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="art-tip"><strong>Tip:</strong> Revisit your forecast weekly. Pipeline changes fast — a forecast from two weeks ago may not reflect deals added, lost, or advanced since then.</div>
+    <h2 class="art-h2">Common questions</h2>
+    <p class="art-p">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="art-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    
+    <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('rp-sched')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Scheduled reports</div><div class="art-nav-btn" onclick="closeArticle()">Back to Knowledge Center <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </div>
+</div>
 </div><!-- /view-kc -->
 
 <script>
