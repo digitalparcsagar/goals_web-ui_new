@@ -436,6 +436,14 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .art-steps ol,.art-steps{counter-reset:step;display:flex;flex-direction:column;gap:12px;margin:20px 0;padding-left:0;list-style:none}
 li.art-step{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;background:var(--g50);border:1px solid var(--g200);border-radius:10px;font-size:14px;color:var(--g600);line-height:1.6;counter-increment:step}
 li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* ── ARTICLE BREADCRUMB BAR ──────────────────────────── */
+#art-nav-bar{display:none;position:fixed;top:76px;left:0;width:100%;height:36px;background:#f8fafc;border-bottom:1px solid #e2e8f0;z-index:195;align-items:center;padding:0 48px;box-sizing:border-box;gap:6px}
+#art-nav-bar.show{display:flex}
+.art-bc-link{font-size:12px;font-weight:500;color:var(--teal2);cursor:pointer;transition:color .15s}
+.art-bc-link:hover{color:var(--teal)}
+.art-bc-sep{font-size:11px;color:#cbd5e1}
+.art-bc-current{font-size:12px;font-weight:500;color:#64748b}
 </style>
 </head>
 <body>
@@ -999,7 +1007,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 
 /* ARTICLE VIEW */
 .art-view{display:none;background:#fff}
-.art-view.show{display:block;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;overflow-y:auto;padding-top:72px;box-sizing:border-box}
+.art-view.show{display:block;position:fixed;top:0;left:0;width:100%;height:100%;z-index:190;overflow-y:auto;padding-top:112px;box-sizing:border-box}
 .art-hero{background:var(--navy2);padding:48px 72px;border-bottom:1px solid rgba(255,255,255,.07)}
 .art-hero-inner{max-width:820px;margin:0 auto}
 .art-breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.35);margin-bottom:18px;flex-wrap:wrap}
@@ -1007,6 +1015,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .art-breadcrumb a:hover{color:#fff}
 .art-breadcrumb span{color:rgba(255,255,255,.2)}
 .art-h1{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-.025em;color:var(--dark);margin-bottom:14px;line-height:1.2}
+.art-hero .art-h1{color:#fff}
 .art-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .art-meta-type{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:3px 9px;border-radius:100px}
 .art-meta-time{font-size:12px;color:rgba(255,255,255,.35)}
@@ -1159,7 +1168,124 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     </div>
 
   </main>
-</div><!-- /kc-list-page -->
+</div><!-- /kc-list-page --></div><!-- /view-kc -->
+
+<script>
+// ── NAV SCROLL ────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.querySelector('.nav').classList.toggle('scrolled', window.scrollY > 20);
+}, {passive:true});
+
+// ── VIEW SWITCHING ─────────────────────────────────────────
+function showView(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const el = document.getElementById('view-' + id);
+  if (el) { el.classList.add('active'); window.scrollTo(0,0); }
+  document.getElementById('kcNavBtn').classList.toggle('active', id === 'kc');
+  // hide article if switching views
+  document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
+  document.getElementById('kc-list-page').style.display = '';
+  const _nb = document.getElementById('art-nav-bar'); if (_nb) _nb.classList.remove('show');
+}
+
+// ── ARTICLE ROUTING ────────────────────────────────────────
+function openArticle(id) {
+  document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
+  const art = document.getElementById('art-' + id);
+  if (art) {
+    art.classList.add('show');
+    document.getElementById('kc-list-page').style.display = 'none';
+    // show overlay nav
+    const navBar = document.getElementById('art-nav-bar');
+    if (navBar) navBar.classList.add('show');
+    // set breadcrumb label to article title
+    const title = art.querySelector('.art-h1, [class*="art-h1"]');
+    const lbl = document.getElementById('art-nav-section-label');
+    if (lbl) lbl.textContent = title ? title.textContent.trim() : '';
+  }
+  window.scrollTo(0,0);
+}
+function closeArticle() {
+  document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
+  document.getElementById('kc-list-page').style.display = '';
+  const navBar = document.getElementById('art-nav-bar');
+  if (navBar) navBar.classList.remove('show');
+  window.scrollTo(0,0);
+}
+
+// ── KC SEARCH ──────────────────────────────────────────────
+const kcSearchEl = document.getElementById('kcSearch');
+const kcClearEl = document.getElementById('kcClear');
+const kcCountEl = document.getElementById('kcCount');
+const kcNoRes = document.getElementById('kcNoRes');
+const kcCards = document.querySelectorAll('.kc-card');
+const kcSections = document.querySelectorAll('.kc-section');
+
+function kcDoSearch(q) {
+  kcSearchEl.value = q;
+  kcSearchEl.dispatchEvent(new Event('input'));
+  window.scrollTo({top: document.querySelector('.kc-hero').offsetHeight, behavior:'smooth'});
+}
+
+kcSearchEl.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  kcClearEl.classList.toggle('show', q.length > 0);
+  if (!q) {
+    kcCards.forEach(c => c.classList.remove('hidden'));
+    kcSections.forEach(s => s.style.display = '');
+    kcCountEl.textContent = '';
+    kcNoRes.classList.remove('show');
+    return;
+  }
+  let n = 0;
+  kcCards.forEach(card => {
+    const txt = (card.dataset.tags + ' ' + card.querySelector('.kc-art-title').textContent + ' ' + card.querySelector('.kc-art-desc').textContent).toLowerCase();
+    const match = q.split(' ').some(w => w && txt.includes(w));
+    card.classList.toggle('hidden', !match);
+    if (match) n++;
+  });
+  kcSections.forEach(s => {
+    const vis = [...s.querySelectorAll('.kc-card')].some(c => !c.classList.contains('hidden'));
+    s.style.display = vis ? '' : 'none';
+  });
+  kcNoRes.classList.toggle('show', n === 0);
+  kcCountEl.textContent = n > 0 ? n + ' article' + (n !== 1 ? 's' : '') + ' found' : '';
+});
+
+kcClearEl.addEventListener('click', () => { kcSearchEl.value = ''; kcSearchEl.dispatchEvent(new Event('input')); kcSearchEl.focus(); });
+
+function kcScrollTo(id, el) {
+  document.querySelectorAll('.kc-sb-item').forEach(i => i.classList.remove('on'));
+  el.classList.add('on');
+  const t = document.getElementById(id);
+  if (t) window.scrollTo({top: t.getBoundingClientRect().top + window.scrollY - 90, behavior:'smooth'});
+}
+
+// sidebar active on scroll (kc list page)
+const kcSecIds = ['gs','gq','pl','cm','bn','ac','rp'];
+window.addEventListener('scroll', () => {
+  if (!document.getElementById('view-kc').classList.contains('active')) return;
+  if (document.getElementById('kc-list-page').style.display === 'none') return;
+  const sy = window.scrollY + 130;
+  let cur = kcSecIds[0];
+  kcSecIds.forEach(id => { const el = document.getElementById(id); if (el && el.offsetTop <= sy) cur = id; });
+  document.querySelectorAll('.kc-sb-item').forEach((item, i) => item.classList.toggle('on', kcSecIds[i] === cur));
+}, {passive:true});
+
+// ── SCROLL REVEAL (home) ───────────────────────────────────
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+}, {threshold:.08, rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-up').forEach(el => ro.observe(el));
+</script>
+
+<!-- ARTICLE PAGES -->
+<div id="art-nav-bar">
+  <span class="art-bc-link" onclick="closeArticle()">Knowledge Center</span>
+  <span class="art-bc-sep">›</span>
+  <span class="art-bc-current" id="art-nav-section-label"></span>
+</div>
+
 
 <!-- ARTICLE PAGES (all 5 Getting Started) -->
 <div class="art-view" id="art-gs-setup">
@@ -1866,102 +1992,6 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     <div class="art-nav-footer"><div class="art-nav-btn" onclick="openArticle('rp-sched')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous: Scheduled reports</div><div class="art-nav-btn" onclick="closeArticle()">Back to Knowledge Center <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
   </div>
 </div>
-</div><!-- /view-kc -->
 
-<script>
-// ── NAV SCROLL ────────────────────────────────────────────
-window.addEventListener('scroll', () => {
-  document.querySelector('.nav').classList.toggle('scrolled', window.scrollY > 20);
-}, {passive:true});
-
-// ── VIEW SWITCHING ─────────────────────────────────────────
-function showView(id) {
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  const el = document.getElementById('view-' + id);
-  if (el) { el.classList.add('active'); window.scrollTo(0,0); }
-  document.getElementById('kcNavBtn').classList.toggle('active', id === 'kc');
-  // hide article if switching views
-  document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
-  document.getElementById('kc-list-page').style.display = '';
-}
-
-// ── ARTICLE ROUTING ────────────────────────────────────────
-function openArticle(id) {
-  document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
-  const art = document.getElementById('art-' + id);
-  if (art) { art.classList.add('show'); document.getElementById('kc-list-page').style.display = 'none'; }
-  window.scrollTo(0,0);
-}
-function closeArticle() {
-  document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
-  document.getElementById('kc-list-page').style.display = '';
-  window.scrollTo(0,0);
-}
-
-// ── KC SEARCH ──────────────────────────────────────────────
-const kcSearchEl = document.getElementById('kcSearch');
-const kcClearEl = document.getElementById('kcClear');
-const kcCountEl = document.getElementById('kcCount');
-const kcNoRes = document.getElementById('kcNoRes');
-const kcCards = document.querySelectorAll('.kc-card');
-const kcSections = document.querySelectorAll('.kc-section');
-
-function kcDoSearch(q) {
-  kcSearchEl.value = q;
-  kcSearchEl.dispatchEvent(new Event('input'));
-  window.scrollTo({top: document.querySelector('.kc-hero').offsetHeight, behavior:'smooth'});
-}
-
-kcSearchEl.addEventListener('input', function() {
-  const q = this.value.trim().toLowerCase();
-  kcClearEl.classList.toggle('show', q.length > 0);
-  if (!q) {
-    kcCards.forEach(c => c.classList.remove('hidden'));
-    kcSections.forEach(s => s.style.display = '');
-    kcCountEl.textContent = '';
-    kcNoRes.classList.remove('show');
-    return;
-  }
-  let n = 0;
-  kcCards.forEach(card => {
-    const txt = (card.dataset.tags + ' ' + card.querySelector('.kc-art-title').textContent + ' ' + card.querySelector('.kc-art-desc').textContent).toLowerCase();
-    const match = q.split(' ').some(w => w && txt.includes(w));
-    card.classList.toggle('hidden', !match);
-    if (match) n++;
-  });
-  kcSections.forEach(s => {
-    const vis = [...s.querySelectorAll('.kc-card')].some(c => !c.classList.contains('hidden'));
-    s.style.display = vis ? '' : 'none';
-  });
-  kcNoRes.classList.toggle('show', n === 0);
-  kcCountEl.textContent = n > 0 ? n + ' article' + (n !== 1 ? 's' : '') + ' found' : '';
-});
-
-kcClearEl.addEventListener('click', () => { kcSearchEl.value = ''; kcSearchEl.dispatchEvent(new Event('input')); kcSearchEl.focus(); });
-
-function kcScrollTo(id, el) {
-  document.querySelectorAll('.kc-sb-item').forEach(i => i.classList.remove('on'));
-  el.classList.add('on');
-  const t = document.getElementById(id);
-  if (t) window.scrollTo({top: t.getBoundingClientRect().top + window.scrollY - 90, behavior:'smooth'});
-}
-
-// sidebar active on scroll (kc list page)
-const kcSecIds = ['gs','gq','pl','cm','bn','ac','rp'];
-window.addEventListener('scroll', () => {
-  if (!document.getElementById('view-kc').classList.contains('active')) return;
-  if (document.getElementById('kc-list-page').style.display === 'none') return;
-  const sy = window.scrollY + 130;
-  let cur = kcSecIds[0];
-  kcSecIds.forEach(id => { const el = document.getElementById(id); if (el && el.offsetTop <= sy) cur = id; });
-  document.querySelectorAll('.kc-sb-item').forEach((item, i) => item.classList.toggle('on', kcSecIds[i] === cur));
-}, {passive:true});
-
-// ── SCROLL REVEAL (home) ───────────────────────────────────
-const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
-}, {threshold:.08, rootMargin:'0px 0px -36px 0px'});
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-up').forEach(el => ro.observe(el));
-</script>
 </body>
 </html>
