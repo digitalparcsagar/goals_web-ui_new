@@ -502,9 +502,10 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
   </div>
   <div class="nav-links">
     <a href="#features" onclick="showView('home')">Features</a>
-    <a href="#pipeline" onclick="showView('home')">Pipeline</a>
-    <a href="#pricing" onclick="showView('home')">Pricing</a>
+    <a href="#" onclick="showView('pricing');return false;" id="pricingNavBtn" class="nav-page-btn">Pricing</a>
+    <a href="#" onclick="showView('podcast');return false;" id="podcastNavBtn" class="nav-page-btn">Podcast</a>
     <button class="nav-kc-btn" id="kcNavBtn" onclick="showView('kc')">Knowledge Center</button>
+    <a href="#" onclick="showView('contact');return false;" id="contactNavBtn" class="nav-page-btn">Contact</a>
   </div>
   <div class="nav-cta">
     <a href="#" class="btn-login" onclick="var e=document.getElementById('view-login');if(e){e.style.cssText='display:flex!important;position:fixed!important;inset:0!important;z-index:9999!important;background:#141827!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;overflow-y:auto!important;padding:100px 24px 60px!important;color:#fff!important';}else{alert('view-login element not found in DOM');}return false;">Platform Login</a>
@@ -982,6 +983,600 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 
 </div><!-- /view-home -->
 
+<!-- PRICING VIEW -->
+<div class="view" id="view-pricing">
+<style>
+.pr-hero{background:var(--navy);padding:120px 72px 80px;text-align:center}
+.pr-hero-inner{max-width:640px;margin:0 auto}
+.pr-badge{display:inline-block;background:rgba(29,158,117,.15);color:var(--teal-light);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(29,158,117,.25)}
+.pr-h1{font-size:clamp(36px,5vw,56px);font-weight:700;color:#fff;line-height:1.15;margin:0 0 20px}
+.pr-sub{font-size:18px;color:rgba(255,255,255,.65);line-height:1.6;margin:0}
+.pr-card-section{background:var(--navy2);padding:80px 72px}
+.pr-container{max-width:1080px;margin:0 auto}
+.pr-plan-wrap{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:stretch}
+.pr-features{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:36px 40px}
+.pr-feat-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-light);margin-bottom:20px}
+.pr-feat-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pr-feat-list li{font-size:14px;color:rgba(255,255,255,.75);padding-left:20px;position:relative;line-height:1.4}
+.pr-feat-list li::before{content:'✓';position:absolute;left:0;color:var(--teal-light);font-weight:700;font-size:13px}
+.pr-price-card{background:linear-gradient(135deg,var(--teal) 0%,var(--teal2) 100%);border-radius:20px;padding:40px 32px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.pr-plan-name{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.7);margin-bottom:16px}
+.pr-price{margin-bottom:28px}
+.pr-price-amt{font-size:56px;font-weight:700;color:#fff;line-height:1}
+.pr-price-per{font-size:14px;color:rgba(255,255,255,.7);display:block;margin-top:4px}
+.pr-demo-btn{display:block;background:#fff;color:var(--teal2);font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;margin-bottom:24px;transition:opacity .2s}
+.pr-demo-btn:hover{opacity:.9}
+.pr-perks{list-style:none;padding:0;margin:0}
+.pr-perks li{font-size:13px;color:rgba(255,255,255,.8);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.pr-perks li:last-child{border-bottom:none}
+.pr-tabs-section{background:var(--navy);padding:80px 72px}
+.pr-tabs-header{text-align:center;margin-bottom:48px}
+.pr-tabs-title{font-size:clamp(28px,3vw,40px);font-weight:700;color:#fff;margin:0 0 12px}
+.pr-tabs-sub{font-size:16px;color:rgba(255,255,255,.55);margin:0}
+.pr-tab-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;justify-content:center}
+.pr-tab-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:13px;font-weight:500;padding:8px 18px;border-radius:20px;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.pr-tab-btn:hover{color:#fff;border-color:rgba(255,255,255,.25)}
+.pr-tab-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.pr-tab-panel{display:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:40px}
+.pr-tab-panel.active{display:block}
+.pr-tab-panel h3{font-size:18px;font-weight:700;color:#fff;margin:0 0 28px}
+.pr-tab-panel ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pr-tab-panel ul li{font-size:14px;color:rgba(255,255,255,.65);line-height:1.6}
+.pr-tab-panel ul li strong{color:#fff;display:block;margin-bottom:2px;font-size:14px}
+.pr-testimonial{background:var(--navy2);padding:80px 72px}
+.pr-testi-card{max-width:720px;margin:0 auto;text-align:center}
+.pr-testi-stars{font-size:22px;color:#f59e0b;margin-bottom:16px;letter-spacing:3px}
+.pr-testi-title{font-size:28px;font-weight:700;color:#fff;margin:0 0 20px}
+.pr-testi-body{font-size:16px;color:rgba(255,255,255,.65);line-height:1.75;margin:0 0 24px;font-style:italic}
+.pr-testi-rating{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.15);border:1px solid rgba(29,158,117,.25);color:var(--teal-light);font-size:16px;font-weight:700;padding:8px 20px;border-radius:20px}
+.pr-faq-section{background:var(--navy);padding:80px 72px}
+.pr-faq-title{font-size:clamp(28px,3vw,40px);font-weight:700;color:#fff;text-align:center;margin:0 0 48px}
+.pr-faq-list{max-width:720px;margin:0 auto}
+.pr-faq-item{border-bottom:1px solid rgba(255,255,255,.1)}
+.pr-faq-q{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:none;color:#fff;font-size:16px;font-weight:500;padding:22px 0;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;gap:16px;line-height:1.4}
+.pr-faq-icon{font-size:24px;color:var(--teal-light);flex-shrink:0;transition:transform .25s;font-weight:300;line-height:1}
+.pr-faq-q.open .pr-faq-icon{transform:rotate(45deg)}
+.pr-faq-a{display:none;font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;padding-bottom:22px}
+.pr-faq-a.open{display:block}
+.pr-cta-section{background:linear-gradient(135deg,var(--teal) 0%,var(--teal2) 100%);padding:80px 72px;text-align:center}
+.pr-cta-section h2{font-size:clamp(28px,3vw,40px);font-weight:700;color:#fff;margin:0 0 12px}
+.pr-cta-section p{font-size:17px;color:rgba(255,255,255,.85);margin:0 0 32px}
+.pr-cta-link{display:inline-block;background:#fff;color:var(--teal2);font-size:15px;font-weight:700;padding:14px 36px;border-radius:10px;text-decoration:none;transition:opacity .2s}
+.pr-cta-link:hover{opacity:.9}
+@media(max-width:900px){.pr-plan-wrap{grid-template-columns:1fr}}
+@media(max-width:768px){.pr-hero{padding:100px 24px 60px}.pr-card-section,.pr-tabs-section,.pr-testimonial,.pr-faq-section,.pr-cta-section{padding:60px 24px}.pr-feat-list,.pr-tab-panel ul{grid-template-columns:1fr}}
+</style>
+
+<section class="pr-hero">
+  <div class="pr-hero-inner">
+    <div class="pr-badge">Pricing</div>
+    <h1 class="pr-h1">Refreshingly simple.<br>Awesomely affordable.</h1>
+    <p class="pr-sub">One clear price. No onboarding fees. No hidden charges. No fine print. Free first-class support.</p>
+  </div>
+</section>
+
+<section class="pr-card-section">
+  <div class="pr-container">
+    <div class="pr-plan-wrap">
+      <div class="pr-features">
+        <div class="pr-feat-title">Everything your sales team needs — included</div>
+        <ul class="pr-feat-list">
+          <li>Set and Track Sales Goals</li>
+          <li>Drive Sustained Peak Performance</li>
+          <li>Track Daily Call and Email Volume Goals</li>
+          <li>Automated Monthly, Quarterly &amp; Annual Reports</li>
+          <li>Track Commissions</li>
+          <li>Create Contracts and Invoices (Native Builder)</li>
+          <li>Collect Payments via Stripe and QuickBooks</li>
+          <li>Access to the Goals.com Marketplace</li>
+          <li>Integrate with Google, Outlook &amp; AI Notetakers</li>
+          <li>Actionable Insights</li>
+          <li>Assign Leads</li>
+          <li>Move Accounts Through Sales Stages</li>
+          <li>Track Deal Statuses</li>
+          <li>Activity Tracking</li>
+          <li>Set Reminders</li>
+          <li>Record Customer Notes</li>
+          <li>Sales Contests &amp; Performance Bonuses</li>
+          <li>Recognize Strong Performance</li>
+          <li>Mobile App</li>
+        </ul>
+      </div>
+      <div class="pr-price-card">
+        <div class="pr-plan-name">CRM</div>
+        <div class="pr-price">
+          <span class="pr-price-amt">$39</span>
+          <span class="pr-price-per">/month/user</span>
+        </div>
+        <a href="#" class="pr-demo-btn" onclick="showView('home');return false;">Get Demo</a>
+        <ul class="pr-perks">
+          <li>No credit card required</li>
+          <li>Complimentary setup</li>
+          <li>Cancel anytime</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pr-tabs-section">
+  <div class="pr-container">
+    <div class="pr-tabs-header">
+      <h2 class="pr-tabs-title">Built to Drive More Sales</h2>
+      <p class="pr-tabs-sub">Every feature designed around one goal: helping your team perform at a higher level.</p>
+    </div>
+    <div class="pr-tab-nav">
+      <button class="pr-tab-btn active" onclick="showPrTab('sales-goals',this)">Sales Goals</button>
+      <button class="pr-tab-btn" onclick="showPrTab('perf-dash',this)">Performance Dashboard</button>
+      <button class="pr-tab-btn" onclick="showPrTab('pipeline',this)">Pipeline</button>
+      <button class="pr-tab-btn" onclick="showPrTab('commissions',this)">Commissions</button>
+      <button class="pr-tab-btn" onclick="showPrTab('team-mgmt',this)">Team Management</button>
+      <button class="pr-tab-btn" onclick="showPrTab('chat',this)">Chat</button>
+      <button class="pr-tab-btn" onclick="showPrTab('highlights',this)">Highlights</button>
+      <button class="pr-tab-btn" onclick="showPrTab('incentives',this)">Incentives</button>
+    </div>
+    <div id="pr-tab-sales-goals" class="pr-tab-panel active">
+      <h3>Sales Goals</h3>
+      <ul>
+        <li><strong>Revenue Mapping</strong>Align individual goals with annual business goals for a collaborative strategy</li>
+        <li><strong>Monitor Team Performance</strong>Monitor how your organization is doing relative to its annual sales goal</li>
+        <li><strong>Instant Progress</strong>Stay on top of goals and instantly monitor revenue progress</li>
+        <li><strong>Individual Accountability</strong>Simple, revenue-based goals that encourage responsibility and execution</li>
+        <li><strong>Dashboard</strong>Easily view each rep's annual goal and their progress month over month</li>
+        <li><strong>Individual Performance</strong>Quickly monitor each individual salesperson's performance analytics</li>
+        <li><strong>Performance Management</strong>Easily focus on each rep's performance against their monthly goals</li>
+        <li><strong>Flexible Adjustments</strong>Adjust team members' monthly goals based on seasonal or performance-based factors</li>
+      </ul>
+    </div>
+    <div id="pr-tab-perf-dash" class="pr-tab-panel">
+      <h3>Performance Dashboard</h3>
+      <ul>
+        <li><strong>Total Sales</strong>See your organization's current sales year to date adjacent to your annual sales goals</li>
+        <li><strong>Monthly Sales</strong>Monitor monthly progress against your monthly team goals</li>
+        <li><strong>Team ROI</strong>Factor the return and profitability of the sales team</li>
+        <li><strong>Pipeline KPI Summary</strong>Quickly view what's in your pipeline, leads in progress, and total value</li>
+        <li><strong>Leaderboard</strong>See deals closed, deals in the works, and revenue performance per rep</li>
+      </ul>
+    </div>
+    <div id="pr-tab-pipeline" class="pr-tab-panel">
+      <h3>Pipeline</h3>
+      <ul>
+        <li><strong>Pipeline Performance</strong>View your team's top of funnel, each sales stage, and click into accounts</li>
+        <li><strong>Lead Status</strong>Understand each prospect's status by days aging, scheduled activities, and stage</li>
+        <li><strong>CRM Specifics</strong>View an account's overall status, proposals, past transactions, referrals, and notes</li>
+        <li><strong>Efficient Stage Access</strong>Quickly manage accounts by assigning leads, opportunities, and account management</li>
+      </ul>
+    </div>
+    <div id="pr-tab-commissions" class="pr-tab-panel">
+      <h3>Commissions</h3>
+      <ul>
+        <li><strong>Integrated Commissions</strong>Measure and track annual and monthly sales commissions for each associate</li>
+        <li><strong>Streamlined Calculations</strong>Automatic and accurate processes that reduce errors and time spent</li>
+        <li><strong>Flexible Structures</strong>Tiered, percentage-based, and flat-rate commission models built for your business</li>
+        <li><strong>Transparent Details</strong>Understand team member performance with clear, easy-to-read details</li>
+        <li><strong>Realtime Tracking</strong>Instant visibility for tracking commissions as deals close</li>
+        <li><strong>Commission Forecast</strong>Provide insights into potential commission earnings for each team member</li>
+      </ul>
+    </div>
+    <div id="pr-tab-team-mgmt" class="pr-tab-panel">
+      <h3>Team Management</h3>
+      <ul>
+        <li><strong>Team Snapshot</strong>View a quick snapshot of each team member and a roll up of their annual contributions</li>
+        <li><strong>Individual ROI</strong>Easily see who is driving value versus those that might be breaking even</li>
+        <li><strong>Rep Specific Dashboard</strong>Manage each individual rep's pipeline and ongoing performance</li>
+        <li><strong>Morning Brief Email</strong>Give each team member a daily reminder of goal progress and upcoming opportunities</li>
+      </ul>
+    </div>
+    <div id="pr-tab-chat" class="pr-tab-panel">
+      <h3>Chat</h3>
+      <ul>
+        <li><strong>Manage Chats</strong>Review a salesperson's performance and ping the rep in stride</li>
+        <li><strong>Team Collaboration</strong>Team members can message each other and groups directly in the platform</li>
+        <li><strong>File Sharing</strong>Send and receive JPG, PNG, GIF, PDF, and TXT files via the chatbox</li>
+        <li><strong>Chat Notifications</strong>Receive desktop and email notifications for new chat messages</li>
+        <li><strong>Monitoring Alerts</strong>Quickly identify potential issues or missed opportunities</li>
+      </ul>
+    </div>
+    <div id="pr-tab-highlights" class="pr-tab-panel">
+      <h3>Highlights</h3>
+      <ul>
+        <li><strong>Celebrate Special Events</strong>Automatically recognize team members' birthdays and work anniversaries</li>
+        <li><strong>Drive Morale</strong>Show appreciation and recognize team members with a job well done</li>
+        <li><strong>Simple Callouts</strong>Recognize wins and drive a winning culture across the team</li>
+        <li><strong>Real-time Notifications</strong>Receive real-time notifications on individual goal progress and achievements</li>
+      </ul>
+    </div>
+    <div id="pr-tab-incentives" class="pr-tab-panel">
+      <h3>Incentives</h3>
+      <ul>
+        <li><strong>Positive Work Space</strong>Build incentives to encourage and empower team members with confidence</li>
+        <li><strong>Sales Contests</strong>Spur sales activity with fun, competitive contests that keep energy high</li>
+        <li><strong>Healthy Competition</strong>Encourage team camaraderie and a competitive atmosphere for all team members</li>
+        <li><strong>Bonuses</strong>Drive longer-term incentive strategies for the entire team or individual members</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="pr-testimonial">
+  <div class="pr-container">
+    <div class="pr-testi-card">
+      <div class="pr-testi-stars">★★★★★</div>
+      <h3 class="pr-testi-title">"Wish we had this sooner!"</h3>
+      <p class="pr-testi-body">We tried several different CRMs, all ended up being too complicated and we gave up on them. Goals.com gives us the ability to track revenues, commissions, and really what's important. The team at Goals.com was great to work with and always there when we need them. Onboarding was super easy and straightforward. Our team quickly adopted the tool and are enjoying how easy it is to use. I would recommend this to anyone who wants their goals and commissions tied into their CRM.</p>
+      <div class="pr-testi-rating">⭐ 4.9 / 5.0 Customer Rating</div>
+    </div>
+  </div>
+</section>
+
+<section class="pr-faq-section">
+  <div class="pr-container">
+    <h2 class="pr-faq-title">Frequently Asked Questions</h2>
+    <div class="pr-faq-list">
+      <div class="pr-faq-item">
+        <button class="pr-faq-q" onclick="toggleFaq(this)">Do you offer a free trial?<span class="pr-faq-icon">+</span></button>
+        <div class="pr-faq-a">Yes! You will get a free 14-day trial period with our standard and custom plans.</div>
+      </div>
+      <div class="pr-faq-item">
+        <button class="pr-faq-q" onclick="toggleFaq(this)">What happens after the free trial period?<span class="pr-faq-icon">+</span></button>
+        <div class="pr-faq-a">After the 14-day trial period, your account will be automatically downgraded until we receive your standard monthly payment information. You won't lose any data during this time.</div>
+      </div>
+      <div class="pr-faq-item">
+        <button class="pr-faq-q" onclick="toggleFaq(this)">Do I have to sign a contract?<span class="pr-faq-icon">+</span></button>
+        <div class="pr-faq-a">No. We bill on a month-to-month basis.</div>
+      </div>
+      <div class="pr-faq-item">
+        <button class="pr-faq-q" onclick="toggleFaq(this)">What payment methods do you accept?<span class="pr-faq-icon">+</span></button>
+        <div class="pr-faq-a">We accept Visa, American Express, and MasterCard. Please contact us if additional payment types are needed.</div>
+      </div>
+      <div class="pr-faq-item">
+        <button class="pr-faq-q" onclick="toggleFaq(this)">How do we get started onboarding and how long does it typically take?<span class="pr-faq-icon">+</span></button>
+        <div class="pr-faq-a">Our goal is to get you up and going as quickly as possible. Typically it only takes a couple of hours to fully onboard your team. Our success team will be with you every step of the way.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pr-cta-section">
+  <div class="pr-container">
+    <h2>We're here and love to help.</h2>
+    <p>See Goals.com in action. Ask about pricing, implementation, or anything else.</p>
+    <a href="#" class="pr-cta-link" onclick="showView('contact');return false;">Get in Touch</a>
+  </div>
+</section>
+
+</div><!-- /view-pricing -->
+
+<!-- PODCAST VIEW -->
+<div class="view" id="view-podcast">
+<style>
+/* ── PODCAST VIEW ──────────────────────────────── */
+.pod-hero{background:var(--navy2);padding:120px 72px 80px;text-align:center;position:relative;overflow:hidden}
+.pod-hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(29,158,117,.12) 0%,transparent 70%);pointer-events:none}
+.pod-hero-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.pod-badge{display:inline-block;background:rgba(29,158,117,.15);color:var(--teal-light);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(29,158,117,.25)}
+.pod-h1{font-size:clamp(32px,4.5vw,52px);font-weight:700;color:#fff;line-height:1.2;margin:0 0 18px}
+.pod-sub{font-size:17px;color:rgba(255,255,255,.6);line-height:1.6;margin:0 0 36px}
+.pod-hero-platforms{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* Platform buttons */
+.pod-pf{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:11px 20px;border-radius:10px;text-decoration:none;transition:all .2s;font-family:'Inter',sans-serif;border:1px solid transparent}
+.pod-pf-yt{background:rgba(255,0,0,.12);border-color:rgba(255,0,0,.25);color:#ff6b6b}.pod-pf-yt:hover{background:rgba(255,0,0,.22)}
+.pod-pf-sp{background:rgba(30,215,96,.1);border-color:rgba(30,215,96,.25);color:#1ed760}.pod-pf-sp:hover{background:rgba(30,215,96,.18)}
+.pod-pf-ap{background:rgba(175,82,222,.1);border-color:rgba(175,82,222,.25);color:#bf5af2}.pod-pf-ap:hover{background:rgba(175,82,222,.18)}
+.pod-pf-am{background:rgba(255,153,0,.1);border-color:rgba(255,153,0,.25);color:#f59e0b}.pod-pf-am:hover{background:rgba(255,153,0,.18)}
+/* Host section */
+.pod-host-section{background:var(--navy);padding:72px 72px}
+.pod-container{max-width:1080px;margin:0 auto}
+.pod-host-card{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:48px;position:relative;overflow:hidden}
+.pod-host-card::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(29,158,117,.1) 0%,transparent 70%);pointer-events:none}
+.pod-host-photo-wrap{position:relative}
+.pod-host-photo-img{width:240px;height:280px;object-fit:cover;object-position:top center;border-radius:16px;display:block;border:3px solid rgba(29,158,117,.3)}
+.pod-host-photo-fallback{width:240px;height:280px;border-radius:16px;background:linear-gradient(135deg,var(--teal),var(--teal2));display:none;align-items:center;justify-content:center;font-size:64px;font-weight:700;color:#fff;letter-spacing:-2px}
+.pod-host-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--teal-light);margin-bottom:10px}
+.pod-host-featured-name{font-size:clamp(28px,3vw,40px);font-weight:700;color:#fff;margin:0 0 16px}
+.pod-host-bio{font-size:15px;color:rgba(255,255,255,.6);line-height:1.7;margin:0 0 28px;max-width:540px}
+.pod-host-platforms{display:flex;gap:10px;flex-wrap:wrap}
+/* Episodes */
+.pod-eps-section{background:var(--navy2);padding:80px 72px}
+.pod-eps-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+.pod-eps-title-wrap h2{font-size:clamp(24px,3vw,36px);font-weight:700;color:#fff;margin:0 0 6px}
+.pod-eps-title-wrap p{font-size:15px;color:rgba(255,255,255,.45);margin:0}
+.pod-sort-wrap{display:flex;align-items:center;gap:8px}
+.pod-sort-label{font-size:13px;color:rgba(255,255,255,.45)}
+.pod-sort-select{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:13px;font-family:'Inter',sans-serif;padding:8px 14px;border-radius:8px;cursor:pointer;outline:none;appearance:none;-webkit-appearance:none;padding-right:32px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;transition:border-color .2s}
+.pod-sort-select:focus{border-color:var(--teal)}
+.pod-ep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.pod-ep-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s;cursor:default}
+.pod-ep-card:hover{border-color:rgba(29,158,117,.35);transform:translateY(-2px)}
+.pod-ep-thumb{height:150px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pod-ep-thumb-inner{width:52px;height:52px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.pod-ep-thumb svg{width:20px;height:20px;fill:#fff;margin-left:3px}
+.pod-ep-body{padding:20px}
+.pod-ep-num{font-size:11px;font-weight:700;color:var(--teal-light);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.pod-ep-title{font-size:15px;font-weight:700;color:#fff;line-height:1.4;margin:0 0 8px}
+.pod-ep-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;margin:0 0 14px}
+.pod-ep-meta{display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(255,255,255,.3)}
+.pod-ep-dot{width:3px;height:3px;background:rgba(255,255,255,.2);border-radius:50%;flex-shrink:0}
+/* Pagination */
+.pod-pagination{display:flex;align-items:center;justify-content:center;gap:8px}
+.pod-pg-btn{width:38px;height:38px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:rgba(255,255,255,.5);font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:'Inter',sans-serif}
+.pod-pg-btn:hover{border-color:rgba(255,255,255,.25);color:#fff}
+.pod-pg-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.pod-pg-btn:disabled{opacity:.3;cursor:default}
+.pod-pg-arrow{width:38px;height:38px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:rgba(255,255,255,.5);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:inherit}
+.pod-pg-arrow:hover:not(:disabled){border-color:rgba(255,255,255,.25);color:#fff}
+.pod-pg-arrow:disabled{opacity:.3;cursor:default}
+/* Subscribe */
+.pod-subscribe{background:var(--navy);padding:80px 72px;text-align:center}
+.pod-subscribe h2{font-size:clamp(24px,3vw,36px);font-weight:700;color:#fff;margin:0 0 12px}
+.pod-subscribe p{font-size:16px;color:rgba(255,255,255,.5);margin:0 0 32px}
+.pod-sub-platforms{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+@media(max-width:900px){.pod-ep-grid{grid-template-columns:1fr 1fr}.pod-host-card{grid-template-columns:1fr;text-align:center}.pod-host-photo-img,.pod-host-photo-fallback{width:160px;height:190px;margin:0 auto}.pod-host-platforms{justify-content:center}}
+@media(max-width:768px){.pod-hero{padding:100px 24px 60px}.pod-host-section,.pod-eps-section,.pod-subscribe{padding:60px 24px}.pod-ep-grid{grid-template-columns:1fr}.pod-eps-header{flex-direction:column;align-items:flex-start}}
+</style>
+
+<section class="pod-hero">
+  <div class="pod-hero-inner">
+    <div class="pod-badge">Podcast</div>
+    <h1 class="pod-h1">The Sales Performance Podcast<br>for Driven Professionals</h1>
+    <p class="pod-sub">Real conversations with sales leaders. Practical strategies you can put to work today.</p>
+    <div class="pod-hero-platforms">
+      <a href="https://www.youtube.com/@goals.com" class="pod-pf pod-pf-yt" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1C4.5 20.4 12 20.4 12 20.4s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>YouTube
+      </a>
+      <a href="https://open.spotify.com" class="pod-pf pod-pf-sp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>Spotify
+      </a>
+      <a href="https://podcasts.apple.com" class="pod-pf pod-pf-ap" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C8.8 0 5.9 1.3 3.8 3.5c-4.3 4.6-4.2 11.8.3 16.3 2 1.9 4.6 3 7.3 3.2.2 0 .4 0 .6 0s.4 0 .6 0c2.7-.2 5.3-1.3 7.3-3.2 4.5-4.5 4.6-11.7.3-16.3C18.1 1.3 15.2 0 12 0zm.6 6.4c1.8.2 3.3 1.7 3.5 3.5.3 2.3-1.4 4.3-3.7 4.3-1.9 0-3.5-1.4-3.8-3.3-.1-.5-.1-1.1 0-1.6.3-1.6 1.7-2.8 3.3-2.9h.7zm-.6 7.7c1.2 0 2.3.4 3.1 1.1.4.3.7.7 1 1.1.4.7.7 1.6.7 2.5 0 .2-.1.4-.1.7-1.1.6-2.3.9-3.6.9s-2.5-.3-3.5-.9c0-.2-.1-.4-.1-.7 0-.9.3-1.8.7-2.5.3-.4.6-.8 1-1.1.8-.7 1.8-1.1 2.8-1.1z"/></svg>Apple Podcasts
+      </a>
+      <a href="https://music.amazon.com/podcasts" class="pod-pf pod-pf-am" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.44-2.186 1.44-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.683zm3.186 7.705c-.209.189-.512.201-.745.076-1.045-.869-1.232-1.272-1.806-2.1-1.726 1.761-2.948 2.286-5.187 2.286-2.652 0-4.71-1.638-4.71-4.917 0-2.56 1.387-4.305 3.366-5.155 1.712-.754 4.104-.889 5.934-1.098v-.409c0-.753.06-1.642-.383-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.898-.054.285-.261.567-.549.582l-3.07-.333c-.259-.056-.548-.266-.472-.661.706-3.727 4.076-4.853 7.088-4.853 1.543 0 3.56.411 4.778 1.579 1.543 1.44 1.395 3.361 1.395 5.454v4.941c0 1.488.616 2.141 1.196 2.945.204.285.249.628-.01.839l-2.51 2.04zM21.479 19.651c-2.748 2.03-6.741 3.109-10.175 3.109-4.815 0-9.149-1.781-12.435-4.745-.257-.233-.027-.551.282-.37 3.542 2.062 7.918 3.303 12.441 3.303 3.049 0 6.398-.632 9.488-1.941.463-.198.854.304.399.644z"/></svg>Amazon
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="pod-host-section">
+  <div class="pod-container">
+    <div class="pod-host-card">
+      <div class="pod-host-photo-wrap">
+        <img src="andrew-rice.jpg" alt="Andrew Rice" class="pod-host-photo-img" onerror="this.style.display='none';document.getElementById('pod-host-fb').style.display='flex'">
+        <div id="pod-host-fb" class="pod-host-photo-fallback">AR</div>
+      </div>
+      <div>
+        <div class="pod-host-label">Your Host</div>
+        <h2 class="pod-host-featured-name">Andrew Rice</h2>
+        <p class="pod-host-bio">Andrew Rice is the Founder and CEO of Goals.com, where he's helped hundreds of sales organizations build winning cultures through clear goals, transparent commissions, and tools that actually get used. Each week on the podcast, Andrew sits down with top sales leaders to unpack the strategies, systems, and mindsets that separate high-performing teams from the rest.</p>
+        <div class="pod-host-platforms">
+          <a href="https://www.youtube.com/@goals.com" class="pod-pf pod-pf-yt" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1C4.5 20.4 12 20.4 12 20.4s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>YouTube
+          </a>
+          <a href="https://open.spotify.com" class="pod-pf pod-pf-sp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>Spotify
+          </a>
+          <a href="https://podcasts.apple.com" class="pod-pf pod-pf-ap" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 0C8.8 0 5.9 1.3 3.8 3.5c-4.3 4.6-4.2 11.8.3 16.3 2 1.9 4.6 3 7.3 3.2.2 0 .4 0 .6 0s.4 0 .6 0c2.7-.2 5.3-1.3 7.3-3.2 4.5-4.5 4.6-11.7.3-16.3C18.1 1.3 15.2 0 12 0zm.6 6.4c1.8.2 3.3 1.7 3.5 3.5.3 2.3-1.4 4.3-3.7 4.3-1.9 0-3.5-1.4-3.8-3.3-.1-.5-.1-1.1 0-1.6.3-1.6 1.7-2.8 3.3-2.9h.7zm-.6 7.7c1.2 0 2.3.4 3.1 1.1.4.3.7.7 1 1.1.4.7.7 1.6.7 2.5 0 .2-.1.4-.1.7-1.1.6-2.3.9-3.6.9s-2.5-.3-3.5-.9c0-.2-.1-.4-.1-.7 0-.9.3-1.8.7-2.5.3-.4.6-.8 1-1.1.8-.7 1.8-1.1 2.8-1.1z"/></svg>Apple Podcasts
+          </a>
+          <a href="https://music.amazon.com/podcasts" class="pod-pf pod-pf-am" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.44-2.186 1.44-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.683zm3.186 7.705c-.209.189-.512.201-.745.076-1.045-.869-1.232-1.272-1.806-2.1-1.726 1.761-2.948 2.286-5.187 2.286-2.652 0-4.71-1.638-4.71-4.917 0-2.56 1.387-4.305 3.366-5.155 1.712-.754 4.104-.889 5.934-1.098v-.409c0-.753.06-1.642-.383-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.898-.054.285-.261.567-.549.582l-3.07-.333c-.259-.056-.548-.266-.472-.661.706-3.727 4.076-4.853 7.088-4.853 1.543 0 3.56.411 4.778 1.579 1.543 1.44 1.395 3.361 1.395 5.454v4.941c0 1.488.616 2.141 1.196 2.945.204.285.249.628-.01.839l-2.51 2.04zM21.479 19.651c-2.748 2.03-6.741 3.109-10.175 3.109-4.815 0-9.149-1.781-12.435-4.745-.257-.233-.027-.551.282-.37 3.542 2.062 7.918 3.303 12.441 3.303 3.049 0 6.398-.632 9.488-1.941.463-.198.854.304.399.644z"/></svg>Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pod-eps-section">
+  <div class="pod-container">
+    <div class="pod-eps-header">
+      <div class="pod-eps-title-wrap">
+        <h2>Episodes</h2>
+        <p>Enriching discussions and insights from sales professionals across all kinds of industries.</p>
+      </div>
+      <div class="pod-sort-wrap">
+        <span class="pod-sort-label">Sort:</span>
+        <select class="pod-sort-select" id="podSortSelect" onchange="renderPodEpisodes()">
+          <option value="new">Newest First</option>
+          <option value="old">Oldest First</option>
+        </select>
+      </div>
+    </div>
+    <div class="pod-ep-grid" id="podEpGrid"></div>
+    <div class="pod-pagination" id="podPagination"></div>
+  </div>
+</section>
+
+<section class="pod-subscribe">
+  <div class="pod-container">
+    <h2>Subscribe &amp; Never Miss an Episode</h2>
+    <p>New conversations with sales leaders every week. Available on all major platforms.</p>
+    <div class="pod-sub-platforms">
+      <a href="https://www.youtube.com/@goals.com" class="pod-pf pod-pf-yt" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1C4.5 20.4 12 20.4 12 20.4s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>YouTube
+      </a>
+      <a href="https://open.spotify.com" class="pod-pf pod-pf-sp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>Spotify
+      </a>
+      <a href="https://podcasts.apple.com" class="pod-pf pod-pf-ap" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C8.8 0 5.9 1.3 3.8 3.5c-4.3 4.6-4.2 11.8.3 16.3 2 1.9 4.6 3 7.3 3.2.2 0 .4 0 .6 0s.4 0 .6 0c2.7-.2 5.3-1.3 7.3-3.2 4.5-4.5 4.6-11.7.3-16.3C18.1 1.3 15.2 0 12 0zm.6 6.4c1.8.2 3.3 1.7 3.5 3.5.3 2.3-1.4 4.3-3.7 4.3-1.9 0-3.5-1.4-3.8-3.3-.1-.5-.1-1.1 0-1.6.3-1.6 1.7-2.8 3.3-2.9h.7zm-.6 7.7c1.2 0 2.3.4 3.1 1.1.4.3.7.7 1 1.1.4.7.7 1.6.7 2.5 0 .2-.1.4-.1.7-1.1.6-2.3.9-3.6.9s-2.5-.3-3.5-.9c0-.2-.1-.4-.1-.7 0-.9.3-1.8.7-2.5.3-.4.6-.8 1-1.1.8-.7 1.8-1.1 2.8-1.1z"/></svg>Apple Podcasts
+      </a>
+      <a href="https://music.amazon.com/podcasts" class="pod-pf pod-pf-am" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.44-2.186 1.44-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.683zm3.186 7.705c-.209.189-.512.201-.745.076-1.045-.869-1.232-1.272-1.806-2.1-1.726 1.761-2.948 2.286-5.187 2.286-2.652 0-4.71-1.638-4.71-4.917 0-2.56 1.387-4.305 3.366-5.155 1.712-.754 4.104-.889 5.934-1.098v-.409c0-.753.06-1.642-.383-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.898-.054.285-.261.567-.549.582l-3.07-.333c-.259-.056-.548-.266-.472-.661.706-3.727 4.076-4.853 7.088-4.853 1.543 0 3.56.411 4.778 1.579 1.543 1.44 1.395 3.361 1.395 5.454v4.941c0 1.488.616 2.141 1.196 2.945.204.285.249.628-.01.839l-2.51 2.04zM21.479 19.651c-2.748 2.03-6.741 3.109-10.175 3.109-4.815 0-9.149-1.781-12.435-4.745-.257-.233-.027-.551.282-.37 3.542 2.062 7.918 3.303 12.441 3.303 3.049 0 6.398-.632 9.488-1.941.463-.198.854.304.399.644z"/></svg>Amazon
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+// ── PODCAST EPISODES DATA ────────────────────────────────
+var podEpisodes = [
+  {num:1,  title:"How the Best Sales Teams Set Goals That Actually Drive Results",       desc:"Andrew breaks down the framework top-performing sales organizations use to align individual targets with company-wide revenue goals.", date:"Jan 27, 2025", dur:"38 min", grad:"linear-gradient(135deg,#1a2035 0%,#1d9e75 100%)"},
+  {num:2,  title:"Commission Structures That Motivate Without Breaking the Bank",         desc:"A deep dive into tiered, percentage-based, and performance-bonus models — and which structures work best for growing teams.", date:"Feb 10, 2025", dur:"42 min", grad:"linear-gradient(135deg,#17896a 0%,#141827 100%)"},
+  {num:3,  title:"Pipeline Hygiene: Why Most Reps Are Losing Deals They Should Win",     desc:"The habits and tools that keep your pipeline clean, your forecasts accurate, and your reps focused on the right opportunities.", date:"Feb 24, 2025", dur:"35 min", grad:"linear-gradient(135deg,#1a2035 0%,#22c55e 100%)"},
+  {num:4,  title:"Building a Sales Culture Where People Actually Want to Perform",       desc:"Culture eats strategy. Andrew explores what it takes to build an environment where accountability and recognition go hand in hand.", date:"Mar 10, 2025", dur:"44 min", grad:"linear-gradient(135deg,#141827 0%,#1d9e75 100%)"},
+  {num:5,  title:"The Morning Routine of a High-Performing Sales Rep",                   desc:"What separates top reps from average ones often comes down to how they start the day. Insights from some of the best in the business.", date:"Mar 24, 2025", dur:"29 min", grad:"linear-gradient(135deg,#1d9e75 0%,#1a2035 100%)"},
+  {num:6,  title:"Why Most CRMs Fail Sales Teams — and What to Do Instead",             desc:"CRM adoption is a real problem. Andrew talks through what makes a tool actually stick and how to evaluate what your team truly needs.", date:"Apr 7, 2025",  dur:"40 min", grad:"linear-gradient(135deg,#1a2035 0%,#17896a 100%)"},
+  {num:7,  title:"Forecasting Revenue the Right Way",                                    desc:"Most revenue forecasts are wrong. Andrew unpacks the common mistakes and the metrics that actually predict whether your team hits the number.", date:"Apr 21, 2025", dur:"37 min", grad:"linear-gradient(135deg,#17896a 0%,#141827 100%)"},
+  {num:8,  title:"Recognizing and Retaining Your Best Sales Talent",                    desc:"Losing a top rep is expensive. This episode covers the recognition frameworks and career development strategies that keep your best people engaged.", date:"May 5, 2025",  dur:"41 min", grad:"linear-gradient(135deg,#141827 0%,#22c55e 100%)"},
+  {num:9,  title:"From First Call to Closed Deal: Optimizing Your Sales Process",       desc:"A look at the key conversion points in a modern sales process and how small improvements at each stage compound into significant revenue gains.", date:"May 19, 2025", dur:"45 min", grad:"linear-gradient(135deg,#1a2035 0%,#1d9e75 100%)"},
+  {num:10, title:"Leading a Remote Sales Team Without Losing Accountability",            desc:"Managing remote reps is a different game. Andrew shares the systems, check-ins, and visibility tools that keep distributed teams focused and productive.", date:"Jun 2, 2025",  dur:"38 min", grad:"linear-gradient(135deg,#1d9e75 0%,#141827 100%)"},
+  {num:11, title:"How to Run a Sales Contest That Actually Drives Behavior",             desc:"Not all incentive programs are created equal. This episode breaks down what makes a sales contest drive the right activity — and what makes it fall flat.", date:"Jun 16, 2025", dur:"33 min", grad:"linear-gradient(135deg,#141827 0%,#1d9e75 100%)"},
+  {num:12, title:"The State of Sales Performance: What the Data Tells Us",               desc:"Andrew pulls together data from Goals.com customers to paint a picture of what high-performing sales teams are doing differently right now.", date:"Jun 30, 2025", dur:"47 min", grad:"linear-gradient(135deg,#17896a 0%,#1a2035 100%)"},
+];
+
+var podPage = 1;
+var podPerPage = 6;
+
+function renderPodEpisodes() {
+  var sort = document.getElementById('podSortSelect').value;
+  var eps = podEpisodes.slice();
+  if (sort === 'new') eps = eps.slice().reverse();
+  var totalPages = Math.ceil(eps.length / podPerPage);
+  if (podPage > totalPages) podPage = 1;
+  var start = (podPage - 1) * podPerPage;
+  var pageEps = eps.slice(start, start + podPerPage);
+
+  var grid = document.getElementById('podEpGrid');
+  if (!grid) return;
+  var playIcon = '<svg viewBox="0 0 24 24" fill="#fff" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>';
+  grid.innerHTML = pageEps.map(function(ep) {
+    return '<div class="pod-ep-card">' +
+      '<div class="pod-ep-thumb" style="background:' + ep.grad + '">' +
+        '<div class="pod-ep-thumb-inner">' + playIcon + '</div>' +
+      '</div>' +
+      '<div class="pod-ep-body">' +
+        '<div class="pod-ep-num">Episode ' + String(ep.num).padStart(2,'0') + '</div>' +
+        '<h3 class="pod-ep-title">' + ep.title + '</h3>' +
+        '<p class="pod-ep-desc">' + ep.desc + '</p>' +
+        '<div class="pod-ep-meta">' +
+          '<span>' + ep.date + '</span>' +
+          '<span class="pod-ep-dot"></span>' +
+          '<span>' + ep.dur + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  // Pagination
+  var pg = document.getElementById('podPagination');
+  if (!pg) return;
+  var html = '<button class="pod-pg-arrow" onclick="podGoPage(' + (podPage-1) + ')" ' + (podPage===1?'disabled':'') + '>&#8592;</button>';
+  for (var i = 1; i <= totalPages; i++) {
+    html += '<button class="pod-pg-btn' + (i===podPage?' active':'') + '" onclick="podGoPage(' + i + ')">' + i + '</button>';
+  }
+  html += '<button class="pod-pg-arrow" onclick="podGoPage(' + (podPage+1) + ')" ' + (podPage===totalPages?'disabled':'') + '>&#8594;</button>';
+  pg.innerHTML = html;
+}
+
+function podGoPage(n) {
+  var sort = document.getElementById('podSortSelect').value;
+  var eps = podEpisodes.slice();
+  if (sort === 'new') eps = eps.slice().reverse();
+  var totalPages = Math.ceil(eps.length / podPerPage);
+  if (n < 1 || n > totalPages) return;
+  podPage = n;
+  renderPodEpisodes();
+  document.getElementById('podEpGrid').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// Init on DOMContentLoaded (defer-safe)
+document.addEventListener('DOMContentLoaded', function() { renderPodEpisodes(); });
+</script>
+
+</div><!-- /view-podcast -->
+
+<!-- CONTACT VIEW -->
+<div class="view" id="view-contact">
+<style>
+.ct-wrap{min-height:100vh;background:var(--navy2);display:flex;align-items:flex-start;justify-content:center;padding:100px 24px 80px;box-sizing:border-box}
+.ct-card{width:100%;max-width:960px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.ct-brand{padding-top:20px}
+.ct-logo{display:inline-block;margin-bottom:32px;cursor:pointer}
+.ct-h1{font-size:clamp(28px,3.5vw,42px);font-weight:700;color:#fff;line-height:1.2;margin:0 0 16px}
+.ct-sub{font-size:16px;color:rgba(255,255,255,.55);line-height:1.65;margin:0 0 40px}
+.ct-info-block{display:flex;flex-direction:column;gap:16px}
+.ct-info-item{display:flex;align-items:flex-start;gap:12px}
+.ct-info-icon{width:36px;height:36px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-light)}
+.ct-info-icon svg{width:16px;height:16px}
+.ct-info-text{font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;padding-top:8px}
+.ct-form-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:40px}
+.ct-form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.ct-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.ct-field label{font-size:13px;font-weight:500;color:rgba(255,255,255,.6)}
+.ct-field input,.ct-field textarea,.ct-field select{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;padding:12px 16px;transition:border-color .2s;outline:none;resize:none}
+.ct-field input::placeholder,.ct-field textarea::placeholder{color:rgba(255,255,255,.25)}
+.ct-field input:focus,.ct-field textarea:focus{border-color:var(--teal)}
+.ct-field textarea{height:120px}
+.ct-submit{width:100%;background:var(--teal);color:#fff;font-size:15px;font-weight:700;padding:14px;border:none;border-radius:10px;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;margin-top:4px}
+.ct-submit:hover{background:var(--teal2)}
+.ct-back{text-align:center;margin-top:20px}
+.ct-back a{font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
+.ct-back a:hover{color:rgba(255,255,255,.6)}
+@media(max-width:768px){.ct-card{grid-template-columns:1fr;gap:40px}.ct-wrap{padding:90px 20px 60px}.ct-form-row{grid-template-columns:1fr}}
+</style>
+
+<div class="ct-wrap">
+  <div class="ct-card">
+    <div class="ct-brand">
+      <div class="ct-logo" onclick="showView('home')">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"><g id="Group_431ct" data-name="Group 431"><path d="M923.533,288.136a.569.569,0,0,0-.445.326c-1.032,2.243-8.727,15.094-3.092,16.044,3.366.568,6.608-3.472,9.867-8.338.561-.57,0-.616-.488-.254-3.2,4.5-5.528,6.782-7.217,6.654-2.154-.163,4.979-11.671,4.678-13.3-.256-1.393-2.442-1.24-3.3-1.129" transform="translate(-847.476 -265.951)" fill="#ffffff"/><path d="M817.8,292.888c1.577-2.97,1.2-4.435.3-4.606-2.864-.545-8.309,10.353-5.45,10.592,2.051.171,5.152-5.986,5.152-5.986l.632,2.48s-3.457,7.654-8.371,6.905c-6.019-.917-1.339-16.714,7.231-16.512,3.514.083,3.727,2.622,3.137,5.571-.313,1.567-2.925,2.112-2.629,1.556" transform="translate(-745.359 -263.82)" fill="#ffffff"/><path d="M374.992,278.237c.416-3.038.407-5.53-.706-5.572-3.551-.133-9.132,13.84-5.64,13.512,3.847-.362,6.346-7.94,6.346-7.94l-.017,4.438s-2.993,6.62-8.315,6.518c-7.448-.143-3.021-18.665,6.508-19.351,4.286-.309,4.245,3.583,3.472,6.849-.45,1.9-1.753,2.315-1.648,1.546" transform="translate(-335.05 -249.109)" fill="#ffffff"/><path d="M766.4,319.932s.045,2.046,1.094,2.783c.892.627,3.059.352,4.816-1.2.18.538-.4,1.146-.4,1.146-1.668,1.235-3.887,1.694-5.259,1.086Z" transform="translate(-707.556 -295.369)" fill="#ffffff"/><path d="M1141.115,283.344c-2.015-.438-9.943-.206-16.766.93a4.114,4.114,0,0,1-1.066-3.458c.691-1.895,3.456-2.132,5.806-1.726,0,0,.857-2.182-.4-3.094-2.334-1.7-7.691-.342-8.586,3.094a6.916,6.916,0,0,0,1.382,5.7c-3.719.888-6.883,2.015-7.573,3.775-2.536,6.467,11.169,6.068,12.549,1.488a2.811,2.811,0,0,0,.119-.469c.286-2.434-2.274-3.272-2.286-3.273s.349-.057,1.252-.118h.019c.212-.012.426-.022.642-.031.544-.024.944-.041,1.5-.052h.052a79.214,79.214,0,0,1,8.583.306l.018,0a25.62,25.62,0,0,1,6.409,1.2s2.074-3.458-1.658-4.271m-17.863,4.676c-.138,1.759-6.665,2.985-6.585.682.039-1.139,2.763-1.868,6.053-2.258a3.05,3.05,0,0,1,.532,1.576" transform="translate(-1028.104 -254.132)" fill="#ffffff"/><path d="M993.839,0c-7.377.292-16.969,20.887-21.887,36.3a21.435,21.435,0,0,0,2.618-2.427,21.092,21.092,0,0,1-3.23,4.041,58.708,58.708,0,0,0-2.6,12.695c-.089,4.423,2.9,4.9,2.9,4.9a98.882,98.882,0,0,1,5.773-23.883C987.223,22.251,1002.943-.356,993.839,0m.187,2.134c3.628.39-7.663,19.3-15.848,27.338,5.976-15.388,14.007-27.536,15.848-27.338" transform="translate(-894.36 0)" fill="#ffffff"/><path d="M613.139,285.37a6.333,6.333,0,0,0,2.065.164c.729-3.589.057-6.834-2.307-6.953a3.088,3.088,0,0,0-1.262.178,3.4,3.4,0,0,0-2.349-.478c-8.482.322-12.937,16.656-4.307,17.373,5.181.431,8.787-4.714,10.059-9.38a7.113,7.113,0,0,1-1.9-.905m-6.979,7.213c-4.025.229-.389-10.041,3.8-11.395a3.869,3.869,0,0,0,1.522,3.737s-1.713,7.452-5.323,7.658" transform="translate(-554.223 -256.91)" fill="#ffffff"/><path d="M64.422,290.467a154.386,154.386,0,0,0-23.86-.807c3.425-11.131,4.656-21.578,7.629-22.422-.718-1.217-3.121-1.965-5.125-.636-2.592,1.719-3.606,12.342-6.9,23.246C17.607,290.923.261,296,0,307.563c-.25,11.234,14.615,12.234,24.467,6.591,6.545-3.749,10.943-10.356,13.661-17.61.452-1.207,1.1-2.941,1.1-2.941l-1.985-.568c.778-.061,2.234-.07,2.235-.073q2.493-.077,5.074-.073h0a167.017,167.017,0,0,1,22.723,1.753s.927-3.661-2.861-4.174M17.645,313.439c-10.3,2.585-15.388-1.473-14.842-6.393.983-8.86,15.337-12.8,32.284-13.879-3.236,9.3-8.3,17.977-17.443,20.272" transform="translate(0 -245.484)" fill="#ffffff"/></g></svg>
+      </div>
+      <h1 class="ct-h1">We'd Love to<br>Hear From You</h1>
+      <p class="ct-sub">Whether you're curious about features, pricing, or just want to say hello — we're ready to answer any and all questions.</p>
+      <div class="ct-info-block">
+        <div class="ct-info-item">
+          <div class="ct-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="ct-info-text">1000 Shelard Pkwy #120B<br>Minneapolis, MN 55426</div>
+        </div>
+        <div class="ct-info-item">
+          <div class="ct-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="ct-info-text">612-470-5626</div>
+        </div>
+        <div class="ct-info-item">
+          <div class="ct-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="ct-info-text">info@goals.com</div>
+        </div>
+      </div>
+    </div>
+    <div class="ct-form-card">
+      <form id="contactForm" novalidate onsubmit="handleContactSubmit(event)">
+        <div class="ct-form-row">
+          <div class="ct-field">
+            <label for="ct-fname">First Name</label>
+            <input type="text" id="ct-fname" placeholder="Jane" required>
+          </div>
+          <div class="ct-field">
+            <label for="ct-lname">Last Name</label>
+            <input type="text" id="ct-lname" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="ct-field">
+          <label for="ct-email">Work Email</label>
+          <input type="email" id="ct-email" placeholder="you@company.com" required>
+        </div>
+        <div class="ct-field">
+          <label for="ct-phone">Phone Number</label>
+          <input type="tel" id="ct-phone" placeholder="(612) 555-0100">
+        </div>
+        <div class="ct-field">
+          <label for="ct-msg">Message</label>
+          <textarea id="ct-msg" placeholder="How can we help?" required></textarea>
+        </div>
+        <button type="submit" class="ct-submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+</div><!-- /view-contact -->
+
 <!-- KNOWLEDGE CENTER VIEW -->
 <div class="view" id="view-kc">
 <style>
@@ -1287,6 +1882,37 @@ window.addEventListener('scroll', () => {
 }, {passive:true});
 
 // ── VIEW SWITCHING ─────────────────────────────────────────
+// Pricing tabs
+function showPrTab(id, btn) {
+  document.querySelectorAll('.pr-tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.pr-tab-btn').forEach(b => b.classList.remove('active'));
+  var panel = document.getElementById('pr-tab-' + id);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+// FAQ accordion
+function toggleFaq(btn) {
+  var isOpen = btn.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.pr-faq-q').forEach(q => q.classList.remove('open'));
+  document.querySelectorAll('.pr-faq-a').forEach(a => a.classList.remove('open'));
+  if (!isOpen) {
+    btn.classList.add('open');
+    var ans = btn.nextElementSibling;
+    if (ans) ans.classList.add('open');
+  }
+}
+
+// Contact form
+function handleContactSubmit(e) {
+  e.preventDefault();
+  var btn = document.querySelector('#contactForm .ct-submit');
+  btn.textContent = 'Message sent!';
+  btn.style.background = 'var(--teal2)';
+  btn.disabled = true;
+}
+
 function showView(id) {
   // hide login overlay if open
   var loginEl = document.getElementById('view-login');
