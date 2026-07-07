@@ -714,7 +714,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     </div>
     <div class="fg reveal">
       <div class="fg-card stagger-1">
-        <div class="fg-icon" style="background:rgba(29,158,117,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#22c55e" stroke-width="1.7"/><circle cx="11" cy="11" r="4.2" stroke="#22c55e" stroke-width="1.7"/><circle cx="11" cy="11" r="1.8" fill="#22c55e"/></svg></div>
+        <div class="fg-icon" style="background:rgba(29,158,117,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="#22c55e" stroke-width="1.6"/><circle cx="11" cy="11" r="5" stroke="#22c55e" stroke-width="1.6"/><circle cx="11" cy="11" r="2" fill="#22c55e"/></svg></div>
         <h3>Goals &amp; Quota Tracking</h3>
         <p>Every rep sees their attainment percentage live. Managers see who's on pace, who's at risk, and where to coach, without a weekly check-in.</p>
       </div>
@@ -724,12 +724,12 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
         <p>Kanban, List, and Calendar views. Track deals from first touch to closed-won with aging alerts that flag what's going cold before it does.</p>
       </div>
       <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(244,63,94,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#f87171" stroke-width="1.7"/><path d="M11 6v10M8.5 8.5c0-.83.67-1.5 1.5-1.5h2a1.5 1.5 0 0 1 0 3H9.5A1.5 1.5 0 0 0 9.5 13H13a1.5 1.5 0 0 1 0 3H8" stroke="#f87171" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="fg-icon" style="background:rgba(244,63,94,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3v16M8 6.5C8 5.67 8.67 5 9.5 5h3a2 2 0 0 1 0 4H9a2 2 0 0 0 0 4h3.5a2 2 0 0 1 0 4H8" stroke="#f87171" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Commissions &amp; Bonuses</h3>
         <p>Commissions calculate automatically as deals close. Reps see their exact earnings, payout date, and bonus progress without asking anyone.</p>
       </div>
       <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(6,182,212,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2.5l1.8 5.4 5.7 2.1-5.7 2.1-1.8 5.4-1.8-5.4-5.7-2.1 5.7-2.1z" stroke="#22d3ee" stroke-width="1.6" stroke-linejoin="round" fill="rgba(34,211,238,.1)"/><circle cx="18" cy="4" r="1" fill="#22d3ee" fill-opacity=".6"/><circle cx="4" cy="18" r=".8" fill="#22d3ee" fill-opacity=".4"/></svg></div>
+        <div class="fg-icon" style="background:rgba(6,182,212,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2l1.5 5 5 1.5-5 1.5L11 15l-1.5-5-5-1.5 5-1.5z" stroke="#22d3ee" stroke-width="1.6" stroke-linejoin="round" fill="rgba(34,211,238,.08)"/><path d="M17.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" stroke="#22d3ee" stroke-width="1.2" stroke-linejoin="round" fill="none"/></svg></div>
         <h3>Ace AI Intelligence</h3>
         <p>Ask your pipeline anything in plain English. Ace surfaces at-risk deals, rep patterns, and revenue forecasts before your next team review.</p>
       </div>
@@ -783,7 +783,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
           <!-- Mini metric row -->
           <div class="goal-mini-row">
             <div class="goal-mini"><div class="goal-mini-lbl">Sales YTD</div><div class="goal-mini-val">$7.95M</div><div class="goal-mini-trend">▲ 12% vs last year</div></div>
-            <div class="goal-mini"><div class="goal-mini-lbl">Team ROI</div><div class="goal-mini-val" style="color:#22d3ee">285%</div><div class="goal-mini-trend">Year to Date</div></div>
+            <div class="goal-mini"><div class="goal-mini-lbl">Team ROI</div><div class="goal-mini-val">285%</div><div class="goal-mini-trend">Year to Date</div></div>
             <div class="goal-mini"><div class="goal-mini-lbl">Win Rate</div><div class="goal-mini-val">58%</div><div class="goal-mini-trend">▲ 6pp vs Q2 2025</div></div>
             <div class="goal-mini"><div class="goal-mini-lbl">Avg Deal</div><div class="goal-mini-val">$82K</div><div class="goal-mini-trend">▲ $4.2K MoM</div></div>
           </div>
@@ -804,50 +804,67 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     <div class="fsplit reveal">
       <div class="mock reveal-left">
         <div class="mock-bar"><div class="mock-dot" style="background:#ef4444"></div><div class="mock-dot" style="background:#f59e0b"></div><div class="mock-dot" style="background:#22c55e"></div><div class="mock-title">Pipeline / List View</div></div>
-        <div class="mock-body" style="padding:12px 14px">
-          <!-- Header stats -->
-          <div style="display:flex;gap:14px;margin-bottom:12px;flex-wrap:wrap">
-            <span style="font-size:9px;color:rgba(255,255,255,.3)">Total value: <strong style="color:#fff">$1.6M</strong></span>
-            <span style="font-size:9px;color:rgba(255,255,255,.3)">14 opportunities</span>
-            <span style="font-size:9px;color:rgba(255,255,255,.3)">Avg size: <strong style="color:#fff">$113K</strong></span>
-            <span style="font-size:9px;color:rgba(255,255,255,.3)">Win rate: <strong style="color:#22c55e">21%</strong></span>
+        <div class="mock-body" style="padding:12px 16px">
+          <!-- Header stats bar -->
+          <div style="display:flex;gap:16px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06)">
+            <span style="font-size:9px;color:rgba(255,255,255,.35)">Pipeline: <strong style="color:#fff;font-weight:600">$819K</strong></span>
+            <span style="font-size:9px;color:rgba(255,255,255,.35)">6 deals</span>
+            <span style="font-size:9px;color:rgba(255,255,255,.35)">Win rate: <strong style="color:#4ade80;font-weight:600">58%</strong></span>
           </div>
           <!-- Table header -->
-          <div class="pl-thead">
-            <div class="pl-th">Opportunity</div>
-            <div class="pl-th">Value</div>
-            <div class="pl-th">Stage</div>
+          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;padding:0 0 7px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:4px">
+            <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.07em">Deal</div>
+            <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.07em">Value</div>
+            <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.07em">Stage</div>
           </div>
           <!-- Rows -->
-          <div class="pl-row">
-            <div><div class="pl-opp">Riverside Corp: Q3 Enterprise Deal</div><div class="pl-org">Marcus Lee</div></div>
-            <div class="pl-val">$92K</div>
-            <div><span class="pl-stage stage-prospect">Prospect Registered</span></div>
+          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
+            <div style="display:flex;align-items:center;gap:7px;min-width:0">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
+              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Riverside Corp</div><div style="font-size:9px;color:rgba(255,255,255,.3)">Marcus Bradley</div></div>
+            </div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$92K</div>
+            <div><span style="font-size:8px;font-weight:700;background:rgba(99,102,241,.18);color:#a5b4fc;padding:3px 7px;border-radius:4px;white-space:nowrap">Prospecting</span></div>
           </div>
-          <div class="pl-row">
-            <div><div class="pl-opp">Apex Holdings: Software Renewal</div><div class="pl-org">Tara Nguyen</div></div>
-            <div class="pl-val">$145K</div>
-            <div><span class="pl-stage stage-contact">Contact Made</span></div>
+          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
+            <div style="display:flex;align-items:center;gap:7px;min-width:0">
+              <img src="https://randomuser.me/api/portraits/women/33.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
+              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Apex Holdings</div><div style="font-size:9px;color:rgba(255,255,255,.3)">Amanda Morrison</div></div>
+            </div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$145K</div>
+            <div><span style="font-size:8px;font-weight:700;background:rgba(245,158,11,.15);color:#fbbf24;padding:3px 7px;border-radius:4px;white-space:nowrap">Outreach</span></div>
           </div>
-          <div class="pl-row">
-            <div><div class="pl-opp">Harborview Medical: Annual Contract</div><div class="pl-org">Angela Ross</div></div>
-            <div class="pl-val">$158K</div>
-            <div><span class="pl-stage stage-docs">Documents Collected</span></div>
+          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
+            <div style="display:flex;align-items:center;gap:7px;min-width:0">
+              <img src="https://randomuser.me/api/portraits/men/40.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
+              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Harborview Medical</div><div style="font-size:9px;color:rgba(255,255,255,.3)">Derek Park</div></div>
+            </div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$158K</div>
+            <div><span style="font-size:8px;font-weight:700;background:rgba(6,182,212,.15);color:#67e8f9;padding:3px 7px;border-radius:4px;white-space:nowrap">Proposal Sent</span></div>
           </div>
-          <div class="pl-row">
-            <div><div class="pl-opp">Lakewood Inc: Services Agreement</div><div class="pl-org">Chris Brown</div></div>
-            <div class="pl-val">$174K</div>
-            <div><span class="pl-stage stage-payment">Payment Confirmed</span></div>
+          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
+            <div style="display:flex;align-items:center;gap:7px;min-width:0">
+              <img src="https://randomuser.me/api/portraits/men/54.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
+              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Lakewood Inc</div><div style="font-size:9px;color:rgba(255,255,255,.3)">Brock Wilson</div></div>
+            </div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$174K</div>
+            <div><span style="font-size:8px;font-weight:700;background:rgba(168,85,247,.18);color:#d8b4fe;padding:3px 7px;border-radius:4px;white-space:nowrap">Negotiating</span></div>
           </div>
-          <div class="pl-row">
-            <div><div class="pl-opp">Cascade Logistics: Platform Upgrade</div><div class="pl-org">Rachel Green</div></div>
-            <div class="pl-val">$138K</div>
-            <div><span class="pl-stage stage-enrolled">Enrolled</span></div>
+          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
+            <div style="display:flex;align-items:center;gap:7px;min-width:0">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
+              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Cascade Logistics</div><div style="font-size:9px;color:rgba(255,255,255,.3)">Aya Pedrad</div></div>
+            </div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$138K</div>
+            <div><span style="font-size:8px;font-weight:700;background:rgba(239,68,68,.15);color:#fca5a5;padding:3px 7px;border-radius:4px;white-space:nowrap">⚠ Idle 8d</span></div>
           </div>
-          <div class="pl-row" style="border-bottom:none">
-            <div><div class="pl-opp">Crestwood: New Account</div><div class="pl-org">Diana Chen</div></div>
-            <div class="pl-val">$112K</div>
-            <div><span class="pl-stage stage-signed">Contract Signed</span></div>
+          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0">
+            <div style="display:flex;align-items:center;gap:7px;min-width:0">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
+              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Crestwood Financial</div><div style="font-size:9px;color:rgba(255,255,255,.3)">Elena Vasquez</div></div>
+            </div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$112K</div>
+            <div><span style="font-size:8px;font-weight:700;background:rgba(29,158,117,.2);color:#4ade80;padding:3px 7px;border-radius:4px;white-space:nowrap">Closed Won</span></div>
           </div>
         </div>
       </div>
@@ -872,7 +889,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
   <div class="section-inner">
     <div class="s-head s-head-dark reveal" style="margin-bottom:48px">
       <div class="s-tag s-tag-white">Ace AI</div>
-      <h2>Your team's <em>built-in intelligence.</em></h2>
+      <h2>Your team's <em>built-in intelligence layer.</em></h2>
       <p>Ace knows your pipeline, your reps, and your history. Ask it anything and it answers with real data from your account, not generic advice.</p>
     </div>
     <div class="ace-shell reveal" style="max-width:640px;margin:0 auto">
@@ -900,7 +917,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
   <div class="section-inner">
     <div class="metrics-row reveal">
       <div class="m-card"><div class="m-num"><em>$39</em></div><div class="m-label">Per user / month<br>Everything included</div></div>
-      <div class="m-card"><div class="m-num" style="font-size:clamp(22px,2.5vw,32px);line-height:1.15;padding-top:8px">One<br><em>Platform</em></div><div class="m-label">for goals, pipeline,<br>commissions, and AI</div></div>
+      <div class="m-card"><div class="m-num"><em>1</em></div><div class="m-label">Platform for goals, pipeline,<br>commissions, and AI</div></div>
       <div class="m-card"><div class="m-num">&#8734;</div><div class="m-label">No limits on contacts,<br>deals, or reports</div></div>
       <div class="m-card"><div class="m-num">100<em>%</em></div><div class="m-label">Real-time data across<br>every feature</div></div>
     </div>
