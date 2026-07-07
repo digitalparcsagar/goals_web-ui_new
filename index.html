@@ -61,7 +61,7 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .dash-titlebar{height:40px;background:rgba(255,255,255,.035);border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;padding:0 16px;gap:7px}
 .dash-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .dash-titlebar-label{flex:1;text-align:center;font-size:11px;font-family:'Inter',sans-serif;color:rgba(255,255,255,.2);letter-spacing:.04em}
-.dash-body{display:grid;grid-template-columns:52px 1fr;height:380px}
+.dash-body{display:grid;grid-template-columns:52px 1fr;height:420px}
 /* sidebar */
 .dash-sidebar{background:rgba(255,255,255,.025);border-right:1px solid rgba(255,255,255,.06);padding:16px 0;display:flex;flex-direction:column;align-items:center;gap:6px}
 .dash-s-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:background .2s}
@@ -83,7 +83,7 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .dash-quota-head{display:flex;align-items:center;justify-content:space-between;padding:0 18px 8px;flex-shrink:0}
 .dash-quota-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em}
 .dash-quota-period{font-size:10px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.25)}
-.dash-rep-list{padding:0 18px;display:flex;flex-direction:column;gap:9px;flex:1;overflow:hidden}
+.dash-rep-list{padding:4px 18px 12px;display:flex;flex-direction:column;gap:11px;flex:1;overflow:hidden}
 .dash-rep{display:grid;grid-template-columns:26px 1fr auto;align-items:center;gap:10px}
 .dash-rep-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0}
 .dash-rep-info{min-width:0}
@@ -335,7 +335,7 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .hfc-lg .hfc-val{font-size:18px}
 .hfc-lg .hfc-icon{width:36px;height:36px;border-radius:10px}
 .hfc-1{top:-16px;left:-8px;animation:float1 5s ease-in-out infinite}
-.hfc-2{top:50%;right:-24px;transform:translateY(-50%);animation:float2 5.5s ease-in-out infinite}
+.hfc-2{top:8px;right:-28px;animation:float2 5.5s ease-in-out infinite}
 .hfc-3{bottom:-16px;right:16px;animation:float3 4.8s ease-in-out infinite}
 .hfc-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .hfc-label{font-size:9px;font-weight:700;color:rgba(255,255,255,.36);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
@@ -345,7 +345,7 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .hfc-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#1d9e75,#22c55e)}
 .hfc-insight{font-size:11px;color:rgba(255,255,255,.7);line-height:1.3;max-width:120px;white-space:normal}
 
-@keyframes float2{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(calc(-50% - 8px)) translateX(3px)}}
+@keyframes float2{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-8px) translateX(3px)}}
 @keyframes float3{0%,100%{transform:translateY(0) rotate(.3deg)}50%{transform:translateY(-9px) rotate(-.3deg)}}
 
 /* ── HERO ENTRANCE ANIMATIONS ────────────────────────────────────────── */
@@ -677,10 +677,6 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     <div class="dash-rep-pct">$919K</div>
   </div>
 </div>
-          <div class="dash-ace-bar">
-            <div class="dash-ace-icon"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 1l1.2 3.6L10.5 5.5l-3.8 1.4L5.5 10.5l-1.2-3.6L.5 5.5l3.8-1.4z" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
-            <div class="dash-ace-text"><strong>Ace AI:</strong> H2 focus: Jules and Doug represent <em>$2.2M in recoverable gap.</em> Schedule 1:1s before end of week.</div>
-          </div>
         </div>
       </div>
     </div><!-- /dash-window -->
@@ -718,22 +714,22 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     </div>
     <div class="fg reveal">
       <div class="fg-card stagger-1">
-        <div class="fg-icon" style="background:rgba(29,158,117,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8.5" stroke="#22c55e" stroke-width="1.7"/><circle cx="11" cy="11" r="4.5" stroke="#22c55e" stroke-width="1.7"/><circle cx="11" cy="11" r="1.8" fill="#22c55e"/><path d="M11 2.5v1.5M11 18v1.5M2.5 11H4M18 11h1.5" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div class="fg-icon" style="background:rgba(29,158,117,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#22c55e" stroke-width="1.7"/><circle cx="11" cy="11" r="4.2" stroke="#22c55e" stroke-width="1.7"/><circle cx="11" cy="11" r="1.8" fill="#22c55e"/></svg></div>
         <h3>Goals &amp; Quota Tracking</h3>
         <p>Every rep sees their attainment percentage live. Managers see who's on pace, who's at risk, and where to coach, without a weekly check-in.</p>
       </div>
       <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(99,102,241,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="5" height="12" rx="1.5" fill="#818cf8" fill-opacity=".85"/><rect x="8.5" y="5" width="5" height="8" rx="1.5" fill="#818cf8" fill-opacity=".85"/><rect x="15" y="5" width="5" height="10" rx="1.5" fill="#818cf8" fill-opacity=".85"/><path d="M2 3.5h18" stroke="#818cf8" stroke-width="1.2" stroke-opacity=".3" stroke-linecap="round"/></svg></div>
+        <div class="fg-icon" style="background:rgba(99,102,241,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 4h16l-6 7.5V18l-4-2v-4.5L3 4z" stroke="#818cf8" stroke-width="1.7" stroke-linejoin="round" fill="rgba(129,140,248,.1)"/></svg></div>
         <h3>Pipeline CRM</h3>
         <p>Kanban, List, and Calendar views. Track deals from first touch to closed-won with aging alerts that flag what's going cold before it does.</p>
       </div>
       <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(244,63,94,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2.5v17M7.5 6.8A2.3 2.3 0 0 1 9.7 5h3a2 2 0 0 1 0 4h-3.4a2.3 2.3 0 0 0 0 4.6H13a2.2 2.2 0 0 1 0 4.4H8" stroke="#f87171" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="fg-icon" style="background:rgba(244,63,94,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#f87171" stroke-width="1.7"/><path d="M11 6v10M8.5 8.5c0-.83.67-1.5 1.5-1.5h2a1.5 1.5 0 0 1 0 3H9.5A1.5 1.5 0 0 0 9.5 13H13a1.5 1.5 0 0 1 0 3H8" stroke="#f87171" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <h3>Commissions &amp; Bonuses</h3>
         <p>Commissions calculate automatically as deals close. Reps see their exact earnings, payout date, and bonus progress without asking anyone.</p>
       </div>
       <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(6,182,212,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2l2 6.5L19.5 11 13 13l-2 6.5L9 13 2.5 11 9 8.5 11 2z" stroke="#22d3ee" stroke-width="1.6" stroke-linejoin="round" fill="rgba(34,211,238,.08)"/><circle cx="17.5" cy="4.5" r="1.2" fill="#22d3ee" fill-opacity=".5"/><circle cx="4.5" cy="17.5" r="1" fill="#22d3ee" fill-opacity=".35"/></svg></div>
+        <div class="fg-icon" style="background:rgba(6,182,212,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2.5l1.8 5.4 5.7 2.1-5.7 2.1-1.8 5.4-1.8-5.4-5.7-2.1 5.7-2.1z" stroke="#22d3ee" stroke-width="1.6" stroke-linejoin="round" fill="rgba(34,211,238,.1)"/><circle cx="18" cy="4" r="1" fill="#22d3ee" fill-opacity=".6"/><circle cx="4" cy="18" r=".8" fill="#22d3ee" fill-opacity=".4"/></svg></div>
         <h3>Ace AI Intelligence</h3>
         <p>Ask your pipeline anything in plain English. Ace surfaces at-risk deals, rep patterns, and revenue forecasts before your next team review.</p>
       </div>
@@ -752,11 +748,11 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
         <h2>Every rep knows exactly<br>where they stand.</h2>
         <p>Goals.com gives every rep a real-time performance view: quota attainment, YTD revenue, pace against target, and where to focus next. Managers see who's winning, who needs coaching, and where money is being left on the table.</p>
         <div class="fs-list">
-          <div class="fs-item fs-item-dark"><strong style="color:#fff">See your number at a glance.</strong> Live quota attainment, YTD revenue, and pace against target update the moment a deal closes.</div>
-          <div class="fs-item fs-item-dark"><strong style="color:#fff">Know exactly where you rank.</strong> Rep scorecards show Win Rate, Avg Deal Size, and Proposals side by side, so everyone knows where they stand.</div>
-          <div class="fs-item fs-item-dark"><strong style="color:#fff">Spot who needs attention before it's too late.</strong> Automatic at-risk flags alert managers when a rep's pace drops below threshold, not after the quarter ends.</div>
-          <div class="fs-item fs-item-dark"><strong style="color:#fff">Hold your team accountable without micromanaging.</strong> Activity goals track calls, emails, and meetings, so reps own their own inputs.</div>
-          <div class="fs-item fs-item-dark"><strong style="color:#fff">Measure what your team actually returns.</strong> Team ROI shows the revenue generated per dollar spent on payroll, commissions, and bonuses.</div>
+          <div class="fs-item fs-item-dark">Live quota attainment and YTD pace for every rep</div>
+          <div class="fs-item fs-item-dark">Individual scorecards: Win Rate, Avg Deal Size, and Proposals</div>
+          <div class="fs-item fs-item-dark">At-risk flags before a rep falls too far behind</div>
+          <div class="fs-item fs-item-dark">Activity goal tracking: calls, emails, and meetings</div>
+          <div class="fs-item fs-item-dark">Team ROI dashboard to see what every rep dollar returns</div>
         </div>
       </div>
       <div class="mock reveal-right">
@@ -876,7 +872,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
   <div class="section-inner">
     <div class="s-head s-head-dark reveal" style="margin-bottom:48px">
       <div class="s-tag s-tag-white">Ace AI</div>
-      <h2>Your team's <em>built-in intelligence layer.</em></h2>
+      <h2>Your team's <em>built-in intelligence.</em></h2>
       <p>Ace knows your pipeline, your reps, and your history. Ask it anything and it answers with real data from your account, not generic advice.</p>
     </div>
     <div class="ace-shell reveal" style="max-width:640px;margin:0 auto">
@@ -964,83 +960,74 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 </section>
 
 <!-- INTEGRATIONS -->
-<section class="section section-off" id="integrations">
-  <div class="section-inner">
-    <div class="s-head reveal" style="margin-bottom:48px">
+<section id="integrations" style="background:var(--off);padding:72px 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 72px">
+    <div class="s-head reveal" style="margin-bottom:44px">
       <div class="s-tag s-tag-teal">Integrations</div>
       <h2>Works with the tools<br><em>your team already uses.</em></h2>
-      <p>Connect Goals.com to your existing stack in minutes. No complex setup, no IT ticket required.</p>
-    </div>
-    <div class="reveal" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:960px;margin:0 auto 48px">
-      <!-- Salesforce -->
-      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 20px;text-align:center;transition:box-shadow .2s;cursor:default" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
-        <div style="width:48px;height:48px;background:#00A1E0;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
-          <svg width="26" height="20" viewBox="0 0 26 20" fill="none"><path d="M10.8 4.2a4.2 4.2 0 0 1 7.2 2.1 3.5 3.5 0 0 1 4.5 3.3 3.5 3.5 0 0 1-3.5 3.5H7a3.5 3.5 0 0 1-.7-6.9A4.2 4.2 0 0 1 10.8 4.2z" fill="#fff"/></svg>
-        </div>
-        <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:4px">Salesforce</div>
-        <div style="font-size:11px;color:#64748b">Import contacts &amp; deals</div>
-      </div>
-      <!-- HubSpot -->
-      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 20px;text-align:center;transition:box-shadow .2s;cursor:default" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
-        <div style="width:48px;height:48px;background:#FF7A59;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="3" fill="#fff"/><path d="M11 11v7M6 16h10" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:4px">HubSpot</div>
-        <div style="font-size:11px;color:#64748b">Sync your pipeline data</div>
-      </div>
-      <!-- Google -->
-      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 20px;text-align:center;transition:box-shadow .2s;cursor:default" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
-        <div style="width:48px;height:48px;background:#fff;border:1.5px solid #e2e8f0;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M20.5 11.2c0-.7-.06-1.38-.18-2.04H11v3.85h5.32a4.55 4.55 0 0 1-1.97 2.99v2.48h3.19c1.87-1.72 2.95-4.25 2.95-7.28z" fill="#4285F4"/><path d="M11 21c2.67 0 4.91-.88 6.55-2.4l-3.19-2.48c-.88.59-2.01.94-3.36.94-2.59 0-4.78-1.75-5.56-4.1H2.14v2.56A9.99 9.99 0 0 0 11 21z" fill="#34A853"/><path d="M5.44 12.96A5.99 5.99 0 0 1 5.13 11c0-.68.12-1.34.31-1.96V6.48H2.14A9.99 9.99 0 0 0 1 11c0 1.61.39 3.13 1.14 4.52l3.3-2.56z" fill="#FBBC05"/><path d="M11 5.94c1.46 0 2.77.5 3.8 1.49l2.85-2.85C15.9 2.97 13.66 2 11 2A9.99 9.99 0 0 0 2.14 6.48l3.3 2.56C6.22 7.69 8.41 5.94 11 5.94z" fill="#EA4335"/></svg>
-        </div>
-        <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:4px">Google</div>
-        <div style="font-size:11px;color:#64748b">Calendar &amp; Gmail sync</div>
-      </div>
-      <!-- Outlook -->
-      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 20px;text-align:center;transition:box-shadow .2s;cursor:default" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
-        <div style="width:48px;height:48px;background:#0078D4;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
-          <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><rect x="1" y="1" width="12" height="16" rx="1.5" fill="#fff" fill-opacity=".9"/><rect x="3" y="3" width="8" height="2" rx=".5" fill="#0078D4"/><rect x="3" y="7" width="8" height="2" rx=".5" fill="#0078D4"/><rect x="3" y="11" width="5" height="2" rx=".5" fill="#0078D4"/><path d="M14 4h6a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-6V4z" fill="#0078D4" fill-opacity=".7"/><path d="M14 4l3.5 4.5L21 4" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </div>
-        <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:4px">Outlook</div>
-        <div style="font-size:11px;color:#64748b">Email &amp; calendar sync</div>
-      </div>
-      <!-- Pipedrive -->
-      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 20px;text-align:center;transition:box-shadow .2s;cursor:default" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
-        <div style="width:48px;height:48px;background:#1A1F36;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
-          <svg width="20" height="22" viewBox="0 0 20 22" fill="none"><circle cx="10" cy="8" r="5" stroke="#fff" stroke-width="1.8"/><path d="M10 13v8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:4px">Pipedrive</div>
-        <div style="font-size:11px;color:#64748b">Import pipeline data</div>
-      </div>
-      <!-- Stripe -->
-      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 20px;text-align:center;transition:box-shadow .2s;cursor:default" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
-        <div style="width:48px;height:48px;background:#635BFF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M9.5 8.5c0-1.1.9-1.5 2-1.5 1.8 0 3.5.6 4.8 1.5V4.3A12.3 12.3 0 0 0 11.5 3C7.6 3 5 5 5 8.6c0 5.6 7.7 4.7 7.7 7.1 0 1.3-1.1 1.7-2.3 1.7-2 0-3.8-.8-5.2-1.9v4.2c1.5.7 3.1 1.1 5.2 1.1 4 0 6.7-2 6.7-5.6C17.1 9.2 9.5 10.3 9.5 8.5z" fill="#fff"/></svg>
-        </div>
-        <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:4px">Stripe</div>
-        <div style="font-size:11px;color:#64748b">Collect payments</div>
-      </div>
-      <!-- QuickBooks -->
-      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 20px;text-align:center;transition:box-shadow .2s;cursor:default" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
-        <div style="width:48px;height:48px;background:#2CA01C;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2"/><path d="M8 11h6M11 8v6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:4px">QuickBooks</div>
-        <div style="font-size:11px;color:#64748b">Sync for payroll &amp; payouts</div>
-      </div>
-      <!-- CSV Import -->
-      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 20px;text-align:center;transition:box-shadow .2s;cursor:default" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
-        <div style="width:48px;height:48px;background:rgba(29,158,117,.12);border:1.5px solid rgba(29,158,117,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="2" width="12" height="16" rx="1.5" stroke="#1d9e75" stroke-width="1.6"/><path d="M9 2v6l2-2 2 2V2" stroke="#1d9e75" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 11h8M7 14h5" stroke="#1d9e75" stroke-width="1.4" stroke-linecap="round"/><path d="M15 14l3 3m0 0l-3 3m3-3H13" stroke="#1d9e75" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div style="font-size:13px;font-weight:700;color:#1e293b;margin-bottom:4px">CSV Import</div>
-        <div style="font-size:11px;color:#64748b">Migrate any existing data</div>
-      </div>
-    </div>
-    <div style="text-align:center">
-      <p style="font-size:14px;color:#64748b">More integrations available in the <strong style="color:#1d9e75">Goals.com Marketplace</strong>. New connectors added regularly.</p>
+      <p>Connect Goals.com to your existing stack in minutes. No IT ticket required.</p>
     </div>
   </div>
+  <!-- scrolling integration ticker -->
+  <div style="position:relative;overflow:hidden;padding:8px 0">
+    <div style="position:absolute;top:0;bottom:0;left:0;width:100px;background:linear-gradient(90deg,var(--off),transparent);z-index:2;pointer-events:none"></div>
+    <div style="position:absolute;top:0;bottom:0;right:0;width:100px;background:linear-gradient(-90deg,var(--off),transparent);z-index:2;pointer-events:none"></div>
+    <div style="display:flex;gap:24px;animation:intTick 22s linear infinite;width:max-content">
+      <!-- set 1 -->
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#1a1a1a;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M10 0C5.6 0 2.1 2.6 0 7c2.1 4.4 5.6 7 10 7s7.9-2.6 10-7C17.9 2.6 14.4 0 10 0zm0 11.7c-2.6 0-4.7-2.1-4.7-4.7S7.4 2.3 10 2.3s4.7 2.1 4.7 4.7-2.1 4.7-4.7 4.7zm0-7.5C8.2 4.2 6.8 5.6 6.8 7S8.2 9.8 10 9.8 13.2 8.4 13.2 7 11.8 4.2 10 4.2z" fill="#fff"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Fathom</div><div style="font-size:11px;color:#64748b">AI notetaker</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#6C3BF5;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#fff" stroke-width="1.6"/><path d="M6 9c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="9" r="1" fill="#fff"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Fireflies.ai</div><div style="font-size:11px;color:#64748b">Meeting transcription</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#0078D4;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="15" viewBox="0 0 18 15" fill="none"><rect x="1" y="1" width="9" height="13" rx="1.2" fill="#fff" fill-opacity=".9"/><rect x="2.5" y="2.5" width="6" height="1.5" rx=".4" fill="#0078D4"/><rect x="2.5" y="5.5" width="6" height="1.5" rx=".4" fill="#0078D4"/><rect x="2.5" y="8.5" width="4" height="1.5" rx=".4" fill="#0078D4"/><path d="M11 3h5a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-5V3z" fill="#0078D4" fill-opacity=".7"/><path d="M11 3l2.8 3.5L17 3" stroke="#fff" stroke-width="1"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Outlook</div><div style="font-size:11px;color:#64748b">Email &amp; calendar</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M16.8 9.2c0-.57-.05-1.12-.14-1.65H9v3.12h4.34a3.71 3.71 0 0 1-1.61 2.43v2.02h2.6c1.52-1.4 2.4-3.47 2.4-5.92z" fill="#4285F4"/><path d="M9 17c2.17 0 4-.72 5.33-1.96l-2.6-2.02c-.72.48-1.64.77-2.73.77-2.1 0-3.88-1.42-4.52-3.33H1.8v2.09A8 8 0 0 0 9 17z" fill="#34A853"/><path d="M4.48 10.46A4.8 4.8 0 0 1 4.23 9c0-.51.1-1.01.25-1.46V5.45H1.8A8 8 0 0 0 1 9c0 1.3.31 2.54.8 3.65l2.68-2.19z" fill="#FBBC05"/><path d="M9 4.21c1.19 0 2.25.41 3.09 1.21l2.31-2.31A8 8 0 0 0 9 1a8 8 0 0 0-7.2 4.45l2.68 2.09C5.12 5.63 6.9 4.21 9 4.21z" fill="#EA4335"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Google</div><div style="font-size:11px;color:#64748b">Calendar &amp; Gmail</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#2CA01C;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#fff" stroke-width="1.6"/><path d="M6.5 9h5M9 6.5v5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">QuickBooks</div><div style="font-size:11px;color:#64748b">Payroll &amp; payouts</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#635BFF;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7.5 6.5c0-.9.75-1.25 1.65-1.25 1.5 0 2.9.5 3.95 1.25V3.1A10.2 10.2 0 0 0 9.2 2C5.85 2 3.5 3.7 3.5 6.6c0 4.6 6.35 3.87 6.35 5.85 0 1.07-.9 1.4-1.9 1.4-1.65 0-3.15-.66-4.3-1.57v3.46c1.25.58 2.57.9 4.3.9 3.3 0 5.55-1.65 5.55-4.62 0-4.97-6.35-4.06-6.35-5.52z" fill="#fff"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Stripe</div><div style="font-size:11px;color:#64748b">Collect payments</div></div>
+      </div>
+      <!-- duplicate set for seamless loop -->
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#1a1a1a;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M10 0C5.6 0 2.1 2.6 0 7c2.1 4.4 5.6 7 10 7s7.9-2.6 10-7C17.9 2.6 14.4 0 10 0zm0 11.7c-2.6 0-4.7-2.1-4.7-4.7S7.4 2.3 10 2.3s4.7 2.1 4.7 4.7-2.1 4.7-4.7 4.7zm0-7.5C8.2 4.2 6.8 5.6 6.8 7S8.2 9.8 10 9.8 13.2 8.4 13.2 7 11.8 4.2 10 4.2z" fill="#fff"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Fathom</div><div style="font-size:11px;color:#64748b">AI notetaker</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#6C3BF5;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#fff" stroke-width="1.6"/><path d="M6 9c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="9" r="1" fill="#fff"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Fireflies.ai</div><div style="font-size:11px;color:#64748b">Meeting transcription</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#0078D4;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="15" viewBox="0 0 18 15" fill="none"><rect x="1" y="1" width="9" height="13" rx="1.2" fill="#fff" fill-opacity=".9"/><rect x="2.5" y="2.5" width="6" height="1.5" rx=".4" fill="#0078D4"/><rect x="2.5" y="5.5" width="6" height="1.5" rx=".4" fill="#0078D4"/><rect x="2.5" y="8.5" width="4" height="1.5" rx=".4" fill="#0078D4"/><path d="M11 3h5a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-5V3z" fill="#0078D4" fill-opacity=".7"/><path d="M11 3l2.8 3.5L17 3" stroke="#fff" stroke-width="1"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Outlook</div><div style="font-size:11px;color:#64748b">Email &amp; calendar</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M16.8 9.2c0-.57-.05-1.12-.14-1.65H9v3.12h4.34a3.71 3.71 0 0 1-1.61 2.43v2.02h2.6c1.52-1.4 2.4-3.47 2.4-5.92z" fill="#4285F4"/><path d="M9 17c2.17 0 4-.72 5.33-1.96l-2.6-2.02c-.72.48-1.64.77-2.73.77-2.1 0-3.88-1.42-4.52-3.33H1.8v2.09A8 8 0 0 0 9 17z" fill="#34A853"/><path d="M4.48 10.46A4.8 4.8 0 0 1 4.23 9c0-.51.1-1.01.25-1.46V5.45H1.8A8 8 0 0 0 1 9c0 1.3.31 2.54.8 3.65l2.68-2.19z" fill="#FBBC05"/><path d="M9 4.21c1.19 0 2.25.41 3.09 1.21l2.31-2.31A8 8 0 0 0 9 1a8 8 0 0 0-7.2 4.45l2.68 2.09C5.12 5.63 6.9 4.21 9 4.21z" fill="#EA4335"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Google</div><div style="font-size:11px;color:#64748b">Calendar &amp; Gmail</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#2CA01C;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#fff" stroke-width="1.6"/><path d="M6.5 9h5M9 6.5v5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">QuickBooks</div><div style="font-size:11px;color:#64748b">Payroll &amp; payouts</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#635BFF;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7.5 6.5c0-.9.75-1.25 1.65-1.25 1.5 0 2.9.5 3.95 1.25V3.1A10.2 10.2 0 0 0 9.2 2C5.85 2 3.5 3.7 3.5 6.6c0 4.6 6.35 3.87 6.35 5.85 0 1.07-.9 1.4-1.9 1.4-1.65 0-3.15-.66-4.3-1.57v3.46c1.25.58 2.57.9 4.3.9 3.3 0 5.55-1.65 5.55-4.62 0-4.97-6.35-4.06-6.35-5.52z" fill="#fff"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Stripe</div><div style="font-size:11px;color:#64748b">Collect payments</div></div>
+      </div>
+    </div>
+  </div>
+  <style>
+    @keyframes intTick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  </style>
 </section>
 
 <!-- FINAL CTA -->
