@@ -1169,22 +1169,31 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .pr-sub{font-size:18px;color:rgba(255,255,255,.65);line-height:1.6;margin:0}
 .pr-card-section{background:var(--navy2);padding:80px 72px}
 .pr-container{max-width:1080px;margin:0 auto}
-.pr-plan-wrap{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:stretch}
-.pr-features{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:36px 40px}
+.pr-row{display:grid;grid-template-columns:1fr 560px;gap:24px;align-items:start}
+.pr-col{display:flex;flex-direction:column;gap:16px}
+.pr-billing-col{flex-direction:row}
+.pr-billing-col .pr-inner{flex:1;min-width:0}
+.pr-inner{width:100%}
+.pr-features{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:36px 40px;height:100%}
 .pr-feat-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-light);margin-bottom:20px}
-.pr-feat-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pr-feat-list li{font-size:14px;color:rgba(255,255,255,.75);padding-left:20px;position:relative;line-height:1.4}
-.pr-feat-list li::before{content:'✓';position:absolute;left:0;color:var(--teal-light);font-weight:700;font-size:13px}
-.pr-price-card{background:linear-gradient(135deg,var(--teal) 0%,var(--teal2) 100%);border-radius:20px;padding:40px 32px;text-align:center;display:flex;flex-direction:column;justify-content:center}
-.pr-plan-name{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.7);margin-bottom:16px}
-.pr-price{margin-bottom:28px}
-.pr-price-amt{font-size:56px;font-weight:700;color:#fff;line-height:1}
-.pr-price-per{font-size:14px;color:rgba(255,255,255,.7);display:block;margin-top:4px}
-.pr-demo-btn{display:block;background:#fff;color:var(--teal2);font-size:15px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;margin-bottom:24px;transition:opacity .2s}
-.pr-demo-btn:hover{opacity:.9}
-.pr-perks{list-style:none;padding:0;margin:0}
-.pr-perks li{font-size:13px;color:rgba(255,255,255,.8);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.15)}
-.pr-perks li:last-child{border-bottom:none}
+.pr-feat-list{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.pr-feat-col{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.pr-feat-col li{font-size:14px;color:rgba(255,255,255,.75);padding-left:20px;position:relative;line-height:1.4}
+.pr-feat-col li::before{content:'✓';position:absolute;left:0;color:var(--teal-light);font-weight:700;font-size:13px}
+.pr-billing-card{position:relative;background:var(--navy2);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 22px 20px;box-shadow:0 28px 72px rgba(0,0,0,.4)}
+.pr-billing-card--featured{border-color:var(--teal);background:rgba(61,220,110,.06)}
+.pr-save-badge{position:absolute;top:-12px;right:20px;background:var(--teal);color:#0A0B13;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px}
+.pr-plan-label{font-size:12px;font-weight:600;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px}
+.pr-plan-label--accent{color:var(--teal)}
+.pr-billing-price{display:flex;align-items:flex-end;gap:6px;margin-bottom:8px}
+.pr-billing-amt{font-family:'DM Mono',monospace;font-size:40px;font-weight:700;color:#fff;line-height:1}
+.pr-billing-per{font-size:13px;color:rgba(255,255,255,.45);padding-bottom:4px}
+.pr-desc{font-size:13px;color:rgba(255,255,255,.45);margin:0 0 20px}
+.pr-cta{display:block;text-align:center;padding:12px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:opacity .18s}
+.pr-cta-outline{border:1.5px solid rgba(255,255,255,.25);color:#fff}
+.pr-cta-outline:hover{border-color:var(--teal);color:var(--teal)}
+.pr-cta-solid{background:var(--teal);color:#0A0B13}
+.pr-cta-solid:hover{background:var(--teal2)}
 .pr-tabs-section{background:var(--navy);padding:80px 72px}
 .pr-tabs-header{text-align:center;margin-bottom:48px}
 .pr-tabs-title{font-size:clamp(28px,3vw,40px);font-weight:700;color:#fff;margin:0 0 12px}
@@ -1219,7 +1228,8 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .pr-cta-section p{font-size:17px;color:rgba(255,255,255,.85);margin:0 0 32px}
 .pr-cta-link{display:inline-block;background:#fff;color:var(--teal2);font-size:15px;font-weight:700;padding:14px 36px;border-radius:10px;text-decoration:none;transition:opacity .2s}
 .pr-cta-link:hover{opacity:.9}
-@media(max-width:900px){.pr-plan-wrap{grid-template-columns:1fr}}
+@media(max-width:900px){.pr-row{grid-template-columns:1fr}}
+@media(max-width:640px){.pr-billing-col{flex-direction:column}}
 @media(max-width:768px){.pr-hero{padding:100px 24px 60px}.pr-card-section,.pr-tabs-section,.pr-testimonial,.pr-faq-section,.pr-cta-section{padding:60px 24px}.pr-feat-list,.pr-tab-panel ul{grid-template-columns:1fr}}
 </style>
 
@@ -1233,43 +1243,63 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 
 <section class="pr-card-section">
   <div class="pr-container">
-    <div class="pr-plan-wrap">
-      <div class="pr-features">
-        <div class="pr-feat-title">Everything your sales team needs, included</div>
-        <ul class="pr-feat-list">
-          <li>Set and Track Sales Goals</li>
-          <li>Drive Sustained Peak Performance</li>
-          <li>Track Daily Call and Email Volume Goals</li>
-          <li>Automated Monthly, Quarterly &amp; Annual Reports</li>
-          <li>Track Commissions</li>
-          <li>Create Contracts and Invoices (Native Builder)</li>
-          <li>Collect Payments via Stripe and QuickBooks</li>
-          <li>Access to the Goals.com Marketplace</li>
-          <li>Integrate with Google, Outlook &amp; AI Notetakers</li>
-          <li>Actionable Insights</li>
-          <li>Assign Leads</li>
-          <li>Move Accounts Through Sales Stages</li>
-          <li>Track Deal Statuses</li>
-          <li>Activity Tracking</li>
-          <li>Set Reminders</li>
-          <li>Record Customer Notes</li>
-          <li>Sales Contests &amp; Performance Bonuses</li>
-          <li>Recognize Strong Performance</li>
-          <li>Mobile App</li>
-        </ul>
-      </div>
-      <div class="pr-price-card">
-        <div class="pr-plan-name">CRM</div>
-        <div class="pr-price">
-          <span class="pr-price-amt">$59</span>
-          <span class="pr-price-per">/month/user</span>
+    <div class="pr-row">
+      <div class="pr-col">
+        <div class="pr-inner">
+          <div class="pr-features">
+            <div class="pr-feat-title">Everything your sales team needs &mdash; included</div>
+            <div class="pr-feat-list">
+              <ul class="pr-feat-col">
+                <li>Set and Track Sales Goals</li>
+                <li>Drive Sustained Peak Performance</li>
+                <li>Track Daily Call and Email Volume Goals</li>
+                <li>Automated Monthly, Quarterly &amp; Annual Reports</li>
+                <li>Track Commissions</li>
+                <li>Create Contracts and Invoices (Native Builder)</li>
+                <li>Collect Payments via Stripe and QuickBooks</li>
+                <li>Access to the Goals.com Marketplace</li>
+                <li>Integrate with Google, Outlook &amp; AI Notetakers</li>
+                <li>Actionable Insights</li>
+              </ul>
+              <ul class="pr-feat-col">
+                <li>Assign Leads</li>
+                <li>Move Accounts Through Sales Stages</li>
+                <li>Track Deal Statuses</li>
+                <li>Activity Tracking</li>
+                <li>Set Reminders</li>
+                <li>Record Customer Notes</li>
+                <li>Sales Contests &amp; Performance Bonuses</li>
+                <li>Recognize Strong Performance</li>
+                <li>Mobile App</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <a href="#" class="pr-demo-btn" onclick="showView('home');return false;">Get Demo</a>
-        <ul class="pr-perks">
-          <li>No credit card required</li>
-          <li>Complimentary setup</li>
-          <li>Cancel anytime</li>
-        </ul>
+      </div>
+      <div class="pr-col pr-billing-col">
+        <div class="pr-inner">
+          <div class="pr-billing-card">
+            <div class="pr-plan-label">Monthly Billing</div>
+            <div class="pr-billing-price">
+              <span class="pr-billing-amt">$59</span>
+              <span class="pr-billing-per">/user/month</span>
+            </div>
+            <p class="pr-desc">Flexible month-to-month billing with full access to the Goals.com platform.</p>
+            <a href="https://calendly.com/goals-demo/30min?month=2026-07" target="_blank" rel="noopener" class="pr-cta pr-cta-outline">14-Day Free Trial</a>
+          </div>
+        </div>
+        <div class="pr-inner">
+          <div class="pr-billing-card pr-billing-card--featured">
+            <span class="pr-save-badge">Save 17%</span>
+            <div class="pr-plan-label pr-plan-label--accent">Annual Billing</div>
+            <div class="pr-billing-price">
+              <span class="pr-billing-amt">$49</span>
+              <span class="pr-billing-per">/user/month</span>
+            </div>
+            <p class="pr-desc">Billed annually. Best value for teams committed to driving long-term performance.</p>
+            <a href="https://calendly.com/goals-demo/30min?month=2026-07" target="_blank" rel="noopener" class="pr-cta pr-cta-solid">14-Day Free Trial</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1517,7 +1547,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
   <div class="pod-container">
     <div class="pod-host-card">
       <div class="pod-host-photo-wrap">
-        <img src="andrew-rice.jpg" alt="Andrew Rice" class="pod-host-photo-img" onerror="this.style.display='none';document.getElementById('pod-host-fb').style.display='flex'">
+        <img src="https://www.goals.com/wp-content/uploads/2026/07/IMG_8839-1-scaled.jpg" alt="Andrew Rice" class="pod-host-photo-img" onerror="this.style.display='none';document.getElementById('pod-host-fb').style.display='flex'">
         <div id="pod-host-fb" class="pod-host-photo-fallback">AR</div>
       </div>
       <div>
