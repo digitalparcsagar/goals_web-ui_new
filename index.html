@@ -1168,19 +1168,19 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .pr-h1{font-size:clamp(36px,5vw,56px);font-weight:700;color:#fff;line-height:1.15;margin:0 0 20px}
 .pr-sub{font-size:18px;color:rgba(255,255,255,.65);line-height:1.6;margin:0}
 .pr-card-section{background:var(--navy2);padding:80px 72px}
-.pr-container{max-width:1240px;margin:0 auto}
-.pr-row{display:grid;grid-template-columns:1.4fr 560px;gap:24px;align-items:start}
-.pr-col{display:flex;flex-direction:column;gap:16px}
+.pr-container{max-width:1400px;margin:0 auto}
+.pr-row{display:grid;grid-template-columns:1fr 480px;gap:24px;align-items:stretch}
+.pr-col{display:flex;flex-direction:column;gap:16px;height:100%}
 .pr-billing-col{flex-direction:row;align-items:stretch}
 .pr-billing-col .pr-inner{flex:1;min-width:0;display:flex}
 .pr-inner{width:100%}
-.pr-features{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px 36px;height:348px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden}
-.pr-feat-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-light);margin-bottom:18px}
+.pr-features{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px 40px;height:348px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden}
+.pr-feat-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-light);margin-bottom:18px;white-space:nowrap}
 .pr-feat-list{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;flex:1;align-content:space-between}
 .pr-feat-col{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;justify-content:flex-start}
-.pr-feat-col li{font-size:14px;color:rgba(255,255,255,.75);padding-left:19px;position:relative;line-height:1.4}
+.pr-feat-col li{font-size:14px;color:rgba(255,255,255,.75);padding-left:19px;position:relative;line-height:1.4;white-space:nowrap}
 .pr-feat-col li::before{content:'✓';position:absolute;left:0;color:var(--teal-light);font-weight:700;font-size:13px}
-.pr-billing-card{position:relative;background:var(--navy2);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:26px 24px 22px;box-shadow:0 28px 72px rgba(0,0,0,.4);width:100%;height:348px;box-sizing:border-box;display:flex;flex-direction:column}
+.pr-billing-card{position:relative;background:var(--navy2);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:26px 24px 22px;box-shadow:0 28px 72px rgba(0,0,0,.4);width:100%;height:100%;box-sizing:border-box;display:flex;flex-direction:column}
 .pr-billing-card .pr-cta{margin-top:auto}
 .pr-billing-card .pr-billing-price{margin-top:20px}
 .pr-billing-card--featured{border-color:var(--teal);background:rgba(61,220,110,.06)}
@@ -1232,7 +1232,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .pr-cta-link:hover{opacity:.9}
 @media(max-width:900px){.pr-row{grid-template-columns:1fr}}
 @media(max-width:640px){.pr-billing-col{flex-direction:column}}
-@media(max-width:768px){.pr-hero{padding:100px 24px 60px}.pr-card-section,.pr-tabs-section,.pr-testimonial,.pr-faq-section,.pr-cta-section{padding:60px 24px}.pr-feat-list,.pr-tab-panel ul{grid-template-columns:1fr}}
+@media(max-width:768px){.pr-hero{padding:100px 24px 60px}.pr-card-section,.pr-tabs-section,.pr-testimonial,.pr-faq-section,.pr-cta-section{padding:60px 24px}.pr-feat-list,.pr-tab-panel ul{grid-template-columns:1fr}.pr-features{height:auto;min-height:0;overflow:visible}.pr-feat-col li{white-space:normal}}
 </style>
 
 <section class="pr-hero">
@@ -1252,27 +1252,27 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
             <div class="pr-feat-title">Everything your sales team needs &mdash; included</div>
             <div class="pr-feat-list">
               <ul class="pr-feat-col">
-                <li>Set and Track Sales Goals</li>
-                <li>Drive Sustained Peak Performance</li>
-                <li>Track Daily Call and Email Volume Goals</li>
-                <li>Automated Monthly, Quarterly &amp; Annual Reports</li>
-                <li>Track Commissions</li>
                 <li>Create Contracts and Invoices (Native Builder)</li>
-                <li>Collect Payments via Stripe and QuickBooks</li>
+                <li>Automated Monthly, Quarterly &amp; Annual Reports</li>
+                <li>Sales Contests &amp; Performance Bonuses</li>
                 <li>Access to the Goals.com Marketplace</li>
-                <li>Integrate with Google, Outlook &amp; AI Notetakers</li>
-                <li>Actionable Insights</li>
-              </ul>
-              <ul class="pr-feat-col">
-                <li>Assign Leads</li>
-                <li>Move Accounts Through Sales Stages</li>
+                <li>Recognize Strong Performance</li>
+                <li>Set and Track Sales Goals</li>
                 <li>Track Deal Statuses</li>
                 <li>Activity Tracking</li>
-                <li>Set Reminders</li>
-                <li>Record Customer Notes</li>
-                <li>Sales Contests &amp; Performance Bonuses</li>
-                <li>Recognize Strong Performance</li>
+                <li>Assign Leads</li>
                 <li>Mobile App</li>
+              </ul>
+              <ul class="pr-feat-col">
+                <li>Integrate with Google, Outlook &amp; AI Notetakers</li>
+                <li>Collect Payments via Stripe and QuickBooks</li>
+                <li>Track Daily Call and Email Volume Goals</li>
+                <li>Move Accounts Through Sales Stages</li>
+                <li>Drive Sustained Peak Performance</li>
+                <li>Record Customer Notes</li>
+                <li>Actionable Insights</li>
+                <li>Track Commissions</li>
+                <li>Set Reminders</li>
               </ul>
             </div>
           </div>
