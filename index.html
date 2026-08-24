@@ -294,7 +294,9 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 #goals-site{margin:0;padding:0}
 #goals-site>section,#goals-site>footer{margin-block-start:0!important;margin-block-end:0!important}
 .footer-inner{max-width:1200px;margin:0 auto}
-.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:44px}
+.ft{display:grid;grid-template-columns:1.3fr 0.9fr 1.9fr;gap:44px;margin-bottom:44px}
+.fc-2col{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+.fc-2col a{white-space:nowrap}
 .fb p{font-size:13px;line-height:1.65;color:rgba(255,255,255,.36);margin-top:14px;max-width:260px}
 .fb-social{display:flex;align-items:center;gap:12px;margin-top:20px}
 .fb-social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);transition:color .2s,background .2s,border-color .2s}
@@ -326,7 +328,7 @@ a.fc-contact-text:hover{color:#fff}
 @media(max-width:900px){.hero-inner{grid-template-columns:1fr}.fsplit{grid-template-columns:1fr}.fsplit.flip{direction:ltr}.testi-row{grid-template-columns:1fr}.pricing-card{flex-direction:column}.pricing-col{width:100%;flex:none}.p-feats{grid-template-columns:1fr}}
 @media(max-width:900px){.nav{padding:0 20px}.nav.nav-open{position:fixed;top:0;left:0;right:0;z-index:201}body.admin-bar .nav.nav-open{top:32px}.nav-toggle{display:flex;flex-direction:column;position:relative;z-index:202}.nav.nav-open .nav-logo{position:relative;z-index:202}.nav-panel-top{display:flex;justify-content:flex-end;flex-shrink:0;margin:-8px 0 8px}.nav-close{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid rgba(255,255,255,.15);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;cursor:pointer}.nav-close:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25)}.nav-panel{display:flex;flex-direction:column;align-items:stretch;position:fixed;top:0;left:0;right:0;height:100dvh;max-height:100dvh;z-index:199;padding:calc(var(--nav-height) + 16px) 20px max(24px,env(safe-area-inset-bottom));background:rgba(20,24,39,.98);backdrop-filter:blur(16px);border-top:none;overflow:hidden;box-sizing:border-box;transform:translateX(100%);opacity:0;visibility:hidden;transition:transform .28s ease,opacity .28s ease,visibility .28s}.nav.nav-open .nav-panel{transform:translateX(0);opacity:1;visibility:visible}.nav-links{display:block;width:100%;flex:1 1 auto;min-height:0;overflow:hidden}.nav-links .nav-menu{flex-direction:column;align-items:stretch;gap:0;width:100%}.nav-links .nav-menu>li{border-bottom:1px solid rgba(255,255,255,.08)}.nav-links a,.nav-links .nav-kc-btn{display:block;padding:16px 4px;font-size:16px}.nav-cta{flex-direction:column;align-items:stretch;gap:12px;width:100%;margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0}.nav-cta .btn-login,.nav-cta .btn-ghost,.nav-cta .btn-primary{width:100%;text-align:center;padding:14px 20px;font-size:15px}body.admin-bar .nav-panel{padding-top:calc(var(--nav-height) + 32px + 16px);height:100dvh;max-height:100dvh}}
 @media screen and (max-width:782px){body.admin-bar .nav-panel{padding-top:calc(var(--nav-height) + 46px + 16px)}body.admin-bar .nav.nav-open{top:46px}}
-@media(max-width:640px){.section{padding:60px 24px}.hero{padding:100px 24px 60px}.fg{grid-template-columns:1fr}.metrics-row{grid-template-columns:1fr 1fr}footer{padding:44px 24px 28px}.ft{grid-template-columns:1fr}.cta-section{padding:72px 24px}.p-top,.p-bottom{padding:24px 24px}.billing-card{padding:24px 20px}.billing-price{font-size:40px}}
+@media(max-width:640px){.section{padding:60px 24px}.hero{padding:100px 24px 60px}.fg{grid-template-columns:1fr}.metrics-row{grid-template-columns:1fr 1fr}footer{padding:44px 24px 28px}.ft{grid-template-columns:1fr}.fc-2col{grid-template-columns:1fr}.cta-section{padding:72px 24px}.p-top,.p-bottom{padding:24px 24px}.billing-card{padding:24px 20px}.billing-price{font-size:40px}}
 
 /* ── PLATFORM ICONS ──────────────────────────────────────────────────── */
 .fg-icon svg{display:block}
@@ -566,6 +568,8 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 </style>
 </head>
 <body>
+
+<svg style="display:none" aria-hidden="true"><symbol id="footer-logo-mark" viewBox="0 0 115.245 72.029"><g id="Group_431" data-name="Group 431"> <path id="Path_965" data-name="Path 965" d="M923.533,288.136a.569.569,0,0,0-.445.326c-1.032,2.243-8.727,15.094-3.092,16.044,3.366.568,6.608-3.472,9.867-8.338.561-.57,0-.616-.488-.254-3.2,4.5-5.528,6.782-7.217,6.654-2.154-.163,4.979-11.671,4.678-13.3-.256-1.393-2.442-1.24-3.3-1.129" transform="translate(-847.476 -265.951)" fill="#ffffff"/> <path id="Path_966" data-name="Path 966" d="M817.8,292.888c1.577-2.97,1.2-4.435.3-4.606-2.864-.545-8.309,10.353-5.45,10.592,2.051.171,5.152-5.986,5.152-5.986l.632,2.48s-3.457,7.654-8.371,6.905c-6.019-.917-1.339-16.714,7.231-16.512,3.514.083,3.727,2.622,3.137,5.571-.313,1.567-2.925,2.112-2.629,1.556" transform="translate(-745.359 -263.82)" fill="#ffffff"/> <path id="Path_967" data-name="Path 967" d="M374.992,278.237c.416-3.038.407-5.53-.706-5.572-3.551-.133-9.132,13.84-5.64,13.512,3.847-.362,6.346-7.94,6.346-7.94l-.017,4.438s-2.993,6.62-8.315,6.518c-7.448-.143-3.021-18.665,6.508-19.351,4.286-.309,4.245,3.583,3.472,6.849-.45,1.9-1.753,2.315-1.648,1.546" transform="translate(-335.05 -249.109)" fill="#ffffff"/> <path id="Path_968" data-name="Path 968" d="M766.4,319.932s.045,2.046,1.094,2.783c.892.627,3.059.352,4.816-1.2.18.538-.4,1.146-.4,1.146-1.668,1.235-3.887,1.694-5.259,1.086Z" transform="translate(-707.556 -295.369)" fill="#ffffff"/> <path id="Path_969" data-name="Path 969" d="M1141.115,283.344c-2.015-.438-9.943-.206-16.766.93a4.114,4.114,0,0,1-1.066-3.458c.691-1.895,3.456-2.132,5.806-1.726,0,0,.857-2.182-.4-3.094-2.334-1.7-7.691-.342-8.586,3.094a6.916,6.916,0,0,0,1.382,5.7c-3.719.888-6.883,2.015-7.573,3.775-2.536,6.467,11.169,6.068,12.549,1.488a2.811,2.811,0,0,0,.119-.469c.286-2.434-2.274-3.272-2.286-3.273s.349-.057,1.252-.118h.019c.212-.012.426-.022.642-.031.544-.024.944-.041,1.5-.052h.052a79.214,79.214,0,0,1,8.583.306l.018,0a25.62,25.62,0,0,1,6.409,1.2s2.074-3.458-1.658-4.271m-17.863,4.676c-.138,1.759-6.665,2.985-6.585.682.039-1.139,2.763-1.868,6.053-2.258a3.05,3.05,0,0,1,.532,1.576" transform="translate(-1028.104 -254.132)" fill="#ffffff"/> <path id="Path_970" data-name="Path 970" d="M1165.923,576.208a1.1,1.1,0,0,0-.836-.384,1.225,1.225,0,1,0,.874,2.094l.874,1.066a2.593,2.593,0,0,1-1.768.615,2.549,2.549,0,1,1-.01-5.091,2.634,2.634,0,0,1,1.777.644Z" transform="translate(-1073.145 -530.4)" fill="#ffffff"/> <path id="Path_971" data-name="Path 971" d="M1232.978,579.6a2.531,2.531,0,0,1-2.651-2.565,2.659,2.659,0,0,1,5.312,0,2.534,2.534,0,0,1-2.661,2.565m0-3.785a1.135,1.135,0,0,0-1.124,1.22,1.137,1.137,0,1,0,1.124-1.22" transform="translate(-1135.868 -530.399)" fill="#ffffff"/> <path id="Path_972" data-name="Path 972" d="M1321.142,579.676v-2.613c0-.548-.125-1.009-.682-1.009-.538,0-.8.5-.8,1.037v2.584h-1.575v-2.728c0-.548-.211-.893-.682-.893-.5,0-.788.451-.788,1.028v2.594h-1.585v-4.784h1.527v.663h.019a1.6,1.6,0,0,1,1.431-.8,1.507,1.507,0,0,1,1.441.817,1.711,1.711,0,0,1,1.527-.817,1.75,1.75,0,0,1,1.739,1.96v2.959Z" transform="translate(-1214.07 -530.63)" fill="#ffffff"/> <path id="Path_973" data-name="Path 973" d="M1086.832,589.725a1.732,1.732,0,1,1-1.732-1.732,1.732,1.732,0,0,1,1.732,1.732" transform="translate(-1000.192 -542.849)" fill="#ffffff"/> <path id="Path_974" data-name="Path 974" d="M1409.885,416.474h0l-.018,0,.019,0" transform="translate(-1301.624 -384.497)" fill="#ffffff"/> <path id="Path_975" data-name="Path 975" d="M993.839,0c-7.377.292-16.969,20.887-21.887,36.3a21.435,21.435,0,0,0,2.618-2.427,21.092,21.092,0,0,1-3.23,4.041,58.708,58.708,0,0,0-2.6,12.695c-.089,4.423,2.9,4.9,2.9,4.9a98.882,98.882,0,0,1,5.773-23.883C987.223,22.251,1002.943-.356,993.839,0m.187,2.134c3.628.39-7.663,19.3-15.848,27.338,5.976-15.388,14.007-27.536,15.848-27.338" transform="translate(-894.36 0)" fill="#ffffff"/> <path id="Path_976" data-name="Path 976" d="M613.139,285.37a6.333,6.333,0,0,0,2.065.164c.729-3.589.057-6.834-2.307-6.953a3.088,3.088,0,0,0-1.262.178,3.4,3.4,0,0,0-2.349-.478c-8.482.322-12.937,16.656-4.307,17.373,5.181.431,8.787-4.714,10.059-9.38a7.113,7.113,0,0,1-1.9-.905m-6.979,7.213c-4.025.229-.389-10.041,3.8-11.395a3.869,3.869,0,0,0,1.522,3.737s-1.713,7.452-5.323,7.658" transform="translate(-554.223 -256.91)" fill="#ffffff"/> <path id="Path_977" data-name="Path 977" d="M64.422,290.467a154.386,154.386,0,0,0-23.86-.807c3.425-11.131,4.656-21.578,7.629-22.422-.718-1.217-3.121-1.965-5.125-.636-2.592,1.719-3.606,12.342-6.9,23.246C17.607,290.923.261,296,0,307.563c-.25,11.234,14.615,12.234,24.467,6.591,6.545-3.749,10.943-10.356,13.661-17.61.452-1.207,1.1-2.941,1.1-2.941l-1.985-.568c.778-.061,2.234-.07,2.235-.073q2.493-.077,5.074-.073h0a167.017,167.017,0,0,1,22.723,1.753s.927-3.661-2.861-4.174M17.645,313.439c-10.3,2.585-15.388-1.473-14.842-6.393.983-8.86,15.337-12.8,32.284-13.879-3.236,9.3-8.3,17.977-17.443,20.272" transform="translate(0 -245.484)" fill="#ffffff"/> </g></symbol></svg>
 
 <!-- NAV -->
 <nav class="nav">
@@ -1145,13 +1149,17 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     <div class="ft">
       <div class="fb">
         <div style="margin-bottom:4px">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"> <g id="Group_431" data-name="Group 431"> <path id="Path_965" data-name="Path 965" d="M923.533,288.136a.569.569,0,0,0-.445.326c-1.032,2.243-8.727,15.094-3.092,16.044,3.366.568,6.608-3.472,9.867-8.338.561-.57,0-.616-.488-.254-3.2,4.5-5.528,6.782-7.217,6.654-2.154-.163,4.979-11.671,4.678-13.3-.256-1.393-2.442-1.24-3.3-1.129" transform="translate(-847.476 -265.951)" fill="#ffffff"/> <path id="Path_966" data-name="Path 966" d="M817.8,292.888c1.577-2.97,1.2-4.435.3-4.606-2.864-.545-8.309,10.353-5.45,10.592,2.051.171,5.152-5.986,5.152-5.986l.632,2.48s-3.457,7.654-8.371,6.905c-6.019-.917-1.339-16.714,7.231-16.512,3.514.083,3.727,2.622,3.137,5.571-.313,1.567-2.925,2.112-2.629,1.556" transform="translate(-745.359 -263.82)" fill="#ffffff"/> <path id="Path_967" data-name="Path 967" d="M374.992,278.237c.416-3.038.407-5.53-.706-5.572-3.551-.133-9.132,13.84-5.64,13.512,3.847-.362,6.346-7.94,6.346-7.94l-.017,4.438s-2.993,6.62-8.315,6.518c-7.448-.143-3.021-18.665,6.508-19.351,4.286-.309,4.245,3.583,3.472,6.849-.45,1.9-1.753,2.315-1.648,1.546" transform="translate(-335.05 -249.109)" fill="#ffffff"/> <path id="Path_968" data-name="Path 968" d="M766.4,319.932s.045,2.046,1.094,2.783c.892.627,3.059.352,4.816-1.2.18.538-.4,1.146-.4,1.146-1.668,1.235-3.887,1.694-5.259,1.086Z" transform="translate(-707.556 -295.369)" fill="#ffffff"/> <path id="Path_969" data-name="Path 969" d="M1141.115,283.344c-2.015-.438-9.943-.206-16.766.93a4.114,4.114,0,0,1-1.066-3.458c.691-1.895,3.456-2.132,5.806-1.726,0,0,.857-2.182-.4-3.094-2.334-1.7-7.691-.342-8.586,3.094a6.916,6.916,0,0,0,1.382,5.7c-3.719.888-6.883,2.015-7.573,3.775-2.536,6.467,11.169,6.068,12.549,1.488a2.811,2.811,0,0,0,.119-.469c.286-2.434-2.274-3.272-2.286-3.273s.349-.057,1.252-.118h.019c.212-.012.426-.022.642-.031.544-.024.944-.041,1.5-.052h.052a79.214,79.214,0,0,1,8.583.306l.018,0a25.62,25.62,0,0,1,6.409,1.2s2.074-3.458-1.658-4.271m-17.863,4.676c-.138,1.759-6.665,2.985-6.585.682.039-1.139,2.763-1.868,6.053-2.258a3.05,3.05,0,0,1,.532,1.576" transform="translate(-1028.104 -254.132)" fill="#ffffff"/> <path id="Path_970" data-name="Path 970" d="M1165.923,576.208a1.1,1.1,0,0,0-.836-.384,1.225,1.225,0,1,0,.874,2.094l.874,1.066a2.593,2.593,0,0,1-1.768.615,2.549,2.549,0,1,1-.01-5.091,2.634,2.634,0,0,1,1.777.644Z" transform="translate(-1073.145 -530.4)" fill="#ffffff"/> <path id="Path_971" data-name="Path 971" d="M1232.978,579.6a2.531,2.531,0,0,1-2.651-2.565,2.659,2.659,0,0,1,5.312,0,2.534,2.534,0,0,1-2.661,2.565m0-3.785a1.135,1.135,0,0,0-1.124,1.22,1.137,1.137,0,1,0,1.124-1.22" transform="translate(-1135.868 -530.399)" fill="#ffffff"/> <path id="Path_972" data-name="Path 972" d="M1321.142,579.676v-2.613c0-.548-.125-1.009-.682-1.009-.538,0-.8.5-.8,1.037v2.584h-1.575v-2.728c0-.548-.211-.893-.682-.893-.5,0-.788.451-.788,1.028v2.594h-1.585v-4.784h1.527v.663h.019a1.6,1.6,0,0,1,1.431-.8,1.507,1.507,0,0,1,1.441.817,1.711,1.711,0,0,1,1.527-.817,1.75,1.75,0,0,1,1.739,1.96v2.959Z" transform="translate(-1214.07 -530.63)" fill="#ffffff"/> <path id="Path_973" data-name="Path 973" d="M1086.832,589.725a1.732,1.732,0,1,1-1.732-1.732,1.732,1.732,0,0,1,1.732,1.732" transform="translate(-1000.192 -542.849)" fill="#ffffff"/> <path id="Path_974" data-name="Path 974" d="M1409.885,416.474h0l-.018,0,.019,0" transform="translate(-1301.624 -384.497)" fill="#ffffff"/> <path id="Path_975" data-name="Path 975" d="M993.839,0c-7.377.292-16.969,20.887-21.887,36.3a21.435,21.435,0,0,0,2.618-2.427,21.092,21.092,0,0,1-3.23,4.041,58.708,58.708,0,0,0-2.6,12.695c-.089,4.423,2.9,4.9,2.9,4.9a98.882,98.882,0,0,1,5.773-23.883C987.223,22.251,1002.943-.356,993.839,0m.187,2.134c3.628.39-7.663,19.3-15.848,27.338,5.976-15.388,14.007-27.536,15.848-27.338" transform="translate(-894.36 0)" fill="#ffffff"/> <path id="Path_976" data-name="Path 976" d="M613.139,285.37a6.333,6.333,0,0,0,2.065.164c.729-3.589.057-6.834-2.307-6.953a3.088,3.088,0,0,0-1.262.178,3.4,3.4,0,0,0-2.349-.478c-8.482.322-12.937,16.656-4.307,17.373,5.181.431,8.787-4.714,10.059-9.38a7.113,7.113,0,0,1-1.9-.905m-6.979,7.213c-4.025.229-.389-10.041,3.8-11.395a3.869,3.869,0,0,0,1.522,3.737s-1.713,7.452-5.323,7.658" transform="translate(-554.223 -256.91)" fill="#ffffff"/> <path id="Path_977" data-name="Path 977" d="M64.422,290.467a154.386,154.386,0,0,0-23.86-.807c3.425-11.131,4.656-21.578,7.629-22.422-.718-1.217-3.121-1.965-5.125-.636-2.592,1.719-3.606,12.342-6.9,23.246C17.607,290.923.261,296,0,307.563c-.25,11.234,14.615,12.234,24.467,6.591,6.545-3.749,10.943-10.356,13.661-17.61.452-1.207,1.1-2.941,1.1-2.941l-1.985-.568c.778-.061,2.234-.07,2.235-.073q2.493-.077,5.074-.073h0a167.017,167.017,0,0,1,22.723,1.753s.927-3.661-2.861-4.174M17.645,313.439c-10.3,2.585-15.388-1.473-14.842-6.393.983-8.86,15.337-12.8,32.284-13.879-3.236,9.3-8.3,17.977-17.443,20.272" transform="translate(0 -245.484)" fill="#ffffff"/> </g> </svg>
+          <svg width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"><use href="#footer-logo-mark"></use></svg>
         </div>
         <p style="margin-top:14px">Sales Performance Software built around winning. Pipeline, goals, commissions, contests, and AI, all in one place.</p>
       </div>
       <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#pipeline" onclick="showView('home')">Pipeline CRM</a><a href="#ace" onclick="showView('home')">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
-      <div class="fc"><h4>Company</h4><a href="#">About</a><a href="#">Careers</a><a href="#">Blog</a><a href="#">Contact</a></div>
-      <div class="fc"><h4>Resources</h4><a href="#" onclick="showView('kc');return false;">Knowledge Center</a></div>
+      <div class="fc"><h4>Features</h4>
+        <div class="fc-2col">
+          <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing <span class="cm-soon-tag">Coming Soon</span></a></div>
+          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting <span class="cm-soon-tag">Coming Soon</span></a></div>
+        </div>
+      </div>
     </div>
     <div class="fb-bottom"><p>&copy; 2025 Goals.com. All rights reserved.</p><div class="fb-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div></div>
   </div>
@@ -1454,6 +1462,1130 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 </section>
 
 </div><!-- /view-pricing -->
+
+<!-- COMMISSIONS VIEW -->
+<div class="view" id="view-commissions">
+<style>
+/* ── COMMISSIONS VIEW ──────────────────────────────── */
+.cm-hero{background:var(--navy);padding:120px 72px 80px;text-align:center;position:relative;overflow:hidden}
+.cm-hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(61,220,110,.12) 0%,transparent 70%);pointer-events:none}
+.cm-hero-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.cm-badge{display:inline-block;background:rgba(61,220,110,.15);color:var(--teal-light);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(61,220,110,.25)}
+.cm-h1{font-size:clamp(36px,5vw,56px);font-weight:700;color:#fff;line-height:1.15;margin:0 0 20px}
+.cm-sub{font-size:18px;color:rgba(255,255,255,.65);line-height:1.6;margin:0 0 32px}
+.cm-hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.cm-section{padding:80px 72px}
+.cm-container{max-width:1180px;margin:0 auto}
+
+.cm-feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.cm-feat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px}
+.cm-feat-icon{width:38px;height:38px;border-radius:10px;background:rgba(61,220,110,.14);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.cm-feat-card h3{font-size:15px;font-weight:700;color:#fff;margin:0 0 8px}
+.cm-feat-card p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.55;margin:0}
+
+.cm-lib-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;gap:24px;flex-wrap:wrap}
+.cm-lib-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cm-lib-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:20px;position:relative;overflow:hidden}
+.cm-lib-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.cm-lib-card h4{font-size:13px;font-weight:700;color:#fff;margin:0 0 3px}
+.cm-lib-card .cm-lib-sub{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:12px}
+.cm-lib-rows{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.cm-lib-row{display:flex;justify-content:space-between;align-items:center;border-radius:7px;padding:6px 9px;background:rgba(255,255,255,.04)}
+.cm-lib-row span:first-child{font-size:10.5px;color:rgba(255,255,255,.5)}
+.cm-lib-row span:last-child{font-size:12px;font-weight:800;font-family:'DM Mono',monospace}
+.cm-lib-desc{font-size:11px;color:rgba(255,255,255,.4);line-height:1.6;margin:0}
+
+.cm-ace-card{background:var(--navy);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:24px}
+.cm-ace-icon{width:44px;height:44px;border-radius:12px;background:rgba(61,220,110,.15);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.cm-ace-card h3{font-size:24px;font-weight:700;color:#fff;margin:0 0 12px}
+.cm-ace-card p{font-size:15px;color:rgba(255,255,255,.55);line-height:1.6;margin:0}
+.cm-ace-prompts{display:flex;flex-direction:column;gap:10px}
+.cm-ace-prompt{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px 16px;font-size:13px;color:rgba(255,255,255,.75);font-style:italic}
+
+.cm-mock-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cm-mock{background:#161b26;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.cm-mock-bar{display:flex;align-items:center;gap:6px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.cm-mock-dot{width:9px;height:9px;border-radius:50%}
+.cm-mock-title{font-size:11px;color:rgba(255,255,255,.4);margin-left:8px;font-family:'DM Mono',monospace}
+.cm-mock-body{padding:20px}
+.cm-mock-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.cm-mock-stat{background:rgba(255,255,255,.03);border-radius:9px;padding:12px 14px}
+.cm-mock-stat-label{font-size:10px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.cm-mock-stat-val{font-size:19px;font-weight:700;color:var(--teal-light);font-family:'DM Mono',monospace}
+.cm-mock-list{display:flex;flex-direction:column;gap:9px}
+.cm-mock-item{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.6);padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.05)}
+.cm-mock-item:last-child{border-bottom:none;padding-bottom:0}
+.cm-mock-item strong{color:#fff;font-weight:600}
+.cm-mock-amt{font-family:'DM Mono',monospace;font-weight:700;color:var(--teal-light)}
+
+.cm-cta-section{background:linear-gradient(135deg,var(--teal) 0%,var(--teal2) 100%);padding:80px 72px;text-align:center}
+.cm-cta-section h2{font-size:clamp(28px,3vw,40px);font-weight:700;color:#fff;margin:0 0 12px}
+.cm-cta-section p{font-size:17px;color:rgba(255,255,255,.9);margin:0 0 32px}
+.cm-cta-link{display:inline-block;background:#fff;color:var(--teal2);font-size:15px;font-weight:700;padding:14px 36px;border-radius:10px;text-decoration:none;transition:opacity .2s}
+.cm-cta-link:hover{opacity:.9}
+.cm-soon-tag{font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-light);background:rgba(61,220,110,.14);border:1px solid rgba(61,220,110,.25);border-radius:20px;padding:2px 7px}
+.cm-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}
+.cm-step{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;position:relative}
+.cm-step-num{font-family:'DM Mono',monospace;font-size:12px;font-weight:700;color:var(--teal-light);background:rgba(61,220,110,.14);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.cm-step h3{font-size:15px;font-weight:700;color:#fff;margin:0 0 8px}
+.cm-step p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.55;margin:0}
+.cm-example-card{background:var(--navy2);border:1px solid rgba(61,220,110,.25);border-radius:16px;padding:28px 32px;margin-top:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.cm-example-badge{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--teal-light);background:rgba(61,220,110,.12);border-radius:20px;padding:4px 10px;margin-bottom:10px;display:inline-block}
+.cm-example-title{font-size:17px;font-weight:700;color:#fff;margin:0 0 4px}
+.cm-example-desc{font-size:13px;color:rgba(255,255,255,.5);margin:0}
+.cm-example-meta{display:flex;gap:28px;flex-wrap:wrap}
+.cm-example-meta-item{text-align:left}
+.cm-example-meta-label{font-size:10px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.cm-example-meta-val{font-size:14px;font-weight:700;color:#fff;font-family:'DM Mono',monospace}
+@media(max-width:900px){.cm-steps{grid-template-columns:1fr}}
+.cm-tab-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;justify-content:center}
+.cm-tab-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:13px;font-weight:500;padding:8px 18px;border-radius:20px;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.cm-tab-btn:hover{color:#fff;border-color:rgba(255,255,255,.25)}
+.cm-tab-btn.active{background:var(--teal);border-color:var(--teal);color:#0A0B13}
+.cm-tab-panel{display:none}
+.cm-tab-panel.active{display:block}
+
+@media(max-width:1100px){.cm-feat-grid{grid-template-columns:1fr 1fr}.cm-lib-grid{grid-template-columns:1fr 1fr}.cm-ace-card{grid-template-columns:1fr}.cm-mock-row{grid-template-columns:1fr}}
+@media(max-width:640px){.cm-hero{padding:100px 24px 60px}.cm-section,.cm-cta-section{padding:56px 24px}.cm-feat-grid,.cm-lib-grid{grid-template-columns:1fr}.cm-mock-stat-row{grid-template-columns:1fr}}
+</style>
+
+<section class="cm-hero">
+  <div class="cm-hero-inner">
+    <div class="cm-badge">Commissions</div>
+    <h1 class="cm-h1">Commissions your team<br>can actually trust.</h1>
+    <p class="cm-sub">Every deal calculates automatically the moment it closes. Every rep sees exactly what they've earned and when it's paid, no spreadsheets, no disputes, no end-of-month scramble.</p>
+    <div class="cm-hero-actions">
+      <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="btn-hero">Book a Demo</a>
+      <a href="#" class="btn-hero-outline" onclick="showView('pricing');return false;">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy2)">
+  <div class="cm-container">
+    <div class="cm-feat-grid">
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Automatic Calculations</h3>
+        <p>Commissions calculate the instant a deal closes, no manual math, no waiting on finance to run the numbers.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Full Transparency</h3>
+        <p>Every rep sees their exact earnings, how the rate was calculated, and their next payout date, in real time.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+        <h3>Flexible Structures</h3>
+        <p>Tiered, flat-rate, residual, split, accelerator, and more, built for however your team actually sells.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Approval &amp; Payout Workflow</h3>
+        <p>Review, approve, and export payouts in a few clicks, with a clear audit trail behind every payment.</p>
+      </div>
+    </div>
+
+    <div class="cm-example-card">
+      <div>
+        <span class="cm-example-badge">Built by Ace</span>
+        <div class="cm-example-title">Flat 7% Commission Plan</div>
+        <p class="cm-example-desc">"7% commission on all sales, paid monthly." That's all it took to describe this plan, Ace built the rest.</p>
+      </div>
+      <div class="cm-example-meta">
+        <div class="cm-example-meta-item"><div class="cm-example-meta-label">Period</div><div class="cm-example-meta-val">Aug &ndash; Dec 2026</div></div>
+        <div class="cm-example-meta-item"><div class="cm-example-meta-label">Payout</div><div class="cm-example-meta-val">Monthly</div></div>
+        <div class="cm-example-meta-item"><div class="cm-example-meta-label">Applies To</div><div class="cm-example-meta-val">4 people</div></div>
+      </div>
+    </div>
+
+    <div class="cm-steps">
+      <div class="cm-step">
+        <div class="cm-step-num">1</div>
+        <h3>Describe the plan</h3>
+        <p>Type it in plain English: "8% on group benefits, 5% on individual plans, paid quarterly." No spreadsheet formulas required.</p>
+      </div>
+      <div class="cm-step">
+        <div class="cm-step-num">2</div>
+        <h3>Ace builds the structure</h3>
+        <p>Ace turns your description into tiers, bonuses, and overrides, ready to review before it goes live.</p>
+      </div>
+      <div class="cm-step">
+        <div class="cm-step-num">3</div>
+        <h3>It calculates itself</h3>
+        <p>As deals close, Ace calculates what each person has earned automatically, and recalculates any time you need it to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy)">
+  <div class="cm-container">
+    <div class="cm-lib-header">
+      <div>
+        <h2 style="font-size:clamp(28px,3vw,38px);font-weight:700;color:#fff;margin:0 0 10px">A commission structure<br><em style="color:var(--teal-light);font-style:normal">for however you pay your team.</em></h2>
+        <p style="font-size:15px;color:rgba(255,255,255,.55);margin:0;max-width:520px">Start from a proven structure, or describe something custom and let Ace build it for you.</p>
+      </div>
+    </div>
+    <div class="cm-lib-grid">
+      <div class="cm-lib-card">
+        <div class="cm-lib-icon" style="background:rgba(61,220,110,.14)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h4>Tiered Commission</h4>
+        <div class="cm-lib-sub">Accelerates as reps close more</div>
+        <div class="cm-lib-rows">
+          <div class="cm-lib-row"><span>$0&ndash;$50K</span><span style="color:var(--teal-light)">6%</span></div>
+          <div class="cm-lib-row"><span>$100K+</span><span style="color:var(--teal-light)">10%</span></div>
+        </div>
+        <p class="cm-lib-desc">Rewards consistent closers with higher rates once they hit milestones.</p>
+      </div>
+      <div class="cm-lib-card">
+        <div class="cm-lib-icon" style="background:rgba(91,143,232,.14)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5b8fe8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        <h4>Flat Rate</h4>
+        <div class="cm-lib-sub">Simple, consistent percentage</div>
+        <div class="cm-lib-rows">
+          <div class="cm-lib-row"><span>All closed deals</span><span style="color:#5b8fe8">7%</span></div>
+        </div>
+        <p class="cm-lib-desc">Easiest to explain to reps, everyone earns the same rate. Great for newer teams.</p>
+      </div>
+      <div class="cm-lib-card">
+        <div class="cm-lib-icon" style="background:rgba(245,158,11,.14)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h4>Goal-Based Bonus</h4>
+        <div class="cm-lib-sub">Base rate + bonus at 100% goal</div>
+        <div class="cm-lib-rows">
+          <div class="cm-lib-row"><span>Base rate</span><span style="color:#f59e0b">6%</span></div>
+          <div class="cm-lib-row"><span>At 120%+ of goal</span><span style="color:#f59e0b">+4%</span></div>
+        </div>
+        <p class="cm-lib-desc">Ties commission to monthly targets, creating a natural push at month-end.</p>
+      </div>
+      <div class="cm-lib-card">
+        <div class="cm-lib-icon" style="background:rgba(139,92,246,.14)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.49-8.49"/></svg></div>
+        <h4>Residual / Recurring</h4>
+        <div class="cm-lib-sub">Ongoing % on renewals</div>
+        <div class="cm-lib-rows">
+          <div class="cm-lib-row"><span>New sale</span><span style="color:#8b5cf6">8%</span></div>
+          <div class="cm-lib-row"><span>Annual renewal</span><span style="color:#8b5cf6">3%</span></div>
+        </div>
+        <p class="cm-lib-desc">Common in insurance and benefits, incentivizes long-term client retention.</p>
+      </div>
+      <div class="cm-lib-card">
+        <div class="cm-lib-icon" style="background:rgba(236,72,153,.14)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <h4>Split Commission</h4>
+        <div class="cm-lib-sub">Shared credit between reps</div>
+        <div class="cm-lib-rows">
+          <div class="cm-lib-row"><span>Primary rep</span><span style="color:#ec4899">60%</span></div>
+          <div class="cm-lib-row"><span>Assisting rep</span><span style="color:#ec4899">40%</span></div>
+        </div>
+        <p class="cm-lib-desc">For deals that need two reps to close. Encourages teamwork without disputes.</p>
+      </div>
+      <div class="cm-lib-card">
+        <div class="cm-lib-icon" style="background:rgba(14,165,233,.14)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h4>Accelerator</h4>
+        <div class="cm-lib-sub">Rate climbs with attainment</div>
+        <div class="cm-lib-rows">
+          <div class="cm-lib-row"><span>Up to 100% of quota</span><span style="color:#0ea5e9">5%</span></div>
+          <div class="cm-lib-row"><span>150%+ of quota</span><span style="color:#0ea5e9">12%</span></div>
+        </div>
+        <p class="cm-lib-desc">Rewards overachievement, rate bands scale with each rep's target.</p>
+      </div>
+      <div class="cm-lib-card">
+        <div class="cm-lib-icon" style="background:rgba(220,38,38,.14)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <h4>Draw Against Commission</h4>
+        <div class="cm-lib-sub">Guaranteed floor while ramping</div>
+        <div class="cm-lib-rows">
+          <div class="cm-lib-row"><span>Monthly draw</span><span style="color:#dc2626">$3,000</span></div>
+          <div class="cm-lib-row"><span>Underlying rate</span><span style="color:#dc2626">7%</span></div>
+        </div>
+        <p class="cm-lib-desc">Common for new hires ramping up, earned commissions pay the advance back first.</p>
+      </div>
+      <div class="cm-lib-card">
+        <div class="cm-lib-icon" style="background:rgba(101,163,13,.14)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#65a30d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <h4>Product-Based</h4>
+        <div class="cm-lib-sub">Different rates per product line</div>
+        <div class="cm-lib-rows">
+          <div class="cm-lib-row"><span>New licenses</span><span style="color:#65a30d">10%</span></div>
+          <div class="cm-lib-row"><span>Renewals</span><span style="color:#65a30d">3%</span></div>
+        </div>
+        <p class="cm-lib-desc">Weights payout by what's sold, push new logos harder than renewals.</p>
+      </div>
+    </div>
+
+    <div class="cm-ace-card">
+      <div>
+        <div class="cm-ace-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Something custom? Ask Ace.</h3>
+        <p>Describe any commission structure in plain English, draw conditions, product lines, territories, or anything specific to your team, and Ace builds it for you.</p>
+      </div>
+      <div class="cm-ace-prompts">
+        <div class="cm-ace-prompt">"8% on group benefits, 5% on individual plans, paid quarterly"</div>
+        <div class="cm-ace-prompt">"Tiered structure with a $500 flat bonus for any deal over $200K"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy2)">
+  <div class="cm-container">
+    <div class="s-head s-head-dark reveal in" style="margin-bottom:40px">
+      <h2>Built for managers <em>and reps.</em></h2>
+      <p>Managers get a clear view of payouts across the whole team. Reps get a clear view of what they've earned, no asking around required.</p>
+    </div>
+    <div class="cm-mock-row">
+      <div class="cm-mock">
+        <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Manager View</div></div>
+        <div class="cm-mock-body">
+          <div class="cm-mock-stat-row">
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">YTD Total</div><div class="cm-mock-stat-val">$124,800</div></div>
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Next Payout</div><div class="cm-mock-stat-val" style="font-size:16px">Jun 30</div></div>
+          </div>
+          <div class="cm-mock-list">
+            <div class="cm-mock-item"><strong>Brock Wilson</strong> <span class="cm-mock-amt">$27,300</span></div>
+            <div class="cm-mock-item"><strong>Russ Holt</strong> <span class="cm-mock-amt">$20,280</span></div>
+            <div class="cm-mock-item"><strong>Jules Richards</strong> <span class="cm-mock-amt">$16,320</span></div>
+            <div class="cm-mock-item"><strong>All reps verified</strong> <span style="color:var(--teal-light)">✓ Ready to submit</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-mock">
+        <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Rep View</div></div>
+        <div class="cm-mock-body">
+          <div class="cm-mock-stat-row">
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">My Earnings</div><div class="cm-mock-stat-val">$27,300</div></div>
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">My Rate</div><div class="cm-mock-stat-val" style="font-size:16px">6.5%</div></div>
+          </div>
+          <div class="cm-mock-list">
+            <div class="cm-mock-item"><strong>Riverside Financial</strong> <span class="cm-mock-amt">$5,980</span></div>
+            <div class="cm-mock-item"><strong>Northbrook Partners</strong> <span class="cm-mock-amt">$5,070</span></div>
+            <div class="cm-mock-item"><strong>Pacific Coast Medical</strong> <span class="cm-mock-amt">$9,425</span></div>
+            <div class="cm-mock-item"><strong>Next payout</strong> <span style="color:var(--teal-light)">Jun 30, 2026</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-cta-section">
+  <h2>Ready to pay your team<br>with confidence?</h2>
+  <p>See how Goals.com automates commissions from first deal to final payout.</p>
+  <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="cm-cta-link">Book a Demo</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ft">
+      <div class="fb">
+        <div style="margin-bottom:4px">
+          <svg width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"><use href="#footer-logo-mark"></use></svg>
+        </div>
+        <p style="margin-top:14px">Sales Performance Software built around winning. Pipeline, goals, commissions, contests, and AI, all in one place.</p>
+      </div>
+      <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#pipeline" onclick="showView('home')">Pipeline CRM</a><a href="#ace" onclick="showView('home')">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
+      <div class="fc"><h4>Features</h4>
+        <div class="fc-2col">
+          <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing <span class="cm-soon-tag">Coming Soon</span></a></div>
+          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting <span class="cm-soon-tag">Coming Soon</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="fb-bottom"><p>&copy; 2025 Goals.com. All rights reserved.</p><div class="fb-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div></div>
+  </div>
+</footer>
+
+</div><!-- /view-commissions -->
+
+<!-- BONUSES VIEW -->
+<div class="view" id="view-bonuses">
+<section class="cm-hero">
+  <div class="cm-hero-inner">
+    <div class="cm-badge">Bonuses</div>
+    <h1 class="cm-h1">Bonuses that reward<br>the right behavior.</h1>
+    <p class="cm-sub">Set spot bonuses, retention bonuses, and team incentives tied to real performance. Reps see their progress in real time, no surprises at payout.</p>
+    <div class="cm-hero-actions">
+      <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="btn-hero">Book a Demo</a>
+      <a href="#" class="btn-hero-outline" onclick="showView('pricing');return false;">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy2)">
+  <div class="cm-container">
+    <div class="cm-feat-grid">
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+        <h3>Team &amp; Individual Bonuses</h3>
+        <p>Award a whole team for hitting a shared target, or set individual bonuses tied to one rep's performance.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Live Progress Tracking</h3>
+        <p>Every rep sees exactly how close they are to unlocking a bonus, updated the moment a deal moves.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Bonus with Ace</h3>
+        <p>Describe a bonus in plain English, like "$500 team bonus if we hit our Q3 goal", and Ace builds and tracks it.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Full Payout History</h3>
+        <p>Every bonus, past and pending, logged with the period, amount, and status, exportable any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy)">
+  <div class="cm-container">
+    <div class="s-head s-head-dark reveal in" style="margin-bottom:40px">
+      <h2>Bonuses your team <em>can actually see.</em></h2>
+      <p>Managers set the targets. Reps watch the progress bar move with every deal they close.</p>
+    </div>
+    <div class="cm-mock-row">
+      <div class="cm-mock">
+        <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Active Bonuses</div></div>
+        <div class="cm-mock-body">
+          <div class="cm-mock-stat-row">
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Total Awarded YTD</div><div class="cm-mock-stat-val">$20,750</div></div>
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Avg Bonus / Rep</div><div class="cm-mock-stat-val" style="font-size:16px">$4,150</div></div>
+          </div>
+          <div class="cm-mock-list">
+            <div class="cm-mock-item"><strong>Q3 Team Bonus</strong> <span class="cm-mock-amt">$500 · Team · 37%</span></div>
+            <div class="cm-mock-item"><strong>New Business Bonus</strong> <span class="cm-mock-amt">Individual · 0 of 5 threshold</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-mock">
+        <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Bonus Payout History</div></div>
+        <div class="cm-mock-body">
+          <div class="cm-mock-stat-row">
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Pending Payout</div><div class="cm-mock-stat-val">$5,500</div></div>
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Active Bonuses</div><div class="cm-mock-stat-val" style="font-size:16px">3</div></div>
+          </div>
+          <div class="cm-mock-list">
+            <div class="cm-mock-item"><strong>$450 bonus</strong> <span style="color:var(--teal-light)">Paid</span></div>
+            <div class="cm-mock-item"><strong>$300 bonus</strong> <span style="color:#fbbf24">Pending</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cm-example-card">
+      <div>
+        <span class="cm-example-badge">Bonus with Ace</span>
+        <div class="cm-example-title">"Give a $500 team bonus if we hit our Q3 goal."</div>
+        <p class="cm-example-desc">Describe the bonus in plain English and Ace sets the threshold, tracks progress, and calculates the payout when it's earned.</p>
+      </div>
+      <div class="cm-example-meta">
+        <div class="cm-example-meta-item"><div class="cm-example-meta-label">Type</div><div class="cm-example-meta-val">Team</div></div>
+        <div class="cm-example-meta-item"><div class="cm-example-meta-label">Progress</div><div class="cm-example-meta-val">37%</div></div>
+        <div class="cm-example-meta-item"><div class="cm-example-meta-label">Prize</div><div class="cm-example-meta-val">$500</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-cta-section">
+  <h2>Ready to reward<br>the wins that matter?</h2>
+  <p>See how Goals.com turns bonus tracking into something your team can trust.</p>
+  <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="cm-cta-link">Book a Demo</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ft">
+      <div class="fb">
+        <div style="margin-bottom:4px">
+          <svg width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"><use href="#footer-logo-mark"></use></svg>
+        </div>
+        <p style="margin-top:14px">Sales Performance Software built around winning. Pipeline, goals, commissions, contests, and AI, all in one place.</p>
+      </div>
+      <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#pipeline" onclick="showView('home')">Pipeline CRM</a><a href="#ace" onclick="showView('home')">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
+      <div class="fc"><h4>Features</h4>
+        <div class="fc-2col">
+          <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing <span class="cm-soon-tag">Coming Soon</span></a></div>
+          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting <span class="cm-soon-tag">Coming Soon</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="fb-bottom"><p>&copy; 2025 Goals.com. All rights reserved.</p><div class="fb-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div></div>
+  </div>
+</footer>
+</div><!-- /view-bonuses -->
+
+<!-- CONTESTS VIEW -->
+<div class="view" id="view-contests">
+<section class="cm-hero">
+  <div class="cm-hero-inner">
+    <div class="cm-badge">Contests</div>
+    <h1 class="cm-h1">Sales contests that keep<br>the energy up.</h1>
+    <p class="cm-sub">Run team and individual competitions with live leaderboards, real prize pools, and deadlines your reps can actually see, right alongside the pipeline they're already working.</p>
+    <div class="cm-hero-actions">
+      <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="btn-hero">Book a Demo</a>
+      <a href="#" class="btn-hero-outline" onclick="showView('pricing');return false;">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy2)">
+  <div class="cm-container">
+    <div class="cm-feat-grid">
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg></div>
+        <h3>Live Leaderboards</h3>
+        <p>Rankings update in real time as deals close, so reps always know exactly where they stand.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg></div>
+        <h3>Flexible Prize Pools</h3>
+        <p>Winner-take-all, split pools, or milestone prizes, set it up however fits the moment.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Team &amp; Individual Formats</h3>
+        <p>Run a company-wide sprint or a small team challenge, whatever motivates the moment.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Contest with Ace</h3>
+        <p>Describe the competition you want, Ace sets the rules, the leaderboard, and the deadline for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy)">
+  <div class="cm-container">
+    <div class="s-head s-head-dark reveal in" style="margin-bottom:40px">
+      <h2>Make selling <em>feel like winning.</em></h2>
+      <p>A live leaderboard and a real prize pool turn a normal sales week into something reps want to compete in.</p>
+    </div>
+    <div class="cm-mock-row">
+      <div class="cm-mock">
+        <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Active Contest</div></div>
+        <div class="cm-mock-body">
+          <div class="cm-mock-stat-row">
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Prize Pool</div><div class="cm-mock-stat-val">$500</div></div>
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Participants</div><div class="cm-mock-stat-val" style="font-size:16px">5</div></div>
+          </div>
+          <div class="cm-mock-list">
+            <div class="cm-mock-item"><strong>Leader</strong> <span style="color:var(--teal-light)">Taylor Williams</span></div>
+            <div class="cm-mock-item"><strong>Format</strong> <span style="color:var(--teal-light)">Winner takes all</span></div>
+            <div class="cm-mock-item"><strong>Days Left</strong> <span style="color:var(--teal-light)">127</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-mock">
+        <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Leaderboard</div></div>
+        <div class="cm-mock-body">
+          <div class="cm-mock-list">
+            <div class="cm-mock-item"><strong>1. Taylor Williams</strong> <span class="cm-mock-amt">Leader</span></div>
+            <div class="cm-mock-item"><strong>2. Morgan Brown</strong> <span class="cm-mock-amt">Close behind</span></div>
+            <div class="cm-mock-item"><strong>3. Jordan Johnson</strong> <span class="cm-mock-amt">Climbing</span></div>
+            <div class="cm-mock-item"><strong>Past Contests</strong> <span style="color:var(--teal-light)">Full history kept</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-cta-section">
+  <h2>Ready to make sales<br>fun to compete in?</h2>
+  <p>See how Goals.com turns contests into something your whole team looks forward to.</p>
+  <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="cm-cta-link">Book a Demo</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ft">
+      <div class="fb">
+        <div style="margin-bottom:4px">
+          <svg width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"><use href="#footer-logo-mark"></use></svg>
+        </div>
+        <p style="margin-top:14px">Sales Performance Software built around winning. Pipeline, goals, commissions, contests, and AI, all in one place.</p>
+      </div>
+      <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#pipeline" onclick="showView('home')">Pipeline CRM</a><a href="#ace" onclick="showView('home')">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
+      <div class="fc"><h4>Features</h4>
+        <div class="fc-2col">
+          <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing <span class="cm-soon-tag">Coming Soon</span></a></div>
+          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting <span class="cm-soon-tag">Coming Soon</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="fb-bottom"><p>&copy; 2025 Goals.com. All rights reserved.</p><div class="fb-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div></div>
+  </div>
+</footer>
+</div><!-- /view-contests -->
+
+<!-- MARKETING VIEW (Contracts & Invoices) -->
+<div class="view" id="view-marketing">
+<section class="cm-hero">
+  <div class="cm-hero-inner">
+    <div class="cm-badge">Contracts &amp; Invoices</div>
+    <h1 class="cm-h1">Contracts and billing,<br>without leaving your CRM.</h1>
+    <p class="cm-sub">Draft contracts, send invoices, and collect payments right from where your deals already live, no extra tools to log into.</p>
+    <div class="cm-hero-actions">
+      <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="btn-hero">Book a Demo</a>
+      <a href="#" class="btn-hero-outline" onclick="showView('pricing');return false;">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy2)">
+  <div class="cm-container">
+    <div class="cm-tab-nav">
+      <button class="cm-tab-btn active" onclick="showCmTab('contracts',this)">Contracts</button>
+      <button class="cm-tab-btn" onclick="showCmTab('invoices',this)">Invoices &amp; Payments</button>
+    </div>
+
+    <div id="cm-tab-contracts" class="cm-tab-panel active">
+      <div class="cm-feat-grid">
+        <div class="cm-feat-card">
+          <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+          <h3>Contract + Email Pairs</h3>
+          <p>Pair a contract template with the email template that sends it, so the document and the message that delivers it always travel together.</p>
+        </div>
+        <div class="cm-feat-card">
+          <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Reuse Across Deals & People</h3>
+          <p>Build a pair once and use it on any deal or contact going forward, no rebuilding the same contract and email combination each time.</p>
+        </div>
+        <div class="cm-feat-card">
+          <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+          <h3>Template Management</h3>
+          <p>Keep your contract and email templates organized in one place, and see when each one was last updated.</p>
+        </div>
+        <div class="cm-feat-card">
+          <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>Apply a Pair When You Send</h3>
+          <p>When it's time to send a contract, pick the saved pair, the contract and its email template are applied together in one step.</p>
+        </div>
+      </div>
+      <div class="cm-mock-row" style="margin-top:24px">
+        <div class="cm-mock" style="max-width:900px;margin:0 auto">
+          <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Contract Templates (examples)</div></div>
+          <div class="cm-mock-body">
+            <div class="cm-mock-list">
+              <div class="cm-mock-item"><strong>Standard MSA</strong> <span style="color:var(--teal-light)">Standard MSA Contract &middot; Contract Send Email &middot; 3 weeks ago</span></div>
+              <div class="cm-mock-item"><strong>Annual Renewal</strong> <span style="color:var(--teal-light)">Renewal Agreement &middot; Renewal Send Email &middot; 5 days ago</span></div>
+              <div class="cm-mock-item"><strong>Enterprise NDA</strong> <span style="color:var(--teal-light)">Mutual NDA &middot; NDA Send Email &middot; 2 months ago</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-example-card">
+        <div>
+          <span class="cm-example-badge">Contracts</span>
+          <div class="cm-example-title">Pair a contract template with an email template, once</div>
+          <p class="cm-example-desc">Save the pairing and apply it to any deal or person going forward, the right contract goes out with the right message every time.</p>
+        </div>
+        <div class="cm-example-meta">
+          <div class="cm-example-meta-item"><div class="cm-example-meta-label">Template Pair</div><div class="cm-example-meta-val">MSA + Send Email</div></div>
+          <div class="cm-example-meta-item"><div class="cm-example-meta-label">Reused</div><div class="cm-example-meta-val">12 deals</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="cm-tab-invoices" class="cm-tab-panel">
+      <div class="cm-feat-grid">
+        <div class="cm-feat-card">
+          <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+          <h3>Contracts, Built In</h3>
+          <p>Draft, send, and track e-signature contracts without leaving the deal you're working.</p>
+        </div>
+        <div class="cm-feat-card">
+          <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+          <h3>Send Invoices</h3>
+          <p>Generate and send invoices tied directly to the deal, track status from sent to paid.</p>
+        </div>
+        <div class="cm-feat-card">
+          <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg></div>
+          <h3>Collect Payments</h3>
+          <p>Accept payment via Stripe and QuickBooks integrations, right where the invoice already lives.</p>
+        </div>
+        <div class="cm-feat-card">
+          <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>Overdue Tracking</h3>
+          <p>See what's outstanding, what's overdue, and average days to pay, all in one view.</p>
+        </div>
+      </div>
+      <div class="cm-mock-row" style="margin-top:24px">
+        <div class="cm-mock">
+          <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Invoices</div></div>
+          <div class="cm-mock-body">
+            <div class="cm-mock-stat-row">
+              <div class="cm-mock-stat"><div class="cm-mock-stat-label">Paid This Month</div><div class="cm-mock-stat-val">$62,400</div></div>
+              <div class="cm-mock-stat"><div class="cm-mock-stat-label">Outstanding</div><div class="cm-mock-stat-val" style="font-size:16px">$18,200</div></div>
+            </div>
+            <div class="cm-mock-list">
+              <div class="cm-mock-item"><strong>Avg Days to Pay</strong> <span style="color:var(--teal-light)">9 days</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cm-mock">
+          <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Payments</div></div>
+          <div class="cm-mock-body">
+            <div class="cm-mock-stat-row">
+              <div class="cm-mock-stat"><div class="cm-mock-stat-label">Collected</div><div class="cm-mock-stat-val">$62,400</div></div>
+              <div class="cm-mock-stat"><div class="cm-mock-stat-label">Success Rate</div><div class="cm-mock-stat-val" style="font-size:16px">98.2%</div></div>
+            </div>
+            <div class="cm-mock-list">
+              <div class="cm-mock-item"><strong>Failed / Refunded</strong> <span style="color:var(--teal-light)">$0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-mock-row" style="margin-top:24px">
+        <div class="cm-mock" style="max-width:900px;margin:0 auto">
+          <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Invoices (examples)</div></div>
+          <div class="cm-mock-body">
+            <div class="cm-mock-list">
+              <div class="cm-mock-item"><strong>INV-1042</strong> <span style="color:var(--teal-light)">Dana Whitfield &middot; Riverside Financial &middot; $12,400 &middot; Paid</span></div>
+              <div class="cm-mock-item"><strong>INV-1043</strong> <span style="color:var(--teal-light)">Marcus Lee &middot; Northbrook Partners &middot; $8,200 &middot; Sent</span></div>
+              <div class="cm-mock-item"><strong>INV-1044</strong> <span style="color:var(--teal-light)">Priya Anand &middot; Pacific Coast Medical &middot; $5,600 &middot; Overdue</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-cta-section">
+  <h2>Ready to run contracts<br>and billing in one place?</h2>
+  <p>See how Goals.com connects contracts, invoices, and payments to the deals driving them.</p>
+  <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="cm-cta-link">Book a Demo</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ft">
+      <div class="fb">
+        <div style="margin-bottom:4px">
+          <svg width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"><use href="#footer-logo-mark"></use></svg>
+        </div>
+        <p style="margin-top:14px">Sales Performance Software built around winning. Pipeline, goals, commissions, contests, and AI, all in one place.</p>
+      </div>
+      <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#pipeline" onclick="showView('home')">Pipeline CRM</a><a href="#ace" onclick="showView('home')">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
+      <div class="fc"><h4>Features</h4>
+        <div class="fc-2col">
+          <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing <span class="cm-soon-tag">Coming Soon</span></a></div>
+          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting <span class="cm-soon-tag">Coming Soon</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="fb-bottom"><p>&copy; 2025 Goals.com. All rights reserved.</p><div class="fb-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div></div>
+  </div>
+</footer>
+</div><!-- /view-marketing -->
+
+<!-- FORECASTING VIEW -->
+<div class="view" id="view-forecast">
+<section class="cm-hero">
+  <div class="cm-hero-inner">
+    <div class="cm-badge">Forecasting</div>
+    <h1 class="cm-h1">Know where revenue is<br>headed before it happens.</h1>
+    <p class="cm-sub">Probability-weighted pipeline blended with closed revenue gives you an accurate read on where you'll land, updated in real time, with Ace ready to explain the gap.</p>
+    <div class="cm-hero-actions">
+      <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="btn-hero">Book a Demo</a>
+      <a href="#" class="btn-hero-outline" onclick="showView('pricing');return false;">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy2)">
+  <div class="cm-container">
+    <div class="cm-feat-grid">
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <h3>EOY Revenue Projection</h3>
+        <p>See your projected year-end revenue against your annual goal, updated as deals move.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Forecast by Rep</h3>
+        <p>Each rep's forecast, blending revenue to date with probability-weighted open pipeline.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Scenario Planning with Ace</h3>
+        <p>Ask "what if win rate improves to 65%?" and get an instant, data-backed answer.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3>Goal Gap Tracking</h3>
+        <p>See exactly how far you are from your annual goal, and which reps are most at risk of missing it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy)">
+  <div class="cm-container">
+    <div class="s-head s-head-dark reveal in" style="margin-bottom:40px">
+      <h2>See it broken down <em>rep by rep.</em></h2>
+      <p>Forecast EOY blends revenue already closed with probability-weighted open pipeline, for the whole team and for each person on it.</p>
+    </div>
+    <div class="cm-mock" style="max-width:900px;margin:0 auto 40px">
+      <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Forecast by rep</div></div>
+      <div class="cm-mock-body">
+        <div class="cm-mock-list">
+          <div class="cm-mock-item"><strong>Sean Manager</strong> <span class="cm-mock-amt">$296K forecast &middot; 107% to goal</span></div>
+          <div class="cm-mock-item"><strong>Morgan Brown</strong> <span class="cm-mock-amt">$288K forecast &middot; 104% to goal</span></div>
+          <div class="cm-mock-item"><strong>Taylor Williams</strong> <span class="cm-mock-amt">$281K forecast &middot; 101% to goal</span></div>
+          <div class="cm-mock-item"><strong>Jordan Johnson</strong> <span style="color:#fbbf24">$256K forecast &middot; 92% to goal</span></div>
+          <div class="cm-mock-item"><strong>Alex Smith</strong> <span style="color:#fbbf24">$252K forecast &middot; 91% to goal</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="s-head s-head-dark reveal in" style="margin-bottom:40px">
+      <h2>Ask Ace about <em>your forecast.</em></h2>
+      <p>Ace already knows your pipeline. Ask it about scenario planning, at-risk reps, or how to close the gap.</p>
+    </div>
+    <div class="ace-shell" style="max-width:640px;margin:0 auto">
+      <div class="ace-hdr">
+        <div class="ace-hdr-icon">
+          <svg width="14" height="14" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M6.5 1l1.2 3.8L11.5 6.5l-3.8 1.7L6.5 12l-1.2-3.8L1.5 6.5l3.8-1.7z" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="ace-hdr-name">Ace Forecast</div>
+          <div class="ace-hdr-sub">AI-powered revenue insights</div>
+        </div>
+        <div class="ace-dot"></div>
+      </div>
+      <div class="ace-msgs">
+        <div class="ace-r">
+          <div class="ace-label">+ ACE</div>
+          I've analyzed your team's forecast data. At current pace you're projected to hit <em>$1.37M</em>, a <em>$14.1K gap</em> to your $1.39M annual goal.
+        </div>
+        <div class="ace-u">What's the fastest path to close the $14.1K gap?</div>
+        <div class="ace-r">
+          <div class="ace-label">+ ACE</div>
+          Focus on your open pipeline. Closing just a couple of your top at-risk opportunities would fully close the gap.
+        </div>
+      </div>
+      <div class="ace-input-row">
+        <div class="ace-field">Ask about your forecast&hellip;</div>
+        <div class="ace-send"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 5.5h7M6 2.5l3 3-3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-cta-section">
+  <h2>Ready to see revenue<br>before it closes?</h2>
+  <p>See how Goals.com turns your pipeline into an accurate, real-time forecast.</p>
+  <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="cm-cta-link">Book a Demo</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ft">
+      <div class="fb">
+        <div style="margin-bottom:4px">
+          <svg width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"><use href="#footer-logo-mark"></use></svg>
+        </div>
+        <p style="margin-top:14px">Sales Performance Software built around winning. Pipeline, goals, commissions, contests, and AI, all in one place.</p>
+      </div>
+      <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#pipeline" onclick="showView('home')">Pipeline CRM</a><a href="#ace" onclick="showView('home')">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
+      <div class="fc"><h4>Features</h4>
+        <div class="fc-2col">
+          <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing <span class="cm-soon-tag">Coming Soon</span></a></div>
+          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting <span class="cm-soon-tag">Coming Soon</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="fb-bottom"><p>&copy; 2025 Goals.com. All rights reserved.</p><div class="fb-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div></div>
+  </div>
+</footer>
+</div><!-- /view-forecast -->
+
+<!-- EMAIL MARKETING VIEW -->
+<div class="view" id="view-email-marketing">
+<section class="cm-hero">
+  <div class="cm-hero-inner">
+    <div class="cm-badge">Email Marketing</div>
+    <h1 class="cm-h1">Campaigns that reach<br>the right people, automatically.</h1>
+    <p class="cm-sub">Build and send email campaigns from ready-made templates, track performance in real time, and reuse saved audience lists, all without leaving your CRM.</p>
+    <div class="cm-hero-actions">
+      <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="btn-hero">Book a Demo</a>
+      <a href="#" class="btn-hero-outline" onclick="showView('pricing');return false;">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy2)">
+  <div class="cm-container">
+    <div class="cm-feat-grid">
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <h3>Campaigns &amp; Templates</h3>
+        <p>Build and send email campaigns from ready-made templates, then track opens, clicks, and unsubscribes.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Saved Lists</h3>
+        <p>Save a filter combination once, reuse it every time, no rebuilding audiences from scratch.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>Campaign Search &amp; Filters</h3>
+        <p>Filter by Sent, Scheduled, or Draft, and search across every campaign you've ever sent.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <h3>Real Performance Data</h3>
+        <p>Open rate, click rate, and unsubscribe rate on every send, benchmarked against industry average.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy)">
+  <div class="cm-container">
+    <div class="s-head s-head-dark reveal in" style="margin-bottom:40px">
+      <h2>Campaigns your team <em>can measure.</em></h2>
+      <p>Every send comes back with real numbers, not guesswork, so you know what's actually working.</p>
+    </div>
+    <div class="cm-mock-row">
+      <div class="cm-mock">
+        <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Email Marketing</div></div>
+        <div class="cm-mock-body">
+          <div class="cm-mock-stat-row">
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Avg Open Rate</div><div class="cm-mock-stat-val">38.4%</div></div>
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Avg Click Rate</div><div class="cm-mock-stat-val" style="font-size:16px">12.7%</div></div>
+          </div>
+          <div class="cm-mock-list">
+            <div class="cm-mock-item"><strong>Campaigns Sent</strong> <span style="color:var(--teal-light)">24 &middot; +3 this month</span></div>
+            <div class="cm-mock-item"><strong>Unsubscribe Rate</strong> <span style="color:var(--teal-light)">0.4% &middot; below threshold</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-mock">
+        <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Lists</div></div>
+        <div class="cm-mock-body">
+          <div class="cm-mock-stat-row">
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Total Lists</div><div class="cm-mock-stat-val">12</div></div>
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Contacts Reached</div><div class="cm-mock-stat-val" style="font-size:16px">4,860</div></div>
+          </div>
+          <div class="cm-mock-list">
+            <div class="cm-mock-item"><strong>Most Used List</strong> <span style="color:var(--teal-light)">Active Prospects</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cm-mock" style="margin-top:24px;max-width:none">
+      <div class="cm-mock-bar">
+        <div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div>
+        <div class="cm-mock-title">Campaigns</div>
+        <div style="margin-left:auto;display:flex;gap:6px">
+          <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(61,220,110,.18);color:var(--teal-light);font-weight:600">All</span>
+          <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.45)">Sent</span>
+          <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.45)">Scheduled</span>
+          <span style="font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.45)">Draft</span>
+        </div>
+      </div>
+      <div class="cm-mock-body">
+        <div class="cm-mock-list">
+          <div class="cm-mock-item" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:12px;font-size:11px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.05em;padding-bottom:4px">
+            <span>Campaign</span><span>Recipients</span><span>Open Rate</span><span>Click Rate</span><span>Date</span>
+          </div>
+          <div class="cm-mock-item" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:12px">
+            <strong>Q3 Product Update <span style="font-weight:400;color:rgba(255,255,255,.3)">(example)</span></strong>
+            <span>1,240</span><span style="color:var(--teal-light)">41.2%</span><span style="color:var(--teal-light)">14.8%</span><span style="color:rgba(255,255,255,.45)">Aug 12</span>
+          </div>
+          <div class="cm-mock-item" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:12px">
+            <strong>Fall Pricing Update <span style="font-weight:400;color:rgba(255,255,255,.3)">(example)</span></strong>
+            <span>860</span><span style="color:var(--teal-light)">36.7%</span><span style="color:var(--teal-light)">11.3%</span><span style="color:rgba(255,255,255,.45)">Aug 5</span>
+          </div>
+          <div class="cm-mock-item" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:12px">
+            <strong>Webinar Invite &ndash; Sales Ops <span style="font-weight:400;color:rgba(255,255,255,.3)">(example)</span></strong>
+            <span>2,015</span><span style="color:var(--teal-light)">44.9%</span><span style="color:var(--teal-light)">18.2%</span><span style="color:rgba(255,255,255,.45)">Scheduled</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cm-example-card">
+      <div>
+        <span class="cm-example-badge">Templates</span>
+        <div class="cm-example-title">Reusable email &amp; contract layouts</div>
+        <p class="cm-example-desc">Choose a type when you create a new template, then reuse it across campaigns instead of writing from scratch each time.</p>
+      </div>
+      <div class="cm-example-meta">
+        <div class="cm-example-meta-item"><div class="cm-example-meta-label">Type</div><div class="cm-example-meta-val">Email</div></div>
+        <div class="cm-example-meta-item"><div class="cm-example-meta-label">Actions</div><div class="cm-example-meta-val">Edit, Duplicate, Delete</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-cta-section">
+  <h2>Ready to send campaigns<br>your data backs up?</h2>
+  <p>See how Goals.com turns email marketing into a measurable part of your pipeline.</p>
+  <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="cm-cta-link">Book a Demo</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ft">
+      <div class="fb">
+        <div style="margin-bottom:4px">
+          <svg width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"><use href="#footer-logo-mark"></use></svg>
+        </div>
+        <p style="margin-top:14px">Sales Performance Software built around winning. Pipeline, goals, commissions, contests, and AI, all in one place.</p>
+      </div>
+      <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#pipeline" onclick="showView('home')">Pipeline CRM</a><a href="#ace" onclick="showView('home')">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
+      <div class="fc"><h4>Features</h4>
+        <div class="fc-2col">
+          <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing <span class="cm-soon-tag">Coming Soon</span></a></div>
+          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting <span class="cm-soon-tag">Coming Soon</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="fb-bottom"><p>&copy; 2025 Goals.com. All rights reserved.</p><div class="fb-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div></div>
+  </div>
+</footer>
+</div><!-- /view-email-marketing -->
+
+<!-- AUTOMATIONS VIEW -->
+<div class="view" id="view-automations">
+<section class="cm-hero">
+  <div class="cm-hero-inner">
+    <div class="cm-badge">Automations</div>
+    <h1 class="cm-h1">Put the busywork<br>on autopilot.</h1>
+    <p class="cm-sub">Trigger emails, tasks, and follow-ups off pipeline stages, tags, or dates. Start from a ready-made recipe or build your own, and let Ace handle the setup.</p>
+    <div class="cm-hero-actions">
+      <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="btn-hero">Book a Demo</a>
+      <a href="#" class="btn-hero-outline" onclick="showView('pricing');return false;">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy2)">
+  <div class="cm-container">
+    <div class="cm-feat-grid">
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Start From a Recipe</h3>
+        <p>Pre-built workflows using your own pipeline stages, tags, and team. Click one to open it in the builder.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Trigger on Anything</h3>
+        <p>Deal stage changes, tags applied, or dates reached, any of them can kick off an automation.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <h3>Auto-Send Emails &amp; Tasks</h3>
+        <p>Automatically send follow-up emails or create tasks for reps, so nothing slips through the cracks.</p>
+      </div>
+      <div class="cm-feat-card">
+        <div class="cm-feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Build With Ace</h3>
+        <p>Describe the workflow you want in plain English, and Ace builds the automation for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-section" style="background:var(--navy)">
+  <div class="cm-container">
+    <div class="s-head s-head-dark reveal in" style="margin-bottom:40px">
+      <h2>Automations that <em>actually run themselves.</em></h2>
+      <p>Once it's set up, it just works, no manual follow-ups, no forgotten tasks.</p>
+    </div>
+    <div class="cm-mock-row">
+      <div class="cm-mock">
+        <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Automations</div></div>
+        <div class="cm-mock-body">
+          <div class="cm-mock-stat-row">
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Active Workflows</div><div class="cm-mock-stat-val">9</div></div>
+            <div class="cm-mock-stat"><div class="cm-mock-stat-label">Actions Triggered</div><div class="cm-mock-stat-val" style="font-size:16px">1,284</div></div>
+          </div>
+          <div class="cm-mock-list">
+            <div class="cm-mock-item"><strong>Emails Auto-Sent</strong> <span style="color:rgba(255,255,255,.35);font-style:italic">Coming soon</span></div>
+            <div class="cm-mock-item"><strong>Tasks Auto-Created</strong> <span style="color:rgba(255,255,255,.35);font-style:italic">Coming soon</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="cm-mock">
+        <div class="cm-mock-bar"><div class="cm-mock-dot" style="background:#ef4444"></div><div class="cm-mock-dot" style="background:#f59e0b"></div><div class="cm-mock-dot" style="background:#22c55e"></div><div class="cm-mock-title">Recipe Library</div></div>
+        <div class="cm-mock-body">
+          <div class="cm-mock-list">
+            <div class="cm-mock-item"><strong>Stage advance follow-up</strong> <span style="color:var(--teal-light)">Active</span></div>
+            <div class="cm-mock-item"><strong>Rescue a stalled deal</strong> <span style="color:var(--teal-light)">Active</span></div>
+            <div class="cm-mock-item"><strong>Nudge a quiet account</strong> <span style="color:var(--teal-light)">Active</span></div>
+            <div class="cm-mock-item"><strong>Onboard a new customer</strong> <span style="color:var(--teal-light)">Active</span></div>
+            <div class="cm-mock-item"><strong>First touch on a new lead</strong> <span style="color:var(--teal-light)">Active</span></div>
+            <div class="cm-mock-item"><strong>Renewal reminder</strong> <span style="color:var(--teal-light)">Active</span></div>
+            <div class="cm-mock-item"><strong>Coach a rep behind pace</strong> <span style="color:var(--teal-light)">Active</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cm-example-card">
+      <div>
+        <span class="cm-example-badge">Recipe</span>
+        <div class="cm-example-title">Rescue a stalled deal</div>
+        <p class="cm-example-desc">Automatically trigger a task or email when a deal has gone quiet, so nothing falls through the cracks.</p>
+      </div>
+      <div class="cm-example-meta">
+        <div class="cm-example-meta-item"><div class="cm-example-meta-label">Trigger</div><div class="cm-example-meta-val">Deal inactive</div></div>
+        <div class="cm-example-meta-item"><div class="cm-example-meta-label">Action</div><div class="cm-example-meta-val">Task + Email</div></div>
+      </div>
+    </div>
+
+    <div class="cm-steps">
+      <div class="cm-step">
+        <div class="cm-step-num">1</div>
+        <h3>Pick a recipe</h3>
+        <p>Choose from a library of ready-made recipes built around common pipeline moments, or start from scratch.</p>
+      </div>
+      <div class="cm-step">
+        <div class="cm-step-num">2</div>
+        <h3>Set the trigger</h3>
+        <p>Match it to your own stages, tags, or dates. Adjust the email or task it sends to fit your team.</p>
+      </div>
+      <div class="cm-step">
+        <div class="cm-step-num">3</div>
+        <h3>It runs itself</h3>
+        <p>Once it's live, the automation fires on its own, every time the trigger condition is met.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cm-cta-section">
+  <h2>Ready to stop doing<br>this manually?</h2>
+  <p>See how Goals.com automates the follow-ups your team keeps forgetting.</p>
+  <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="cm-cta-link">Book a Demo</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="ft">
+      <div class="fb">
+        <div style="margin-bottom:4px">
+          <svg width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"><use href="#footer-logo-mark"></use></svg>
+        </div>
+        <p style="margin-top:14px">Sales Performance Software built around winning. Pipeline, goals, commissions, contests, and AI, all in one place.</p>
+      </div>
+      <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#pipeline" onclick="showView('home')">Pipeline CRM</a><a href="#ace" onclick="showView('home')">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
+      <div class="fc"><h4>Features</h4>
+        <div class="fc-2col">
+          <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing <span class="cm-soon-tag">Coming Soon</span></a></div>
+          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting <span class="cm-soon-tag">Coming Soon</span></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="fb-bottom"><p>&copy; 2025 Goals.com. All rights reserved.</p><div class="fb-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div></div>
+  </div>
+</footer>
+</div><!-- /view-automations -->
 
 <!-- PODCAST VIEW -->
 <div class="view" id="view-podcast">
@@ -2095,6 +3227,14 @@ function showPrTab(id, btn) {
   document.querySelectorAll('.pr-tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.pr-tab-btn').forEach(b => b.classList.remove('active'));
   var panel = document.getElementById('pr-tab-' + id);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+function showCmTab(id, btn) {
+  document.querySelectorAll('.cm-tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.cm-tab-btn').forEach(b => b.classList.remove('active'));
+  var panel = document.getElementById('cm-tab-' + id);
   if (panel) panel.classList.add('active');
   if (btn) btn.classList.add('active');
 }
