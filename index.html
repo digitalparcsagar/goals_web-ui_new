@@ -1168,19 +1168,21 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .pr-h1{font-size:clamp(36px,5vw,56px);font-weight:700;color:#fff;line-height:1.15;margin:0 0 20px}
 .pr-sub{font-size:18px;color:rgba(255,255,255,.65);line-height:1.6;margin:0}
 .pr-card-section{background:var(--navy2);padding:80px 72px}
-.pr-container{max-width:1080px;margin:0 auto}
-.pr-row{display:grid;grid-template-columns:1fr 560px;gap:24px;align-items:start}
+.pr-container{max-width:1240px;margin:0 auto}
+.pr-row{display:grid;grid-template-columns:1.4fr 560px;gap:24px;align-items:start}
 .pr-col{display:flex;flex-direction:column;gap:16px}
-.pr-billing-col{flex-direction:row}
-.pr-billing-col .pr-inner{flex:1;min-width:0}
+.pr-billing-col{flex-direction:row;align-items:stretch}
+.pr-billing-col .pr-inner{flex:1;min-width:0;display:flex}
 .pr-inner{width:100%}
-.pr-features{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:36px 40px;height:100%}
-.pr-feat-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-light);margin-bottom:20px}
-.pr-feat-list{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
-.pr-feat-col{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
-.pr-feat-col li{font-size:14px;color:rgba(255,255,255,.75);padding-left:20px;position:relative;line-height:1.4}
+.pr-features{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px 36px;height:348px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden}
+.pr-feat-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--teal-light);margin-bottom:18px}
+.pr-feat-list{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;flex:1;align-content:space-between}
+.pr-feat-col{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;justify-content:flex-start}
+.pr-feat-col li{font-size:14px;color:rgba(255,255,255,.75);padding-left:19px;position:relative;line-height:1.4}
 .pr-feat-col li::before{content:'✓';position:absolute;left:0;color:var(--teal-light);font-weight:700;font-size:13px}
-.pr-billing-card{position:relative;background:var(--navy2);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 22px 20px;box-shadow:0 28px 72px rgba(0,0,0,.4)}
+.pr-billing-card{position:relative;background:var(--navy2);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:26px 24px 22px;box-shadow:0 28px 72px rgba(0,0,0,.4);width:100%;height:348px;box-sizing:border-box;display:flex;flex-direction:column}
+.pr-billing-card .pr-cta{margin-top:auto}
+.pr-billing-card .pr-billing-price{margin-top:20px}
 .pr-billing-card--featured{border-color:var(--teal);background:rgba(61,220,110,.06)}
 .pr-save-badge{position:absolute;top:-12px;right:20px;background:var(--teal);color:#0A0B13;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px}
 .pr-plan-label{font-size:12px;font-weight:600;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px}
@@ -1188,7 +1190,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .pr-billing-price{display:flex;align-items:flex-end;gap:6px;margin-bottom:8px}
 .pr-billing-amt{font-family:'DM Mono',monospace;font-size:40px;font-weight:700;color:#fff;line-height:1}
 .pr-billing-per{font-size:13px;color:rgba(255,255,255,.45);padding-bottom:4px}
-.pr-desc{font-size:13px;color:rgba(255,255,255,.45);margin:0 0 20px}
+.pr-desc{font-size:13px;color:rgba(255,255,255,.45);margin:0 0 24px;line-height:1.5}
 .pr-cta{display:block;text-align:center;padding:12px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:opacity .18s}
 .pr-cta-outline{border:1.5px solid rgba(255,255,255,.25);color:#fff}
 .pr-cta-outline:hover{border-color:var(--teal);color:var(--teal)}
