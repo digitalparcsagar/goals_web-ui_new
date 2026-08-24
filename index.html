@@ -8,7 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2035;--navy2:#141827;--teal:#1d9e75;--teal2:#17896a;--teal-light:#22c55e;--teal-pale:rgba(29,158,117,.12);--off:#f4f6f9;--g50:#f8fafc;--g100:#f1f5f9;--g200:#e2e8f0;--g300:#cbd5e1;--g400:#94a3b8;--g500:#64748b;--g600:#475569;--dark:#1e293b;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.18)}
+:root{--primary-font:"Rubik";--s140:140px;--s100:100px;--s80:80px;--s50:50px;--s60:60px;--s60special:60px;--s40:40px;--s25:25px;--s20:20px;--navy:#0A0B13;--navy2:#06070F;--teal:#3ddc6e;--teal2:#2bb85a;--teal-light:#3ddc6e;--teal-pale:rgba(29,158,117,.12);--off:#f4f6f9;--g50:#f8fafc;--g100:#f1f5f9;--g200:#e2e8f0;--g300:#cbd5e1;--g400:#94a3b8;--g500:#64748b;--g600:#475569;--dark:#1e293b;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.18);--nav-height:76px}
+@media(max-width:1540px){:root{--s140:120px;--s100:80px;--s80:60px;--s50:40px;--s60:50px;--s60special:40px;--s40:30px;--s25:20px;--s20:15px}}
+@media(max-width:1200px){:root{--s140:120px;--s100:80px;--s80:60px;--s50:35px;--s60:40px;--s60special:20px;--s40:30px;--s25:20px;--s20:15px}}
+@media(max-width:1024px){:root{--s140:100px;--s100:60px;--s80:40px;--s50:25px;--s60:30px;--s60special:10px;--s40:20px;--s25:15px;--s20:10px}}
+@media(max-width:767px){:root{--s140:70px;--s100:50px;--s80:30px;--s50:20px;--s60:20px;--s40:20px;--s25:15px;--s20:10px}}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark);-webkit-font-smoothing:antialiased}
@@ -19,15 +23,29 @@ a{text-decoration:none;color:inherit}
 .view.active{display:block}
 
 /* ── NAV ────────────────────────────────────────────────────────────── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:76px;display:flex;align-items:center;justify-content:space-between;background:rgba(20,24,39,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 48px;height:var(--nav-height);display:flex;align-items:center;justify-content:space-between;background:rgba(20,24,39,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav.active-sticky{position:fixed;top:0;left:0;right:0}
+.nav.nav-open{z-index:201}
 .nav-logo{display:flex;align-items:center;cursor:pointer}
 .nav-links{display:flex;align-items:center;gap:28px}
+.nav-links .nav-menu{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0}
+.nav-links .nav-menu>li{margin:0;padding:0}
 .nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);transition:color .2s}
 .nav-links a:hover{color:#fff}
-.nav-kc-btn{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);cursor:pointer;transition:color .2s;background:none;border:none;font-family:'Inter',sans-serif;padding:0}
+.nav-links .current-menu-item>a,.nav-links .current-menu-ancestor>a,.nav-links .current_page_item>a{color:var(--teal-light)}
+.nav-kc-btn{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);cursor:pointer;transition:color .2s;background:none;border:none;font-family:'Inter',sans-serif;padding:0;text-decoration:none}
 .nav-kc-btn:hover{color:#fff}
-.nav-kc-btn.active{color:var(--teal-light)}
+.nav-kc-btn.active,.nav-links .current-menu-item>.nav-kc-btn{color:var(--teal-light)}
 .nav-cta{display:flex;align-items:center;gap:12px}
+.nav-panel{display:contents}
+.nav-panel-top{display:none}
+.nav-close{display:none}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid rgba(255,255,255,.15);border-radius:10px;background:rgba(255,255,255,.04);cursor:pointer;flex-shrink:0}
+.nav-toggle-bar{display:block;width:18px;height:2px;margin:3px 0;background:#fff;border-radius:2px;transition:transform .25s,opacity .25s}
+.nav.nav-open .nav-toggle-bar:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav.nav-open .nav-toggle-bar:nth-child(2){opacity:0}
+.nav.nav-open .nav-toggle-bar:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+html.nav-open,body.nav-open{overflow:hidden}
 .btn-login{font-size:13px;font-weight:600;color:rgba(255,255,255,.65);padding:8px 14px;border-radius:8px;text-decoration:none;transition:all .18s;border:1px solid rgba(255,255,255,.15)}
 .btn-login:hover{color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25)}
 .btn-ghost{font-size:14px;font-weight:500;color:rgba(255,255,255,.75);padding:8px 16px;border:1px solid rgba(255,255,255,.18);border-radius:8px;transition:all .2s;cursor:pointer;background:none;font-family:'Inter',sans-serif}
@@ -60,8 +78,8 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .dash-window{background:#0f1422;border-radius:14px;border:1px solid rgba(255,255,255,.1);box-shadow:0 32px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04);overflow:hidden}
 .dash-titlebar{height:40px;background:rgba(255,255,255,.035);border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;padding:0 16px;gap:7px}
 .dash-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.dash-titlebar-label{flex:1;text-align:center;font-size:11px;font-family:'Inter',sans-serif;color:rgba(255,255,255,.2);letter-spacing:.04em}
-.dash-body{display:grid;grid-template-columns:52px 1fr;height:420px}
+.dash-titlebar-label{flex:1;text-align:center;font-size:11px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.2);letter-spacing:.04em}
+.dash-body{display:grid;grid-template-columns:52px 1fr;height:380px}
 /* sidebar */
 .dash-sidebar{background:rgba(255,255,255,.025);border-right:1px solid rgba(255,255,255,.06);padding:16px 0;display:flex;flex-direction:column;align-items:center;gap:6px}
 .dash-s-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:background .2s}
@@ -83,7 +101,7 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .dash-quota-head{display:flex;align-items:center;justify-content:space-between;padding:0 18px 8px;flex-shrink:0}
 .dash-quota-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em}
 .dash-quota-period{font-size:10px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.25)}
-.dash-rep-list{padding:4px 18px 12px;display:flex;flex-direction:column;gap:11px;flex:1;overflow:hidden}
+.dash-rep-list{padding:0 18px 14px;display:flex;flex-direction:column;gap:7px;flex:1;overflow:hidden}
 .dash-rep{display:grid;grid-template-columns:26px 1fr auto;align-items:center;gap:10px}
 .dash-rep-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0}
 .dash-rep-info{min-width:0}
@@ -96,6 +114,25 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .dash-ace-icon{width:22px;height:22px;background:linear-gradient(135deg,var(--teal),#60a5fa);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:1px}
 .dash-ace-text{font-size:11px;color:rgba(255,255,255,.62);line-height:1.5}
 .dash-ace-text strong{color:#4ade80;font-weight:600}
+.dash-panel-greeting{font-size:9px;color:rgba(255,255,255,.25);font-weight:400;margin-left:6px}
+.dash-sales-wrap{padding:0 18px 10px;flex-shrink:0}
+.dash-sales-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:12px 14px}
+.dash-sales-label{font-size:9px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.dash-sales-val{font-family:'DM Mono',monospace;font-size:20px;font-weight:700;color:#fff;line-height:1;margin-bottom:8px}
+.dash-sales-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:5px}
+.dash-sales-badges{display:flex;flex-wrap:wrap;gap:5px}
+.dash-sales-badge{font-size:8px;font-weight:700;padding:2px 6px;border-radius:3px}
+.dash-sales-badge-ok{background:rgba(29,158,117,.2);color:#4ade80}
+.dash-sales-badge-warn{background:rgba(239,68,68,.15);color:#f87171}
+.dash-sales-pace{text-align:right;flex-shrink:0}
+.dash-sales-pace-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#4ade80}
+.dash-sales-pace-label{font-size:8px;color:rgba(255,255,255,.3)}
+.dash-sales-progress{height:3px;background:rgba(255,255,255,.08);border-radius:2px;position:relative;overflow:hidden}
+.dash-sales-progress-fill{position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,#1d9e75,#22c55e);border-radius:2px}
+.dash-metric-val-sm{font-size:14px}
+@media(max-width:900px){.hero-viz-wrap{width:100%;max-width:560px;margin:0 auto;padding:12px 0 0}.hero .hero-viz-wrap{animation:none;opacity:1;transform:none}.hero-float-card{padding:8px 10px;gap:8px}.hfc-lg{min-width:0;padding:10px 12px}.hfc-1{top:-10px;left:0}.hfc-2{right:-10px}.hfc-3{bottom:-10px;right:8px}.hfc-4{top:-14px;left:40px}.hfc-5{left:-18px}.hfc-6{bottom:-10px;left:12px}.dash-window{width:100%;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.04)}.dash-body{height:auto;min-height:300px;grid-template-columns:44px 1fr}.dash-sidebar{padding:12px 0;gap:4px}.dash-s-icon{width:30px;height:30px;border-radius:8px}.dash-s-icon svg{width:13px;height:13px}.dash-metrics{grid-template-columns:repeat(2,1fr);padding:0 14px 8px;gap:6px}.dash-metric{padding:8px 10px}.dash-sales-wrap{padding:0 14px 8px}.dash-panel-head{padding:12px 14px 0}.dash-quota-head{padding:0 14px 8px}.dash-rep-list{padding:0 14px}}
+@media(max-width:640px){.hero-viz-wrap{max-width:100%;padding-top:8px}.hero-float-card{transform:scale(.88);transform-origin:center}.hfc-2,.hfc-3,.hfc-4,.hfc-5,.hfc-6{display:none}.hfc-1{top:-8px;left:4px;transform:scale(.88)}.dash-titlebar{height:34px;padding:0 12px}.dash-titlebar-label{font-size:9px}.dash-dot{width:8px;height:8px}.dash-body{min-height:0;grid-template-columns:38px 1fr}.dash-panel-greeting{display:none}.dash-panel-title{font-size:12px}.dash-sales-val{font-size:17px}.dash-sales-pace-val{font-size:12px}.dash-metric-val,.dash-metric-val-sm{font-size:13px}.dash-metric-label,.dash-metric-sub{font-size:8px}.dash-rep-name{font-size:10px}.dash-rep-pct{font-size:9px}.dash-ace-bar{margin:10px 14px 12px;padding:8px 10px}.dash-ace-text{font-size:10px;line-height:1.45}.dash-ace-icon{width:20px;height:20px}}
+@media(max-width:400px){.dash-sales-meta{flex-direction:column;align-items:flex-start}.dash-sales-pace{text-align:left}.dash-metrics{gap:5px}.dash-metric{padding:7px 8px}}
 
 /* ── TICKER ──────────────────────────────────────────────────────────── */
 .ticker{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.08);padding:18px 0;overflow:hidden;position:relative}
@@ -178,20 +215,20 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .t-new{background:rgba(99,102,241,.15);color:#a5b4fc}
 
 /* ace mock */
-.ace-shell{background:var(--navy2);border-radius:var(--radius);border:1px solid rgba(255,255,255,.08);overflow:hidden;box-shadow:var(--shadow-lg)}
-.ace-hdr{background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.07);padding:12px 18px;display:flex;align-items:center;gap:10px}
-.ace-hdr-icon{width:30px;height:30px;background:linear-gradient(135deg,var(--teal),#60a5fa);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-.ace-hdr-name{font-size:13px;font-weight:700;color:#fff}
-.ace-hdr-sub{font-size:10px;color:rgba(255,255,255,.3)}
-.ace-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;margin-left:auto;flex-shrink:0}
-.ace-msgs{padding:18px;display:flex;flex-direction:column;gap:14px}
-.ace-u{align-self:flex-end;background:var(--teal);color:#fff;border-radius:9px 9px 2px 9px;padding:9px 13px;font-size:12px;max-width:85%;line-height:1.5}
-.ace-r{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:9px 9px 9px 2px;padding:13px;font-size:12px;color:rgba(255,255,255,.75);max-width:95%;line-height:1.6}
+.ace-shell{background:#161b26;border-radius:14px;border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.ace-hdr{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.07);padding:14px 18px;display:flex;align-items:center;gap:12px}
+.ace-hdr-icon{width:32px;height:32px;background:linear-gradient(135deg,#1d9e75,#3b82f6);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ace-hdr-name{font-size:14px;font-weight:700;color:#fff;line-height:1.3}
+.ace-hdr-sub{font-size:11px;color:rgba(255,255,255,.38);margin-top:2px}
+.ace-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;margin-left:auto;flex-shrink:0;box-shadow:0 0 0 3px rgba(34,197,94,.15)}
+.ace-msgs{padding:20px 18px;display:flex;flex-direction:column;gap:16px}
+.ace-u{align-self:flex-end;background:#10b981;color:#fff;border-radius:12px 12px 3px 12px;padding:10px 14px;font-size:12px;max-width:78%;line-height:1.55}
+.ace-r{align-self:flex-start;background:#222833;border:1px solid rgba(255,255,255,.08);border-radius:12px 12px 12px 3px;padding:14px 15px;font-size:12px;color:rgba(255,255,255,.82);max-width:100%;line-height:1.65}
 .ace-r em{color:#4ade80;font-style:normal;font-weight:600}
-.ace-label{font-size:9px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
-.ace-input-row{display:flex;align-items:center;gap:8px;padding:12px 18px;border-top:1px solid rgba(255,255,255,.06)}
-.ace-field{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:7px;padding:8px 12px;font-size:11px;color:rgba(255,255,255,.35);font-family:'Inter',sans-serif}
-.ace-send{width:26px;height:26px;background:var(--teal);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ace-label{display:inline-block;font-size:9px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.ace-input-row{display:flex;align-items:center;gap:10px;padding:14px 18px 16px;border-top:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.12)}
+.ace-field{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,.35);font-family:'Inter',sans-serif}
+.ace-send{width:30px;height:30px;background:#10b981;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
 /* ── METRICS ─────────────────────────────────────────────────────────── */
 .metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden}
@@ -211,56 +248,85 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .t-role{font-size:11px;color:var(--g500)}
 
 /* ── PRICING ─────────────────────────────────────────────────────────── */
-.pricing-card{max-width:580px;margin:0 auto;background:var(--navy2);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,.4)}
-.p-top{padding:38px 44px;border-bottom:1px solid rgba(255,255,255,.08)}
-.p-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(29,158,117,.14);color:var(--teal-light);font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 11px;border-radius:100px;margin-bottom:16px}
-.p-name{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
-.p-desc{font-size:13px;color:rgba(255,255,255,.36)}
-.p-price-row{display:flex;align-items:flex-end;gap:6px;margin-top:22px}
-.p-price{font-family:'DM Mono',monospace;font-size:52px;font-weight:700;color:#fff;line-height:1}
-.p-price-info{padding-bottom:6px}
-.p-per{font-size:13px;color:rgba(255,255,255,.36)}
-.p-incl{font-size:11px;color:var(--teal-light);font-weight:600;margin-top:3px}
-.p-bottom{padding:28px 44px}
-.p-feats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.p-feat{display:flex;align-items:center;gap:9px;font-size:13px;color:rgba(255,255,255,.65)}
-.p-feat::before{content:'';width:15px;height:15px;min-width:15px;border-radius:50%;border:1.5px solid var(--teal);background-color:rgba(29,158,117,.1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='7'%3E%3Cpath d='M1 3.5l2 2L7 1' stroke='%231d9e75' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.pricing-card{display:flex;align-items:stretch;gap:24px;max-width:1100px;margin:0 auto;background:transparent;border:none;border-radius:0;overflow:visible;box-shadow:none}
+.pricing-col{width:50%;flex:0 0 calc(50% - 12px);display:flex;flex-direction:column;gap:16px}
+.billing-card{position:relative;display:flex;flex-direction:column;background:var(--navy2);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 22px 20px;box-shadow:0 28px 72px rgba(0,0,0,.4);flex:1}
+.billing-card-featured{border-color:var(--teal)}
+.billing-save{position:absolute;top:-12px;right:20px;background:var(--teal);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:6px}
+.billing-top{flex:1;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:16px;margin-bottom:16px}
+.billing-label{font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+.billing-label-featured{color:var(--teal)}
+.billing-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+.billing-price{font-size:48px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.03em}
+.billing-per{font-size:15px;color:rgba(255,255,255,.45)}
+.billing-desc{font-size:15px;line-height:1.55;color:rgba(255,255,255,.5)}
+.billing-bottom{margin-top:auto}
+.billing-cta{display:block;width:100%;text-align:center;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:14px 16px;border-radius:10px;transition:background .25s,color .25s,border-color .25s}
+.billing-cta-outline{border:1.5px solid var(--teal);color:var(--teal);background:transparent}
+.billing-cta-outline:hover{background:rgba(29,158,117,.1)}
+.billing-cta-solid{border:1.5px solid var(--teal);background:var(--teal);color:#fff}
+.billing-cta-solid:hover{background:var(--teal2);border-color:var(--teal2)}
+.pricing-col-main{width:60%;flex:0 0 calc(60% - 12px);background:var(--navy2);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,.4);gap:0}
+.p-top{flex-shrink:0;padding:28px 32px 22px;border-bottom:1px solid rgba(255,255,255,.08)}
+.p-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(29,158,117,.14);color:var(--teal-light);font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:14px}
+.p-name{font-size:22px;font-weight:700;color:#fff;margin-bottom:6px}
+.p-desc{font-size:15px;line-height:1.5;color:rgba(255,255,255,.36)}
+.p-bottom{flex:1;display:flex;flex-direction:column;padding:24px 32px 28px}
+.p-feats{flex:1;display:grid;grid-template-columns:1fr 1fr;column-gap:18px;row-gap:0;align-content:space-between}
+.p-feat{display:flex;align-items:center;gap:10px;font-size:15px;line-height:1.35;color:rgba(255,255,255,.65)}
+.p-feat::before{content:'';width:17px;height:17px;min-width:17px;border-radius:50%;border:1.5px solid var(--teal);background-color:rgba(29,158,117,.1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='7'%3E%3Cpath d='M1 3.5l2 2L7 1' stroke='%231d9e75' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
 .p-cta{margin-top:24px;background:var(--teal);color:#fff;font-size:15px;font-weight:700;padding:15px;border-radius:9px;text-align:center;display:block;transition:background .25s}
 .p-cta:hover{background:var(--teal2)}
 .p-note{margin-top:12px;text-align:center;font-size:11px;color:rgba(255,255,255,.25)}
 
 /* ── FINAL CTA ───────────────────────────────────────────────────────── */
-.cta-section{background:var(--teal);padding:96px 72px;text-align:center}
+.cta-section{background:var(--teal);padding:96px 72px;text-align:center;margin:0}
 .cta-section h2{font-size:clamp(30px,4vw,46px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:14px}
 .cta-section p{font-size:17px;color:rgba(255,255,255,.72);margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto}
-.cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.cta-btns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:0}
 .btn-cta-w{background:#fff;color:var(--teal2);font-size:15px;font-weight:700;padding:15px 32px;border-radius:9px;transition:all .2s}
 .btn-cta-w:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(0,0,0,.18)}
 .btn-cta-o{border:2px solid rgba(255,255,255,.35);color:#fff;font-size:15px;font-weight:600;padding:13px 24px;border-radius:9px;transition:all .2s}
 .btn-cta-o:hover{background:rgba(255,255,255,.1)}
 
 /* ── FOOTER ──────────────────────────────────────────────────────────── */
-footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);padding:56px 72px 36px}
+footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);padding:56px 72px 36px;margin:0}
+#goals-site{margin:0;padding:0}
+#goals-site>section,#goals-site>footer{margin-block-start:0!important;margin-block-end:0!important}
 .footer-inner{max-width:1200px;margin:0 auto}
 .ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:44px}
 .fb p{font-size:13px;line-height:1.65;color:rgba(255,255,255,.36);margin-top:14px;max-width:260px}
+.fb-social{display:flex;align-items:center;gap:12px;margin-top:20px}
+.fb-social-link{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);transition:color .2s,background .2s,border-color .2s}
+.fb-social-link:hover{color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22)}
+.fb-social-link svg{width:16px;height:16px;display:block}
 .fc h4{font-size:10px;font-weight:700;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
 .fc a{display:block;font-size:13px;color:rgba(255,255,255,.42);margin-bottom:9px;transition:color .2s}
 .fc a:hover{color:#fff}
+.fc-contact-list{display:flex;flex-direction:column;gap:12px}
+.fc-contact-item{display:flex;align-items:flex-start;gap:10px}
+.fc-contact-icon{width:28px;height:28px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-light)}
+.fc-contact-icon svg{width:14px;height:14px;display:block}
+.fc-contact-text{font-size:13px;line-height:1.55;color:rgba(255,255,255,.42);padding-top:4px}
+a.fc-contact-text{display:block;margin-bottom:0;transition:color .2s}
+a.fc-contact-text:hover{color:#fff}
 .fb-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:28px;display:flex;align-items:center;justify-content:space-between}
 .fb-bottom p{font-size:11px;color:rgba(255,255,255,.2)}
-.fb-links{display:flex;gap:20px}
+.fb-links{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px}
+.fb-links-sep{font-size:11px;color:rgba(255,255,255,.2)}
 .fb-links a{font-size:11px;color:rgba(255,255,255,.26);transition:color .2s}
 .fb-links a:hover{color:rgba(255,255,255,.6)}
 
 /* ── REVEAL ──────────────────────────────────────────────────────────── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
 .reveal.in{opacity:1;transform:none}
 
 /* ── RESPONSIVE ──────────────────────────────────────────────────────── */
 @media(max-width:1100px){.hero{padding:100px 40px 80px}.hero-inner{gap:48px}.section{padding:80px 40px}.fg{grid-template-columns:repeat(2,1fr)}.metrics-row{grid-template-columns:repeat(2,1fr)}.ft{grid-template-columns:1fr 1fr;gap:36px}}
-@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.dash-window{display:none}.fsplit{grid-template-columns:1fr}.fsplit.flip{direction:ltr}.testi-row{grid-template-columns:1fr}.nav-links{display:none}.p-feats{grid-template-columns:1fr}}
-@media(max-width:640px){.section{padding:60px 24px}.hero{padding:100px 24px 60px}.fg{grid-template-columns:1fr}.metrics-row{grid-template-columns:1fr 1fr}footer{padding:44px 24px 28px}.ft{grid-template-columns:1fr}.cta-section{padding:72px 24px}.p-top,.p-bottom{padding:24px 24px}}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.fsplit{grid-template-columns:1fr}.fsplit.flip{direction:ltr}.testi-row{grid-template-columns:1fr}.pricing-card{flex-direction:column}.pricing-col{width:100%;flex:none}.p-feats{grid-template-columns:1fr}}
+@media(max-width:900px){.nav{padding:0 20px}.nav.nav-open{position:fixed;top:0;left:0;right:0;z-index:201}body.admin-bar .nav.nav-open{top:32px}.nav-toggle{display:flex;flex-direction:column;position:relative;z-index:202}.nav.nav-open .nav-logo{position:relative;z-index:202}.nav-panel-top{display:flex;justify-content:flex-end;flex-shrink:0;margin:-8px 0 8px}.nav-close{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid rgba(255,255,255,.15);border-radius:10px;background:rgba(255,255,255,.04);color:#fff;cursor:pointer}.nav-close:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25)}.nav-panel{display:flex;flex-direction:column;align-items:stretch;position:fixed;top:0;left:0;right:0;height:100dvh;max-height:100dvh;z-index:199;padding:calc(var(--nav-height) + 16px) 20px max(24px,env(safe-area-inset-bottom));background:rgba(20,24,39,.98);backdrop-filter:blur(16px);border-top:none;overflow:hidden;box-sizing:border-box;transform:translateX(100%);opacity:0;visibility:hidden;transition:transform .28s ease,opacity .28s ease,visibility .28s}.nav.nav-open .nav-panel{transform:translateX(0);opacity:1;visibility:visible}.nav-links{display:block;width:100%;flex:1 1 auto;min-height:0;overflow:hidden}.nav-links .nav-menu{flex-direction:column;align-items:stretch;gap:0;width:100%}.nav-links .nav-menu>li{border-bottom:1px solid rgba(255,255,255,.08)}.nav-links a,.nav-links .nav-kc-btn{display:block;padding:16px 4px;font-size:16px}.nav-cta{flex-direction:column;align-items:stretch;gap:12px;width:100%;margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0}.nav-cta .btn-login,.nav-cta .btn-ghost,.nav-cta .btn-primary{width:100%;text-align:center;padding:14px 20px;font-size:15px}body.admin-bar .nav-panel{padding-top:calc(var(--nav-height) + 32px + 16px);height:100dvh;max-height:100dvh}}
+@media screen and (max-width:782px){body.admin-bar .nav-panel{padding-top:calc(var(--nav-height) + 46px + 16px)}body.admin-bar .nav.nav-open{top:46px}}
+@media(max-width:640px){.section{padding:60px 24px}.hero{padding:100px 24px 60px}.fg{grid-template-columns:1fr}.metrics-row{grid-template-columns:1fr 1fr}footer{padding:44px 24px 28px}.ft{grid-template-columns:1fr}.cta-section{padding:72px 24px}.p-top,.p-bottom{padding:24px 24px}.billing-card{padding:24px 20px}.billing-price{font-size:40px}}
 
 /* ── PLATFORM ICONS ──────────────────────────────────────────────────── */
 .fg-icon svg{display:block}
@@ -274,9 +340,9 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .hero-hl-desc{font-size:11px;color:rgba(255,255,255,.42);line-height:1.4}
 
 /* ── DIRECTIONAL REVEALS ─────────────────────────────────────────────── */
-.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .7s ease,transform .7s ease}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal-left.in{opacity:1;transform:none}
-.reveal-right{opacity:0;transform:translateX(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal-right{opacity:0;transform:translateX(32px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal-right.in{opacity:1;transform:none}
 .reveal-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal-up.in{opacity:1;transform:none}
@@ -322,6 +388,12 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .stage-payment{background:rgba(34,197,94,.12);color:#86efac}
 .stage-enrolled{background:rgba(29,158,117,.15);color:#4ade80}
 .stage-signed{background:rgba(16,185,129,.18);color:#34d399}
+.pl-stats{display:flex;gap:14px;margin-bottom:12px;flex-wrap:wrap;font-size:9px;color:rgba(255,255,255,.3)}
+.pl-stats strong{color:#fff;font-weight:700}
+.pl-stats .pl-win{color:#22c55e}
+.pl-deal{display:flex;align-items:center;gap:8px;min-width:0}
+.pl-av{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#fff;letter-spacing:.02em}
+.pl-th:nth-child(2),.pl-th:nth-child(3),.pl-stage-wrap{text-align:right;justify-self:end}
 
 /* ── HERO VIZ WRAPPER + FLOATING CARDS ───────────────────────────────── */
 .hero-viz-wrap{position:relative;padding:32px 28px 32px 8px;overflow:visible}
@@ -335,8 +407,8 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .hfc-lg .hfc-val{font-size:18px}
 .hfc-lg .hfc-icon{width:36px;height:36px;border-radius:10px}
 .hfc-1{top:-16px;left:-8px;animation:float1 5s ease-in-out infinite}
-.hfc-2{top:8px;right:-28px;animation:float2 5.5s ease-in-out infinite}
-.hfc-3{bottom:-16px;right:16px;animation:float3 4.8s ease-in-out infinite}
+.hfc-2{top:-18px;right:-20px;transform:none;animation:float2 5.5s ease-in-out infinite}
+.hfc-3{bottom:12%;right:-28px;animation:float3 4.8s ease-in-out infinite}
 .hfc-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .hfc-label{font-size:9px;font-weight:700;color:rgba(255,255,255,.36);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
 .hfc-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#fff;line-height:1.2}
@@ -345,7 +417,7 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .hfc-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#1d9e75,#22c55e)}
 .hfc-insight{font-size:11px;color:rgba(255,255,255,.7);line-height:1.3;max-width:120px;white-space:normal}
 
-@keyframes float2{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-8px) translateX(3px)}}
+@keyframes float2{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(calc(-50% - 8px)) translateX(3px)}}
 @keyframes float3{0%,100%{transform:translateY(0) rotate(.3deg)}50%{transform:translateY(-9px) rotate(-.3deg)}}
 
 /* ── HERO ENTRANCE ANIMATIONS ────────────────────────────────────────── */
@@ -521,26 +593,22 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow"><span></span>Sales Performance Software</div>
       <h1>The sales performance software <em>built around&nbsp;winning.</em></h1>
       <p class="hero-sub">Goals.com gives your sales team real-time visibility into quotas, pipeline, commissions, and performance, so every rep knows exactly where they stand and what to do next.</p>
       <div class="hero-actions">
-        <a href="https://calendly.com/goals-demo/30min?month=2026-07" class="btn-hero">Book a Demo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="https://www.youtube.com/watch?v=w9juZuaI9C8" class="btn-hero-outline"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 6.5l4 2.5-4 2.5V6.5z" fill="currentColor"/></svg>Watch the overview</a>
+        <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="btn-hero">Book a Demo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#" class="btn-hero-outline js-overview-lightbox" data-video-id="w9juZuaI9C8"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 6.5l4 2.5-4 2.5V6.5z" fill="currentColor"/></svg>Watch the overview</a>
       </div>
-
       <div class="hero-trust" style="margin-top:32px">
         <span class="hero-trust-item">No contracts</span>
         <span class="hero-trust-sep">/</span>
         <span class="hero-trust-item">Cancel anytime</span>
         <span class="hero-trust-sep">/</span>
-        <span class="hero-trust-item">$39 per user, everything included</span>
+        <span class="hero-trust-item">$59 per user, everything included</span>
       </div>
     </div>
-
     <!-- UNIFIED DASHBOARD VISUAL + FLOATING CARDS -->
     <div class="hero-viz-wrap">
-
       <!-- BG decoration layer -->
       <div class="hero-viz-bg">
         <div class="hvb-glow"></div>
@@ -553,8 +621,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
         <div class="hvb-line-h"></div>
         <div class="hvb-line-v"></div>
       </div>
-
-      <!-- Float card 2: right-middle: Ace AI insight -->
+      <!-- Float card 2: right-middle – Ace AI insight -->
       <div class="hero-float-card hfc-lg hfc-2">
         <div class="hfc-icon" style="background:linear-gradient(135deg,#1d9e75,#3b82f6)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.2 3.8L11.5 6.5l-3.8 1.7L6.5 12l-1.2-3.8L1.5 6.5l3.8-1.7z" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
         <div class="hfc-body">
@@ -562,35 +629,31 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
           <div class="hfc-insight">3 deals at risk this week</div>
         </div>
       </div>
-
-      <!-- Float card 3: bottom-right: top performer -->
+      <!-- Float card 3: bottom-right – win rate -->
       <div class="hero-float-card hfc-sm hfc-3">
-        <div class="hfc-icon" style="background:rgba(245,158,11,.2)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.2 3.5H11L8.2 6.8l1 3.2-2.7-2-2.7 2 1-3.2L2 4.5h3.3z" stroke="#fbbf24" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+        <div class="hfc-icon" style="background:rgba(245,158,11,.15)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.2 3.5H11L8.2 6.8l1 3.2-2.7-2-2.7 2 1-3.2L2 4.5h3.3z" stroke="#fbbf24" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
         <div class="hfc-body">
           <div class="hfc-label">Top Rep YTD</div>
-          <div class="hfc-val" style="color:#fcd34d">Aya · $990K</div>
+          <div class="hfc-val" style="color:#fcd34d">Aya &bull; $990K</div>
         </div>
       </div>
-
-      <!-- Float card 4: top-right: closed this month -->
+      <!-- Float card 4: top-right – closed this month -->
       <div class="hero-float-card hfc-4">
         <div class="hfc-icon" style="background:rgba(34,197,94,.15)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="hfc-body">
           <div class="hfc-label">Closed / Won</div>
-          <div class="hfc-val">19 <span style="font-size:9px;color:#4ade80">↑3 this wk</span></div>
+          <div class="hfc-val">19 <span class="hfc-tag">&#8593;3 this wk</span></div>
         </div>
       </div>
-
-      <!-- Float card 5: bottom-left: commission YTD -->
+      <!-- Float card 5: bottom-left – commission YTD -->
       <div class="hero-float-card hfc-sm hfc-5">
-        <div class="hfc-icon" style="background:rgba(244,63,94,.15)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5v10M4.5 4c0-.83.67-1.5 1.5-1.5h1.5a1.5 1.5 0 0 1 0 3H5A1.5 1.5 0 0 0 5 9h3a1.5 1.5 0 0 1 0 3H4" stroke="#f87171" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+        <div class="hfc-icon" style="background:rgba(244,63,94,.15)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><line x1="6.5" y1="1" x2="6.5" y2="12" stroke="#f87171" stroke-width="1.3" stroke-linecap="round"/><path d="M9 3H5.5a1.75 1.75 0 0 0 0 3.5h2a1.75 1.75 0 0 1 0 3.5H4" stroke="#f87171" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg></div>
         <div class="hfc-body">
           <div class="hfc-label">Commission YTD</div>
           <div class="hfc-val" style="color:#fda4af">$59,827</div>
         </div>
       </div>
-
-      <!-- Float card 6: left-middle: contest leaderboard -->
+      <!-- Float card 6: left-middle – contest leaderboard -->
       <div class="hero-float-card hfc-6">
         <div class="hfc-icon" style="background:rgba(245,158,11,.15)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.2 3.5H11L8.2 6.8l1 3.2-2.7-2-2.7 2 1-3.2L2 4.5h3.3z" stroke="#fbbf24" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
         <div class="hfc-body">
@@ -598,106 +661,104 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
           <div class="hfc-val" style="color:#fcd34d">$990K YTD</div>
         </div>
       </div>
-
       <div class="dash-window">
-      <div class="dash-titlebar">
-        <div class="dash-dot" style="background:#ef4444"></div>
-        <div class="dash-dot" style="background:#f59e0b"></div>
-        <div class="dash-dot" style="background:#22c55e"></div>
-        <div class="dash-titlebar-label">goals.com · Performance Dashboard</div>
-      </div>
-      <div class="dash-body">
-        <div class="dash-sidebar">
-          <div class="dash-s-icon on" title="Dashboard"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1.5" y="1.5" width="5" height="5" rx="1.2" fill="rgba(255,255,255,.7)"/><rect x="8.5" y="1.5" width="5" height="5" rx="1.2" fill="rgba(255,255,255,.3)"/><rect x="1.5" y="8.5" width="5" height="5" rx="1.2" fill="rgba(255,255,255,.3)"/><rect x="8.5" y="8.5" width="5" height="5" rx="1.2" fill="rgba(255,255,255,.3)"/></svg></div>
-          <div class="dash-s-icon" title="Goals"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="rgba(255,255,255,.4)" stroke-width="1.3"/><circle cx="7.5" cy="7.5" r="3.2" stroke="rgba(255,255,255,.4)" stroke-width="1.3"/><circle cx="7.5" cy="7.5" r="1.2" fill="rgba(255,255,255,.4)"/></svg></div>
-          <div class="dash-s-icon" title="Pipeline"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1.5" y="2" width="4.5" height="11" rx="1" stroke="rgba(255,255,255,.4)" stroke-width="1.3"/><rect x="9" y="2" width="4.5" height="7" rx="1" stroke="rgba(255,255,255,.4)" stroke-width="1.3"/></svg></div>
-          <div class="dash-s-icon" title="Accounts"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="5.5" cy="4.5" r="2" stroke="rgba(255,255,255,.4)" stroke-width="1.3"/><path d="M1 13c0-2.21 2.02-4 4.5-4" stroke="rgba(255,255,255,.4)" stroke-width="1.3" stroke-linecap="round"/><circle cx="10" cy="4.5" r="2" stroke="rgba(255,255,255,.4)" stroke-width="1.3"/><path d="M6.5 13c0-2.21 1.57-4 3.5-4s3.5 1.79 3.5 4" stroke="rgba(255,255,255,.4)" stroke-width="1.3" stroke-linecap="round"/></svg></div>
-          <div class="dash-s-icon" title="Highlights"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5l1.5 4.5H14l-3.8 2.8 1.4 4.3L7.5 10.3l-4.1 2.8 1.4-4.3L1 6h5z" stroke="rgba(255,255,255,.4)" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
-          <div class="dash-s-icon" title="Commissions"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><line x1="7.5" y1="1" x2="7.5" y2="14" stroke="rgba(255,255,255,.4)" stroke-width="1.3" stroke-linecap="round"/><path d="M10 3.5H6a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4H5" stroke="rgba(255,255,255,.4)" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg></div>
-          <div class="dash-s-icon" title="Reports"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="2" y="8" width="2.5" height="5" rx=".8" fill="rgba(255,255,255,.4)"/><rect x="6.25" y="5" width="2.5" height="8" rx=".8" fill="rgba(255,255,255,.4)"/><rect x="10.5" y="2" width="2.5" height="11" rx=".8" fill="rgba(255,255,255,.4)"/></svg></div>
+        <div class="dash-titlebar">
+          <div class="dash-dot" style="background:#ef4444"></div>
+          <div class="dash-dot" style="background:#f59e0b"></div>
+          <div class="dash-dot" style="background:#22c55e"></div>
+          <div class="dash-titlebar-label">goals.com &middot; Performance Dashboard</div>
         </div>
-        <div class="dash-main">
-          <div class="dash-panel-head">
-            <div class="dash-panel-title">Dashboard <span style="font-size:9px;color:rgba(255,255,255,.25);font-weight:400;margin-left:6px">Good morning, Sagar</span></div>
-            <div class="dash-panel-badge">Live</div>
+        <div class="dash-body">
+          <div class="dash-sidebar">
+            <div class="dash-s-icon on" title="Dashboard"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1.5" y="1.5" width="5" height="5" rx="1.2" fill="rgba(255,255,255,.7)"/><rect x="8.5" y="1.5" width="5" height="5" rx="1.2" fill="rgba(255,255,255,.3)"/><rect x="1.5" y="8.5" width="5" height="5" rx="1.2" fill="rgba(255,255,255,.3)"/><rect x="8.5" y="8.5" width="5" height="5" rx="1.2" fill="rgba(255,255,255,.3)"/></svg></div>
+            <div class="dash-s-icon" title="Goals"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="rgba(255,255,255,.4)" stroke-width="1.3"/><circle cx="7.5" cy="7.5" r="3.2" stroke="rgba(255,255,255,.4)" stroke-width="1.3"/><circle cx="7.5" cy="7.5" r="1.2" fill="rgba(255,255,255,.4)"/></svg></div>
+            <div class="dash-s-icon" title="Pipeline"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 4h11M2 7.5h8M2 11h5" stroke="rgba(255,255,255,.4)" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+            <div class="dash-s-icon" title="Accounts"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="5" r="2.5" stroke="rgba(255,255,255,.4)" stroke-width="1.3"/><path d="M2.5 13c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="rgba(255,255,255,.4)" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+            <div class="dash-s-icon" title="Highlights"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5l1.5 4.5H14l-3.8 2.8 1.4 4.3L7.5 10.3l-4.1 2.8 1.4-4.3L1 6h5z" stroke="rgba(255,255,255,.4)" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+            <div class="dash-s-icon" title="Commissions"><svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="11" y1="1" x2="11" y2="21" stroke="rgba(255,255,255,.4)" stroke-width="1.7" stroke-linecap="round"></line><path d="M15.5 5H8.8a3.3 3.3 0 1 0 0 6.6h4.4a3.3 3.3 0 1 1 0 6.6H5.5" stroke="rgba(255,255,255,.4)" stroke-width="1.7" stroke-linecap="round" fill="none"></path></svg></div>
+            <div class="dash-s-icon" title="Reports"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="2" y="8" width="2.5" height="5" rx=".8" fill="rgba(255,255,255,.4)"/><rect x="6.25" y="5" width="2.5" height="8" rx=".8" fill="rgba(255,255,255,.4)"/><rect x="10.5" y="2" width="2.5" height="11" rx=".8" fill="rgba(255,255,255,.4)"/></svg></div>
           </div>
-          <!-- Total Sales + Goal -->
-          <div style="padding:0 18px 10px;flex-shrink:0">
-            <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:12px 14px">
-              <div style="font-size:9px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px">Total Sales YTD</div>
-              <div style="font-family:'DM Mono',monospace;font-size:20px;font-weight:700;color:#fff;line-height:1;margin-bottom:8px">$7,955,967</div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
-                <div style="display:flex;gap:5px">
-                  <span style="font-size:8px;font-weight:700;background:rgba(29,158,117,.2);color:#4ade80;padding:2px 6px;border-radius:3px">$7.95M Achieved</span>
-                  <span style="font-size:8px;font-weight:700;background:rgba(239,68,68,.15);color:#f87171;padding:2px 6px;border-radius:3px">$11.4M Remaining</span>
+          <div class="dash-main">
+            <div class="dash-panel-head">
+              <div class="dash-panel-title">Dashboard <span class="dash-panel-greeting">Good morning, Amanda </span></div>
+              <div class="dash-panel-badge">LIVE</div>
+            </div>
+            <div class="dash-sales-wrap">
+              <div class="dash-sales-card">
+                <div class="dash-sales-label">Total Sales YTD</div>
+                <div class="dash-sales-val">$7,955,967</div>
+                <div class="dash-sales-meta">
+                  <div class="dash-sales-badges">
+                    <span class="dash-sales-badge dash-sales-badge-ok">$7.95M Achieved</span>
+                    <span class="dash-sales-badge dash-sales-badge-warn">$11.4M Remaining</span>
+                  </div>
+                  <div class="dash-sales-pace">
+                    <div class="dash-sales-pace-val">41%</div>
+                    <div class="dash-sales-pace-label">YTD Pace</div>
+                  </div>
                 </div>
-                <div style="text-align:right"><div style="font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#4ade80">41%</div><div style="font-size:8px;color:rgba(255,255,255,.3)">YTD Pace</div></div>
+                <div class="dash-sales-progress">
+                  <div class="dash-sales-progress-fill" style="width:41%"></div>
+                </div>
               </div>
-              <div style="height:3px;background:rgba(255,255,255,.08);border-radius:2px;position:relative">
-                <div style="position:absolute;top:0;left:0;width:41%;height:100%;background:linear-gradient(90deg,#1d9e75,#22c55e);border-radius:2px"></div>
+            </div>
+            <div class="dash-metrics">
+              <div class="dash-metric"><div class="dash-metric-label">This Month</div><div class="dash-metric-val dash-metric-val-sm">$1.58M</div><div class="dash-metric-sub"><span class="up">&#8593;8%</span> MoM</div></div>
+              <div class="dash-metric"><div class="dash-metric-label">Avg Deal Size</div><div class="dash-metric-val dash-metric-val-sm">$82K</div><div class="dash-metric-sub"><span class="up">&#8593;$4.2K</span> MoM</div></div>
+              <div class="dash-metric"><div class="dash-metric-label">Win Rate</div><div class="dash-metric-val dash-metric-val-sm">58%</div><div class="dash-metric-sub"><span class="up">&#8593;6pp</span> vs Q2</div></div>
+              <div class="dash-metric"><div class="dash-metric-label">Team ROI</div><div class="dash-metric-val dash-metric-val-sm">312%</div><div class="dash-metric-sub"><span class="up">&#8593;4pts</span> vs last</div></div>
+            </div>
+            <div class="dash-quota-head">
+              <div class="dash-quota-title">Leaderboard</div>
+              <div class="dash-quota-period" style="color:var(--teal);font-size:9px;cursor:pointer">Full team &rarr;</div>
+            </div>
+            <div class="dash-rep-list">
+              <div class="dash-rep">
+                <div class="dash-rep-av" style="background:var(--teal)">AP</div>
+                <div class="dash-rep-info"><div class="dash-rep-name">Aya Pedrad</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:100%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
+                <div class="dash-rep-pct">$990K</div>
+              </div>
+              <div class="dash-rep">
+                <div class="dash-rep-av" style="background:#6366f1">EV</div>
+                <div class="dash-rep-info"><div class="dash-rep-name">Elena Vasquez</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:98%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
+                <div class="dash-rep-pct">$972K</div>
+              </div>
+              <div class="dash-rep">
+                <div class="dash-rep-av" style="background:#06b6d4">MB</div>
+                <div class="dash-rep-info"><div class="dash-rep-name">Marcus Bradley</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:98%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
+                <div class="dash-rep-pct">$967K</div>
+              </div>
+              <div class="dash-rep">
+                <div class="dash-rep-av" style="background:#f59e0b">BW</div>
+                <div class="dash-rep-info"><div class="dash-rep-name">Brock Wilson</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:96%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div></div>
+                <div class="dash-rep-pct">$953K</div>
+              </div>
+              <div class="dash-rep">
+                <div class="dash-rep-av" style="background:#8b5cf6">JR</div>
+                <div class="dash-rep-info"><div class="dash-rep-name">Jules Richards</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:93%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div></div>
+                <div class="dash-rep-pct">$919K</div>
               </div>
             </div>
           </div>
-          <!-- 4 metric mini cards -->
-          <div class="dash-metrics" style="padding:0 18px 8px">
-            <div class="dash-metric"><div class="dash-metric-label">This Month</div><div class="dash-metric-val" style="font-size:14px">$1.58M</div><div class="dash-metric-sub"><span class="up">&#8593;8%</span> MoM</div></div>
-            <div class="dash-metric"><div class="dash-metric-label">Avg Deal Size</div><div class="dash-metric-val" style="font-size:14px">$82K</div><div class="dash-metric-sub"><span class="up">&#8593;$4.2K</span> MoM</div></div>
-            <div class="dash-metric"><div class="dash-metric-label">Win Rate</div><div class="dash-metric-val" style="font-size:14px">58%</div><div class="dash-metric-sub"><span class="up">&#8593;6pp</span> vs Q2</div></div>
-            <div class="dash-metric"><div class="dash-metric-label">Team ROI</div><div class="dash-metric-val" style="font-size:14px">312%</div><div class="dash-metric-sub"><span class="up">&#8593;4pts</span> vs last</div></div>
-          </div>
-          <!-- Leaderboard -->
-          <div class="dash-quota-head">
-            <div class="dash-quota-title">Leaderboard</div>
-            <div class="dash-quota-period" style="color:var(--teal);font-size:9px;cursor:pointer">Full team →</div>
-          </div>
-          <div class="dash-rep-list">
-  <div class="dash-rep">
-    <img src="https://randomuser.me/api/portraits/women/44.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0">
-    <div class="dash-rep-info"><div class="dash-rep-name">Aya Pedrad</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:99%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
-    <div class="dash-rep-pct">$990K</div>
-  </div>
-  <div class="dash-rep">
-    <img src="https://randomuser.me/api/portraits/women/68.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0">
-    <div class="dash-rep-info"><div class="dash-rep-name">Elena Vasquez</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:98%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
-    <div class="dash-rep-pct">$972K</div>
-  </div>
-  <div class="dash-rep">
-    <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0">
-    <div class="dash-rep-info"><div class="dash-rep-name">Marcus Bradley</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:97%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
-    <div class="dash-rep-pct">$967K</div>
-  </div>
-  <div class="dash-rep">
-    <img src="https://randomuser.me/api/portraits/men/54.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0">
-    <div class="dash-rep-info"><div class="dash-rep-name">Brock Wilson</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:96%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div></div>
-    <div class="dash-rep-pct">$953K</div>
-  </div>
-  <div class="dash-rep">
-    <img src="https://randomuser.me/api/portraits/women/15.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0">
-    <div class="dash-rep-info"><div class="dash-rep-name">Jules Richards</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:92%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div></div>
-    <div class="dash-rep-pct">$919K</div>
-  </div>
-</div>
         </div>
-      </div>
-    </div><!-- /dash-window -->
+      </div><!-- /dash-window -->
     </div><!-- /hero-viz-wrap -->
   </div>
-
   <!-- TICKER anchored to bottom of hero -->
   <div class="ticker" style="position:relative;z-index:5;margin:0 -72px;width:calc(100% + 144px)">
   <div class="ticker-track">
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Quota &amp; goal tracking per rep</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Pipeline CRM: Kanban, List &amp; Calendar</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Pipeline CRM List &amp; Kanban</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Commission tracking &amp; payout schedules</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Sales contests with live leaderboards</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Ace AI, built-in sales intelligence</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Ask Ace AI, built-in sales intelligence</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Automated reports &amp; forecasting</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Team highlights &amp; recognition</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Quota &amp; goal tracking per rep</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Pipeline CRM: Kanban, List &amp; Calendar</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Pipeline CRM List &amp; Kanban</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Commission tracking &amp; payout schedules</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Sales contests with live leaderboards</div>
-    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Ace AI, built-in sales intelligence</div>
+    <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Ask Ace AI, built-in sales intelligence</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Automated reports &amp; forecasting</div>
     <div class="ticker-item"><span class="ticker-dot">&#10022;</span>Team highlights &amp; recognition</div>
   </div>
@@ -708,11 +769,10 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <section class="section section-navy2" id="features">
   <div class="section-inner">
     <div class="s-head s-head-dark reveal">
-      <div class="s-tag s-tag-white">Core capabilities</div>
       <h2>Everything your team needs<br><em>in one place.</em></h2>
-      <p>No more juggling a CRM, a spreadsheet for commissions, and a separate tool for goals. Goals.com connects it all, in real-time, for every rep.</p>
+      <p>No more juggling a CRM, a spreadsheet for commissions, and a separate tool for goals. Goals.com connects it all real-time, for every rep.</p>
     </div>
-    <div class="fg reveal">
+    <div class="fg reveal in">
       <div class="fg-card stagger-1">
         <div class="fg-icon" style="background:rgba(29,158,117,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="9" stroke="#22c55e" stroke-width="1.6"/><circle cx="11" cy="11" r="5.5" stroke="#22c55e" stroke-width="1.6"/><circle cx="11" cy="11" r="2" fill="#22c55e"/></svg></div>
         <h3>Goals &amp; Quota Tracking</h3>
@@ -721,7 +781,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       <div class="fg-card">
         <div class="fg-icon" style="background:rgba(99,102,241,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="7" height="16" rx="1.5" stroke="#818cf8" stroke-width="1.7"/><rect x="13" y="3" width="7" height="10" rx="1.5" stroke="#818cf8" stroke-width="1.7"/></svg></div>
         <h3>Pipeline CRM</h3>
-        <p>Kanban, List, and Calendar views. Track deals from first touch to closed-won with aging alerts that flag what's going cold before it does.</p>
+        <p>Kanban and List views. Track deals from first touch to closed-won with aging alerts that flag what's going cold before it does.</p>
       </div>
       <div class="fg-card">
         <div class="fg-icon" style="background:rgba(244,63,94,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="11" y1="1" x2="11" y2="21" stroke="#f87171" stroke-width="1.7" stroke-linecap="round"/><path d="M15.5 5H8.8a3.3 3.3 0 1 0 0 6.6h4.4a3.3 3.3 0 1 1 0 6.6H5.5" stroke="#f87171" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg></div>
@@ -744,7 +804,6 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
   <div class="section-inner">
     <div class="fsplit reveal">
       <div class="fs-copy fs-copy-dark reveal-left">
-        <div class="s-tag s-tag-white" style="display:inline-flex">Sales Performance</div>
         <h2>Every rep knows exactly<br>where they stand.</h2>
         <p>Goals.com gives every rep a real-time performance view: quota attainment, YTD revenue, pace against target, and where to focus next. Managers see who's winning, who needs coaching, and where money is being left on the table.</p>
         <div class="fs-list">
@@ -869,7 +928,6 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
         </div>
       </div>
       <div class="fs-copy reveal-right">
-        <div class="s-tag s-tag-teal" style="display:inline-flex">Pipeline CRM</div>
         <h2>A CRM that keeps<br>deals moving forward.</h2>
         <p>Track every opportunity from first contact to closed-won. Kanban, List, and Calendar views with no configuration needed. Deal aging flags automatically surface what's going cold.</p>
         <div class="fs-list">
@@ -888,7 +946,6 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <section class="section section-navy2" id="ace">
   <div class="section-inner">
     <div class="s-head s-head-dark reveal" style="margin-bottom:48px">
-      <div class="s-tag s-tag-white">Ace AI</div>
       <h2>Your team's <em>built-in intelligence layer.</em></h2>
       <p>Ace knows your pipeline, your reps, and your history. Ask it anything and it answers with real data from your account, not generic advice.</p>
     </div>
@@ -916,7 +973,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <section class="section section-navy">
   <div class="section-inner">
     <div class="metrics-row reveal">
-      <div class="m-card"><div class="m-num"><em>$39</em></div><div class="m-label">Per user / month<br>Everything included</div></div>
+      <div class="m-card"><div class="m-num"><em>$59</em></div><div class="m-label">Per user / month<br>Everything included</div></div>
       <div class="m-card"><div class="m-num"><em>1</em></div><div class="m-label">Platform for goals, pipeline,<br>commissions, and AI</div></div>
       <div class="m-card"><div class="m-num">&#8734;</div><div class="m-label">No limits on contacts,<br>deals, or reports</div></div>
       <div class="m-card"><div class="m-num">100<em>%</em></div><div class="m-label">Real-time data across<br>every feature</div></div>
@@ -928,11 +985,10 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <section class="section section-off">
   <div class="section-inner">
     <div class="s-head reveal" style="margin-bottom:48px">
-      <div class="s-tag s-tag-teal">What teams are saying</div>
       <h2>Real results from <em>real sales teams.</em></h2>
     </div>
     <div class="testi-row reveal">
-      <div class="t-card"><div class="t-quote">Onboarding only took a couple of hours and was super easy and straightforward. Our team quickly adopted the tool and are enjoying how easy it is to use. I would recommend this to anyone who wants their goals and commissions tied into their CRM.</div><div class="t-person"><div class="t-av" style="background:var(--teal)">DG</div><div><div class="t-name">Dan G.</div><div class="t-role">Goals.com Customer</div></div></div></div>
+      <div class="t-card"><div class="t-quote">Onboarding only took a couple of hours and was super easy and straightforward. Our team quickly adopted the tool and are enjoying how easy it is to use. I would recommend this to anyone who wants their goals and commissions tied into their CRM.</div><div class="t-person"><div class="t-av" style="background:var(--teal)">DG</div><div><div class="t-name">Dina G.</div><div class="t-role">Goals.com Customer</div></div></div></div>
       <div class="t-card"><div class="t-quote">Our team loves Goals.com! Total breath of fresh air compared to our last platform. Setup was a breeze, the team there is so great to work with. This simple platform packs quite a punch. Checks all the boxes, and then some.</div><div class="t-person"><div class="t-av" style="background:#6366f1">GW</div><div><div class="t-name">Garrett W.</div><div class="t-role">Goals.com Customer</div></div></div></div>
       <div class="t-card"><div class="t-quote">Our team is always out and about completing projects for our clients and it's once in a blue moon when all of us are around the shop at the same time. This helps us keep track of everything we need without adding more office time.</div><div class="t-person"><div class="t-av" style="background:#f59e0b">JT</div><div><div class="t-name">John T.</div><div class="t-role">Goals.com Customer</div></div></div></div>
     </div>
@@ -943,34 +999,61 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <section class="section section-navy2" id="pricing">
   <div class="section-inner">
     <div class="s-head s-head-dark reveal" style="margin-bottom:48px">
-      <div class="s-tag s-tag-white">Pricing</div>
       <h2>Simple pricing.<br><em>Everything included.</em></h2>
       <p>One clear price. No onboarding fees. No hidden charges. No fine print. Free first-class support.</p>
     </div>
     <div class="pricing-card reveal">
-      <div class="p-top">
-        <div class="p-badge">&#10022; Full platform, all features</div>
-        <div class="p-name">Goals.com Complete</div>
-        <div class="p-desc">CRM, goals, commissions, contests, Ace AI, and more, one price.</div>
-        <div class="p-price-row"><div class="p-price">$39</div><div class="p-price-info"><div class="p-per">/ user / month</div><div class="p-incl">Everything included &nbsp;&#183;&nbsp; No contracts</div></div></div>
-      </div>
-      <div class="p-bottom">
-        <div class="p-feats">
-          <div class="p-feat">Pipeline CRM (Kanban + List + Calendar)</div>
-          <div class="p-feat">Quota &amp; goal tracking per rep</div>
-          <div class="p-feat">Commission tracking &amp; payout schedules</div>
-          <div class="p-feat">Sales contests with prize pools</div>
-          <div class="p-feat">Bonus tiers with progress tracking</div>
-          <div class="p-feat">Ace AI sales intelligence</div>
-          <div class="p-feat">Team highlights &amp; recognition</div>
-          <div class="p-feat">Reports, exports &amp; scheduling</div>
-          <div class="p-feat">Team chat &amp; messaging</div>
-          <div class="p-feat">Pipeline forecasting</div>
-          <div class="p-feat">Accounts &amp; contacts management</div>
-          <div class="p-feat">Marketplace integrations</div>
+      <div class="pricing-col pricing-col-main">
+        <div class="p-top">
+          <div class="p-badge">&#10022; Full platform, all features</div>
+          <div class="p-name">Goals.com Complete</div>
+          <div class="p-desc">CRM, goals, commissions, contests, Ace AI, and more, one price.</div>
         </div>
-        <a href="https://calendly.com/goals-demo/30min?month=2026-07" class="p-cta">Book a Demo with Our Team</a>
-        <div class="p-note">No credit card required &nbsp;&#183;&nbsp; Cancel anytime</div>
+        <div class="p-bottom">
+          <div class="p-feats">
+            <div class="p-feat">Pipeline CRM (Kanban + List)</div>
+            <div class="p-feat">Quota &amp; goal tracking per rep</div>
+            <div class="p-feat">Commission tracking &amp; payout schedules</div>
+            <div class="p-feat">Sales contests with prize pools</div>
+            <div class="p-feat">Bonus tiers with progress tracking</div>
+            <div class="p-feat">Ace AI, sales intelligence</div>
+            <div class="p-feat">Team highlights &amp; recognition</div>
+            <div class="p-feat">Reports, exports &amp; scheduling</div>
+            <div class="p-feat">Team chat &amp; messaging</div>
+            <div class="p-feat">Pipeline forecasting</div>
+            <div class="p-feat">Accounts &amp; contacts management</div>
+            <div class="p-feat">Marketplace integrations</div>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-col">
+        <div class="billing-card">
+          <div class="billing-top">
+            <div class="billing-label">Monthly Billing</div>
+            <div class="billing-price-row">
+              <div class="billing-price">$59</div>
+              <div class="billing-per">/user/month</div>
+            </div>
+            <p class="billing-desc">Flexible month-to-month billing with full access to the Goals.com platform.</p>
+          </div>
+          <div class="billing-bottom">
+            <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="billing-cta billing-cta-outline">14-Day Free Trial</a>
+          </div>
+        </div>
+        <div class="billing-card billing-card-featured">
+          <div class="billing-save">Save 17%</div>
+          <div class="billing-top">
+            <div class="billing-label billing-label-featured">Annual Billing</div>
+            <div class="billing-price-row">
+              <div class="billing-price">$49</div>
+              <div class="billing-per">/user/month</div>
+            </div>
+            <p class="billing-desc">Billed annually. Best value for teams committed to driving long-term performance.</p>
+          </div>
+          <div class="billing-bottom">
+            <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="billing-cta billing-cta-solid">14-Day Free Trial</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -980,7 +1063,6 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <section id="integrations" style="background:var(--off);padding:72px 0">
   <div style="max-width:1200px;margin:0 auto;padding:0 72px">
     <div class="s-head reveal" style="margin-bottom:44px">
-      <div class="s-tag s-tag-teal">Integrations</div>
       <h2>Works with the tools<br><em>your team already uses.</em></h2>
       <p>Connect Goals.com to your existing stack in minutes. No IT ticket required.</p>
     </div>
@@ -1179,7 +1261,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       <div class="pr-price-card">
         <div class="pr-plan-name">CRM</div>
         <div class="pr-price">
-          <span class="pr-price-amt">$39</span>
+          <span class="pr-price-amt">$59</span>
           <span class="pr-price-per">/month/user</span>
         </div>
         <a href="#" class="pr-demo-btn" onclick="showView('home');return false;">Get Demo</a>
