@@ -59,36 +59,33 @@ html.nav-open,body.nav-open{overflow:hidden}
 
 /* ── FEATURES NAV DROPDOWN ─────────────────────────────────────────── */
 .feat-nav-item{position:relative}
-.feat-dropdown{display:flex;opacity:0;visibility:hidden;pointer-events:none;position:absolute;top:100%;padding-top:14px;left:50%;transform:translateX(-50%);width:640px;max-width:calc(100vw - 32px);background:#141827;background-clip:padding-box;border:1px solid rgba(255,255,255,.09);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.5);overflow:hidden;z-index:250;transition:opacity .15s ease,visibility .15s ease}
-.feat-nav-item:hover .feat-dropdown,.feat-nav-item:focus-within .feat-dropdown{opacity:1;visibility:visible;pointer-events:auto}
-.feat-dd-list{width:44%;flex-shrink:0;padding:10px;max-height:420px;overflow-y:auto;border-right:1px solid rgba(255,255,255,.07)}
-.feat-dd-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;cursor:pointer;transition:background .15s}
-.feat-dd-item:hover,.feat-dd-item:focus,.feat-dd-item.feat-hl{background:rgba(255,255,255,.06)}
-.feat-dd-icon{width:32px;height:32px;border-radius:8px;background:rgba(61,220,110,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.feat-dd-item-text{min-width:0}
-.feat-dd-item-text h4{font-size:13px;font-weight:600;color:#fff;margin:0 0 3px}
-.feat-dd-item-text p{font-size:11.5px;color:rgba(255,255,255,.62);line-height:1.4;margin:0}
-.feat-dd-preview{width:56%;padding:26px 24px;display:flex;flex-direction:column;justify-content:center;background:rgba(255,255,255,.02)}
-.feat-dd-preview-icon{width:44px;height:44px;border-radius:10px;background:rgba(61,220,110,.14);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.feat-dd-preview h3{font-size:16px;font-weight:700;color:#fff;margin:0 0 10px}
-.feat-dd-preview p{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;margin:0}
-.feat-dd-panel{display:none}
-.feat-dd-panel.feat-dd-panel-active{display:block}
-.feat-dropdown:has(.feat-dd-item-1:hover) .feat-dd-panel-1,
-.feat-dropdown:has(.feat-dd-item-2:hover) .feat-dd-panel-2,
-.feat-dropdown:has(.feat-dd-item-3:hover) .feat-dd-panel-3,
-.feat-dropdown:has(.feat-dd-item-4:hover) .feat-dd-panel-4,
-.feat-dropdown:has(.feat-dd-item-5:hover) .feat-dd-panel-5,
-.feat-dropdown:has(.feat-dd-item-6:hover) .feat-dd-panel-6,
-.feat-dropdown:has(.feat-dd-item-7:hover) .feat-dd-panel-7{display:block}
-.feat-dropdown:has(.feat-dd-item:hover) .feat-dd-panel.feat-dd-panel-active{display:none}
-.feat-dropdown:has(.feat-dd-item-1:hover) .feat-dd-panel-2,.feat-dropdown:has(.feat-dd-item-1:hover) .feat-dd-panel-3,.feat-dropdown:has(.feat-dd-item-1:hover) .feat-dd-panel-4,.feat-dropdown:has(.feat-dd-item-1:hover) .feat-dd-panel-5,.feat-dropdown:has(.feat-dd-item-1:hover) .feat-dd-panel-6,.feat-dropdown:has(.feat-dd-item-1:hover) .feat-dd-panel-7{display:none}
-.feat-dropdown:has(.feat-dd-item-2:hover) .feat-dd-panel-1,.feat-dropdown:has(.feat-dd-item-2:hover) .feat-dd-panel-3,.feat-dropdown:has(.feat-dd-item-2:hover) .feat-dd-panel-4,.feat-dropdown:has(.feat-dd-item-2:hover) .feat-dd-panel-5,.feat-dropdown:has(.feat-dd-item-2:hover) .feat-dd-panel-6,.feat-dropdown:has(.feat-dd-item-2:hover) .feat-dd-panel-7{display:none}
-.feat-dropdown:has(.feat-dd-item-3:hover) .feat-dd-panel-1,.feat-dropdown:has(.feat-dd-item-3:hover) .feat-dd-panel-2,.feat-dropdown:has(.feat-dd-item-3:hover) .feat-dd-panel-4,.feat-dropdown:has(.feat-dd-item-3:hover) .feat-dd-panel-5,.feat-dropdown:has(.feat-dd-item-3:hover) .feat-dd-panel-6,.feat-dropdown:has(.feat-dd-item-3:hover) .feat-dd-panel-7{display:none}
-.feat-dropdown:has(.feat-dd-item-4:hover) .feat-dd-panel-1,.feat-dropdown:has(.feat-dd-item-4:hover) .feat-dd-panel-2,.feat-dropdown:has(.feat-dd-item-4:hover) .feat-dd-panel-3,.feat-dropdown:has(.feat-dd-item-4:hover) .feat-dd-panel-5,.feat-dropdown:has(.feat-dd-item-4:hover) .feat-dd-panel-6,.feat-dropdown:has(.feat-dd-item-4:hover) .feat-dd-panel-7{display:none}
-.feat-dropdown:has(.feat-dd-item-5:hover) .feat-dd-panel-1,.feat-dropdown:has(.feat-dd-item-5:hover) .feat-dd-panel-2,.feat-dropdown:has(.feat-dd-item-5:hover) .feat-dd-panel-3,.feat-dropdown:has(.feat-dd-item-5:hover) .feat-dd-panel-4,.feat-dropdown:has(.feat-dd-item-5:hover) .feat-dd-panel-6,.feat-dropdown:has(.feat-dd-item-5:hover) .feat-dd-panel-7{display:none}
-.feat-dropdown:has(.feat-dd-item-6:hover) .feat-dd-panel-1,.feat-dropdown:has(.feat-dd-item-6:hover) .feat-dd-panel-2,.feat-dropdown:has(.feat-dd-item-6:hover) .feat-dd-panel-3,.feat-dropdown:has(.feat-dd-item-6:hover) .feat-dd-panel-4,.feat-dropdown:has(.feat-dd-item-6:hover) .feat-dd-panel-5,.feat-dropdown:has(.feat-dd-item-6:hover) .feat-dd-panel-7{display:none}
-.feat-dropdown:has(.feat-dd-item-7:hover) .feat-dd-panel-1,.feat-dropdown:has(.feat-dd-item-7:hover) .feat-dd-panel-2,.feat-dropdown:has(.feat-dd-item-7:hover) .feat-dd-panel-3,.feat-dropdown:has(.feat-dd-item-7:hover) .feat-dd-panel-4,.feat-dropdown:has(.feat-dd-item-7:hover) .feat-dd-panel-5,.feat-dropdown:has(.feat-dd-item-7:hover) .feat-dd-panel-6{display:none}
+.feat-dropdown{display:block;opacity:0;visibility:hidden;pointer-events:none;position:fixed;top:var(--nav-height);padding-top:14px;left:50%;transform:translateX(-50%);width:950px;max-width:calc(100vw - 32px);z-index:250;transition:opacity .15s ease,visibility .15s ease}
+.feat-nav-item:hover .feat-dropdown,.feat-nav-item:focus-within .feat-dropdown,.feat-dropdown.feat-open{opacity:1;visibility:visible;pointer-events:auto}
+.feat-mega{display:flex;background:#141827;border:1px solid rgba(255,255,255,.09);border-radius:14px 14px 0 0;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.feat-mega-col{padding:30px 32px}
+.feat-mega-col-left{width:58%;border-right:1px solid rgba(255,255,255,.08)}
+.feat-mega-col-right{width:42%}
+.feat-mega-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:14px}
+.feat-mega-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+.feat-mega-item{display:flex;align-items:flex-start;gap:12px;padding:11px;border-radius:10px;text-decoration:none;cursor:pointer;transition:background .15s}
+.feat-mega-item:hover,.feat-mega-item:focus{background:rgba(255,255,255,.06)}
+.feat-mega-icon{width:34px;height:34px;border-radius:8px;background:rgba(61,220,110,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.feat-mega-item-text{min-width:0}
+.feat-mega-title{font-size:12.5px;font-weight:600;color:#fff;margin:0 0 2px}
+.feat-mega-sub{font-size:11px;color:rgba(255,255,255,.55);line-height:1.35;margin:0}
+.feat-mega-viewall{display:flex;align-items:center;gap:5px;padding:8px;margin-top:2px;font-size:12px;font-weight:600;color:var(--teal-light);text-decoration:none}
+.feat-mega-viewall:hover{opacity:.8}
+.feat-mega-links{display:flex;gap:28px}
+.feat-mega-link-group{flex:1;min-width:0}
+.feat-mega-link-head{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
+.feat-mega-link-group a{display:block;font-size:12.5px;color:rgba(255,255,255,.75);text-decoration:none;padding:6px 0;transition:color .15s}
+.feat-mega-link-group a:hover{color:#fff}
+.feat-mega-banner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 32px;background:var(--teal2);border:1px solid rgba(255,255,255,.09);border-top:none;border-radius:0 0 14px 14px}
+.feat-mega-banner-text{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;color:var(--navy)}
+.feat-mega-banner-text span{color:var(--navy)}
+.feat-mega-banner-badge{width:26px;height:26px;border-radius:7px;background:rgba(10,11,19,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.feat-mega-banner-cta{flex-shrink:0;padding:8px 16px;border-radius:999px;background:#06070F;color:#fff;font-size:12.5px;font-weight:700;text-decoration:none;white-space:nowrap}
+.feat-mega-banner-cta:hover{background:var(--navy)}
 
 /* ── HERO ────────────────────────────────────────────────────────────── */
 .hero{min-height:100vh;background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:88px 72px 0;overflow:hidden;position:relative}
@@ -616,75 +613,69 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="54" viewBox="0 0 115.245 72.029" style="overflow:visible"> <g id="Group_431" data-name="Group 431"> <path id="Path_965" data-name="Path 965" d="M923.533,288.136a.569.569,0,0,0-.445.326c-1.032,2.243-8.727,15.094-3.092,16.044,3.366.568,6.608-3.472,9.867-8.338.561-.57,0-.616-.488-.254-3.2,4.5-5.528,6.782-7.217,6.654-2.154-.163,4.979-11.671,4.678-13.3-.256-1.393-2.442-1.24-3.3-1.129" transform="translate(-847.476 -265.951)" fill="#ffffff"/> <path id="Path_966" data-name="Path 966" d="M817.8,292.888c1.577-2.97,1.2-4.435.3-4.606-2.864-.545-8.309,10.353-5.45,10.592,2.051.171,5.152-5.986,5.152-5.986l.632,2.48s-3.457,7.654-8.371,6.905c-6.019-.917-1.339-16.714,7.231-16.512,3.514.083,3.727,2.622,3.137,5.571-.313,1.567-2.925,2.112-2.629,1.556" transform="translate(-745.359 -263.82)" fill="#ffffff"/> <path id="Path_967" data-name="Path 967" d="M374.992,278.237c.416-3.038.407-5.53-.706-5.572-3.551-.133-9.132,13.84-5.64,13.512,3.847-.362,6.346-7.94,6.346-7.94l-.017,4.438s-2.993,6.62-8.315,6.518c-7.448-.143-3.021-18.665,6.508-19.351,4.286-.309,4.245,3.583,3.472,6.849-.45,1.9-1.753,2.315-1.648,1.546" transform="translate(-335.05 -249.109)" fill="#ffffff"/> <path id="Path_968" data-name="Path 968" d="M766.4,319.932s.045,2.046,1.094,2.783c.892.627,3.059.352,4.816-1.2.18.538-.4,1.146-.4,1.146-1.668,1.235-3.887,1.694-5.259,1.086Z" transform="translate(-707.556 -295.369)" fill="#ffffff"/> <path id="Path_969" data-name="Path 969" d="M1141.115,283.344c-2.015-.438-9.943-.206-16.766.93a4.114,4.114,0,0,1-1.066-3.458c.691-1.895,3.456-2.132,5.806-1.726,0,0,.857-2.182-.4-3.094-2.334-1.7-7.691-.342-8.586,3.094a6.916,6.916,0,0,0,1.382,5.7c-3.719.888-6.883,2.015-7.573,3.775-2.536,6.467,11.169,6.068,12.549,1.488a2.811,2.811,0,0,0,.119-.469c.286-2.434-2.274-3.272-2.286-3.273s.349-.057,1.252-.118h.019c.212-.012.426-.022.642-.031.544-.024.944-.041,1.5-.052h.052a79.214,79.214,0,0,1,8.583.306l.018,0a25.62,25.62,0,0,1,6.409,1.2s2.074-3.458-1.658-4.271m-17.863,4.676c-.138,1.759-6.665,2.985-6.585.682.039-1.139,2.763-1.868,6.053-2.258a3.05,3.05,0,0,1,.532,1.576" transform="translate(-1028.104 -254.132)" fill="#ffffff"/> <path id="Path_970" data-name="Path 970" d="M1165.923,576.208a1.1,1.1,0,0,0-.836-.384,1.225,1.225,0,1,0,.874,2.094l.874,1.066a2.593,2.593,0,0,1-1.768.615,2.549,2.549,0,1,1-.01-5.091,2.634,2.634,0,0,1,1.777.644Z" transform="translate(-1073.145 -530.4)" fill="#ffffff"/> <path id="Path_971" data-name="Path 971" d="M1232.978,579.6a2.531,2.531,0,0,1-2.651-2.565,2.659,2.659,0,0,1,5.312,0,2.534,2.534,0,0,1-2.661,2.565m0-3.785a1.135,1.135,0,0,0-1.124,1.22,1.137,1.137,0,1,0,1.124-1.22" transform="translate(-1135.868 -530.399)" fill="#ffffff"/> <path id="Path_972" data-name="Path 972" d="M1321.142,579.676v-2.613c0-.548-.125-1.009-.682-1.009-.538,0-.8.5-.8,1.037v2.584h-1.575v-2.728c0-.548-.211-.893-.682-.893-.5,0-.788.451-.788,1.028v2.594h-1.585v-4.784h1.527v.663h.019a1.6,1.6,0,0,1,1.431-.8,1.507,1.507,0,0,1,1.441.817,1.711,1.711,0,0,1,1.527-.817,1.75,1.75,0,0,1,1.739,1.96v2.959Z" transform="translate(-1214.07 -530.63)" fill="#ffffff"/> <path id="Path_973" data-name="Path 973" d="M1086.832,589.725a1.732,1.732,0,1,1-1.732-1.732,1.732,1.732,0,0,1,1.732,1.732" transform="translate(-1000.192 -542.849)" fill="#ffffff"/> <path id="Path_974" data-name="Path 974" d="M1409.885,416.474h0l-.018,0,.019,0" transform="translate(-1301.624 -384.497)" fill="#ffffff"/> <path id="Path_975" data-name="Path 975" d="M993.839,0c-7.377.292-16.969,20.887-21.887,36.3a21.435,21.435,0,0,0,2.618-2.427,21.092,21.092,0,0,1-3.23,4.041,58.708,58.708,0,0,0-2.6,12.695c-.089,4.423,2.9,4.9,2.9,4.9a98.882,98.882,0,0,1,5.773-23.883C987.223,22.251,1002.943-.356,993.839,0m.187,2.134c3.628.39-7.663,19.3-15.848,27.338,5.976-15.388,14.007-27.536,15.848-27.338" transform="translate(-894.36 0)" fill="#ffffff"/> <path id="Path_976" data-name="Path 976" d="M613.139,285.37a6.333,6.333,0,0,0,2.065.164c.729-3.589.057-6.834-2.307-6.953a3.088,3.088,0,0,0-1.262.178,3.4,3.4,0,0,0-2.349-.478c-8.482.322-12.937,16.656-4.307,17.373,5.181.431,8.787-4.714,10.059-9.38a7.113,7.113,0,0,1-1.9-.905m-6.979,7.213c-4.025.229-.389-10.041,3.8-11.395a3.869,3.869,0,0,0,1.522,3.737s-1.713,7.452-5.323,7.658" transform="translate(-554.223 -256.91)" fill="#ffffff"/> <path id="Path_977" data-name="Path 977" d="M64.422,290.467a154.386,154.386,0,0,0-23.86-.807c3.425-11.131,4.656-21.578,7.629-22.422-.718-1.217-3.121-1.965-5.125-.636-2.592,1.719-3.606,12.342-6.9,23.246C17.607,290.923.261,296,0,307.563c-.25,11.234,14.615,12.234,24.467,6.591,6.545-3.749,10.943-10.356,13.661-17.61.452-1.207,1.1-2.941,1.1-2.941l-1.985-.568c.778-.061,2.234-.07,2.235-.073q2.493-.077,5.074-.073h0a167.017,167.017,0,0,1,22.723,1.753s.927-3.661-2.861-4.174M17.645,313.439c-10.3,2.585-15.388-1.473-14.842-6.393.983-8.86,15.337-12.8,32.284-13.879-3.236,9.3-8.3,17.977-17.443,20.272" transform="translate(0 -245.484)" fill="#ffffff"/> </g> </svg>
   </div>
   <div class="nav-links">
-    <div class="feat-nav-item">
+    <div class="feat-nav-item" onmouseenter="featMenuOpen()" onmouseleave="featMenuScheduleClose()">
       <a href="#" onclick="showView('home');return false;" tabindex="0">Features</a>
-      <div class="feat-dropdown">
-        <div class="feat-dd-list">
-          <a href="#" class="feat-dd-item feat-dd-item-1 feat-hl" onclick="showView('commissions');return false;">
-            <span class="feat-dd-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
-            <span class="feat-dd-item-text"><h4>Commissions</h4><p>Automatic calculations, full transparency.</p></span>
-          </a>
-          <a href="#" class="feat-dd-item feat-dd-item-2" onclick="showView('bonuses');return false;">
-            <span class="feat-dd-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5" rx="1"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
-            <span class="feat-dd-item-text"><h4>Bonuses</h4><p>Team &amp; individual bonuses that track themselves.</p></span>
-          </a>
-          <a href="#" class="feat-dd-item feat-dd-item-3" onclick="showView('contests');return false;">
-            <span class="feat-dd-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
-            <span class="feat-dd-item-text"><h4>Contests</h4><p>Live leaderboards and prize pools.</p></span>
-          </a>
-          <a href="#" class="feat-dd-item feat-dd-item-4" onclick="showView('email-marketing');return false;">
-            <span class="feat-dd-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
-            <span class="feat-dd-item-text"><h4>Email Marketing</h4><p>Campaigns that reach the right people.</p></span>
-          </a>
-          <a href="#" class="feat-dd-item feat-dd-item-5" onclick="showView('automations');return false;">
-            <span class="feat-dd-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg></span>
-            <span class="feat-dd-item-text"><h4>Automations</h4><p>Put the busywork on autopilot.</p></span>
-          </a>
-          <a href="#" class="feat-dd-item feat-dd-item-6" onclick="showView('marketing');return false;">
-            <span class="feat-dd-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h1"/></svg></span>
-            <span class="feat-dd-item-text"><h4>Contracts &amp; Invoices</h4><p>Contracts and billing, one place.</p></span>
-          </a>
-          <a href="#" class="feat-dd-item feat-dd-item-7" onclick="showView('forecast');return false;">
-            <span class="feat-dd-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
-            <span class="feat-dd-item-text"><h4>Forecasting</h4><p>Know where revenue is headed.</p></span>
-          </a>
+      <div class="feat-dropdown" onmouseenter="featMenuOpen()" onmouseleave="featMenuScheduleClose()">
+        <div class="feat-mega">
+          <div class="feat-mega-col feat-mega-col-left">
+            <div class="feat-mega-eyebrow">Platform Features</div>
+            <div class="feat-mega-grid">
+              <a href="#" class="feat-mega-item" onclick="showView('commissions');featMenuClose();return false;">
+                <span class="feat-mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <span class="feat-mega-item-text"><p class="feat-mega-title">Commissions</p><p class="feat-mega-sub">Automatic calculations, full transparency.</p></span>
+              </a>
+              <a href="#" class="feat-mega-item" onclick="showView('bonuses');featMenuClose();return false;">
+                <span class="feat-mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5" rx="1"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+                <span class="feat-mega-item-text"><p class="feat-mega-title">Bonuses</p><p class="feat-mega-sub">Team &amp; individual bonuses that track themselves.</p></span>
+              </a>
+              <a href="#" class="feat-mega-item" onclick="showView('contests');featMenuClose();return false;">
+                <span class="feat-mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                <span class="feat-mega-item-text"><p class="feat-mega-title">Contests</p><p class="feat-mega-sub">Live leaderboards and prize pools.</p></span>
+              </a>
+              <a href="#" class="feat-mega-item" onclick="showView('email-marketing');featMenuClose();return false;">
+                <span class="feat-mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+                <span class="feat-mega-item-text"><p class="feat-mega-title">Email Marketing</p><p class="feat-mega-sub">Campaigns that reach the right people.</p></span>
+              </a>
+              <a href="#" class="feat-mega-item" onclick="showView('automations');featMenuClose();return false;">
+                <span class="feat-mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg></span>
+                <span class="feat-mega-item-text"><p class="feat-mega-title">Automations</p><p class="feat-mega-sub">Put the busywork on autopilot.</p></span>
+              </a>
+              <a href="#" class="feat-mega-item" onclick="showView('marketing');featMenuClose();return false;">
+                <span class="feat-mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h1"/></svg></span>
+                <span class="feat-mega-item-text"><p class="feat-mega-title">Contracts &amp; Invoices</p><p class="feat-mega-sub">Contracts and billing, one place.</p></span>
+              </a>
+              <a href="#" class="feat-mega-item" onclick="showView('forecast');featMenuClose();return false;">
+                <span class="feat-mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <span class="feat-mega-item-text"><p class="feat-mega-title">Forecasting</p><p class="feat-mega-sub">Know where revenue is headed.</p></span>
+              </a>
+              <a href="#" class="feat-mega-viewall" onclick="showView('home');featMenuClose();return false;">View all features &rarr;</a>
+            </div>
+          </div>
+          <div class="feat-mega-col feat-mega-col-right">
+            <div class="feat-mega-eyebrow">Why Goals.com</div>
+            <div class="feat-mega-links">
+              <div class="feat-mega-link-group">
+                <div class="feat-mega-link-head">Platform</div>
+                <a href="#goals" onclick="showView('home');featMenuClose();return false;">Goals &amp; Quotas</a>
+                <a href="#pipeline" onclick="showView('home');featMenuClose();return false;">Pipeline CRM</a>
+                <a href="#ace" onclick="showView('home');featMenuClose();return false;">Ace AI</a>
+                <a href="#" onclick="showView('pricing');featMenuClose();return false;">Pricing</a>
+              </div>
+              <div class="feat-mega-link-group">
+                <div class="feat-mega-link-head">Resources</div>
+                <a href="#" onclick="showView('podcast');featMenuClose();return false;">Podcast</a>
+                <a href="#" onclick="showView('kc');featMenuClose();return false;">Knowledge Center</a>
+                <a href="#" onclick="showView('contact');featMenuClose();return false;">Contact</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="feat-dd-preview">
-          <div class="feat-dd-panel feat-dd-panel-1 feat-dd-panel-active">
-            <div class="feat-dd-preview-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-            <h3>Commissions</h3>
-            <p>Commissions your team can actually trust. Automatic calculations, full transparency into every payout, and flexible structures Ace can build for you in plain English.</p>
+        <div class="feat-mega-banner">
+          <div class="feat-mega-banner-text">
+            <span class="feat-mega-banner-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+            <span>Goals.com &middot; Sales Performance Software built around winning.</span>
           </div>
-          <div class="feat-dd-panel feat-dd-panel-2">
-            <div class="feat-dd-preview-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5" rx="1"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
-            <h3>Bonuses</h3>
-            <p>Set a bonus once and let it track itself — team or individual, tied to any milestone, with live progress and automatic payout history.</p>
-          </div>
-          <div class="feat-dd-panel feat-dd-panel-3">
-            <div class="feat-dd-preview-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-            <h3>Contests</h3>
-            <p>Run a sales contest in minutes. Ace sets the rules, the leaderboard, and the deadline — reps compete in real time.</p>
-          </div>
-          <div class="feat-dd-panel feat-dd-panel-4">
-            <div class="feat-dd-preview-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <h3>Email Marketing</h3>
-            <p>Build a list, send a campaign, and see exactly what happened — opens, clicks, and unsubscribes, all in one place.</p>
-          </div>
-          <div class="feat-dd-panel feat-dd-panel-5">
-            <div class="feat-dd-preview-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg></div>
-            <h3>Automations</h3>
-            <p>Pick a recipe or build your own — automations trigger on any change in your pipeline so nothing falls through the cracks.</p>
-          </div>
-          <div class="feat-dd-panel feat-dd-panel-6">
-            <div class="feat-dd-preview-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h1"/></svg></div>
-            <h3>Contracts &amp; Invoices</h3>
-            <p>Pair a contract template with an email template, send it, get it signed, and invoice — without leaving your CRM.</p>
-          </div>
-          <div class="feat-dd-panel feat-dd-panel-7">
-            <div class="feat-dd-preview-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-            <h3>Forecasting</h3>
-            <p>See EOY revenue projections, forecast by rep, and the exact gap to goal — with Ace ready to help you close it.</p>
-          </div>
+          <a href="https://calendly.com/goals-demo/30min?month=2026-07" class="feat-mega-banner-cta">Book a Demo &rarr;</a>
         </div>
       </div>
     </div>
@@ -4144,6 +4135,25 @@ function handleContactSubmit(e) {
   btn.disabled = true;
 }
 
+var featMenuCloseTimer = null;
+function featMenuOpen() {
+  clearTimeout(featMenuCloseTimer);
+  var dd = document.querySelector('.feat-dropdown');
+  if (dd) dd.classList.add('feat-open');
+}
+function featMenuScheduleClose() {
+  clearTimeout(featMenuCloseTimer);
+  featMenuCloseTimer = setTimeout(function() {
+    var dd = document.querySelector('.feat-dropdown');
+    if (dd) dd.classList.remove('feat-open');
+  }, 150);
+}
+function featMenuClose() {
+  clearTimeout(featMenuCloseTimer);
+  var dd = document.querySelector('.feat-dropdown');
+  if (dd) dd.classList.remove('feat-open');
+}
+
 function showView(id) {
   // hide login overlay if open
   var loginEl = document.getElementById('view-login');
@@ -4152,6 +4162,7 @@ function showView(id) {
   if (id === 'login') {
     if (loginEl) { loginEl.classList.add('show'); window.scrollTo(0,0); }
     document.getElementById('kcNavBtn').classList.toggle('active', false);
+    if (location.hash !== '#login') { try { history.replaceState(null, '', '#login'); } catch(e) { location.hash = 'login'; } }
     return;
   }
 
@@ -4163,7 +4174,35 @@ function showView(id) {
   document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
   document.getElementById('kc-list-page').style.display = '';
   const _nb = document.getElementById('art-nav-bar'); if (_nb) _nb.classList.remove('show');
+
+  // keep URL hash in sync with the active view so refresh/back-forward restore it
+  if (location.hash !== '#' + id) { try { history.replaceState(null, '', '#' + id); } catch(e) { location.hash = id; } }
 }
+
+// ── HASH-BASED VIEW ROUTING (restore view on refresh, support back/forward) ──
+function showViewFromHash() {
+  // Always start from a clean slate: whatever the raw HTML/markup marked as
+  // active by default (view-home has class="view active" hardcoded) must not
+  // be allowed to win a race against the hash-restore logic.
+  var hash = (location.hash || '').replace(/^#/, '');
+  if (hash && (hash === 'login' || document.getElementById('view-' + hash))) {
+    showView(hash);
+  } else {
+    // No matching view for this hash (e.g. empty hash, or an in-page anchor
+    // like #goals/#pipeline/#ace) - explicitly (re)assert home as the default
+    // instead of just trusting the markup, so this function is always the
+    // single definitive source of truth for the active view on load.
+    showView('home');
+  }
+}
+// Run on 'load' (fires after DOMContentLoaded, after every other
+// DOMContentLoaded listener in this file, and after all resources) so this
+// is guaranteed to be the LAST thing that touches .view/.active state on
+// initial page load - including hard refreshes, which re-parse everything
+// fresh with no cached DOM/JS state to fall back on.
+window.addEventListener('load', showViewFromHash);
+document.addEventListener('DOMContentLoaded', showViewFromHash);
+window.addEventListener('hashchange', showViewFromHash);
 
 // ── ARTICLE ROUTING ────────────────────────────────────────
 function openArticle(id) {
