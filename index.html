@@ -70,9 +70,6 @@ html.nav-open,body.nav-open{overflow:hidden}
 .plat-cols{display:flex}
 .plat-col{flex:1;min-width:0;padding:22px 26px;border-right:1px solid rgba(255,255,255,.07)}
 .plat-col:last-child{border-right:none}
-.plat-cols>.plat-col:nth-child(1){flex:1}
-.plat-cols>.plat-col:nth-child(2){flex:1}
-.plat-cols>.plat-col:nth-child(3){flex:1}
 .plat-col-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .plat-col-label{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .plat-col-rule{flex:1;height:1px}
@@ -84,9 +81,10 @@ html.nav-open,body.nav-open{overflow:hidden}
 .plat-item-sub{font-size:11.5px;color:rgba(255,255,255,.9);line-height:1.35;margin:0;text-wrap:pretty}
 .plat-item-expanded{background:transparent;border-radius:12px;padding:12px;margin-bottom:8px}
 .plat-item-wrap{position:relative}
-.plat-sublist{list-style:none;margin:8px 0 0;padding:0 9px;width:100%;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;row-gap:9px;align-items:start}
-.plat-sublist li{display:flex;align-items:flex-start;gap:6px;font-size:11.5px;color:rgba(255,255,255,.9);line-height:1.35;white-space:normal;text-wrap:pretty}
-.plat-sublist li:before{content:"";flex-shrink:0;width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.3);margin-top:5px}
+.plat-sublist{list-style:none;margin:8px 0 0;padding:0 4px;width:100%;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;column-gap:4px;row-gap:5px;align-items:start}
+.plat-sublist li{position:relative;padding-left:53px;font-size:11.5px;color:rgba(255,255,255,.9);line-height:1.3;white-space:nowrap;margin:0}
+.plat-sublist li.plat-sublist-wrap{white-space:normal}
+.plat-sublist li:before{content:"";position:absolute;left:43px;top:4.7px;width:4px;height:4px;border-radius:50%;background:#5b8def}
 .plat-item-chevron{margin-left:auto;margin-top:3px;flex-shrink:0}
 .plat-banner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 32px;background:var(--teal2);border-top:1px solid rgba(255,255,255,.08)}
 .plat-banner-left{display:flex;align-items:center;gap:14px}
@@ -628,7 +626,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
         <div class="plat-mega">
           <div class="plat-header">
             <div class="plat-header-main">
-              <div class="plat-eyebrow" style="display:flex;align-items:center;gap:6px">Goals.com<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg>The AI Powered Sales Performance Platform</div>
+              <div class="plat-eyebrow" style="display:flex;align-items:center;gap:6px">Goals.com<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg>AI Powered Sales Performance</div>
               <h3 class="plat-heading">Everything Your Sales Team Needs. One Powerful&nbsp;Platform.</h3>
               <p class="plat-subhead">Goals.com combines CRM, goal setting, forecasting, compensation, coaching, reporting, communication and more into one AI-powered sales performance&nbsp;platform.</p>
             </div>
@@ -656,8 +654,8 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
                 <li>Send Emails</li>
                 <li>Capture Notes</li>
                 <li>Draft Contracts</li>
-                <li>Track Calls, Emails and Meetings</li>
                 <li>Send Invoices</li>
+                <li class="plat-sublist-wrap">Track Calls, Emails and Meetings</li>
               </ul>
               </div>
               <a href="#" class="plat-item" onclick="showView('marketing');featMenuClose();return false;">
