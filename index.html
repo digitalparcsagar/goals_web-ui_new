@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--primary-font:"Rubik";--s140:140px;--s100:100px;--s80:80px;--s50:50px;--s60:60px;--s60special:60px;--s40:40px;--s25:25px;--s20:20px;--navy:#0A0B13;--navy2:#06070F;--teal:#3ddc6e;--teal2:#2bb85a;--teal-light:#3ddc6e;--teal-pale:rgba(29,158,117,.12);--off:#f4f6f9;--g50:#f8fafc;--g100:#f1f5f9;--g200:#e2e8f0;--g300:#cbd5e1;--g400:#94a3b8;--g500:#64748b;--g600:#475569;--dark:#1e293b;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.18);--nav-height:76px}
+:root{--primary-font:"Rubik";--s140:140px;--s100:100px;--s80:80px;--s50:50px;--s60:60px;--s60special:60px;--s40:40px;--s25:25px;--s20:20px;--navy:#0A0B13;--navy2:#06070F;--teal:#3ddc6e;--teal2:#2bb85a;--teal-light:#3ddc6e;--teal-pale:rgba(61,220,110,.12);--off:#f4f6f9;--g50:#f8fafc;--g100:#f1f5f9;--g200:#e2e8f0;--g300:#cbd5e1;--g400:#94a3b8;--g500:#64748b;--g600:#475569;--dark:#1e293b;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.08);--shadow-lg:0 12px 48px rgba(0,0,0,.18);--nav-height:76px}
 @media(max-width:1540px){:root{--s140:120px;--s100:80px;--s80:60px;--s50:40px;--s60:50px;--s60special:40px;--s40:30px;--s25:20px;--s20:15px}}
 @media(max-width:1200px){:root{--s140:120px;--s100:80px;--s80:60px;--s50:35px;--s60:40px;--s60special:20px;--s40:30px;--s25:20px;--s20:15px}}
 @media(max-width:1024px){:root{--s140:100px;--s100:60px;--s80:40px;--s50:25px;--s60:30px;--s60special:10px;--s40:20px;--s25:15px;--s20:10px}}
@@ -86,7 +86,7 @@ html.nav-open,body.nav-open{overflow:hidden}
 .plat-sublist li.plat-sublist-wrap{white-space:normal}
 .plat-sublist li:before{content:"";position:absolute;left:43px;top:4.7px;width:4px;height:4px;border-radius:50%;background:#5b8def}
 .plat-item-chevron{margin-left:auto;margin-top:3px;flex-shrink:0}
-.plat-banner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 32px;background:var(--teal2);border-top:1px solid rgba(255,255,255,.08)}
+.plat-banner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 32px;background:var(--teal);border-top:1px solid rgba(255,255,255,.08)}
 .plat-banner-left{display:flex;align-items:center;gap:14px}
 .plat-banner-badge{width:30px;height:30px;border-radius:8px;background:rgba(10,11,19,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .plat-banner-headline{font-size:16px;font-weight:700;color:var(--navy);margin:0;letter-spacing:.1px}
@@ -96,18 +96,18 @@ html.nav-open,body.nav-open{overflow:hidden}
 
 /* ── HERO ────────────────────────────────────────────────────────────── */
 .hero{min-height:100vh;background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:88px 72px 0;overflow:hidden;position:relative}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 700px at 65% 45%,rgba(29,158,117,.11) 0%,transparent 65%);pointer-events:none}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 700px at 65% 45%,rgba(61,220,110,.11) 0%,transparent 65%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(255,255,255,.06)}
 .hero-inner{max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;position:relative;z-index:1;flex:1;padding-bottom:40px}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.14);border:1px solid rgba(29,158,117,.28);color:#4ade80;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:16px}
-.hero-eyebrow span{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:blink 2s ease-in-out infinite;flex-shrink:0}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(61,220,110,.14);border:1px solid rgba(61,220,110,.28);color:var(--teal);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:16px}
+.hero-eyebrow span{width:6px;height:6px;background:var(--teal);border-radius:50%;animation:blink 2s ease-in-out infinite;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 h1{font-size:clamp(30px,3.4vw,46px);font-weight:900;line-height:1.12;letter-spacing:-.03em;color:#fff;margin-bottom:18px}
 h1 em{font-style:normal;color:var(--teal-light)}
 .hero-sub{font-size:16px;line-height:1.65;color:rgba(255,255,255,.92);max-width:460px;margin-bottom:26px}
 .hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}
 .btn-hero{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;font-size:15px;font-weight:700;padding:15px 30px;border-radius:10px;transition:all .25s}
-.btn-hero:hover{background:var(--teal2);transform:translateY(-1px);box-shadow:0 10px 28px rgba(29,158,117,.3)}
+.btn-hero:hover{background:var(--teal2);transform:translateY(-1px);box-shadow:0 10px 28px rgba(61,220,110,.3)}
 .btn-hero-outline{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.92);font-size:15px;font-weight:500;padding:14px 22px;border:1px solid rgba(255,255,255,.2);border-radius:10px;transition:all .25s}
 .btn-hero-outline:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.85)}
 .hero-trust{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
@@ -116,7 +116,7 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .hero-trust-sep{color:rgba(255,255,255,.62);font-size:14px}
 
 /* ── HERO DASHBOARD VISUAL ───────────────────────────────────────────── */
-.dash-window{background:#0f1422;border-radius:14px;border:1px solid rgba(255,255,255,.1);box-shadow:0 32px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04);overflow:hidden}
+.dash-window{background:var(--navy);border-radius:14px;border:1px solid rgba(255,255,255,.1);box-shadow:0 32px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04);overflow:hidden}
 .dash-titlebar{height:40px;background:rgba(255,255,255,.035);border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;padding:0 16px;gap:7px}
 .dash-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .dash-titlebar-label{flex:1;text-align:center;font-size:11px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.62);letter-spacing:.04em}
@@ -125,19 +125,19 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .dash-sidebar{background:rgba(255,255,255,.025);border-right:1px solid rgba(255,255,255,.06);padding:16px 0;display:flex;flex-direction:column;align-items:center;gap:6px}
 .dash-s-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:background .2s}
 .dash-s-icon:hover,.dash-s-icon.on{background:rgba(255,255,255,.08)}
-.dash-s-icon.on{background:rgba(29,158,117,.18)}
+.dash-s-icon.on{background:rgba(61,220,110,.18)}
 /* main panel */
 .dash-main{overflow:hidden;display:flex;flex-direction:column}
 .dash-panel-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 0;flex-shrink:0}
 .dash-panel-title{font-size:13px;font-weight:700;color:#fff}
-.dash-panel-badge{font-size:9px;font-weight:700;background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.25);padding:2px 8px;border-radius:100px;letter-spacing:.05em;text-transform:uppercase}
+.dash-panel-badge{font-size:9px;font-weight:700;background:rgba(61,220,110,.12);color:var(--teal);border:1px solid rgba(61,220,110,.25);padding:2px 8px;border-radius:100px;letter-spacing:.05em;text-transform:uppercase}
 /* metric row */
 .dash-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px 18px;flex-shrink:0}
 .dash-metric{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:10px 12px}
 .dash-metric-label{font-size:9px;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
 .dash-metric-val{font-family:'DM Mono',monospace;font-size:18px;font-weight:700;color:#fff;line-height:1}
 .dash-metric-sub{font-size:9px;color:rgba(255,255,255,.85);margin-top:3px}
-.dash-metric-sub .up{color:#4ade80}
+.dash-metric-sub .up{color:var(--teal)}
 /* quota list */
 .dash-quota-head{display:flex;align-items:center;justify-content:space-between;padding:0 18px 8px;flex-shrink:0}
 .dash-quota-title{font-size:10px;font-weight:700;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.07em}
@@ -151,10 +151,10 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .dash-rep-fill{height:100%;border-radius:2px;position:absolute;top:0;left:0}
 .dash-rep-pct{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.85);flex-shrink:0}
 /* ace bar */
-.dash-ace-bar{margin:12px 18px 14px;background:rgba(29,158,117,.08);border:1px solid rgba(29,158,117,.18);border-radius:8px;padding:10px 14px;display:flex;align-items:flex-start;gap:10px;flex-shrink:0}
+.dash-ace-bar{margin:12px 18px 14px;background:rgba(61,220,110,.08);border:1px solid rgba(61,220,110,.18);border-radius:8px;padding:10px 14px;display:flex;align-items:flex-start;gap:10px;flex-shrink:0}
 .dash-ace-icon{width:22px;height:22px;background:linear-gradient(135deg,var(--teal),#60a5fa);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:1px}
 .dash-ace-text{font-size:11px;color:rgba(255,255,255,.92);line-height:1.5}
-.dash-ace-text strong{color:#4ade80;font-weight:600}
+.dash-ace-text strong{color:var(--teal);font-weight:600}
 .dash-panel-greeting{font-size:9px;color:rgba(255,255,255,.62);font-weight:400;margin-left:6px}
 .dash-sales-wrap{padding:0 18px 10px;flex-shrink:0}
 .dash-sales-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:12px 14px}
@@ -163,13 +163,13 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .dash-sales-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:5px}
 .dash-sales-badges{display:flex;flex-wrap:wrap;gap:5px}
 .dash-sales-badge{font-size:8px;font-weight:700;padding:2px 6px;border-radius:3px}
-.dash-sales-badge-ok{background:rgba(29,158,117,.2);color:#4ade80}
+.dash-sales-badge-ok{background:rgba(61,220,110,.2);color:var(--teal)}
 .dash-sales-badge-warn{background:rgba(239,68,68,.15);color:#f87171}
 .dash-sales-pace{text-align:right;flex-shrink:0}
-.dash-sales-pace-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#4ade80}
+.dash-sales-pace-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:var(--teal)}
 .dash-sales-pace-label{font-size:8px;color:rgba(255,255,255,.85)}
 .dash-sales-progress{height:3px;background:rgba(255,255,255,.08);border-radius:2px;position:relative;overflow:hidden}
-.dash-sales-progress-fill{position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,#1d9e75,#22c55e);border-radius:2px}
+.dash-sales-progress-fill{position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,var(--teal),var(--teal2));border-radius:2px}
 .dash-metric-val-sm{font-size:14px}
 @media(max-width:900px){.hero-viz-wrap{width:100%;max-width:560px;margin:0 auto;padding:12px 0 0}.hero .hero-viz-wrap{animation:none;opacity:1;transform:none}.hero-float-card{padding:8px 10px;gap:8px}.hfc-lg{min-width:0;padding:10px 12px}.hfc-1{top:-10px;left:0}.hfc-2{right:-10px}.hfc-3{bottom:-10px;right:8px}.hfc-4{top:-14px;left:40px}.hfc-5{left:-18px}.hfc-6{bottom:-10px;left:12px}.dash-window{width:100%;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.04)}.dash-body{height:auto;min-height:300px;grid-template-columns:44px 1fr}.dash-sidebar{padding:12px 0;gap:4px}.dash-s-icon{width:30px;height:30px;border-radius:8px}.dash-s-icon svg{width:13px;height:13px}.dash-metrics{grid-template-columns:repeat(2,1fr);padding:0 14px 8px;gap:6px}.dash-metric{padding:8px 10px}.dash-sales-wrap{padding:0 14px 8px}.dash-panel-head{padding:12px 14px 0}.dash-quota-head{padding:0 14px 8px}.dash-rep-list{padding:0 14px}}
 @media(max-width:640px){.hero-viz-wrap{max-width:100%;padding-top:8px}.hero-float-card{transform:scale(.88);transform-origin:center}.hfc-2,.hfc-3,.hfc-4,.hfc-5,.hfc-6{display:none}.hfc-1{top:-8px;left:4px;transform:scale(.88)}.dash-titlebar{height:34px;padding:0 12px}.dash-titlebar-label{font-size:9px}.dash-dot{width:8px;height:8px}.dash-body{min-height:0;grid-template-columns:38px 1fr}.dash-panel-greeting{display:none}.dash-panel-title{font-size:12px}.dash-sales-val{font-size:17px}.dash-sales-pace-val{font-size:12px}.dash-metric-val,.dash-metric-val-sm{font-size:13px}.dash-metric-label,.dash-metric-sub{font-size:8px}.dash-rep-name{font-size:10px}.dash-rep-pct{font-size:9px}.dash-ace-bar{margin:10px 14px 12px;padding:8px 10px}.dash-ace-text{font-size:10px;line-height:1.45}.dash-ace-icon{width:20px;height:20px}}
@@ -190,7 +190,7 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .section-off{background:var(--off)}
 .section-white{background:#fff}
 .s-tag{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}
-.s-tag-teal{color:var(--teal);background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.2)}
+.s-tag-teal{color:var(--teal);background:rgba(61,220,110,.1);border:1px solid rgba(61,220,110,.2)}
 .s-tag-white{color:rgba(255,255,255,.92);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
 .s-head{text-align:center;max-width:680px;margin:0 auto 64px}
 .s-head h2{font-size:clamp(28px,3.2vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:14px}
@@ -198,6 +198,8 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .s-head p{font-size:17px;line-height:1.65;color:var(--g500)}
 .s-head-dark h2{color:#fff}
 .s-head-dark p{color:rgba(255,255,255,.85)}
+.ace-head-nowrap{white-space:nowrap}
+@media(max-width:640px){.ace-head-nowrap{white-space:normal}}
 
 /* ── FEATURE GRID (4 cards) ──────────────────────────────────────────── */
 .fg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden}
@@ -218,7 +220,7 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .fs-list{display:flex;flex-direction:column;gap:11px}
 .fs-item{display:flex;align-items:flex-start;gap:11px;font-size:14px;color:var(--g600);line-height:1.5}
 .fs-item-dark{color:rgba(255,255,255,.92)}
-.fs-item::before{content:'';width:18px;height:18px;min-width:18px;border-radius:50%;border:2px solid var(--teal);background-color:rgba(29,158,117,.1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%231d9e75' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;margin-top:1px}
+.fs-item::before{content:'';width:18px;height:18px;min-width:18px;border-radius:50%;border:2px solid var(--teal);background-color:rgba(61,220,110,.1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%233ddc6e' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;margin-top:1px}
 
 /* ── MOCK SHELLS ─────────────────────────────────────────────────────── */
 .mock{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy2);border:1px solid rgba(255,255,255,.08)}
@@ -256,20 +258,20 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .t-new{background:rgba(99,102,241,.15);color:#a5b4fc}
 
 /* ace mock */
-.ace-shell{background:#161b26;border-radius:14px;border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.ace-shell{background:var(--navy2);border-radius:14px;border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45)}
 .ace-hdr{background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.07);padding:14px 18px;display:flex;align-items:center;gap:12px}
-.ace-hdr-icon{width:32px;height:32px;background:linear-gradient(135deg,#1d9e75,#3b82f6);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ace-hdr-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--teal),#3b82f6);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ace-hdr-name{font-size:14px;font-weight:700;color:#fff;line-height:1.3}
 .ace-hdr-sub{font-size:11px;color:rgba(255,255,255,.85);margin-top:2px}
-.ace-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;margin-left:auto;flex-shrink:0;box-shadow:0 0 0 3px rgba(34,197,94,.15)}
+.ace-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);margin-left:auto;flex-shrink:0;box-shadow:0 0 0 3px rgba(61,220,110,.15)}
 .ace-msgs{padding:20px 18px;display:flex;flex-direction:column;gap:16px}
-.ace-u{align-self:flex-end;background:#10b981;color:#fff;border-radius:12px 12px 3px 12px;padding:10px 14px;font-size:12px;max-width:78%;line-height:1.55}
+.ace-u{align-self:flex-end;background:var(--teal);color:#0a1f14;border-radius:12px 12px 3px 12px;padding:10px 14px;font-size:12px;max-width:78%;line-height:1.55}
 .ace-r{align-self:flex-start;background:#222833;border:1px solid rgba(255,255,255,.08);border-radius:12px 12px 12px 3px;padding:14px 15px;font-size:12px;color:rgba(255,255,255,.92);max-width:100%;line-height:1.65}
-.ace-r em{color:#4ade80;font-style:normal;font-weight:600}
-.ace-label{display:inline-block;font-size:9px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.ace-r em{color:var(--teal);font-style:normal;font-weight:600}
+.ace-label{display:block;font-size:9px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
 .ace-input-row{display:flex;align-items:center;gap:10px;padding:14px 18px 16px;border-top:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.12)}
 .ace-field{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,.85);font-family:'Inter',sans-serif}
-.ace-send{width:30px;height:30px;background:#10b981;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ace-send{width:30px;height:30px;background:var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
 /* ── METRICS ─────────────────────────────────────────────────────────── */
 .metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden}
@@ -306,18 +308,18 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .billing-bottom{margin-top:auto}
 .billing-cta{display:block;width:100%;text-align:center;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:14px 16px;border-radius:10px;transition:background .25s,color .25s,border-color .25s}
 .billing-cta-outline{border:1.5px solid var(--teal);color:var(--teal);background:transparent}
-.billing-cta-outline:hover{background:rgba(29,158,117,.1)}
+.billing-cta-outline:hover{background:rgba(61,220,110,.1)}
 .billing-cta-solid{border:1.5px solid var(--teal);background:var(--teal);color:#fff}
 .billing-cta-solid:hover{background:var(--teal2);border-color:var(--teal2)}
 .pricing-col-main{width:64%;flex:0 0 calc(64% - 12px);background:var(--navy2);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,.4);gap:0}
 .p-top{flex-shrink:0;padding:28px 28px 22px;border-bottom:1px solid rgba(255,255,255,.08)}
-.p-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(29,158,117,.14);color:var(--teal-light);font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:14px}
+.p-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(61,220,110,.14);color:var(--teal-light);font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:14px}
 .p-name{font-size:22px;font-weight:700;color:#fff;margin-bottom:6px}
 .p-desc{font-size:15px;line-height:1.5;color:rgba(255,255,255,.85)}
 .p-bottom{flex:1;display:flex;flex-direction:column;padding:24px 28px 28px}
 .p-feats{flex:1;display:grid;grid-template-columns:1fr 1fr;column-gap:14px;row-gap:12px;align-content:start}
 .p-feat{display:flex;align-items:center;gap:8px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.92);white-space:nowrap}
-.p-feat::before{content:'';width:15px;height:15px;min-width:15px;margin-top:0;border-radius:50%;border:1.5px solid var(--teal);background-color:rgba(29,158,117,.1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='7'%3E%3Cpath d='M1 3.5l2 2L7 1' stroke='%231d9e75' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.p-feat::before{content:'';width:15px;height:15px;min-width:15px;margin-top:0;border-radius:50%;border:1.5px solid var(--teal);background-color:rgba(61,220,110,.1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='7'%3E%3Cpath d='M1 3.5l2 2L7 1' stroke='%233ddc6e' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
 .p-cta{margin-top:24px;background:var(--teal);color:#fff;font-size:15px;font-weight:700;padding:15px;border-radius:9px;text-align:center;display:block;transition:background .25s}
 .p-cta:hover{background:var(--teal2)}
 .p-note{margin-top:12px;text-align:center;font-size:11px;color:rgba(255,255,255,.62)}
@@ -350,7 +352,7 @@ footer{background:var(--navy2);border-top:1px solid rgba(255,255,255,.06);paddin
 .fc a:hover{color:#fff}
 .fc-contact-list{display:flex;flex-direction:column;gap:12px}
 .fc-contact-item{display:flex;align-items:flex-start;gap:10px}
-.fc-contact-icon{width:28px;height:28px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-light)}
+.fc-contact-icon{width:28px;height:28px;background:rgba(61,220,110,.12);border:1px solid rgba(61,220,110,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-light)}
 .fc-contact-icon svg{width:14px;height:14px;display:block}
 .fc-contact-text{font-size:13px;line-height:1.55;color:rgba(255,255,255,.85);padding-top:4px}
 a.fc-contact-text{display:block;margin-bottom:0;transition:color .2s}
@@ -402,19 +404,19 @@ a.fc-contact-text:hover{color:#fff}
 .goal-banner-label{font-size:9px;font-weight:700;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
 .goal-banner-val{font-family:'DM Mono',monospace;font-size:22px;font-weight:700;color:#fff;line-height:1}
 .goal-banner-badges{display:flex;gap:6px;margin-top:6px}
-.gb-achieved{font-size:9px;font-weight:700;background:rgba(29,158,117,.2);color:#4ade80;padding:2px 8px;border-radius:3px}
+.gb-achieved{font-size:9px;font-weight:700;background:rgba(61,220,110,.2);color:var(--teal);padding:2px 8px;border-radius:3px}
 .gb-remaining{font-size:9px;font-weight:700;background:rgba(239,68,68,.15);color:#f87171;padding:2px 8px;border-radius:3px}
 .gb-risk{font-size:9px;font-weight:700;background:rgba(245,158,11,.15);color:#fbbf24;padding:2px 8px;border-radius:3px}
 .goal-pace-right{text-align:right}
-.goal-pace-pct{font-family:'DM Mono',monospace;font-size:26px;font-weight:700;color:#4ade80;line-height:1}
+.goal-pace-pct{font-family:'DM Mono',monospace;font-size:26px;font-weight:700;color:var(--teal);line-height:1}
 .goal-pace-label{font-size:9px;color:rgba(255,255,255,.85);margin-top:3px}
 .goal-timeline{position:relative;height:4px;background:rgba(255,255,255,.08);border-radius:2px;margin-top:8px}
-.goal-tl-fill{position:absolute;top:0;left:0;height:100%;border-radius:2px;background:linear-gradient(90deg,#1d9e75,#22c55e)}
-.goal-tl-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:#22c55e;border:2px solid rgba(255,255,255,.3)}
+.goal-tl-fill{position:absolute;top:0;left:0;height:100%;border-radius:2px;background:linear-gradient(90deg,var(--teal),var(--teal2))}
+.goal-tl-dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:var(--teal);border:2px solid rgba(255,255,255,.3)}
 .goal-mini-row{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
 .goal-mini{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:10px 12px}
 .goal-mini-lbl{font-size:8px;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
-.goal-mini-val{font-family:'DM Mono',monospace;font-size:15px;font-weight:700;color:#4ade80;line-height:1}
+.goal-mini-val{font-family:'DM Mono',monospace;font-size:15px;font-weight:700;color:var(--teal);line-height:1}
 .goal-mini-trend{font-size:8px;color:rgba(255,255,255,.85);margin-top:3px}
 
 /* ── PIPELINE LIST MOCK ──────────────────────────────────────────────── */
@@ -430,12 +432,12 @@ a.fc-contact-text:hover{color:#fff}
 .stage-prospect{background:rgba(99,102,241,.18);color:#a5b4fc}
 .stage-contact{background:rgba(245,158,11,.15);color:#fbbf24}
 .stage-docs{background:rgba(6,182,212,.15);color:#67e8f9}
-.stage-payment{background:rgba(34,197,94,.12);color:#86efac}
-.stage-enrolled{background:rgba(29,158,117,.15);color:#4ade80}
+.stage-payment{background:rgba(61,220,110,.12);color:var(--teal)}
+.stage-enrolled{background:rgba(61,220,110,.15);color:var(--teal)}
 .stage-signed{background:rgba(16,185,129,.18);color:#34d399}
 .pl-stats{display:flex;gap:14px;margin-bottom:12px;flex-wrap:wrap;font-size:9px;color:rgba(255,255,255,.85)}
 .pl-stats strong{color:#fff;font-weight:700}
-.pl-stats .pl-win{color:#22c55e}
+.pl-stats .pl-win{color:var(--teal)}
 .pl-deal{display:flex;align-items:center;gap:8px;min-width:0}
 .pl-av{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#fff;letter-spacing:.02em}
 .pl-th:nth-child(2),.pl-th:nth-child(3),.pl-stage-wrap{text-align:right;justify-self:end}
@@ -457,9 +459,9 @@ a.fc-contact-text:hover{color:#fff}
 .hfc-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .hfc-label{font-size:9px;font-weight:700;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
 .hfc-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;color:#fff;line-height:1.2}
-.hfc-tag{font-size:9px;font-weight:700;background:rgba(74,222,128,.12);color:#4ade80;padding:1px 5px;border-radius:3px;margin-left:3px;font-family:'Inter',sans-serif}
+.hfc-tag{font-size:9px;font-weight:700;background:rgba(61,220,110,.12);color:var(--teal);padding:1px 5px;border-radius:3px;margin-left:3px;font-family:'Inter',sans-serif}
 .hfc-bar{height:3px;background:rgba(255,255,255,.08);border-radius:2px;margin-top:6px;width:90px}
-.hfc-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#1d9e75,#22c55e)}
+.hfc-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--teal),var(--teal2))}
 .hfc-insight{font-size:11px;color:rgba(255,255,255,.92);line-height:1.3;max-width:120px;white-space:normal}
 
 @keyframes float2{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(calc(-50% - 8px)) translateX(3px)}}
@@ -485,7 +487,7 @@ a.fc-contact-text:hover{color:#fff}
 
 /* ── FEATURE GRID hover glow ─────────────────────────────────────────── */
 .fg-card{transition:background .2s,box-shadow .2s}
-.fg-card:hover{background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(29,158,117,.2)}
+.fg-card:hover{background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(61,220,110,.2)}
 .fg-icon{transition:transform .2s}
 .fg-card:hover .fg-icon{transform:scale(1.08)}
 
@@ -502,15 +504,15 @@ a.fc-contact-text:hover{color:#fff}
 
 /* ── HERO VIZ BACKGROUND ─────────────────────────────────────────────── */
 .hero-viz-bg{position:absolute;inset:-60px;pointer-events:none;z-index:0}
-.hvb-glow{position:absolute;top:45%;left:45%;transform:translate(-50%,-50%);width:580px;height:580px;background:radial-gradient(ellipse at center,rgba(29,158,117,.22) 0%,rgba(29,158,117,.1) 38%,transparent 68%);border-radius:50%;animation:glowPulse 6s ease-in-out infinite}
+.hvb-glow{position:absolute;top:45%;left:45%;transform:translate(-50%,-50%);width:580px;height:580px;background:radial-gradient(ellipse at center,rgba(61,220,110,.22) 0%,rgba(61,220,110,.1) 38%,transparent 68%);border-radius:50%;animation:glowPulse 6s ease-in-out infinite}
 .hvb-glow2{position:absolute;top:15%;right:5%;width:320px;height:320px;background:radial-gradient(ellipse at center,rgba(99,102,241,.16) 0%,rgba(99,102,241,.06) 50%,transparent 70%);border-radius:50%;animation:glowPulse 8s 2s ease-in-out infinite}
 .hvb-glow3{position:absolute;bottom:10%;left:10%;width:240px;height:240px;background:radial-gradient(ellipse at center,rgba(6,182,212,.1) 0%,transparent 65%);border-radius:50%}
 .hvb-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.1) 1px,transparent 1px);background-size:22px 22px}
-.hvb-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:620px;height:620px;border-radius:50%;border:1px solid rgba(29,158,117,.12)}
-.hvb-ring2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:430px;height:430px;border-radius:50%;border:1px solid rgba(29,158,117,.07)}
+.hvb-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:620px;height:620px;border-radius:50%;border:1px solid rgba(61,220,110,.12)}
+.hvb-ring2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:430px;height:430px;border-radius:50%;border:1px solid rgba(61,220,110,.07)}
 .hvb-ring3{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,255,255,.05)}
-.hvb-line-h{position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(29,158,117,.14) 40%,rgba(29,158,117,.14) 60%,transparent)}
-.hvb-line-v{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(29,158,117,.1) 30%,rgba(29,158,117,.1) 70%,transparent)}
+.hvb-line-h{position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(61,220,110,.14) 40%,rgba(61,220,110,.14) 60%,transparent)}
+.hvb-line-v{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(61,220,110,.1) 30%,rgba(61,220,110,.1) 70%,transparent)}
 @keyframes glowPulse{0%,100%{opacity:.8;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
 
 /* ── EXTRA FLOAT CARDS ───────────────────────────────────────────────── */
@@ -529,9 +531,9 @@ a.fc-contact-text:hover{color:#fff}
 /* ── GOALS SECTION BG DECORATION ─────────────────────────────────────── */
 #goals{position:relative;overflow:hidden}
 #goals::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.055) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0}
-#goals::after{content:'';position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(ellipse at center,rgba(29,158,117,.16) 0%,rgba(29,158,117,.06) 45%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;animation:glowPulse 7s ease-in-out infinite}
+#goals::after{content:'';position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(ellipse at center,rgba(61,220,110,.16) 0%,rgba(61,220,110,.06) 45%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;animation:glowPulse 7s ease-in-out infinite}
 #goals .section-inner{position:relative;z-index:1}
-.goals-ring{position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;border:1px solid rgba(29,158,117,.1);pointer-events:none;z-index:0}
+.goals-ring{position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;border:1px solid rgba(61,220,110,.1);pointer-events:none;z-index:0}
 .goals-ring2{position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(255,255,255,.05);pointer-events:none;z-index:0}
 
 /* ── PIPELINE SECTION BG DECORATION ──────────────────────────────────── */
@@ -539,7 +541,7 @@ a.fc-contact-text:hover{color:#fff}
 #pipeline::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,.13) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(99,102,241,.13) 1.5px,transparent 1.5px);background-size:44px 44px;pointer-events:none;z-index:0}
 #pipeline::after{content:'';position:absolute;bottom:-100px;right:-80px;width:460px;height:460px;background:radial-gradient(ellipse at center,rgba(99,102,241,.08) 0%,rgba(99,102,241,.03) 50%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0}
 #pipeline .section-inner{position:relative;z-index:1}
-.pipeline-blob{position:absolute;top:-80px;left:-60px;width:300px;height:300px;background:radial-gradient(ellipse at center,rgba(29,158,117,.07) 0%,transparent 65%);border-radius:50%;pointer-events:none;z-index:0}
+.pipeline-blob{position:absolute;top:-80px;left:-60px;width:300px;height:300px;background:radial-gradient(ellipse at center,rgba(61,220,110,.07) 0%,transparent 65%);border-radius:50%;pointer-events:none;z-index:0}
 
 /* ── ARTICLE LAYOUT (new format) ────────────────────────────────────── */
 .art-inner{max-width:720px;margin:0 auto;padding:32px 40px 80px}
@@ -547,7 +549,7 @@ a.fc-contact-text:hover{color:#fff}
 .art-back:hover{color:var(--teal2)}
 .art-back svg{flex-shrink:0}
 .art-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.art-section-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--teal2);background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.2);padding:3px 10px;border-radius:100px}
+.art-section-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);background:rgba(61,220,110,.1);border:1px solid rgba(61,220,110,.2);padding:3px 10px;border-radius:100px}
 .art-read-time{font-size:12px;color:var(--g400)}
 .art-lead{font-size:17px;line-height:1.75;color:var(--g600);margin-bottom:36px;border-bottom:1px solid var(--g200);padding-bottom:28px}
 .art-h2{font-size:20px;font-weight:700;color:var(--dark);margin:36px 0 12px;letter-spacing:-.015em}
@@ -559,8 +561,8 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 /* ── ARTICLE BREADCRUMB BAR ──────────────────────────── */
 #art-nav-bar{display:none;position:fixed;top:76px;left:0;width:100%;height:36px;background:#f8fafc;border-bottom:1px solid #e2e8f0;z-index:195;align-items:center;padding:0 48px;box-sizing:border-box;gap:6px}
 #art-nav-bar.show{display:flex}
-.art-bc-link{font-size:12px;font-weight:500;color:var(--teal2);cursor:pointer;transition:color .15s}
-.art-bc-link:hover{color:var(--teal)}
+.art-bc-link{font-size:12px;font-weight:500;color:var(--teal);cursor:pointer;transition:color .15s}
+.art-bc-link:hover{color:var(--teal2)}
 .art-bc-sep{font-size:11px;color:#cbd5e1}
 .art-bc-current{font-size:12px;font-weight:500;color:#64748b}
 
@@ -577,7 +579,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .login-field label{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,.92);margin-bottom:7px;letter-spacing:.01em}
 .login-field input{width:100%;padding:12px 14px;font-size:14px;font-family:"Inter",sans-serif;border:1.5px solid rgba(255,255,255,.1);border-radius:9px;color:#fff;background:rgba(255,255,255,.05);outline:none;transition:all .18s}
 .login-field input::placeholder{color:rgba(255,255,255,.62)}
-.login-field input:focus{border-color:var(--teal);background:rgba(255,255,255,.07);box-shadow:0 0 0 3px rgba(29,158,117,.15)}
+.login-field input:focus{border-color:var(--teal);background:rgba(255,255,255,.07);box-shadow:0 0 0 3px rgba(61,220,110,.15)}
 .login-field-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
 .login-forgot{font-size:12px;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;transition:color .15s}
 .login-forgot:hover{color:var(--teal-light)}
@@ -586,7 +588,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .login-pw-eye{position:absolute;right:13px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(255,255,255,.62);padding:4px;display:flex;align-items:center;transition:color .15s}
 .login-pw-eye:hover{color:rgba(255,255,255,.92)}
 .login-btn{width:100%;padding:13px;font-size:14px;font-weight:700;font-family:"Inter",sans-serif;background:var(--teal);color:#fff;border:none;border-radius:9px;cursor:pointer;transition:all .18s;letter-spacing:.01em;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px}
-.login-btn:hover{background:var(--teal2);transform:translateY(-1px);box-shadow:0 6px 24px rgba(29,158,117,.35)}
+.login-btn:hover{background:var(--teal2);transform:translateY(-1px);box-shadow:0 6px 24px rgba(61,220,110,.35)}
 .login-btn:active{transform:none}
 .login-btn.loading{pointer-events:none;opacity:.75}
 .login-spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:lspin .7s linear infinite;display:none}
@@ -792,7 +794,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <!-- Float card 2: right-middle – Ace AI insight -->
       <div class="hero-float-card hfc-lg hfc-2">
-        <div class="hfc-icon" style="background:linear-gradient(135deg,#1d9e75,#3b82f6)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.2 3.8L11.5 6.5l-3.8 1.7L6.5 12l-1.2-3.8L1.5 6.5l3.8-1.7z" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
+        <div class="hfc-icon" style="background:linear-gradient(135deg,var(--teal),#3b82f6)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.2 3.8L11.5 6.5l-3.8 1.7L6.5 12l-1.2-3.8L1.5 6.5l3.8-1.7z" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
         <div class="hfc-body">
           <div class="hfc-label">Ace AI</div>
           <div class="hfc-insight">3 deals at risk this week</div>
@@ -808,7 +810,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <!-- Float card 4: top-right – closed this month -->
       <div class="hero-float-card hfc-4">
-        <div class="hfc-icon" style="background:rgba(34,197,94,.15)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="hfc-icon" style="background:rgba(61,220,110,.15)"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 7l3 3 6-6" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="hfc-body">
           <div class="hfc-label">Closed / Won</div>
           <div class="hfc-val">19 <span class="hfc-tag">&#8593;3 this wk</span></div>
@@ -884,17 +886,17 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
             <div class="dash-rep-list">
               <div class="dash-rep">
                 <div class="dash-rep-av" style="background:var(--teal)">AP</div>
-                <div class="dash-rep-info"><div class="dash-rep-name">Aya Pedrad</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:100%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
+                <div class="dash-rep-info"><div class="dash-rep-name">Aya Pedrad</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:100%;background:linear-gradient(90deg,var(--teal),var(--teal2))"></div></div></div>
                 <div class="dash-rep-pct">$990K</div>
               </div>
               <div class="dash-rep">
                 <div class="dash-rep-av" style="background:#6366f1">EV</div>
-                <div class="dash-rep-info"><div class="dash-rep-name">Elena Vasquez</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:98%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
+                <div class="dash-rep-info"><div class="dash-rep-name">Elena Vasquez</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:98%;background:linear-gradient(90deg,var(--teal),var(--teal2))"></div></div></div>
                 <div class="dash-rep-pct">$972K</div>
               </div>
               <div class="dash-rep">
                 <div class="dash-rep-av" style="background:#06b6d4">MB</div>
-                <div class="dash-rep-info"><div class="dash-rep-name">Marcus Bradley</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:98%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div></div>
+                <div class="dash-rep-info"><div class="dash-rep-name">Marcus Bradley</div><div class="dash-rep-track"><div class="dash-rep-fill" style="width:98%;background:linear-gradient(90deg,var(--teal),var(--teal2))"></div></div></div>
                 <div class="dash-rep-pct">$967K</div>
               </div>
               <div class="dash-rep">
@@ -934,35 +936,161 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 </div><!-- /ticker inside hero -->
 </section>
 
-<!-- FEATURE GRID (4 cards) -->
+<!-- FEATURE GRID (Platform overview) -->
 <section class="section section-navy2" id="features">
+  <style>
+    .hf-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-light);margin-bottom:14px;text-align:center}
+    .hf-head{text-align:center;max-width:900px;margin:12px auto 18px}
+    .hf-head h2{font-size:clamp(28px,4vw,42px);font-weight:800;color:#fff;line-height:1.2;margin:0}
+    .hf-line2{white-space:nowrap}
+    .hf-grad{background:linear-gradient(90deg,var(--teal-light),#5b8def);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hf-sub{text-align:center;max-width:680px;margin:0 auto 48px;color:rgba(255,255,255,.62);font-size:15.5px;line-height:1.7}
+    .hf-row{display:flex;align-items:stretch;gap:0;margin-bottom:52px}
+    .hf-card{background:var(--navy2);border-radius:16px;padding:24px 20px;flex:1;min-width:0;display:flex;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+    .hf-card-crm{border:1px solid rgba(91,141,239,.4)}
+    .hf-card-perf{border:1px solid rgba(61,220,110,.4)}
+    .hf-card-ai{border:1px solid rgba(139,124,246,.4)}
+    .hf-card-one{border:1.5px solid rgba(61,220,110,.65);box-shadow:0 0 0 1px rgba(61,220,110,.15),0 0 40px rgba(61,220,110,.25),0 20px 50px rgba(0,0,0,.35)}
+    .hf-connector{display:flex;align-items:center;justify-content:center;width:40px;flex-shrink:0}
+    .hf-connector svg{display:block}
+    .hf-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+    .hf-icon-crm{background:rgba(91,141,239,.16)}
+    .hf-icon-perf{background:rgba(61,220,110,.16)}
+    .hf-icon-ai{background:rgba(139,124,246,.16)}
+    .hf-icon-one{background:rgba(61,220,110,.2)}
+    .hf-card h3{font-size:17px;font-weight:700;color:#fff;margin:0 0 4px}
+    .hf-card-sub{font-size:12.5px;color:rgba(255,255,255,.55);margin:0 0 16px;line-height:1.5}
+    .hf-card-crm .hf-card-sub{font-size:11.5px;white-space:nowrap}
+    .hf-card-sub-ai{color:rgba(139,124,246,.85)}
+    .hf-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;flex:1}
+    .hf-list li{font-size:13px;color:rgba(255,255,255,.75);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+    .hf-list li:before{content:'';width:5px;height:5px;border-radius:50%;margin-top:6px;flex-shrink:0}
+    .hf-list-crm li:before{background:#5b8def}
+    .hf-list-perf li:before{background:var(--teal-light)}
+    .hf-list-ai li:before{background:#8b7cf6}
+    .hf-card-one p{font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.6;margin:0 0 16px}
+    .hf-check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+    .hf-check li{font-size:13px;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:8px;font-weight:500}
+    .hf-check svg{flex-shrink:0}
+    .hf-strip{display:flex;gap:56px;justify-content:space-between;flex-wrap:wrap;margin-bottom:44px}
+    .hf-strip-item{display:flex;align-items:flex-start;gap:12px;max-width:230px}
+    .hf-strip-icon{width:34px;height:34px;border-radius:9px;background:rgba(61,220,110,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .hf-strip-item h4{font-size:14px;font-weight:700;color:#fff;margin:0 0 3px}
+    .hf-strip-item p{font-size:12.5px;color:rgba(255,255,255,.55);margin:0;line-height:1.45}
+    .hf-strip-nowrap{font-size:11.5px;white-space:nowrap}
+    .hf-cta-wrap{text-align:center;margin-bottom:28px}
+    .hf-cta{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#06120a;font-weight:700;font-size:14.5px;padding:14px 30px;border-radius:100px;text-decoration:none;transition:background .2s,transform .2s}
+    .hf-cta:hover{background:var(--teal2);transform:translateY(-1px)}
+    .hf-tagline{text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+    @media(max-width:1000px){
+      .hf-row{flex-wrap:wrap}
+      .hf-card{flex:1 1 calc(50% - 20px);min-width:240px}
+      .hf-connector{display:none}
+      .hf-head h2{font-size:32px}
+    }
+    @media(max-width:640px){
+      .hf-card{flex:1 1 100%}
+      .hf-strip{gap:24px}
+      .hf-strip-item{max-width:100%;flex:1 1 100%}
+      .hf-head h2{font-size:24px}
+      .hf-line2{white-space:normal}
+      .hf-strip-nowrap{white-space:normal}
+    }
+  </style>
   <div class="section-inner">
-    <div class="s-head s-head-dark reveal">
-      <h2>Everything your team needs<br><em>in one place.</em></h2>
-      <p>No more juggling a CRM, a spreadsheet for commissions, and a separate tool for goals. Goals.com connects it all real-time, for every rep.</p>
+    <div class="hf-head reveal">
+      <h2>More Than a CRM.<br><span class="hf-line2">A Complete <span class="hf-grad">Sales Performance Platform.</span></span></h2>
     </div>
-    <div class="fg reveal in">
-      <div class="fg-card stagger-1">
-        <div class="fg-icon" style="background:rgba(29,158,117,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="9" stroke="#22c55e" stroke-width="1.6"/><circle cx="11" cy="11" r="5.5" stroke="#22c55e" stroke-width="1.6"/><circle cx="11" cy="11" r="2" fill="#22c55e"/></svg></div>
-        <h3>Goals &amp; Quota Tracking</h3>
-        <p>Every rep sees their attainment percentage live. Managers see who's on pace, who's at risk, and where to coach, without a weekly check-in.</p>
+    <p class="hf-sub reveal">Goals.com combines everything your sales team needs — CRM, goal setting, forecasting, compensation, coaching, reporting, communication and more — into one AI-powered platform. Capture the data. Drive the behaviors. Achieve the results.</p>
+
+    <div class="hf-row reveal in">
+      <div class="hf-card hf-card-crm stagger-1">
+        <div class="hf-icon hf-icon-crm"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#5b8def" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>CRM</h3>
+        <p class="hf-card-sub">Capture and Manage Your Sales Process</p>
+        <ul class="hf-list hf-list-crm">
+          <li>Assign Accounts</li>
+          <li>Manage Your Pipeline</li>
+          <li>Track Deals</li>
+          <li>Custom Sales Stages</li>
+          <li>Send Emails</li>
+          <li>Capture Notes</li>
+          <li>Track Calls, Emails and Meetings</li>
+          <li>Draft Contracts</li>
+          <li>Send Invoices</li>
+        </ul>
       </div>
-      <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(99,102,241,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="7" height="16" rx="1.5" stroke="#818cf8" stroke-width="1.7"/><rect x="13" y="3" width="7" height="10" rx="1.5" stroke="#818cf8" stroke-width="1.7"/></svg></div>
-        <h3>Pipeline CRM</h3>
-        <p>Kanban and List views. Track deals from first touch to closed-won with aging alerts that flag what's going cold before it does.</p>
+      <div class="hf-connector"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg></div>
+      <div class="hf-card hf-card-perf">
+        <div class="hf-icon hf-icon-perf"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h3>Sales Performance</h3>
+        <p class="hf-card-sub">Turn Activity Into Predictable Revenue</p>
+        <ul class="hf-list hf-list-perf">
+          <li>Sales Goal Setting</li>
+          <li>Forecasting</li>
+          <li>Commission Tracking</li>
+          <li>Sales Contests</li>
+          <li>Performance Bonuses</li>
+          <li>Sales Reporting</li>
+          <li>Activity Tracking</li>
+          <li>Team Recognition</li>
+          <li>Revenue &amp; Pipeline Insights</li>
+        </ul>
       </div>
-      <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(244,63,94,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="11" y1="1" x2="11" y2="21" stroke="#f87171" stroke-width="1.7" stroke-linecap="round"/><path d="M15.5 5H8.8a3.3 3.3 0 1 0 0 6.6h4.4a3.3 3.3 0 1 1 0 6.6H5.5" stroke="#f87171" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg></div>
-        <h3>Commissions &amp; Bonuses</h3>
-        <p>Commissions calculate automatically as deals close. Reps see their exact earnings, payout date, and bonus progress without asking anyone.</p>
+      <div class="hf-connector"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg></div>
+      <div class="hf-card hf-card-ai">
+        <div class="hf-icon hf-icon-ai"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#8b7cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 4.8L18 9l-4.4 1.2L12 15l-1.6-4.8L6 9l4.4-1.2z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+        <h3>AI Insights &amp; Coaching</h3>
+        <p class="hf-card-sub hf-card-sub-ai">Turn Data Into Actionable Guidance</p>
+        <ul class="hf-list hf-list-ai">
+          <li>Personalized Coaching</li>
+          <li>Pipeline Risk Alerts</li>
+          <li>Next Best Actions</li>
+          <li>Manager Insights</li>
+          <li>AI Chat</li>
+          <li>Performance Highlights</li>
+          <li>Goal Progress Tracking</li>
+          <li>Recommendations</li>
+          <li>Always-On Support with Ace AI</li>
+        </ul>
       </div>
-      <div class="fg-card">
-        <div class="fg-icon" style="background:rgba(6,182,212,.14)"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="11,2 12.8,7.8 18.5,9.5 12.8,11.2 11,17 9.2,11.2 3.5,9.5 9.2,7.8" stroke="#22d3ee" stroke-width="1.6" stroke-linejoin="round"/><polygon points="18,16 18.6,17.8 20.5,18.5 18.6,19.2 18,21 17.4,19.2 15.5,18.5 17.4,17.8" stroke="#22d3ee" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
-        <h3>Ace AI Intelligence</h3>
-        <p>Ask your pipeline anything in plain English. Ace surfaces at-risk deals, rep patterns, and revenue forecasts before your next team review.</p>
+      <div class="hf-connector"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      <div class="hf-card hf-card-one">
+        <div class="hf-icon hf-icon-one"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <h3>One Powerful Platform</h3>
+        <p>Everything works together, giving your team the clarity, coaching and accountability they need to sell more and reach their goals.</p>
+        <ul class="hf-check">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Higher Productivity</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>More Revenue</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>More Accountability</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>A Stronger Sales Culture</li>
+        </ul>
       </div>
     </div>
+
+    <div class="hf-strip reveal">
+      <div class="hf-strip-item">
+        <div class="hf-strip-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div><h4>Drive Activity</h4><p>Turn effort into meaningful sales activity.</p></div>
+      </div>
+      <div class="hf-strip-item">
+        <div class="hf-strip-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div><h4>Improve Performance</h4><p>Give your team the tools to&nbsp;win.</p></div>
+      </div>
+      <div class="hf-strip-item">
+        <div class="hf-strip-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div><h4>Build a Winning Culture</h4><p>Recognize, reward and keep teams motivated.</p></div>
+      </div>
+      <div class="hf-strip-item">
+        <div class="hf-strip-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <div><h4>Grow Revenue</h4><p>A more predictable, scalable sales engine.</p></div>
+      </div>
+    </div>
+
+    <div class="hf-cta-wrap reveal">
+      <a href="https://calendly.com/goals-demo/30min?month=2026-07" class="hf-cta">See Goals.com in Action →</a>
+    </div>
+    <div class="hf-tagline reveal">REFRESHINGLY SIMPLE. REMARKABLY POWERFUL.</div>
   </div>
 </section>
 
@@ -1017,8 +1145,8 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
           </div>
           <!-- Individual reps -->
           <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Individual Rep Goals</div>
-          <div class="gm-row"><div class="gm-n">01</div><div style="display:flex;align-items:center;gap:8px"><img src="https://randomuser.me/api/portraits/men/54.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0"><div><div class="gm-name">Brock Wilson</div><div class="gm-sub">$1.64M of $2M</div></div></div><div class="gm-track"><div class="gm-fill" style="width:82%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div><div class="gm-pct" style="color:#4ade80">82%</div></div>
-          <div class="gm-row" style="margin-bottom:0"><div class="gm-n">02</div><div style="display:flex;align-items:center;gap:8px"><img src="https://randomuser.me/api/portraits/men/71.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0"><div><div class="gm-name">Russ Holt</div><div class="gm-sub">$1.26M of $1.7M</div></div></div><div class="gm-track"><div class="gm-fill" style="width:74%;background:linear-gradient(90deg,#1d9e75,#22c55e)"></div></div><div class="gm-pct" style="color:#4ade80">74%</div></div>
+          <div class="gm-row"><div class="gm-n">01</div><div style="display:flex;align-items:center;gap:8px"><img src="https://randomuser.me/api/portraits/men/54.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0"><div><div class="gm-name">Brock Wilson</div><div class="gm-sub">$1.64M of $2M</div></div></div><div class="gm-track"><div class="gm-fill" style="width:82%;background:linear-gradient(90deg,var(--teal),var(--teal2))"></div></div><div class="gm-pct" style="color:var(--teal)">82%</div></div>
+          <div class="gm-row" style="margin-bottom:0"><div class="gm-n">02</div><div style="display:flex;align-items:center;gap:8px"><img src="https://randomuser.me/api/portraits/men/71.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0"><div><div class="gm-name">Russ Holt</div><div class="gm-sub">$1.26M of $1.7M</div></div></div><div class="gm-track"><div class="gm-fill" style="width:74%;background:linear-gradient(90deg,var(--teal),var(--teal2))"></div></div><div class="gm-pct" style="color:var(--teal)">74%</div></div>
         </div>
       </div>
     </div>
@@ -1037,7 +1165,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
           <div style="display:flex;gap:16px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06)">
             <span style="font-size:9px;color:rgba(255,255,255,.85)">Pipeline: <strong style="color:#fff;font-weight:600">$819K</strong></span>
             <span style="font-size:9px;color:rgba(255,255,255,.85)">6 deals</span>
-            <span style="font-size:9px;color:rgba(255,255,255,.85)">Win rate: <strong style="color:#4ade80;font-weight:600">58%</strong></span>
+            <span style="font-size:9px;color:rgba(255,255,255,.85)">Win rate: <strong style="color:var(--teal);font-weight:600">58%</strong></span>
           </div>
           <!-- Table header -->
           <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;padding:0 0 7px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:4px">
@@ -1051,7 +1179,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
               <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
               <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Riverside Corp</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Marcus Bradley</div></div>
             </div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$92K</div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--teal)">$92K</div>
             <div><span style="font-size:8px;font-weight:700;background:rgba(99,102,241,.18);color:#a5b4fc;padding:3px 7px;border-radius:4px;white-space:nowrap">Prospecting</span></div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
@@ -1059,7 +1187,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
               <img src="https://randomuser.me/api/portraits/women/33.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
               <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Apex Holdings</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Amanda Morrison</div></div>
             </div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$145K</div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--teal)">$145K</div>
             <div><span style="font-size:8px;font-weight:700;background:rgba(245,158,11,.15);color:#fbbf24;padding:3px 7px;border-radius:4px;white-space:nowrap">Outreach</span></div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
@@ -1067,7 +1195,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
               <img src="https://randomuser.me/api/portraits/men/40.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
               <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Harborview Medical</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Derek Park</div></div>
             </div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$158K</div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--teal)">$158K</div>
             <div><span style="font-size:8px;font-weight:700;background:rgba(6,182,212,.15);color:#67e8f9;padding:3px 7px;border-radius:4px;white-space:nowrap">Proposal Sent</span></div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
@@ -1075,7 +1203,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
               <img src="https://randomuser.me/api/portraits/men/54.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
               <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Lakewood Inc</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Brock Wilson</div></div>
             </div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$174K</div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--teal)">$174K</div>
             <div><span style="font-size:8px;font-weight:700;background:rgba(168,85,247,.18);color:#d8b4fe;padding:3px 7px;border-radius:4px;white-space:nowrap">Negotiating</span></div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
@@ -1083,7 +1211,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
               <img src="https://randomuser.me/api/portraits/women/44.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
               <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Cascade Logistics</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Aya Pedrad</div></div>
             </div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$138K</div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--teal)">$138K</div>
             <div><span style="font-size:8px;font-weight:700;background:rgba(239,68,68,.15);color:#fca5a5;padding:3px 7px;border-radius:4px;white-space:nowrap">⚠ Idle 8d</span></div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0">
@@ -1091,8 +1219,8 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
               <img src="https://randomuser.me/api/portraits/women/68.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
               <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Crestwood Financial</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Elena Vasquez</div></div>
             </div>
-            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:#4ade80">$112K</div>
-            <div><span style="font-size:8px;font-weight:700;background:rgba(29,158,117,.2);color:#4ade80;padding:3px 7px;border-radius:4px;white-space:nowrap">Closed Won</span></div>
+            <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:700;color:var(--teal)">$112K</div>
+            <div><span style="font-size:8px;font-weight:700;background:rgba(61,220,110,.2);color:var(--teal);padding:3px 7px;border-radius:4px;white-space:nowrap">Closed Won</span></div>
           </div>
         </div>
       </div>
@@ -1114,8 +1242,8 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <!-- ACE AI DEEP DIVE -->
 <section class="section section-navy2" id="ace">
   <div class="section-inner">
-    <div class="s-head s-head-dark reveal" style="margin-bottom:48px">
-      <h2>Your team's <em>built-in intelligence layer.</em></h2>
+    <div class="s-head s-head-dark reveal" style="margin-bottom:48px;max-width:820px">
+      <h2 class="ace-head-nowrap">Your team's <em>built-in intelligence layer.</em></h2>
       <p>Ace knows your pipeline, your reps, and your history. Ask it anything and it answers with real data from your account, not generic advice.</p>
     </div>
     <div class="ace-shell reveal" style="max-width:640px;margin:0 auto">
@@ -1315,7 +1443,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <style>
 .pr-hero{background:var(--navy);padding:120px 72px 80px;text-align:center}
 .pr-hero-inner{max-width:640px;margin:0 auto}
-.pr-badge{display:inline-block;background:rgba(29,158,117,.15);color:var(--teal-light);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(29,158,117,.25)}
+.pr-badge{display:inline-block;background:rgba(61,220,110,.15);color:var(--teal-light);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(61,220,110,.25)}
 .pr-h1{font-size:clamp(36px,5vw,56px);font-weight:700;color:#fff;line-height:1.15;margin:0 0 20px}
 .pr-sub{font-size:18px;color:rgba(255,255,255,.92);line-height:1.6;margin:0}
 .pr-card-section{background:var(--navy2);padding:80px 72px}
@@ -1366,7 +1494,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .pr-testi-stars{font-size:22px;color:#f59e0b;margin-bottom:16px;letter-spacing:3px}
 .pr-testi-title{font-size:28px;font-weight:700;color:#fff;margin:0 0 20px}
 .pr-testi-body{font-size:16px;color:rgba(255,255,255,.92);line-height:1.75;margin:0 0 24px;font-style:italic}
-.pr-testi-rating{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.15);border:1px solid rgba(29,158,117,.25);color:var(--teal-light);font-size:16px;font-weight:700;padding:8px 20px;border-radius:20px}
+.pr-testi-rating{display:inline-flex;align-items:center;gap:8px;background:rgba(61,220,110,.15);border:1px solid rgba(61,220,110,.25);color:var(--teal-light);font-size:16px;font-weight:700;padding:8px 20px;border-radius:20px}
 .pr-faq-section{background:var(--navy);padding:80px 72px}
 .pr-faq-title{font-size:clamp(28px,3vw,40px);font-weight:700;color:#fff;text-align:center;margin:0 0 48px}
 .pr-faq-list{max-width:720px;margin:0 auto}
@@ -1632,13 +1760,13 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .app-shot-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
 .app-shot-stat{background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px 16px;box-shadow:0 1px 2px rgba(0,0,0,.15)}
 .app-shot-stat-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,.5);margin-bottom:6px}
-.app-shot-stat-val{font-size:19px;font-weight:800;color:var(--teal2);font-family:'DM Mono',monospace}
+.app-shot-stat-val{font-size:19px;font-weight:800;color:var(--teal);font-family:'DM Mono',monospace}
 .app-shot-stat-val.dark{color:#fff}
 .app-shot-table{margin-top:16px;background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
 .app-shot-table-row{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;font-size:11.5px;color:rgba(255,255,255,.75);border-bottom:1px solid rgba(255,255,255,.06)}
 .app-shot-table-row:last-child{border-bottom:none}
 .app-shot-table-row strong{color:#fff;font-weight:700}
-.app-shot-table-row span.val{color:var(--teal2);font-weight:700;font-family:'DM Mono',monospace}
+.app-shot-table-row span.val{color:var(--teal);font-weight:700;font-family:'DM Mono',monospace}
 @media(max-width:760px){.app-shot-sidebar{display:none}.app-shot-topbar-btn{display:none}.app-shot-search{max-width:none}.app-shot-stats{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.app-shot-stats{grid-template-columns:1fr}}
 </style>
@@ -1763,7 +1891,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal2);color:var(--teal2);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
@@ -2034,7 +2162,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal2);color:var(--teal2);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
@@ -2273,7 +2401,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal2);color:var(--teal2);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
@@ -2507,7 +2635,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal2);color:var(--teal2);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
@@ -2789,7 +2917,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal2);color:var(--teal2);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
@@ -3039,7 +3167,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal2);color:var(--teal2);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
@@ -3304,7 +3432,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal2);color:var(--teal2);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
@@ -3509,9 +3637,9 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <style>
 /* ── PODCAST VIEW ──────────────────────────────── */
 .pod-hero{background:var(--navy2);padding:120px 72px 80px;text-align:center;position:relative;overflow:hidden}
-.pod-hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(29,158,117,.12) 0%,transparent 70%);pointer-events:none}
+.pod-hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(61,220,110,.12) 0%,transparent 70%);pointer-events:none}
 .pod-hero-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
-.pod-badge{display:inline-block;background:rgba(29,158,117,.15);color:var(--teal-light);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(29,158,117,.25)}
+.pod-badge{display:inline-block;background:rgba(61,220,110,.15);color:var(--teal-light);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(61,220,110,.25)}
 .pod-h1{font-size:clamp(32px,4.5vw,52px);font-weight:700;color:#fff;line-height:1.2;margin:0 0 18px}
 .pod-sub{font-size:17px;color:rgba(255,255,255,.92);line-height:1.6;margin:0 0 36px}
 .pod-hero-platforms{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -3525,9 +3653,9 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .pod-host-section{background:var(--navy);padding:72px 72px}
 .pod-container{max-width:1080px;margin:0 auto}
 .pod-host-card{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:48px;position:relative;overflow:hidden}
-.pod-host-card::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(29,158,117,.1) 0%,transparent 70%);pointer-events:none}
+.pod-host-card::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(61,220,110,.1) 0%,transparent 70%);pointer-events:none}
 .pod-host-photo-wrap{position:relative}
-.pod-host-photo-img{width:240px;height:280px;object-fit:cover;object-position:top center;border-radius:16px;display:block;border:3px solid rgba(29,158,117,.3)}
+.pod-host-photo-img{width:240px;height:280px;object-fit:cover;object-position:top center;border-radius:16px;display:block;border:3px solid rgba(61,220,110,.3)}
 .pod-host-photo-fallback{width:240px;height:280px;border-radius:16px;background:linear-gradient(135deg,var(--teal),var(--teal2));display:none;align-items:center;justify-content:center;font-size:64px;font-weight:700;color:#fff;letter-spacing:-2px}
 .pod-host-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--teal-light);margin-bottom:10px}
 .pod-host-featured-name{font-size:clamp(28px,3vw,40px);font-weight:700;color:#fff;margin:0 0 16px}
@@ -3544,7 +3672,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .pod-sort-select:focus{border-color:var(--teal)}
 .pod-ep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
 .pod-ep-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s;cursor:default}
-.pod-ep-card:hover{border-color:rgba(29,158,117,.35);transform:translateY(-2px)}
+.pod-ep-card:hover{border-color:rgba(61,220,110,.35);transform:translateY(-2px)}
 .pod-ep-thumb{height:150px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .pod-ep-thumb-inner{width:52px;height:52px;background:rgba(255,255,255,.12);border-radius:50%;display:flex;align-items:center;justify-content:center}
 .pod-ep-thumb svg{width:20px;height:20px;fill:#fff;margin-left:3px}
@@ -3668,17 +3796,17 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <script>
 // ── PODCAST EPISODES DATA ────────────────────────────────
 var podEpisodes = [
-  {num:1,  title:"How the Best Sales Teams Set Goals That Actually Drive Results",       desc:"Andrew breaks down the framework top-performing sales organizations use to align individual targets with company-wide revenue goals.", date:"Jan 27, 2025", dur:"38 min", grad:"linear-gradient(135deg,#1a2035 0%,#1d9e75 100%)"},
+  {num:1,  title:"How the Best Sales Teams Set Goals That Actually Drive Results",       desc:"Andrew breaks down the framework top-performing sales organizations use to align individual targets with company-wide revenue goals.", date:"Jan 27, 2025", dur:"38 min", grad:"linear-gradient(135deg,#1a2035 0%,var(--teal) 100%)"},
   {num:2,  title:"Commission Structures That Motivate Without Breaking the Bank",         desc:"A deep dive into tiered, percentage-based, and performance-bonus models, and which structures work best for growing teams.", date:"Feb 10, 2025", dur:"42 min", grad:"linear-gradient(135deg,#17896a 0%,#141827 100%)"},
-  {num:3,  title:"Pipeline Hygiene: Why Most Reps Are Losing Deals They Should Win",     desc:"The habits and tools that keep your pipeline clean, your forecasts accurate, and your reps focused on the right opportunities.", date:"Feb 24, 2025", dur:"35 min", grad:"linear-gradient(135deg,#1a2035 0%,#22c55e 100%)"},
-  {num:4,  title:"Building a Sales Culture Where People Actually Want to Perform",       desc:"Culture eats strategy. Andrew explores what it takes to build an environment where accountability and recognition go hand in hand.", date:"Mar 10, 2025", dur:"44 min", grad:"linear-gradient(135deg,#141827 0%,#1d9e75 100%)"},
-  {num:5,  title:"The Morning Routine of a High-Performing Sales Rep",                   desc:"What separates top reps from average ones often comes down to how they start the day. Insights from some of the best in the business.", date:"Mar 24, 2025", dur:"29 min", grad:"linear-gradient(135deg,#1d9e75 0%,#1a2035 100%)"},
+  {num:3,  title:"Pipeline Hygiene: Why Most Reps Are Losing Deals They Should Win",     desc:"The habits and tools that keep your pipeline clean, your forecasts accurate, and your reps focused on the right opportunities.", date:"Feb 24, 2025", dur:"35 min", grad:"linear-gradient(135deg,#1a2035 0%,var(--teal) 100%)"},
+  {num:4,  title:"Building a Sales Culture Where People Actually Want to Perform",       desc:"Culture eats strategy. Andrew explores what it takes to build an environment where accountability and recognition go hand in hand.", date:"Mar 10, 2025", dur:"44 min", grad:"linear-gradient(135deg,#141827 0%,var(--teal) 100%)"},
+  {num:5,  title:"The Morning Routine of a High-Performing Sales Rep",                   desc:"What separates top reps from average ones often comes down to how they start the day. Insights from some of the best in the business.", date:"Mar 24, 2025", dur:"29 min", grad:"linear-gradient(135deg,var(--teal) 0%,#1a2035 100%)"},
   {num:6,  title:"Why Most CRMs Fail Sales Teams: What to Do Instead",             desc:"CRM adoption is a real problem. Andrew talks through what makes a tool actually stick and how to evaluate what your team truly needs.", date:"Apr 7, 2025",  dur:"40 min", grad:"linear-gradient(135deg,#1a2035 0%,#17896a 100%)"},
   {num:7,  title:"Forecasting Revenue the Right Way",                                    desc:"Most revenue forecasts are wrong. Andrew unpacks the common mistakes and the metrics that actually predict whether your team hits the number.", date:"Apr 21, 2025", dur:"37 min", grad:"linear-gradient(135deg,#17896a 0%,#141827 100%)"},
-  {num:8,  title:"Recognizing and Retaining Your Best Sales Talent",                    desc:"Losing a top rep is expensive. This episode covers the recognition frameworks and career development strategies that keep your best people engaged.", date:"May 5, 2025",  dur:"41 min", grad:"linear-gradient(135deg,#141827 0%,#22c55e 100%)"},
-  {num:9,  title:"From First Call to Closed Deal: Optimizing Your Sales Process",       desc:"A look at the key conversion points in a modern sales process and how small improvements at each stage compound into significant revenue gains.", date:"May 19, 2025", dur:"45 min", grad:"linear-gradient(135deg,#1a2035 0%,#1d9e75 100%)"},
-  {num:10, title:"Leading a Remote Sales Team Without Losing Accountability",            desc:"Managing remote reps is a different game. Andrew shares the systems, check-ins, and visibility tools that keep distributed teams focused and productive.", date:"Jun 2, 2025",  dur:"38 min", grad:"linear-gradient(135deg,#1d9e75 0%,#141827 100%)"},
-  {num:11, title:"How to Run a Sales Contest That Actually Drives Behavior",             desc:"Not all incentive programs are created equal. This episode breaks down what makes a sales contest drive the right activity, and what makes it fall flat.", date:"Jun 16, 2025", dur:"33 min", grad:"linear-gradient(135deg,#141827 0%,#1d9e75 100%)"},
+  {num:8,  title:"Recognizing and Retaining Your Best Sales Talent",                    desc:"Losing a top rep is expensive. This episode covers the recognition frameworks and career development strategies that keep your best people engaged.", date:"May 5, 2025",  dur:"41 min", grad:"linear-gradient(135deg,#141827 0%,var(--teal) 100%)"},
+  {num:9,  title:"From First Call to Closed Deal: Optimizing Your Sales Process",       desc:"A look at the key conversion points in a modern sales process and how small improvements at each stage compound into significant revenue gains.", date:"May 19, 2025", dur:"45 min", grad:"linear-gradient(135deg,#1a2035 0%,var(--teal) 100%)"},
+  {num:10, title:"Leading a Remote Sales Team Without Losing Accountability",            desc:"Managing remote reps is a different game. Andrew shares the systems, check-ins, and visibility tools that keep distributed teams focused and productive.", date:"Jun 2, 2025",  dur:"38 min", grad:"linear-gradient(135deg,var(--teal) 0%,#141827 100%)"},
+  {num:11, title:"How to Run a Sales Contest That Actually Drives Behavior",             desc:"Not all incentive programs are created equal. This episode breaks down what makes a sales contest drive the right activity, and what makes it fall flat.", date:"Jun 16, 2025", dur:"33 min", grad:"linear-gradient(135deg,#141827 0%,var(--teal) 100%)"},
   {num:12, title:"The State of Sales Performance: What the Data Tells Us",               desc:"Andrew pulls together data from Goals.com customers to paint a picture of what high-performing sales teams are doing differently right now.", date:"Jun 30, 2025", dur:"47 min", grad:"linear-gradient(135deg,#17896a 0%,#1a2035 100%)"},
 ];
 
@@ -3754,7 +3882,7 @@ document.addEventListener('DOMContentLoaded', function() { renderPodEpisodes(); 
 .ct-sub{font-size:16px;color:rgba(255,255,255,.92);line-height:1.65;margin:0 0 40px}
 .ct-info-block{display:flex;flex-direction:column;gap:16px}
 .ct-info-item{display:flex;align-items:flex-start;gap:12px}
-.ct-info-icon{width:36px;height:36px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-light)}
+.ct-info-icon{width:36px;height:36px;background:rgba(61,220,110,.12);border:1px solid rgba(61,220,110,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-light)}
 .ct-info-icon svg{width:16px;height:16px}
 .ct-info-text{font-size:14px;color:rgba(255,255,255,.92);line-height:1.5;padding-top:8px}
 .ct-form-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:40px}
@@ -3839,9 +3967,9 @@ document.addEventListener('DOMContentLoaded', function() { renderPodEpisodes(); 
 <style>
 /* KC styles scoped */
 .kc-hero{background:var(--navy);padding:120px 72px 60px;text-align:center;position:relative;overflow:hidden}
-.kc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 400px at 50% 100%,rgba(29,158,117,.1) 0%,transparent 65%);pointer-events:none}
+.kc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 900px 400px at 50% 100%,rgba(61,220,110,.1) 0%,transparent 65%);pointer-events:none}
 .kc-hero-inner{max-width:720px;margin:0 auto;position:relative;z-index:1}
-.kc-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(29,158,117,.14);border:1px solid rgba(29,158,117,.28);color:#4ade80;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:18px}
+.kc-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(61,220,110,.14);border:1px solid rgba(61,220,110,.28);color:var(--teal);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:18px}
 .kc-hero h2{font-size:clamp(30px,4vw,48px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:12px}
 .kc-hero h2 em{font-style:normal;color:var(--teal-light)}
 .kc-hero p{font-size:17px;color:rgba(255,255,255,.85);margin-bottom:36px;line-height:1.6}
@@ -3863,10 +3991,10 @@ document.addEventListener('DOMContentLoaded', function() { renderPodEpisodes(); 
 .kc-sb-nav{display:flex;flex-direction:column;gap:2px}
 .kc-sb-item{display:flex;align-items:center;gap:9px;padding:8px 11px;border-radius:8px;font-size:13px;font-weight:500;color:var(--g600);cursor:pointer;transition:all .18s}
 .kc-sb-item:hover{background:var(--g200);color:var(--dark)}
-.kc-sb-item.on{background:rgba(29,158,117,.1);color:var(--teal2);font-weight:600}
+.kc-sb-item.on{background:rgba(61,220,110,.1);color:var(--teal);font-weight:600}
 .kc-sb-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
 .kc-sb-cnt{margin-left:auto;font-size:10px;background:var(--g200);color:var(--g500);padding:1px 6px;border-radius:100px}
-.kc-sb-item.on .kc-sb-cnt{background:rgba(29,158,117,.14);color:var(--teal)}
+.kc-sb-item.on .kc-sb-cnt{background:rgba(61,220,110,.14);color:var(--teal)}
 .kc-sb-div{height:1px;background:var(--g200);margin:14px 0}
 .kc-popular{background:#fff;border:1px solid var(--g200);border-radius:var(--radius);padding:20px;margin-top:4px}
 .kc-pop-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--g400);margin-bottom:14px}
@@ -3884,11 +4012,11 @@ document.addEventListener('DOMContentLoaded', function() { renderPodEpisodes(); 
 .kc-sec-desc{font-size:13px;color:var(--g500);margin-top:2px}
 .kc-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .kc-card{background:#fff;border:1px solid var(--g200);border-radius:var(--radius);padding:20px;cursor:pointer;transition:all .18s}
-.kc-card:hover{border-color:var(--teal);box-shadow:0 4px 18px rgba(29,158,117,.1);transform:translateY(-1px)}
+.kc-card:hover{border-color:var(--teal);box-shadow:0 4px 18px rgba(61,220,110,.1);transform:translateY(-1px)}
 .kc-card.hidden{display:none}
 .kc-art-type{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:3px 7px;border-radius:100px;margin-bottom:10px}
 .type-tut{background:rgba(99,102,241,.1);color:#6366f1}
-.type-guide{background:rgba(29,158,117,.1);color:var(--teal)}
+.type-guide{background:rgba(61,220,110,.1);color:var(--teal)}
 .type-faq{background:rgba(245,158,11,.1);color:#d97706}
 .type-walk{background:rgba(6,182,212,.1);color:#0891b2}
 .type-tip{background:rgba(244,63,94,.1);color:#e11d48}
@@ -3925,8 +4053,8 @@ document.addEventListener('DOMContentLoaded', function() { renderPodEpisodes(); 
 .art-body ul,.art-body ol{padding-left:22px;margin-bottom:16px}
 .art-body li{font-size:15px;line-height:1.75;color:var(--g600);margin-bottom:6px}
 .art-body strong{color:var(--dark);font-weight:600}
-.art-tip{background:rgba(29,158,117,.07);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--dark);line-height:1.65}
-.art-tip strong{color:var(--teal2)}
+.art-tip{background:rgba(61,220,110,.07);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--dark);line-height:1.65}
+.art-tip strong{color:var(--teal)}
 .art-warn{background:rgba(245,158,11,.07);border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--dark);line-height:1.65}
 .art-steps{counter-reset:step;display:flex;flex-direction:column;gap:16px;margin:20px 0}
 .art-step{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--g50);border:1px solid var(--g200);border-radius:10px}
@@ -3990,7 +4118,7 @@ document.addEventListener('DOMContentLoaded', function() { renderPodEpisodes(); 
 
     <!-- GETTING STARTED -->
     <div class="kc-section" id="gs">
-      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(29,158,117,.1)">&#127968;</div><div><div class="kc-sec-title">Getting Started</div><div class="kc-sec-desc">New to Goals.com? Start here.</div></div></div>
+      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(61,220,110,.1)">&#127968;</div><div><div class="kc-sec-title">Getting Started</div><div class="kc-sec-desc">New to Goals.com? Start here.</div></div></div>
       <div class="kc-cards">
         <div class="kc-card" data-tags="setup account first time configure workspace new" onclick="openArticle('gs-setup')"><div class="kc-art-type type-walk">&#128249; Walkthrough</div><div class="kc-art-title">Setting up your Goals.com account for the first time</div><div class="kc-art-desc">Step-by-step guide to creating your workspace, inviting your team, and going live quickly.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span><div class="kc-art-tags"><span class="kc-art-tag">Setup</span><span class="kc-art-tag">Onboarding</span></div></div></div>
         <div class="kc-card" data-tags="invite team users roles add members reps managers" onclick="openArticle('gs-invite')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">Inviting your sales team and setting up user roles</div><div class="kc-art-desc">How to add reps, managers, and admins, and what access each role gets by default.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span><div class="kc-art-tags"><span class="kc-art-tag">Team</span><span class="kc-art-tag">Users</span></div></div></div>
@@ -4002,7 +4130,7 @@ document.addEventListener('DOMContentLoaded', function() { renderPodEpisodes(); 
 
     <!-- GOALS -->
     <div class="kc-section" id="gq">
-      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(29,158,117,.12)">&#127919;</div><div><div class="kc-sec-title">Goals &amp; Quotas</div><div class="kc-sec-desc">Set quotas, track attainment, and keep every rep accountable.</div></div></div>
+      <div class="kc-sec-hdr"><div class="kc-sec-ico" style="background:rgba(61,220,110,.12)">&#127919;</div><div><div class="kc-sec-title">Goals &amp; Quotas</div><div class="kc-sec-desc">Set quotas, track attainment, and keep every rep accountable.</div></div></div>
       <div class="kc-cards">
         <div class="kc-card" data-tags="goals quota set up create annual quarterly attainment rep" onclick="openArticle('gq-setup')"><div class="kc-art-type type-tut">&#127891; Tutorial</div><div class="kc-art-title">How to set up sales goals for your team</div><div class="kc-art-desc">Creating annual and quarterly quotas, understanding attainment percentage, and how Goals calculates it automatically.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 5 min read</span></div></div>
         <div class="kc-card" data-tags="quota attainment calculated deals percentage how works" onclick="openArticle('gq-calc')"><div class="kc-art-type type-faq">&#10067; FAQ</div><div class="kc-art-title">How is quota attainment calculated?</div><div class="kc-art-desc">When a deal counts toward quota, how it rolls up, and what triggers a real-time update.</div><div class="kc-art-foot"><span class="kc-art-time">&#128336; 3 min read</span></div></div>
