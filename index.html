@@ -61,6 +61,7 @@ html.nav-open,body.nav-open{overflow:hidden}
 .feat-nav-item{position:relative}
 .feat-dropdown{display:block;opacity:0;visibility:hidden;pointer-events:none;position:fixed;top:var(--nav-height);padding-top:14px;left:50%;transform:translateX(-50%);width:1188px;max-width:calc(100vw - 32px);z-index:250;transition:opacity .15s ease,visibility .15s ease}
 .feat-nav-item:hover .feat-dropdown,.feat-nav-item:focus-within .feat-dropdown,.feat-dropdown.feat-open{opacity:1;visibility:visible;pointer-events:auto}
+.feat-nav-item.feat-suppress .feat-dropdown{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 .plat-mega{background:#141827;border:1px solid rgba(255,255,255,.09);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.5);overflow:hidden}
 .plat-header{display:flex;align-items:flex-start;padding:26px 32px 22px;border-bottom:1px solid rgba(255,255,255,.08)}
 .plat-header-main{max-width:600px;width:100%}
@@ -5493,10 +5494,14 @@ function handleContactSubmit(e) {
 }
 
 var featMenuCloseTimer = null;
+var featMenuSuppressTimer = null;
 function featMenuOpen() {
   clearTimeout(featMenuCloseTimer);
+  clearTimeout(featMenuSuppressTimer);
   var dd = document.querySelector('.feat-dropdown');
   if (dd) dd.classList.add('feat-open');
+  var item = document.querySelector('.feat-nav-item');
+  if (item) item.classList.remove('feat-suppress');
 }
 function featMenuScheduleClose() {
   clearTimeout(featMenuCloseTimer);
@@ -5507,8 +5512,18 @@ function featMenuScheduleClose() {
 }
 function featMenuClose() {
   clearTimeout(featMenuCloseTimer);
+  clearTimeout(featMenuSuppressTimer);
   var dd = document.querySelector('.feat-dropdown');
   if (dd) dd.classList.remove('feat-open');
+  // force-hide immediately even though the cursor may still be hovering
+  // the menu at the moment of click (CSS :hover would otherwise keep it visible)
+  var item = document.querySelector('.feat-nav-item');
+  if (item) {
+    item.classList.add('feat-suppress');
+    featMenuSuppressTimer = setTimeout(function() {
+      item.classList.remove('feat-suppress');
+    }, 600);
+  }
 }
 
 function openVideoModal(videoId) {
