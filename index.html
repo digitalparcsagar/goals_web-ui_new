@@ -194,6 +194,7 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .s-tag-teal{color:var(--teal);background:rgba(61,220,110,.1);border:1px solid rgba(61,220,110,.2)}
 .s-tag-white{color:rgba(255,255,255,.92);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
 .s-head{text-align:center;max-width:680px;margin:0 auto 64px}
+.s-head:has(.pricing-one-line){max-width:820px}
 .s-head h2{font-size:clamp(28px,3.2vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:14px}
 .s-head h2 em{font-style:normal;color:var(--teal-light)}
 .s-head p{font-size:17px;line-height:1.65;color:var(--g500)}
@@ -296,10 +297,10 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .pricing-col{width:50%;flex:0 0 calc(50% - 12px);display:flex;flex-direction:column;gap:16px}
 .pricing-col:last-child{flex-direction:row;align-items:stretch}
 @media(max-width:640px){.pricing-col:last-child{flex-direction:column}}
-.billing-card{position:relative;display:flex;flex-direction:column;background:var(--navy2);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 22px 20px;box-shadow:0 28px 72px rgba(0,0,0,.4);flex:1}
+.billing-card{position:relative;display:flex;flex-direction:column;background:var(--navy2);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:0 22px 20px;box-shadow:0 28px 72px rgba(0,0,0,.4);flex:1}
 .billing-card-featured{border-color:var(--teal)}
 .billing-save{position:absolute;top:-12px;right:20px;background:var(--teal);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:6px}
-.billing-top{flex:1;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:16px;margin-bottom:16px}
+.billing-top{border-bottom:1px solid rgba(255,255,255,.08);padding:28px 0 16px;margin-bottom:16px;min-height:228px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-start}
 .billing-label{font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}
 .billing-label-featured{color:var(--teal)}
 .billing-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -313,7 +314,7 @@ h1 em{font-style:normal;color:var(--teal-light)}
 .billing-cta-solid{border:1.5px solid var(--teal);background:var(--teal);color:#fff}
 .billing-cta-solid:hover{background:var(--teal2);border-color:var(--teal2)}
 .pricing-col-main{width:64%;flex:0 0 calc(64% - 12px);background:var(--navy2);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,.4);gap:0}
-.p-top{flex-shrink:0;padding:28px 28px 22px;border-bottom:1px solid rgba(255,255,255,.08)}
+.p-top{flex-shrink:0;padding:28px 28px 22px;border-bottom:1px solid rgba(255,255,255,.08);min-height:228px;box-sizing:border-box}
 .p-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(61,220,110,.14);color:var(--teal-light);font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:14px}
 .p-name{font-size:22px;font-weight:700;color:#fff;margin-bottom:6px}
 .p-desc{font-size:15px;line-height:1.5;color:rgba(255,255,255,.85)}
@@ -791,8 +792,46 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <!-- HOME VIEW -->
 <div class="view active" id="view-home">
 
-<!-- HERO -->
-<section class="hero">
+<!-- HERO STYLE TOGGLE -->
+<div id="heroStyleToggle" style="position:fixed;top:calc(var(--nav-height) + 16px);right:24px;z-index:150;display:flex;background:rgba(20,24,39,.85);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:3px;gap:2px">
+  <button type="button" onclick="setHeroStyle(1)" id="heroStyleBtn1" style="border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;padding:7px 14px;border-radius:100px;background:var(--teal);color:#06170e;transition:background .2s,color .2s">Style 1</button>
+  <button type="button" onclick="setHeroStyle(2)" id="heroStyleBtn2" style="border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;padding:7px 14px;border-radius:100px;background:transparent;color:rgba(255,255,255,.7);transition:background .2s,color .2s">Style 2</button>
+</div>
+<script>
+function setHeroStyle(n, skipSave){
+  var s1 = document.getElementById('hero-style-1');
+  var s2 = document.getElementById('hero-style-2');
+  var b1 = document.getElementById('heroStyleBtn1');
+  var b2 = document.getElementById('heroStyleBtn2');
+  if (!s1 || !s2 || !b1 || !b2) return;
+  if (n === 1) {
+    s1.style.display = '';
+    s2.style.display = 'none';
+    b1.style.background = 'var(--teal)'; b1.style.color = '#06170e';
+    b2.style.background = 'transparent'; b2.style.color = 'rgba(255,255,255,.7)';
+  } else {
+    s1.style.display = 'none';
+    s2.style.display = '';
+    b2.style.background = 'var(--teal)'; b2.style.color = '#06170e';
+    b1.style.background = 'transparent'; b1.style.color = 'rgba(255,255,255,.7)';
+  }
+  if (!skipSave) {
+    try { localStorage.setItem('goalsHeroStyle', String(n)); } catch(e) {}
+  }
+}
+// restore saved hero style choice on load (defaults to Style 1 if never set)
+// deferred to DOMContentLoaded because this script runs before the hero
+// sections further down the page exist in the DOM
+document.addEventListener('DOMContentLoaded', function(){
+  try {
+    var saved = localStorage.getItem('goalsHeroStyle');
+    if (saved === '2') setHeroStyle(2, true);
+  } catch(e) {}
+});
+</script>
+
+<!-- HERO STYLE 1 (default) -->
+<section class="hero" id="hero-style-1">
   <div class="hero-inner">
     <div>
       <h1>Your CRM tracks activity. <em>Goals.com drives sales.</em></h1>
@@ -967,6 +1006,70 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 </div><!-- /ticker inside hero -->
 </section>
 
+<!-- HERO STYLE 2 (HubSpot-style photo hero, hidden by default) -->
+<style>
+.hero-v2{position:relative;min-height:660px;display:flex;flex-direction:row;overflow:hidden;background:var(--navy)}
+.hero-v2-left{position:relative;z-index:2;width:50%;min-width:420px;display:flex;flex-direction:column;justify-content:center;padding:100px 56px 40px 96px;box-sizing:border-box}
+.hero-v2-right{position:relative;width:50%;min-height:660px;overflow:hidden}
+.hero-v2-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-v2-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:26px;padding:7px 16px 7px 12px;border-radius:100px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);width:fit-content}
+.hero-v2-eyebrow::before{content:'';display:block;width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(45,212,191,.18)}
+.hero-v2-h1{font-size:clamp(32px,3.6vw,46px);font-weight:800;color:#fff;line-height:1.16;margin:0 0 22px;letter-spacing:-.01em}
+.hero-v2-accent{color:var(--teal)}
+.hero-v2-sub{font-size:16.5px;line-height:1.65;color:rgba(255,255,255,.78);max-width:460px;margin:0 0 14px;font-weight:400}
+.hero-v2-lede{font-size:16.5px;line-height:1.65;color:#fff;max-width:460px;margin:0 0 36px;font-weight:600}
+.hero-v2-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.hero-v2-btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:10px;font-size:15px;font-weight:700;transition:background .2s,border-color .2s,transform .2s}
+.hero-v2-btn:hover{transform:translateY(-1px)}
+.hero-v2-btn-solid{background:var(--teal);color:#06170e;border:1.5px solid var(--teal)}
+.hero-v2-btn-solid:hover{background:var(--teal2);border-color:var(--teal2)}
+.hero-v2-btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.hero-v2-btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.hero-v2-stat{display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5);border-top:1px solid rgba(255,255,255,.14);padding-top:22px}
+.hero-v2-stat span{display:inline-flex;align-items:center;gap:12px}
+.hero-v2-stat span:not(:last-child)::after{content:'';width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.35);margin-left:12px}
+.hero-v2-stat strong{color:#fff;font-weight:800}
+@media(max-width:900px){.hero-v2{flex-direction:column;min-height:0}.hero-v2-left{width:100%;min-width:0;padding:110px 24px 32px}.hero-v2-right{width:100%;min-height:320px}}
+</style>
+<section class="hero-v2" id="hero-style-2" style="display:none">
+  <div class="hero-v2-left">
+    <div class="hero-v2-eyebrow">Goals.com AI Powered Sales Performance</div>
+    <h1 class="hero-v2-h1">Your CRM tracks activity.<br><span class="hero-v2-accent">Goals.com drives sales.</span></h1>
+    <p class="hero-v2-sub">Goals.com is an AI-powered sales performance platform that combines CRM, goal management, pipeline intelligence, performance tracking, forecasting, and AI coaching into one powerful platform.</p>
+    <p class="hero-v2-lede">It's time to give your team everything they need to sell smarter and perform at their highest level.</p>
+    <div class="hero-v2-actions">
+      <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="hero-v2-btn hero-v2-btn-solid">Book a Demo</a>
+      <a href="https://youtu.be/tBPIBbe_51U?si=aDW-Y0HTQnjYcUY-" target="_blank" rel="noopener" class="hero-v2-btn hero-v2-btn-outline">Watch the overview</a>
+    </div>
+    <div class="hero-v2-stat"><span>Free Onboarding</span><span>Cancel Anytime</span><span><strong>$49</strong>&nbsp;Per User</span></div>
+  </div>
+  <div class="hero-v2-right">
+    <img class="hero-v2-bg" src="sales team meeting.jpg" alt="Sales team reviewing performance data">
+  </div>
+</section>
+
+<!-- TRUST LOGO BAR -->
+<style>
+.trust-bar{background:var(--navy);padding:36px 72px;border-top:1px solid rgba(255,255,255,.06)}
+.trust-bar-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:center}
+.trust-bar-label{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);white-space:nowrap;margin-right:8px}
+.trust-bar-logo{font-size:16px;font-weight:800;color:rgba(255,255,255,.55);letter-spacing:-.01em;white-space:nowrap}
+@media(max-width:768px){.trust-bar{padding:28px 24px}}
+</style>
+<section class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-bar-label">Trusted by growing sales teams</span>
+    <span class="trust-bar-logo">Lennox</span>
+    <span class="trust-bar-logo">ABC</span>
+    <span class="trust-bar-logo">Riverside</span>
+    <span class="trust-bar-logo">Summit</span>
+    <span class="trust-bar-logo">Coastal</span>
+    <span class="trust-bar-logo">Apex</span>
+    <span class="trust-bar-logo">Evergreen</span>
+    <span class="trust-bar-logo">Horizon</span>
+  </div>
+</section>
+
 <!-- FEATURE GRID (Platform overview) -->
 <section class="section section-navy2" id="features">
   <style>
@@ -1129,55 +1232,126 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <section class="section section-navy" id="goals">
   <div class="goals-ring"></div>
   <div class="goals-ring2"></div>
+  <style>
+    #goals .app-shot{margin-top:0}
+    .tp2-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+    .tp2-stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:10px 12px}
+    .tp2-stat-lbl{font-size:8.5px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+    .tp2-stat-val{font-size:15px;font-weight:800;color:#fff;margin-bottom:3px}
+    .tp2-stat-sub{font-size:9px;font-weight:600;color:var(--teal-light)}
+    .tp2-panel{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px 16px}
+    .tp2-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .tp2-panel-title{font-size:11.5px;font-weight:800;color:#fff}
+    .tp2-panel-badges{display:flex;gap:6px}
+    .tp2-badge{font-size:8.5px;font-weight:700;padding:3px 7px;border-radius:6px}
+    .tp-table-head{display:grid;grid-template-columns:1.6fr 1.4fr .8fr .8fr .9fr;gap:8px;padding:0 4px 8px;border-bottom:1px solid rgba(255,255,255,.08);font-size:8.5px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em}
+    .tp-row{display:grid;grid-template-columns:1.6fr 1.4fr .8fr .8fr .9fr;gap:8px;align-items:center;padding:9px 4px;border-bottom:1px solid rgba(255,255,255,.05)}
+    .tp-row:last-child{border-bottom:none}
+    .tp-rep{display:flex;align-items:center;gap:8px;min-width:0}
+    .tp-rep img{width:22px;height:22px;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .tp-rep span{font-size:10.5px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .tp-val{font-size:10.5px;font-weight:600;color:rgba(255,255,255,.85)}
+    .tp-att{font-size:10.5px;font-weight:800}
+    .tp-trend{display:flex;align-items:center;gap:7px}
+    .tp-trend-bar{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}
+    .tp-trend-bar-fill{height:100%;border-radius:3px}
+    .tp-status{font-size:9px;font-weight:700;padding:4px 8px;border-radius:6px;white-space:nowrap;width:fit-content}
+    @media(max-width:900px){.tp-table-head{display:none}.tp-row{grid-template-columns:1fr;gap:4px;padding:12px 4px}.tp2-stats{grid-template-columns:1fr 1fr}}
+    #goals .fsplit{grid-template-columns:1fr 1.25fr;align-items:center}
+    #goals .fs-copy h2{white-space:nowrap}
+    @media(max-width:1100px){#goals .fsplit{grid-template-columns:1fr}#goals .fs-copy h2{white-space:normal}}
+  </style>
   <div class="section-inner">
     <div class="fsplit reveal">
       <div class="fs-copy fs-copy-dark reveal-left">
-        <h2>Every rep knows exactly<br>where they stand.</h2>
-        <p>Goals.com gives every rep a real-time performance view: quota attainment, YTD revenue, pace against target, and where to focus next. Managers see who's winning, who needs coaching, and where money is being left on the table.</p>
+        <div class="hf-eyebrow" style="text-align:left;margin-bottom:14px">For Sales Leaders</div>
+        <h2>Know exactly where<br>your revenue stands. <span style="color:var(--teal)">Every day.</span></h2>
+        <p>Stop waiting for month-end reports. Goals.com gives leaders real-time visibility into quota attainment, individual performance, pipeline, forecasting and team ROI — so you can intervene while there's still time to change the outcome.</p>
         <div class="fs-list">
-          <div class="fs-item fs-item-dark">Live quota attainment and YTD pace for every rep</div>
-          <div class="fs-item fs-item-dark">Individual scorecards: Win Rate, Avg Deal Size, and Proposals</div>
-          <div class="fs-item fs-item-dark">At-risk flags before a rep falls too far behind</div>
-          <div class="fs-item fs-item-dark">Activity goal tracking: calls, emails, and meetings</div>
-          <div class="fs-item fs-item-dark">Team ROI dashboard to see what every rep dollar returns</div>
+          <div class="fs-item fs-item-dark">See who's on pace, behind or at risk</div>
+          <div class="fs-item fs-item-dark">Understand what's driving the number</div>
+          <div class="fs-item fs-item-dark">Identify coaching opportunities</div>
+          <div class="fs-item fs-item-dark">Track activity against outcomes</div>
+          <div class="fs-item fs-item-dark">Get a true team ROI view</div>
         </div>
       </div>
-      <div class="mock reveal-right">
-        <div class="mock-bar"><div class="mock-dot" style="background:#ef4444"></div><div class="mock-dot" style="background:#f59e0b"></div><div class="mock-dot" style="background:#22c55e"></div><div class="mock-title">Goals / 2026 Annual Performance</div></div>
-        <div class="mock-body" style="padding:14px">
-          <!-- Annual Goal Banner -->
-          <div class="goal-banner">
-            <div class="goal-banner-top">
-              <div>
-                <div class="goal-banner-label">Annual Sales Goal · 2026</div>
-                <div class="goal-banner-val">$19,355,000</div>
-                <div class="goal-banner-badges">
-                  <span class="gb-achieved">$7.95M Achieved</span>
-                  <span class="gb-remaining">$11.4M Remaining</span>
-                  <span class="gb-risk">⚠ At Risk</span>
+      <div class="reveal-right">
+        <div class="app-shot">
+          <div class="app-shot-sidebar">
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span>Dashboard</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span>Pipeline</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>People</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Accounts</span></div>
+            <div class="app-shot-icon active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg><span>Team</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 8.5 22 9.5 17 14.5 18.5 21.5 12 18 5.5 21.5 7 14.5 2 9.5 9 8.5 12 2"/></svg><span>Highlights</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>Chat</span></div>
+            <div class="app-shot-divider"></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5" rx="1"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span>Bonuses</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Contests</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>Commissions</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Reports</span></div>
+          </div>
+          <div class="app-shot-main">
+            <div class="app-shot-topbar">
+              <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
+              <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+              <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
+              <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+              <div class="app-shot-avatar">
+                <div class="app-shot-avatar-circle">KA</div>
+                <div class="app-shot-avatar-text"><b>Kelsey Armstrong</b><span>Sales Manager</span></div>
+              </div>
+            </div>
+            <div class="app-shot-content">
+              <div class="app-shot-title">Team</div>
+              <div class="app-shot-sub">Performance and goal tracking</div>
+              <div class="tp2-stats">
+                <div class="tp2-stat"><div class="tp2-stat-lbl">Sales YTD</div><div class="tp2-stat-val">$3.4M</div><div class="tp2-stat-sub">&#9650; 18% vs Q2</div></div>
+                <div class="tp2-stat"><div class="tp2-stat-lbl">Quota Attainment</div><div class="tp2-stat-val">76%</div><div class="tp2-stat-sub" style="color:rgba(255,255,255,.5)">6 of 8 reps on pace</div></div>
+                <div class="tp2-stat"><div class="tp2-stat-lbl">Avg Deal Size</div><div class="tp2-stat-val">$82K</div><div class="tp2-stat-sub">&#9650; 24% vs Q2</div></div>
+                <div class="tp2-stat"><div class="tp2-stat-lbl">Win Rate</div><div class="tp2-stat-val">58%</div><div class="tp2-stat-sub">&#9650; 4% vs Q2</div></div>
+              </div>
+              <div class="tp2-panel">
+                <div class="tp2-panel-head">
+                  <div class="tp2-panel-title">Performance</div>
+                  <div class="tp2-panel-badges">
+                    <span class="tp2-badge" style="background:rgba(61,220,110,.16);color:var(--teal-light)">2 On Pace</span>
+                    <span class="tp2-badge" style="background:rgba(245,158,11,.18);color:#fbbf24">1 At Risk</span>
+                    <span class="tp2-badge" style="background:rgba(239,68,68,.18);color:#fca5a5">1 Critical</span>
+                  </div>
+                </div>
+                <div class="tp-table-head"><div>Rep</div><div>Goal Progress</div><div>Sales YTD</div><div>Attainment</div><div>Status</div></div>
+                <div class="tp-row">
+                  <div class="tp-rep"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ava Pedrad"><span>Ava Pedrad</span></div>
+                  <div class="tp-trend"><div class="tp-trend-bar"><div class="tp-trend-bar-fill" style="width:99%;background:#3ddc6e"></div></div></div>
+                  <div class="tp-val">$990K</div>
+                  <div class="tp-att" style="color:var(--teal-light)">99%</div>
+                  <div class="tp-status" style="background:rgba(61,220,110,.16);color:var(--teal-light)">&#9650; On Pace</div>
+                </div>
+                <div class="tp-row">
+                  <div class="tp-rep"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marcus Bradley"><span>Marcus Bradley</span></div>
+                  <div class="tp-trend"><div class="tp-trend-bar"><div class="tp-trend-bar-fill" style="width:77%;background:#3ddc6e"></div></div></div>
+                  <div class="tp-val">$772K</div>
+                  <div class="tp-att" style="color:var(--teal-light)">77%</div>
+                  <div class="tp-status" style="background:rgba(61,220,110,.16);color:var(--teal-light)">&#9650; On Pace</div>
+                </div>
+                <div class="tp-row">
+                  <div class="tp-rep"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Elena Vasquez"><span>Elena Vasquez</span></div>
+                  <div class="tp-trend"><div class="tp-trend-bar"><div class="tp-trend-bar-fill" style="width:68%;background:#fbbf24"></div></div></div>
+                  <div class="tp-val">$681K</div>
+                  <div class="tp-att" style="color:#fbbf24">68%</div>
+                  <div class="tp-status" style="background:rgba(245,158,11,.18);color:#fbbf24">&#9888; At Risk</div>
+                </div>
+                <div class="tp-row">
+                  <div class="tp-rep"><img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Brock Wilson"><span>Brock Wilson</span></div>
+                  <div class="tp-trend"><div class="tp-trend-bar"><div class="tp-trend-bar-fill" style="width:51%;background:#f87171"></div></div></div>
+                  <div class="tp-val">$512K</div>
+                  <div class="tp-att" style="color:#f87171">51%</div>
+                  <div class="tp-status" style="background:rgba(239,68,68,.18);color:#fca5a5">&#9888; Critical</div>
                 </div>
               </div>
-              <div class="goal-pace-right">
-                <div class="goal-pace-pct">41%</div>
-                <div class="goal-pace-label">YTD Pace</div>
-              </div>
-            </div>
-            <div class="goal-timeline">
-              <div class="goal-tl-fill" style="width:41%"></div>
-              <div class="goal-tl-dot" style="left:41%"></div>
             </div>
           </div>
-          <!-- Mini metric row -->
-          <div class="goal-mini-row">
-            <div class="goal-mini"><div class="goal-mini-lbl">Sales YTD</div><div class="goal-mini-val">$7.95M</div><div class="goal-mini-trend">▲ 12% vs last year</div></div>
-            <div class="goal-mini"><div class="goal-mini-lbl">Team ROI</div><div class="goal-mini-val">285%</div><div class="goal-mini-trend">Year to Date</div></div>
-            <div class="goal-mini"><div class="goal-mini-lbl">Win Rate</div><div class="goal-mini-val">58%</div><div class="goal-mini-trend">▲ 6pp vs Q2 2025</div></div>
-            <div class="goal-mini"><div class="goal-mini-lbl">Avg Deal</div><div class="goal-mini-val">$82K</div><div class="goal-mini-trend">▲ $4.2K MoM</div></div>
-          </div>
-          <!-- Individual reps -->
-          <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Individual Rep Goals</div>
-          <div class="gm-row"><div class="gm-n">01</div><div style="display:flex;align-items:center;gap:8px"><img src="https://randomuser.me/api/portraits/men/54.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0"><div><div class="gm-name">Brock Wilson</div><div class="gm-sub">$1.64M of $2M</div></div></div><div class="gm-track"><div class="gm-fill" style="width:82%;background:linear-gradient(90deg,var(--teal),var(--teal2))"></div></div><div class="gm-pct" style="color:var(--teal)">82%</div></div>
-          <div class="gm-row" style="margin-bottom:0"><div class="gm-n">02</div><div style="display:flex;align-items:center;gap:8px"><img src="https://randomuser.me/api/portraits/men/71.jpg" style="width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0"><div><div class="gm-name">Russ Holt</div><div class="gm-sub">$1.26M of $1.7M</div></div></div><div class="gm-track"><div class="gm-fill" style="width:74%;background:linear-gradient(90deg,var(--teal),var(--teal2))"></div></div><div class="gm-pct" style="color:var(--teal)">74%</div></div>
         </div>
       </div>
     </div>
@@ -1187,83 +1361,148 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <!-- PIPELINE DEEP DIVE -->
 <section class="section section-white" id="pipeline">
   <div class="pipeline-blob"></div>
+  <style>
+    #pipeline .section-inner{max-width:1440px}
+    #pipeline .fsplit{grid-template-columns:1.65fr 1fr;gap:64px;align-items:center}
+    #pipeline .fsplit>div:first-child{align-self:center}
+    #pipeline .app-shot{transform:scale(.95);transform-origin:center}
+    #pipeline .fs-copy h2{white-space:nowrap}
+    @media(max-width:1100px){#pipeline .fs-copy h2{white-space:normal}}
+    .pl-head{display:flex;align-items:center;justify-content:flex-end;margin-bottom:18px}
+    .pl-add{font-size:12px;font-weight:700;color:var(--teal-light);background:rgba(61,220,110,.14);border:1px solid rgba(61,220,110,.3);border-radius:8px;padding:8px 16px;white-space:nowrap}
+    .pl-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .pl-col{background:rgba(255,255,255,.03);border-radius:12px;padding:14px;min-width:0}
+    .pl-col-hdr{border-radius:7px;padding:10px 12px;margin-bottom:14px}
+    .pl-col-name{font-size:12.5px;font-weight:800;color:#fff;margin-bottom:3px}
+    .pl-col-meta{font-size:10.5px;color:rgba(255,255,255,.85);opacity:.85;white-space:nowrap}
+    .pl-card{background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:12px;margin-bottom:11px;display:flex;align-items:flex-start;gap:9px}
+    .pl-card:last-child{margin-bottom:0}
+    .pl-card img{width:24px;height:24px;border-radius:50%;object-fit:cover;flex-shrink:0;margin-top:1px}
+    @media(max-width:1440px){#pipeline .fsplit{grid-template-columns:1.4fr 1fr;gap:48px}}
+    .pl-card-name{font-size:12px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:4px;white-space:normal;overflow-wrap:break-word}
+    .pl-card-val{font-size:11px;font-weight:700;color:var(--teal-light)}
+    @media(max-width:1100px){#pipeline .fsplit{grid-template-columns:1fr}}
+    @media(max-width:640px){.pl-cols{grid-template-columns:1fr 1fr}}
+  </style>
+  <style>
+    #pipeline .app-shot{margin-top:0}
+    #pipeline .app-shot-kanban{gap:14px}
+    #pipeline .app-shot-kanban-col{padding:10px}
+    #pipeline .app-shot-kanban-head{margin-bottom:10px;font-size:10.5px}
+    #pipeline .app-shot-kanban-card{padding:10px 11px;margin-bottom:9px}
+    #pipeline .app-shot-kanban-card-title{font-size:10.5px;white-space:normal;overflow:visible;text-overflow:clip;line-height:1.35;margin-bottom:7px}
+    .pl-kc-contact{display:flex;align-items:center;gap:6px;margin-bottom:7px}
+    .pl-kc-contact img{width:16px;height:16px;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .pl-kc-contact span{font-size:9px;color:rgba(255,255,255,.55);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .pl-kc-bottom{display:flex;align-items:center;justify-content:space-between}
+    .pl-kc-tag{font-size:8.5px;color:rgba(255,255,255,.4)}
+  </style>
   <div class="section-inner">
     <div class="fsplit reveal">
-      <div class="mock reveal-left">
-        <div class="mock-bar"><div class="mock-dot" style="background:#ef4444"></div><div class="mock-dot" style="background:#f59e0b"></div><div class="mock-dot" style="background:#22c55e"></div><div class="mock-title">Pipeline / List View</div></div>
-        <div class="mock-body" style="padding:12px 16px">
-          <!-- Header stats bar -->
-          <div style="display:flex;gap:16px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06)">
-            <span style="font-size:9px;color:rgba(255,255,255,.85)">Pipeline: <strong style="color:#fff;font-weight:600">$819K</strong></span>
-            <span style="font-size:9px;color:rgba(255,255,255,.85)">6 deals</span>
-            <span style="font-size:9px;color:rgba(255,255,255,.85)">Win rate: <strong style="color:var(--teal);font-weight:600">58%</strong></span>
+      <div class="reveal-left">
+        <div class="app-shot">
+          <div class="app-shot-sidebar">
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span>Dashboard</span></div>
+            <div class="app-shot-icon active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg><span>Pipeline</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>People</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Accounts</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg><span>Team</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 8.5 22 9.5 17 14.5 18.5 21.5 12 18 5.5 21.5 7 14.5 2 9.5 9 8.5 12 2"/></svg><span>Highlights</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>Chat</span></div>
+            <div class="app-shot-divider"></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5" rx="1"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span>Bonuses</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Contests</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span>Commissions</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Marketing</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Reports</span></div>
+            <div class="app-shot-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span>Forecast</span></div>
           </div>
-          <!-- Table header -->
-          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;padding:0 0 7px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:4px">
-            <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.07em">Deal</div>
-            <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.07em">Value</div>
-            <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.07em">Stage</div>
-          </div>
-          <!-- Rows -->
-          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
-            <div style="display:flex;align-items:center;gap:7px;min-width:0">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
-              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Riverside Corp</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Marcus Bradley</div></div>
+          <div class="app-shot-main">
+            <div class="app-shot-topbar">
+              <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
+              <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+              <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
+              <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
+              <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+              <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <div class="app-shot-avatar">
+                <div class="app-shot-avatar-circle">KA</div>
+                <div class="app-shot-avatar-text"><b>Kelsey Armstrong</b><span>Sales Manager</span></div>
+              </div>
             </div>
-            <div style="font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;color:var(--teal)">$92K</div>
-            <div><span style="font-size:8px;font-weight:700;background:rgba(99,102,241,.18);color:#a5b4fc;padding:3px 7px;border-radius:4px;white-space:nowrap">Prospecting</span></div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
-            <div style="display:flex;align-items:center;gap:7px;min-width:0">
-              <img src="https://randomuser.me/api/portraits/women/33.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
-              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Apex Holdings</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Amanda Morrison</div></div>
+            <div class="app-shot-content">
+              <div class="app-shot-title">Pipeline</div>
+              <div class="app-shot-sub">Every deal, contact, and account, organized by stage.</div>
+              <div class="app-shot-stats">
+                <div class="app-shot-stat"><div class="app-shot-stat-label">Total Value</div><div class="app-shot-stat-val">$5,428,550</div></div>
+                <div class="app-shot-stat"><div class="app-shot-stat-label">Opportunities</div><div class="app-shot-stat-val dark" style="font-size:16px">262</div></div>
+                <div class="app-shot-stat"><div class="app-shot-stat-label">Avg Size</div><div class="app-shot-stat-val dark" style="font-size:16px">$20,720</div></div>
+                <div class="app-shot-stat"><div class="app-shot-stat-label">Win Rate</div><div class="app-shot-stat-val">81%</div></div>
+              </div>
+              <div class="app-shot-kanban">
+                <div class="app-shot-kanban-col">
+                  <div class="app-shot-kanban-head"><span class="app-shot-kanban-dot" style="background:#8b7cf6"></span>Prospect &middot; 2 opps</div>
+                  <div class="app-shot-kanban-card">
+                    <div class="app-shot-kanban-card-title">Stonebridge Realty LLP</div>
+                    <div class="pl-kc-contact"><img src="https://randomuser.me/api/portraits/women/24.jpg" alt=""><span>Jennifer Jacobs</span></div>
+                    <div class="pl-kc-bottom"><div class="app-shot-kanban-card-val">$27,850</div><div class="pl-kc-tag">13d</div></div>
+                  </div>
+                  <div class="app-shot-kanban-card">
+                    <div class="app-shot-kanban-card-title">Juniper Manufacturing</div>
+                    <div class="pl-kc-contact"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt=""><span>Daniel Lopez</span></div>
+                    <div class="pl-kc-bottom"><div class="app-shot-kanban-card-val">$16,450</div><div class="pl-kc-tag">13d</div></div>
+                  </div>
+                </div>
+                <div class="app-shot-kanban-col">
+                  <div class="app-shot-kanban-head"><span class="app-shot-kanban-dot" style="background:#f59e0b"></span>Contact Made &middot; 1 opp</div>
+                  <div class="app-shot-kanban-card">
+                    <div class="app-shot-kanban-card-title">Lakeside Cleaning LLP</div>
+                    <div class="pl-kc-contact"><img src="https://randomuser.me/api/portraits/women/56.jpg" alt=""><span>Hannah Howard</span></div>
+                    <div class="pl-kc-bottom"><div class="app-shot-kanban-card-val">$39,800</div><div class="pl-kc-tag">13d</div></div>
+                  </div>
+                </div>
+                <div class="app-shot-kanban-col">
+                  <div class="app-shot-kanban-head"><span class="app-shot-kanban-dot" style="background:#5b8def"></span>Qualification &middot; 3 opps</div>
+                  <div class="app-shot-kanban-card">
+                    <div class="app-shot-kanban-card-title">Hawthorne Legal Group</div>
+                    <div class="pl-kc-contact"><img src="https://randomuser.me/api/portraits/women/62.jpg" alt=""><span>Alicia Wright</span></div>
+                    <div class="pl-kc-bottom"><div class="app-shot-kanban-card-val">$28,150</div><div class="pl-kc-tag">13d</div></div>
+                  </div>
+                  <div class="app-shot-kanban-card">
+                    <div class="app-shot-kanban-card-title">Trailblazer Grill Services</div>
+                    <div class="pl-kc-contact"><img src="https://randomuser.me/api/portraits/men/29.jpg" alt=""><span>Gregory Porter</span></div>
+                    <div class="pl-kc-bottom"><div class="app-shot-kanban-card-val">$34,550</div><div class="pl-kc-tag">13d</div></div>
+                  </div>
+                </div>
+                <div class="app-shot-kanban-col">
+                  <div class="app-shot-kanban-head"><span class="app-shot-kanban-dot" style="background:var(--teal)"></span>Won &middot; 241 opps</div>
+                  <div class="app-shot-kanban-card">
+                    <div class="app-shot-kanban-card-title">Golden Gate Distillery</div>
+                    <div class="pl-kc-contact"><img src="https://randomuser.me/api/portraits/women/38.jpg" alt=""><span>Michelle Martinez</span></div>
+                    <div class="pl-kc-bottom"><div class="app-shot-kanban-card-val">$16,550</div><div class="pl-kc-tag">13d</div></div>
+                  </div>
+                  <div class="app-shot-kanban-card">
+                    <div class="app-shot-kanban-card-title">Ivy League Manufacturing</div>
+                    <div class="pl-kc-contact"><img src="https://randomuser.me/api/portraits/men/77.jpg" alt=""><span>Zachary Mccoy</span></div>
+                    <div class="pl-kc-bottom"><div class="app-shot-kanban-card-val">$2,000</div><div class="pl-kc-tag">15d</div></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div style="font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;color:var(--teal)">$145K</div>
-            <div><span style="font-size:8px;font-weight:700;background:rgba(245,158,11,.15);color:#fbbf24;padding:3px 7px;border-radius:4px;white-space:nowrap">Outreach</span></div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
-            <div style="display:flex;align-items:center;gap:7px;min-width:0">
-              <img src="https://randomuser.me/api/portraits/men/40.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
-              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Harborview Medical</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Derek Park</div></div>
-            </div>
-            <div style="font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;color:var(--teal)">$158K</div>
-            <div><span style="font-size:8px;font-weight:700;background:rgba(6,182,212,.15);color:#67e8f9;padding:3px 7px;border-radius:4px;white-space:nowrap">Proposal Sent</span></div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
-            <div style="display:flex;align-items:center;gap:7px;min-width:0">
-              <img src="https://randomuser.me/api/portraits/men/54.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
-              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Lakewood Inc</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Brock Wilson</div></div>
-            </div>
-            <div style="font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;color:var(--teal)">$174K</div>
-            <div><span style="font-size:8px;font-weight:700;background:rgba(168,85,247,.18);color:#d8b4fe;padding:3px 7px;border-radius:4px;white-space:nowrap">Negotiating</span></div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)">
-            <div style="display:flex;align-items:center;gap:7px;min-width:0">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
-              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Cascade Logistics</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Aya Pedrad</div></div>
-            </div>
-            <div style="font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;color:var(--teal)">$138K</div>
-            <div><span style="font-size:8px;font-weight:700;background:rgba(239,68,68,.15);color:#fca5a5;padding:3px 7px;border-radius:4px;white-space:nowrap">⚠ Idle 8d</span></div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 60px 90px;gap:8px;align-items:center;padding:8px 0">
-            <div style="display:flex;align-items:center;gap:7px;min-width:0">
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" style="width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0">
-              <div><div style="font-size:11px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Crestwood Financial</div><div style="font-size:9px;color:rgba(255,255,255,.85)">Elena Vasquez</div></div>
-            </div>
-            <div style="font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;color:var(--teal)">$112K</div>
-            <div><span style="font-size:8px;font-weight:700;background:rgba(61,220,110,.2);color:var(--teal);padding:3px 7px;border-radius:4px;white-space:nowrap">Closed Won</span></div>
           </div>
         </div>
       </div>
       <div class="fs-copy reveal-right">
-        <h2>A CRM that keeps<br>deals moving forward.</h2>
-        <p>Track every opportunity from first contact to closed-won. Kanban, List, and Calendar views with no configuration needed. Deal aging flags automatically surface what's going cold.</p>
+        <div class="hf-eyebrow" style="text-align:left;margin-bottom:14px">Pipeline Intelligence</div>
+        <h2>Your pipeline shouldn't<br>just be organized. It <span style="color:var(--teal2)">should be moving.</span></h2>
+        <p>Goals.com tracks every opportunity from first contact to closed-won. Aging alerts and AI insights surface the deals that need attention, so nothing falls through the cracks.</p>
         <div class="fs-list">
-          <div class="fs-item">Kanban board with drag-and-drop deal stages</div>
-          <div class="fs-item">Deal aging alerts flag idle opportunities before they're lost</div>
-          <div class="fs-item">Linked Accounts and Contacts with full organization history</div>
-          <div class="fs-item">Activity tracking: calls, notes, and follow-ups in one place</div>
-          <div class="fs-item">Calendar view for time-based deal and task management</div>
+          <div class="fs-item">Kanban board with drag-and-drop stages</div>
+          <div class="fs-item">Deal aging alerts</div>
+          <div class="fs-item">Full history on accounts and contacts</div>
+          <div class="fs-item">Activity tracking in one place</div>
+          <div class="fs-item">Calendar view for deal and task management</div>
         </div>
       </div>
     </div>
@@ -1272,26 +1511,303 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 
 <!-- ACE AI DEEP DIVE -->
 <section class="section section-navy2" id="ace">
+  <style>
+    .ace3-head{text-align:center;max-width:900px;margin:0 auto 20px}
+    .ace3-eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-light);margin-bottom:14px}
+    .ace3-h2{font-size:clamp(28px,3.2vw,42px);font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1.15;margin:0 0 14px}
+    .ace3-p{font-size:17px;line-height:1.65;color:rgba(255,255,255,.85);margin:0}
+    .ace3-stage{position:relative;max-width:820px;margin:64px auto 0;min-height:460px;padding:0 150px}
+    .ace3-stage .ace-shell{max-width:560px;margin:0 auto;position:relative;z-index:2}
+    .ace3-float{position:absolute;display:flex;align-items:center;gap:10px;background:rgba(12,17,30,.94);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:11px 16px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.9);backdrop-filter:blur(20px);box-shadow:0 12px 40px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06);white-space:nowrap;z-index:3}
+    .ace3-float-icon{width:20px;height:20px;border-radius:6px;background:rgba(99,102,241,.25);color:#a5b4fc;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px}
+    @keyframes aceFloatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes aceFloatYCenter{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 8px))}}
+    @keyframes aceFloatXCenter{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+    .ace3-f1{top:calc(12px + 15%);left:-10%;animation:aceFloatY 5s ease-in-out infinite}
+    .ace3-f2{top:12px;right:-10%;animation:aceFloatY 5.5s .2s ease-in-out infinite}
+    .ace3-f3{top:50%;left:-16px;transform:translateY(-50%);animation:aceFloatYCenter 4.8s ease-in-out infinite}
+    .ace3-f4{top:calc(50% - 2%);right:calc(-16px - 10%);transform:translateY(-50%);animation:aceFloatYCenter 5.2s .3s ease-in-out infinite}
+    .ace3-f5{bottom:calc(8px - 10%);left:calc(50% + 20%);transform:translateX(-50%);animation:aceFloatXCenter 5.4s .2s ease-in-out infinite}
+    @media(max-width:980px){.ace3-stage{min-height:0;margin-top:36px;padding:0}.ace3-stage .ace-shell{max-width:100%}.ace3-float{position:static;transform:none!important;display:flex;margin:0 auto 10px;width:fit-content;animation:none!important}}
+  </style>
   <div class="section-inner">
-    <div class="s-head s-head-dark reveal" style="margin-bottom:48px;max-width:820px">
-      <h2 class="ace-head-nowrap">Your team's <em>built-in intelligence layer.</em></h2>
-      <p>Ace knows your pipeline, your reps, and your history. Ask it anything and it answers with real data from your account, not generic advice.</p>
+    <div class="ace3-head reveal">
+      <div class="ace3-eyebrow">Ace AI</div>
+      <h2 class="ace3-h2">Your sales data finally<br><span class="hf-grad">tells you what to do next.</span></h2>
+      <p class="ace3-p">Ace understands your pipeline, your customers, your reps and your goals. It turns your real data into coaching, forecasts, warnings and recommendations — not generic advice.</p>
     </div>
-    <div class="ace-shell reveal" style="max-width:640px;margin:0 auto">
-      <div class="ace-hdr">
-        <div class="ace-hdr-icon">&#10022;</div>
-        <div><div class="ace-hdr-name">Ace AI: Sales Intelligence</div><div class="ace-hdr-sub">Powered by your Goals.com data</div></div>
-        <div class="ace-dot"></div>
+    <div class="ace3-stage reveal">
+      <div class="ace3-float ace3-f1"><span class="ace3-float-icon">&#10022;</span>Which deals will likely close this month?</div>
+      <div class="ace3-float ace3-f2"><span class="ace3-float-icon">&#10022;</span>What should Sarah focus on today?</div>
+      <div class="ace-shell">
+        <div class="ace-hdr">
+          <div class="ace-hdr-icon">&#10022;</div>
+          <div><div class="ace-hdr-name">Ace AI: Sales Intelligence</div><div class="ace-hdr-sub">Powered by your Goals.com data</div></div>
+          <div class="ace-dot"></div>
+        </div>
+        <div class="ace-msgs">
+          <div class="ace-u">Which deals are at risk this quarter?</div>
+          <div class="ace-r"><div class="ace-label">&#10022; Ace</div>I'm seeing <em>3 deals</em> at risk: <em>Summit Real Estate ($31K)</em>, 16 days idle in Proposal. <em>Coastal Financial ($18.5K)</em>, decision-maker unreachable for 9 days. <em>Tyler R.'s pipeline</em> has $68K behind pace. I'd recommend a 1:1 with Tyler this week.</div>
+          <div class="ace-u">What's our projected close for Q3?</div>
+          <div class="ace-r"><div class="ace-label">&#10022; Ace</div>Current pipeline is <em>$324,800</em> across 14 deals. Based on your historical win rate, I'm projecting <em>$187K–$210K</em> in closed revenue this quarter. <em>$68K</em> in Closing stage is most likely to land.</div>
+        </div>
+        <div class="ace-input-row">
+          <div class="ace-field">Ask Ace anything about your pipeline…</div>
+          <div class="ace-send"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 2.5l3 3-3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
       </div>
-      <div class="ace-msgs">
-        <div class="ace-u">Which deals are at risk this quarter?</div>
-        <div class="ace-r"><div class="ace-label">&#10022; Ace</div>I'm seeing <em>3 deals</em> at risk: <em>Summit Real Estate ($31K)</em>, 16 days idle in Proposal. <em>Coastal Financial ($18.5K)</em>, decision-maker unreachable for 9 days. <em>Tyler R.'s pipeline</em> has $68K behind pace. I'd recommend a 1:1 with Tyler this week.</div>
-        <div class="ace-u">What's our projected close for Q3?</div>
-        <div class="ace-r"><div class="ace-label">&#10022; Ace</div>Current pipeline is <em>$324,800</em> across 14 deals. Based on your historical win rate, I'm projecting <em>$187K–$210K</em> in closed revenue this quarter. <em>$68K</em> in Closing stage is most likely to land.</div>
+      <div class="ace3-float ace3-f3"><span class="ace3-float-icon">&#10022;</span>Why is Marcus behind quota?</div>
+      <div class="ace3-float ace3-f4"><span class="ace3-float-icon">&#10022;</span>Which reps need coaching?</div>
+      <div class="ace3-float ace3-f5"><span class="ace3-float-icon">&#10022;</span>How do we hit our Q3 goal?</div>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS, INCENTIVES & CULTURE -->
+<style>
+  .gic-grid{display:grid;grid-template-columns:1fr 2.6fr;gap:56px;align-items:center;max-width:1480px;margin:0 auto}
+  .gic-visual-wrap{position:relative;padding:0 150px;contain:layout}
+  .gic-visual{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
+  .gic-float{position:absolute;background:var(--navy2);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:13px 16px;box-shadow:0 14px 30px rgba(0,0,0,.4);z-index:2;width:132px}
+  .gic-float .gic-stat-label{margin-bottom:6px;font-size:9px}
+  .gic-float .gic-stat-val{font-size:17px}
+  .gic-f1{left:0;top:24px;animation:aceFloatY 5s ease-in-out infinite}
+  .gic-f2{left:0;bottom:24px;animation:aceFloatY 5.4s .15s ease-in-out infinite}
+  .gic-f3{right:0;top:24px;animation:aceFloatY 5.2s .3s ease-in-out infinite}
+  .gic-f4{right:0;bottom:24px;animation:aceFloatY 5.6s .1s ease-in-out infinite}
+  @media(max-width:1360px){.gic-visual-wrap{padding:0 118px}.gic-float{width:112px;padding:10px 12px}}
+  @media(max-width:1180px){.gic-visual-wrap{padding:0}.gic-float{display:none}}
+  @media(max-width:980px){.gic-grid{grid-template-columns:1fr;gap:32px}.gic-visual{grid-template-columns:1fr}}
+  .gic-mini{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.3);display:flex;flex-direction:column}
+  .gic-mini-bar{height:5px;flex-shrink:0}
+  .gic-mini-body{padding:18px 18px 16px;display:flex;flex-direction:column;flex:1}
+  .gic-mini-hdr{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+  .gic-mini-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+  .gic-mini-title{font-size:14px;font-weight:800;color:#0f172a;letter-spacing:-.01em}
+  .gic-mini-sub{font-size:10px;color:#94a3b8;margin-top:1px}
+  .gic-mini-highlight{background:rgba(61,220,110,.08);border:1px solid rgba(61,220,110,.22);border-radius:10px;padding:11px 13px;margin-bottom:12px}
+  .gic-mini-highlight-lbl{font-size:8.5px;font-weight:700;color:#16a34a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .gic-mini-highlight-val{font-size:18px;font-weight:800;color:#0f172a;letter-spacing:-.01em}
+  .gic-mini-section-lbl{font-size:8.5px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em;margin:2px 0 7px}
+  .gic-mini-row{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-top:1px solid #eef1f5}
+  .gic-mini-row:first-of-type{border-top:none}
+  .gic-mini-person{display:flex;align-items:center;gap:8px;min-width:0}
+  .gic-mini-rank{font-size:10px;font-weight:800;color:#cbd5e1;width:11px;flex-shrink:0}
+  .gic-mini-person img{width:20px;height:20px;border-radius:50%;object-fit:cover;flex-shrink:0}
+  .gic-mini-person span{font-size:11px;font-weight:600;color:#334155;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .gic-mini-val{font-size:11px;font-weight:800;color:#0f172a;flex-shrink:0}
+  .gic-mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  .gic-mini-stat-lbl{font-size:8px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+  .gic-mini-stat-val{font-size:15px;font-weight:800;color:#0f172a}
+  .gic-mini-badge{font-size:9px;font-weight:700;padding:3px 8px;border-radius:6px;background:rgba(61,220,110,.12);color:#16a34a;flex-shrink:0}
+  .gic-mini-tiers{display:flex;gap:6px;margin-top:auto;padding-top:12px}
+  .gic-mini-tier{flex:1;background:#f8fafc;border:1px solid #eef1f5;border-radius:8px;padding:7px 6px;text-align:center}
+  .gic-mini-tier-lbl{font-size:7.5px;font-weight:700;color:#94a3b8;margin-bottom:3px}
+  .gic-mini-tier-val{font-size:11.5px;font-weight:800;color:#16a34a}
+  .gic-mini-bonus{border-left:3px solid var(--teal);background:#f8fafc;border-radius:8px;padding:10px 12px;margin-bottom:8px}
+  .gic-mini-bonus:last-child{margin-bottom:0}
+  .gic-mini-bonus-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;gap:8px}
+  .gic-mini-bonus-name{font-size:10.5px;font-weight:700;color:#0f172a}
+  .gic-mini-bonus-val{font-size:11px;font-weight:800;color:#16a34a;flex-shrink:0;white-space:nowrap}
+  .gic-mini-track{height:4px;border-radius:2px;background:#e2e8f0;overflow:hidden}
+  .gic-mini-fill{height:100%;background:var(--teal);border-radius:2px}
+  .gic-mini-foot{margin-top:auto;padding-top:12px;border-top:1px solid #eef1f5;font-size:10px;font-weight:700;color:#16a34a;display:flex;align-items:center;gap:4px}
+  @media(max-width:900px){.gic-visual{grid-template-columns:1fr}}
+  .gic-copy .hf-eyebrow{text-align:left;margin-bottom:16px}
+  .gic-copy h2{font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-.025em;line-height:1.2;color:var(--dark);margin-bottom:14px;white-space:nowrap}
+  @media(max-width:1100px){.gic-copy h2{white-space:normal}}
+  .gic-copy p{font-size:15px;line-height:1.75;color:var(--g500);margin-bottom:28px}
+  .gic-copy .fs-list{gap:16px}
+  @media(max-width:1100px){.gic-grid{grid-template-columns:1fr;gap:32px}}
+  .gic-panel{background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px 20px}
+  .gic-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .gic-panel-title{font-size:13.5px;font-weight:800;color:#fff;display:flex;align-items:center;gap:7px}
+  .gic-panel-badge{font-size:10.5px;font-weight:700;color:var(--teal-light)}
+  .gic-lb-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .gic-lb-row:last-child{margin-bottom:0}
+  .gic-lb-rank{font-size:12px;font-weight:800;color:rgba(255,255,255,.4);width:14px;flex-shrink:0}
+  .gic-lb-row img{width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0}
+  .gic-lb-mid{flex:1;min-width:0}
+  .gic-lb-name{font-size:11.5px;font-weight:700;color:#fff;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .gic-lb-track{height:5px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}
+  .gic-lb-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--teal2));border-radius:3px}
+  .gic-lb-val{font-size:11px;font-weight:800;color:var(--teal-light);flex-shrink:0}
+  .gic-win-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px}
+  .gic-win-row:last-child{margin-bottom:0}
+  .gic-win-icon{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px}
+  .gic-win-icon img{width:26px;height:26px;border-radius:50%;object-fit:cover}
+  .gic-win-text{font-size:11.5px;font-weight:600;color:#fff;line-height:1.4}
+  .gic-win-meta{font-size:10px;color:rgba(255,255,255,.5);margin-top:2px}
+  @media(max-width:980px){.gic-grid{grid-template-columns:1fr;gap:24px}}
+  .gic-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1320px;margin:0 auto 32px}
+  .gic-stat{background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 18px}
+  .gic-stat-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+  .gic-stat-val{font-size:20px;font-weight:800;color:#fff}
+  .gic-panel-prize{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#fbbf24;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .gic-comm{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07)}
+  .gic-comm-hdr{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+  .gic-comm-icon{width:22px;height:22px;border-radius:6px;background:rgba(61,220,110,.16);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .gic-comm-title{font-size:11.5px;font-weight:800;color:#fff}
+  .gic-comm-row{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.75);padding:5px 0}
+  .gic-comm-row span:last-child{color:var(--teal-light);font-weight:700}
+  @media(max-width:980px){.gic-stats{grid-template-columns:1fr 1fr}}
+  .gic-bonus{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between}
+  .gic-bonus-left{display:flex;align-items:center;gap:8px}
+  .gic-bonus-icon{width:22px;height:22px;border-radius:6px;background:rgba(245,158,11,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px}
+  .gic-bonus-title{font-size:11.5px;font-weight:800;color:#fff}
+  .gic-bonus-sub{font-size:9.5px;color:rgba(255,255,255,.5)}
+  .gic-bonus-val{font-size:13px;font-weight:800;color:#fbbf24}
+</style>
+<section class="section section-white" id="culture">
+  <div class="section-inner">
+    <div class="gic-grid reveal">
+      <div class="gic-copy">
+        <div class="hf-eyebrow" style="text-align:left">Goals, Incentives &amp; Culture</div>
+        <h2>Turn revenue goals into<br>daily behavior.</h2>
+        <p>Setting a goal isn't enough. Goals.com connects company goals, team goals and individual quotas to the activities, coaching and incentives that drive real performance.</p>
+        <div class="fs-list">
+          <div class="fs-item">Company, team and individual goals</div>
+          <div class="fs-item">Commission tracking &amp; payouts</div>
+          <div class="fs-item">Sales contests with leaderboards</div>
+          <div class="fs-item">Bonuses and incentives</div>
+          <div class="fs-item">Team recognition and communication</div>
+        </div>
       </div>
-      <div class="ace-input-row">
-        <div class="ace-field">Ask Ace anything about your pipeline…</div>
-        <div class="ace-send"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5h7M6 2.5l3 3-3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="gic-visual-wrap">
+        <div class="gic-float gic-f1"><div class="gic-stat-label">Total Payouts YTD</div><div class="gic-stat-val">$118,400</div></div>
+        <div class="gic-float gic-f2"><div class="gic-stat-label">Team Bonus Pool</div><div class="gic-stat-val">$2,750</div></div>
+        <div class="gic-float gic-f3"><div class="gic-stat-label">Active Contests</div><div class="gic-stat-val">3</div></div>
+        <div class="gic-float gic-f4"><div class="gic-stat-label">Avg Rep Payout</div><div class="gic-stat-val">$4,150</div></div>
+
+        <div class="gic-visual">
+          <div class="gic-mini">
+            <div class="gic-mini-bar" style="background:linear-gradient(90deg,var(--teal),var(--teal2))"></div>
+            <div class="gic-mini-body">
+              <div class="gic-mini-hdr">
+                <div class="gic-mini-icon" style="background:rgba(61,220,110,.14);color:#16a34a">&#9878;</div>
+                <div><div class="gic-mini-title">Commissions</div><div class="gic-mini-sub">6% Base + 2% Goal Bonus</div></div>
+              </div>
+              <div class="gic-mini-highlight">
+                <div class="gic-mini-highlight-lbl">Total Commission &middot; Sept</div>
+                <div class="gic-mini-highlight-val">$35,710.40</div>
+              </div>
+              <div class="gic-mini-section-lbl">Commission by Person</div>
+              <div class="gic-mini-row"><div class="gic-mini-person"><img src="https://randomuser.me/api/portraits/men/71.jpg" alt=""><span>Trevor Collins</span></div><div class="gic-mini-val">$31,944</div></div>
+              <div class="gic-mini-row"><div class="gic-mini-person"><img src="https://randomuser.me/api/portraits/women/76.jpg" alt=""><span>Casey Morales</span></div><div class="gic-mini-val">$3,766</div></div>
+              <div class="gic-mini-tiers">
+                <div class="gic-mini-tier"><div class="gic-mini-tier-lbl">$0&ndash;50K</div><div class="gic-mini-tier-val">6%</div></div>
+                <div class="gic-mini-tier"><div class="gic-mini-tier-lbl">$50&ndash;100K</div><div class="gic-mini-tier-val">8%</div></div>
+                <div class="gic-mini-tier"><div class="gic-mini-tier-lbl">$100K+</div><div class="gic-mini-tier-val">11%</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gic-mini">
+            <div class="gic-mini-bar" style="background:#f59e0b"></div>
+            <div class="gic-mini-body">
+              <div class="gic-mini-hdr">
+                <div class="gic-mini-icon" style="background:rgba(245,158,11,.14);color:#d97706">&#127942;</div>
+                <div><div class="gic-mini-title">Contests</div><div class="gic-mini-sub">September Revenue Contest</div></div>
+              </div>
+              <div class="gic-mini-stats">
+                <div><div class="gic-mini-stat-lbl">Prize Pool</div><div class="gic-mini-stat-val">$2,500</div></div>
+                <div><div class="gic-mini-stat-lbl">Time Left</div><div class="gic-mini-stat-val">16 days</div></div>
+              </div>
+              <div class="gic-mini-section-lbl">Leaderboard &middot; 3 Participants</div>
+              <div class="gic-mini-row"><div class="gic-mini-person"><span class="gic-mini-rank">1</span><img src="https://randomuser.me/api/portraits/women/12.jpg" alt=""><span>Madison Brooks</span></div><div class="gic-mini-val">$2,500</div></div>
+              <div class="gic-mini-row"><div class="gic-mini-person"><span class="gic-mini-rank">2</span><img src="https://randomuser.me/api/portraits/men/54.jpg" alt=""><span>Brock Wilson</span></div><div class="gic-mini-val">$1,840</div></div>
+              <div class="gic-mini-row"><div class="gic-mini-person"><span class="gic-mini-rank">3</span><img src="https://randomuser.me/api/portraits/men/71.jpg" alt=""><span>Tyler Smith</span></div><div class="gic-mini-val">$960</div></div>
+              <div class="gic-mini-foot">4 active contests running &rarr;</div>
+            </div>
+          </div>
+
+          <div class="gic-mini">
+            <div class="gic-mini-bar" style="background:#8b7cf6"></div>
+            <div class="gic-mini-body">
+              <div class="gic-mini-hdr">
+                <div class="gic-mini-icon" style="background:rgba(139,124,246,.14);color:#7c6ff0">&#127873;</div>
+                <div><div class="gic-mini-title">Bonuses</div><div class="gic-mini-sub">4 active this quarter</div></div>
+              </div>
+              <div class="gic-mini-stats">
+                <div><div class="gic-mini-stat-lbl">Active Bonuses</div><div class="gic-mini-stat-val">4</div></div>
+                <div><div class="gic-mini-stat-lbl">Avg / Rep</div><div class="gic-mini-stat-val">$4,150</div></div>
+              </div>
+              <div class="gic-mini-bonus">
+                <div class="gic-mini-bonus-top"><div class="gic-mini-bonus-name">Quarterly Deals Bonus</div><div class="gic-mini-bonus-val">$300</div></div>
+                <div class="gic-mini-track"><div class="gic-mini-fill" style="width:30%"></div></div>
+              </div>
+              <div class="gic-mini-bonus">
+                <div class="gic-mini-bonus-top"><div class="gic-mini-bonus-name">October Team Bonus</div><div class="gic-mini-bonus-val">$500 pool</div></div>
+                <div class="gic-mini-track"><div class="gic-mini-fill" style="width:14%;background:#8b7cf6"></div></div>
+              </div>
+              <div class="gic-mini-bonus" style="margin-bottom:0">
+                <div class="gic-mini-bonus-top"><div class="gic-mini-bonus-name">September Revenue Boost</div><div class="gic-mini-bonus-val">Gift Card</div></div>
+                <div class="gic-mini-track"><div class="gic-mini-fill" style="width:3%;background:#f59e0b"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOVED BY REPS & LEADERS -->
+<style>
+  #loved-by .section-inner{max-width:1360px}
+  .lbr-wrap{max-width:1360px;margin:0 auto}
+  .lbr-head{text-align:center;margin-bottom:36px}
+  .lbr-head h2{font-size:clamp(28px,3.2vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.15;color:#fff;margin-bottom:14px}
+  .lbr-sub{font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.3;color:#fff;margin:0}
+  .lbr-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}
+  .lbr-card{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:32px;position:relative;overflow:hidden}
+  .lbr-card::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(61,220,110,.1) 0%,transparent 70%);pointer-events:none}
+  .lbr-photo{width:150px;height:180px;border-radius:16px;object-fit:cover;object-position:top center;border:3px solid rgba(61,220,110,.3);flex-shrink:0;position:relative;z-index:1}
+  .lbr-card-body{position:relative;z-index:1;min-width:0}
+  .lbr-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--teal-light);margin-bottom:8px}
+  .lbr-card h3{font-size:22px;font-weight:800;letter-spacing:-.02em;color:#fff;margin:0 0 14px;white-space:nowrap}
+  .lbr-card .fs-list{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+  .lbr-card .fs-item{font-size:13px;white-space:nowrap}
+  @media(max-width:1100px){.lbr-card .fs-item{white-space:normal}}
+  @media(max-width:900px){.lbr-grid{grid-template-columns:1fr}.lbr-card{grid-template-columns:1fr;text-align:center;justify-items:center}.lbr-photo{width:160px;height:190px}.lbr-card .fs-list{grid-template-columns:1fr;justify-items:center}.lbr-card h3{white-space:normal}}
+</style>
+<section class="section section-navy2" id="loved-by">
+  <div class="section-inner lbr-wrap">
+    <div class="lbr-head">
+      <div class="hf-eyebrow">Built for the whole sales organization</div>
+      <h2>Loved by reps. <span style="color:var(--teal)">Trusted by leaders.</span></h2>
+      <p class="lbr-sub">Same platform. Different superpowers.</p>
+    </div>
+    <div class="lbr-grid">
+      <div class="lbr-card">
+        <img class="lbr-photo" src="Biz women.jpg" alt="Sales rep">
+        <div class="lbr-card-body">
+          <div class="lbr-eyebrow">For Sales Reps</div>
+          <h3>Know your number.</h3>
+          <div class="fs-list">
+            <div class="fs-item fs-item-dark">Know exactly where you stand</div>
+            <div class="fs-item fs-item-dark">Get AI coaching</div>
+            <div class="fs-item fs-item-dark">Track commissions</div>
+            <div class="fs-item fs-item-dark">Manage your pipeline</div>
+            <div class="fs-item fs-item-dark">See your goals and progress</div>
+            <div class="fs-item fs-item-dark">Celebrate wins</div>
+          </div>
+        </div>
+      </div>
+      <div class="lbr-card">
+        <img class="lbr-photo" src="Biz man.jpg" alt="Sales leader">
+        <div class="lbr-card-body">
+          <div class="lbr-eyebrow">For Sales Leaders</div>
+          <h3>See the whole team.</h3>
+          <div class="fs-list">
+            <div class="fs-item fs-item-dark">See team performance</div>
+            <div class="fs-item fs-item-dark">Forecast revenue</div>
+            <div class="fs-item fs-item-dark">Identify pipeline risk</div>
+            <div class="fs-item fs-item-dark">Coach more effectively</div>
+            <div class="fs-item fs-item-dark">Manage incentives</div>
+            <div class="fs-item fs-item-dark">Drive accountability</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1312,52 +1828,52 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <!-- TESTIMONIALS -->
 <section class="section section-off">
   <div class="section-inner">
-    <div class="s-head reveal" style="margin-bottom:48px">
-      <h2>Real results from <em>real sales teams.</em></h2>
+    <div class="s-head reveal" style="margin-bottom:48px;max-width:600px;margin-left:0">
+      <div class="hf-eyebrow" style="text-align:left;color:#3b82f6">Real Results</div>
+      <h2 style="text-align:left">Sales teams achieve<br>more with Goals.com.</h2>
+      <p style="text-align:left">Don't just take our word for it.</p>
     </div>
     <div class="testi-row reveal">
-      <div class="t-card"><div class="t-quote">Onboarding only took a couple of hours and was super easy and straightforward. Our team quickly adopted the tool and are enjoying how easy it is to use. I would recommend this to anyone who wants their goals and commissions tied into their CRM.</div><div class="t-person"><div class="t-av" style="background:var(--teal)">DG</div><div><div class="t-name">Dina G.</div><div class="t-role">Goals.com Customer</div></div></div></div>
-      <div class="t-card"><div class="t-quote">Our team loves Goals.com! Total breath of fresh air compared to our last platform. Setup was a breeze, the team there is so great to work with. This simple platform packs quite a punch. Checks all the boxes, and then some.</div><div class="t-person"><div class="t-av" style="background:#6366f1">GW</div><div><div class="t-name">Garrett W.</div><div class="t-role">Goals.com Customer</div></div></div></div>
-      <div class="t-card"><div class="t-quote">Our team is always out and about completing projects for our clients and it's once in a blue moon when all of us are around the shop at the same time. This helps us keep track of everything we need without adding more office time.</div><div class="t-person"><div class="t-av" style="background:#f59e0b">JT</div><div><div class="t-name">John T.</div><div class="t-role">Goals.com Customer</div></div></div></div>
+      <div class="t-card"><div class="t-quote">"We increased our sales by 28% in the first 6 months. Goals.com gives us the visibility and accountability we always needed."</div><div class="t-person"><img class="t-av" style="width:40px;height:40px;border-radius:50%;object-fit:cover" src="https://images.pexels.com/photos/3228887/pexels-photo-3228887.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Jason M."><div><div class="t-name">Jason M.</div><div class="t-role">VP of Sales, Summit Services</div></div></div></div>
+      <div class="t-card"><div class="t-quote">"Our reps actually use it because it helps them win. The AI coaching is a game changer."</div><div class="t-person"><img class="t-av" style="width:40px;height:40px;border-radius:50%;object-fit:cover" src="https://images.pexels.com/photos/30609905/pexels-photo-30609905.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Melissa R."><div><div class="t-name">Melissa R.</div><div class="t-role">Owner, Apex Holdings</div></div></div></div>
+      <div class="t-card"><div class="t-quote">"We replaced three tools with Goals.com and our team has never been more aligned."</div><div class="t-person"><img class="t-av" style="width:40px;height:40px;border-radius:50%;object-fit:cover" src="https://images.pexels.com/photos/7792750/pexels-photo-7792750.jpeg?auto=compress&cs=tinysrgb&w=100" alt="David K."><div><div class="t-name">David K.</div><div class="t-role">CRO, Coastal Financial</div></div></div></div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section class="section section-navy2" id="pricing">
+  <style>
+    .sp-wrap{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;max-width:1100px;margin:0 auto}
+    .sp-eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#5b8def;margin-bottom:14px}
+    .sp-h2{font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-.025em;color:#fff;line-height:1.2;margin:0 0 14px}
+    .sp-h2 em{font-style:normal;color:var(--teal)}
+    .sp-sub{font-size:15px;line-height:1.75;color:rgba(255,255,255,.85);margin:0 0 28px;white-space:nowrap}
+    @media(max-width:700px){.sp-sub{white-space:normal}}
+    .sp-checks{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
+    .sp-check{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:7px;white-space:nowrap}
+    .sp-check::before{content:'\2713';color:var(--teal-light);font-weight:800}
+    .sp-cards-row{display:flex;gap:16px}
+    @media(max-width:900px){.sp-wrap{grid-template-columns:1fr;text-align:center}.sp-checks{grid-template-columns:1fr 1fr;justify-content:center}.sp-eyebrow,.sp-h2,.sp-sub{text-align:center}.sp-cards-row{justify-content:center;flex-wrap:wrap}}
+  </style>
   <div class="section-inner">
-    <div class="s-head s-head-dark reveal" style="margin-bottom:48px">
-      <h2>Simple pricing.<br><em>Everything included.</em></h2>
-      <p>One clear price. No onboarding fees. No hidden charges. No fine print. Free first-class support.</p>
-    </div>
-    <div class="pricing-card reveal">
-      <div class="pricing-col pricing-col-main">
-        <div class="p-top">
-          <div class="p-badge">&#10022; Full platform, all features</div>
-          <div class="p-name">Goals.com Complete</div>
-          <div class="p-desc">CRM, goals, commissions, contests, Ace AI, and more, one price.</div>
-        </div>
-        <div class="p-bottom">
-          <div class="p-feats">
-            <div class="p-feat">Pipeline CRM (Kanban + List)</div>
-            <div class="p-feat">Quota &amp; goal tracking per rep</div>
-            <div class="p-feat">Commission tracking &amp; payout schedules</div>
-            <div class="p-feat">Sales contests with prize pools</div>
-            <div class="p-feat">Bonus tiers with progress tracking</div>
-            <div class="p-feat">Ace AI, sales intelligence</div>
-            <div class="p-feat">Team highlights &amp; recognition</div>
-            <div class="p-feat">Reports, exports &amp; scheduling</div>
-            <div class="p-feat">Team chat &amp; messaging</div>
-            <div class="p-feat">Pipeline forecasting</div>
-            <div class="p-feat">Accounts &amp; contacts management</div>
-            <div class="p-feat">Marketplace integrations</div>
-          </div>
+    <div class="sp-wrap reveal">
+      <div>
+        <div class="sp-eyebrow">Simple Pricing</div>
+        <h2 class="sp-h2">Everything included.<br><em>No surprises.</em></h2>
+        <p class="sp-sub">One clear price. No onboarding fees. No hidden charges.</p>
+        <div class="sp-checks">
+          <div class="sp-check">Full platform access</div>
+          <div class="sp-check">Cancel anytime</div>
+          <div class="sp-check">All features included</div>
+          <div class="sp-check">First-class support</div>
+          <div class="sp-check">Free onboarding</div>
         </div>
       </div>
-      <div class="pricing-col">
-        <div class="billing-card">
-          <div class="billing-top">
-            <div class="billing-label">Monthly Billing</div>
+      <div class="sp-cards-row">
+        <div class="billing-card" style="min-width:230px">
+          <div class="billing-top" style="min-height:0">
+            <div class="billing-label" style="border-bottom:none;padding-bottom:0">Monthly Billing</div>
             <div class="billing-price-row">
               <div class="billing-price">$59</div>
               <div class="billing-per">/user/month</div>
@@ -1368,10 +1884,10 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
             <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="billing-cta billing-cta-outline">14-Day Free Trial</a>
           </div>
         </div>
-        <div class="billing-card billing-card-featured">
+        <div class="billing-card billing-card-featured" style="min-width:230px">
           <div class="billing-save">Save 17%</div>
-          <div class="billing-top">
-            <div class="billing-label billing-label-featured">Annual Billing</div>
+          <div class="billing-top" style="min-height:0">
+            <div class="billing-label billing-label-featured" style="border-bottom:none;padding-bottom:0">Annual Billing</div>
             <div class="billing-price-row">
               <div class="billing-price">$49</div>
               <div class="billing-per">/user/month</div>
@@ -1402,15 +1918,15 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     <div style="display:flex;gap:24px;animation:intTick 22s linear infinite;width:max-content">
       <!-- set 1 -->
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-        <div style="width:36px;height:36px;background:#1a1a1a;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M10 0C5.6 0 2.1 2.6 0 7c2.1 4.4 5.6 7 10 7s7.9-2.6 10-7C17.9 2.6 14.4 0 10 0zm0 11.7c-2.6 0-4.7-2.1-4.7-4.7S7.4 2.3 10 2.3s4.7 2.1 4.7 4.7-2.1 4.7-4.7 4.7zm0-7.5C8.2 4.2 6.8 5.6 6.8 7S8.2 9.8 10 9.8 13.2 8.4 13.2 7 11.8 4.2 10 4.2z" fill="#fff"/></svg></div>
+        <div style="width:36px;height:36px;border-radius:8px;overflow:hidden;flex-shrink:0"><img src="fathom_video_logo.jpeg" alt="Fathom" style="width:100%;height:100%;object-fit:cover"></div>
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">Fathom</div><div style="font-size:11px;color:#64748b">AI notetaker</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-        <div style="width:36px;height:36px;background:#6C3BF5;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#fff" stroke-width="1.6"/><path d="M6 9c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="9" r="1" fill="#fff"/></svg></div>
+        <div style="width:36px;height:36px;border-radius:8px;overflow:hidden;flex-shrink:0"><img src="1505591983777_b8992be5e030e2680dd2_512.png" alt="Fireflies.ai" style="width:100%;height:100%;object-fit:cover"></div>
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">Fireflies.ai</div><div style="font-size:11px;color:#64748b">Meeting transcription</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-        <div style="width:36px;height:36px;background:#0078D4;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="15" viewBox="0 0 18 15" fill="none"><rect x="1" y="1" width="9" height="13" rx="1.2" fill="#fff" fill-opacity=".9"/><rect x="2.5" y="2.5" width="6" height="1.5" rx=".4" fill="#0078D4"/><rect x="2.5" y="5.5" width="6" height="1.5" rx=".4" fill="#0078D4"/><rect x="2.5" y="8.5" width="4" height="1.5" rx=".4" fill="#0078D4"/><path d="M11 3h5a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-5V3z" fill="#0078D4" fill-opacity=".7"/><path d="M11 3l2.8 3.5L17 3" stroke="#fff" stroke-width="1"/></svg></div>
+        <div style="width:36px;height:36px;background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:5px"><img src="Microsoft_Outlook_Icon_(2025–present).svg.webp" alt="Outlook" style="width:100%;height:100%;object-fit:contain"></div>
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">Outlook</div><div style="font-size:11px;color:#64748b">Email &amp; calendar</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
@@ -1418,24 +1934,28 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">Google</div><div style="font-size:11px;color:#64748b">Calendar &amp; Gmail</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-        <div style="width:36px;height:36px;background:#2CA01C;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#fff" stroke-width="1.6"/><path d="M6.5 9h5M9 6.5v5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div style="width:36px;height:36px;background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:5px"><img src="70-702526_reconcile-quickbooks-logo.png" alt="QuickBooks" style="width:100%;height:100%;object-fit:contain"></div>
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">QuickBooks</div><div style="font-size:11px;color:#64748b">Payroll &amp; payouts</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-        <div style="width:36px;height:36px;background:#635BFF;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7.5 6.5c0-.9.75-1.25 1.65-1.25 1.5 0 2.9.5 3.95 1.25V3.1A10.2 10.2 0 0 0 9.2 2C5.85 2 3.5 3.7 3.5 6.6c0 4.6 6.35 3.87 6.35 5.85 0 1.07-.9 1.4-1.9 1.4-1.65 0-3.15-.66-4.3-1.57v3.46c1.25.58 2.57.9 4.3.9 3.3 0 5.55-1.65 5.55-4.62 0-4.97-6.35-4.06-6.35-5.52z" fill="#fff"/></svg></div>
+        <div style="width:36px;height:36px;background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:5px"><img src="Stripe-Emblem.png" alt="Stripe" style="width:100%;height:100%;object-fit:contain"></div>
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">Stripe</div><div style="font-size:11px;color:#64748b">Collect payments</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:4px"><img src="Calendly-New-Logo.png" alt="Calendly" style="width:100%;height:100%;object-fit:contain"></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Calendly</div><div style="font-size:11px;color:#64748b">Meeting scheduling</div></div>
       </div>
       <!-- duplicate set for seamless loop -->
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-        <div style="width:36px;height:36px;background:#1a1a1a;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M10 0C5.6 0 2.1 2.6 0 7c2.1 4.4 5.6 7 10 7s7.9-2.6 10-7C17.9 2.6 14.4 0 10 0zm0 11.7c-2.6 0-4.7-2.1-4.7-4.7S7.4 2.3 10 2.3s4.7 2.1 4.7 4.7-2.1 4.7-4.7 4.7zm0-7.5C8.2 4.2 6.8 5.6 6.8 7S8.2 9.8 10 9.8 13.2 8.4 13.2 7 11.8 4.2 10 4.2z" fill="#fff"/></svg></div>
+        <div style="width:36px;height:36px;border-radius:8px;overflow:hidden;flex-shrink:0"><img src="fathom_video_logo.jpeg" alt="Fathom" style="width:100%;height:100%;object-fit:cover"></div>
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">Fathom</div><div style="font-size:11px;color:#64748b">AI notetaker</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-        <div style="width:36px;height:36px;background:#6C3BF5;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#fff" stroke-width="1.6"/><path d="M6 9c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="9" cy="9" r="1" fill="#fff"/></svg></div>
+        <div style="width:36px;height:36px;border-radius:8px;overflow:hidden;flex-shrink:0"><img src="1505591983777_b8992be5e030e2680dd2_512.png" alt="Fireflies.ai" style="width:100%;height:100%;object-fit:cover"></div>
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">Fireflies.ai</div><div style="font-size:11px;color:#64748b">Meeting transcription</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-        <div style="width:36px;height:36px;background:#0078D4;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="15" viewBox="0 0 18 15" fill="none"><rect x="1" y="1" width="9" height="13" rx="1.2" fill="#fff" fill-opacity=".9"/><rect x="2.5" y="2.5" width="6" height="1.5" rx=".4" fill="#0078D4"/><rect x="2.5" y="5.5" width="6" height="1.5" rx=".4" fill="#0078D4"/><rect x="2.5" y="8.5" width="4" height="1.5" rx=".4" fill="#0078D4"/><path d="M11 3h5a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-5V3z" fill="#0078D4" fill-opacity=".7"/><path d="M11 3l2.8 3.5L17 3" stroke="#fff" stroke-width="1"/></svg></div>
+        <div style="width:36px;height:36px;background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:5px"><img src="Microsoft_Outlook_Icon_(2025–present).svg.webp" alt="Outlook" style="width:100%;height:100%;object-fit:contain"></div>
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">Outlook</div><div style="font-size:11px;color:#64748b">Email &amp; calendar</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
@@ -1443,12 +1963,16 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">Google</div><div style="font-size:11px;color:#64748b">Calendar &amp; Gmail</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-        <div style="width:36px;height:36px;background:#2CA01C;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#fff" stroke-width="1.6"/><path d="M6.5 9h5M9 6.5v5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div style="width:36px;height:36px;background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:5px"><img src="70-702526_reconcile-quickbooks-logo.png" alt="QuickBooks" style="width:100%;height:100%;object-fit:contain"></div>
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">QuickBooks</div><div style="font-size:11px;color:#64748b">Payroll &amp; payouts</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
-        <div style="width:36px;height:36px;background:#635BFF;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7.5 6.5c0-.9.75-1.25 1.65-1.25 1.5 0 2.9.5 3.95 1.25V3.1A10.2 10.2 0 0 0 9.2 2C5.85 2 3.5 3.7 3.5 6.6c0 4.6 6.35 3.87 6.35 5.85 0 1.07-.9 1.4-1.9 1.4-1.65 0-3.15-.66-4.3-1.57v3.46c1.25.58 2.57.9 4.3.9 3.3 0 5.55-1.65 5.55-4.62 0-4.97-6.35-4.06-6.35-5.52z" fill="#fff"/></svg></div>
+        <div style="width:36px;height:36px;background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:5px"><img src="Stripe-Emblem.png" alt="Stripe" style="width:100%;height:100%;object-fit:contain"></div>
         <div><div style="font-size:13px;font-weight:700;color:#1e293b">Stripe</div><div style="font-size:11px;color:#64748b">Collect payments</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:180px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)">
+        <div style="width:36px;height:36px;background:#fff;border:1.5px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:4px"><img src="Calendly-New-Logo.png" alt="Calendly" style="width:100%;height:100%;object-fit:contain"></div>
+        <div><div style="font-size:13px;font-weight:700;color:#1e293b">Calendly</div><div style="font-size:11px;color:#64748b">Meeting scheduling</div></div>
       </div>
     </div>
   </div>
@@ -1458,12 +1982,16 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 </section>
 
 <!-- FINAL CTA -->
-<section class="cta-section">
-  <h2>Ready to build a team<br>that wins on purpose?</h2>
-  <p>Goals.com gives your reps clarity, your managers visibility, and your whole team a reason to compete.</p>
+<style>
+  #final-cta p{max-width:760px;white-space:nowrap}
+  @media(max-width:820px){#final-cta p{white-space:normal}}
+</style>
+<section class="cta-section" id="final-cta">
+  <h2>Your CRM tells you what happened.<br>Goals.com tells you what to do next.</h2>
+  <p>Give your sales team one platform to manage customers, drive performance, coach reps, predict revenue and win more business.</p>
   <div class="cta-btns">
-    <a href="https://calendly.com/goals-demo/30min?month=2026-07" class="btn-cta-w">Book a Demo</a>
-    <a href="https://youtu.be/tBPIBbe_51U?si=aDW-Y0HTQnjYcUY-" target="_blank" rel="noopener" class="btn-cta-o">Watch the Overview</a>
+    <a href="https://calendly.com/goals-demo/30min?month=2026-07" class="btn-cta-w">Book a Demo &#8594;</a>
+    <a href="https://youtu.be/tBPIBbe_51U?si=aDW-Y0HTQnjYcUY-" target="_blank" rel="noopener" class="btn-cta-o">&#9654; Watch the Overview</a>
   </div>
 </section>
 
@@ -1474,6 +2002,9 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <style>
 .pr-hero{background:var(--navy);padding:120px 72px 80px;text-align:center}
 .pr-hero-inner{max-width:640px;margin:0 auto}
+.pr-hero-inner:has(.pricing-one-line){max-width:760px}
+.pricing-one-line{white-space:nowrap}
+@media(max-width:900px){.pricing-one-line{white-space:normal}}
 .pr-badge{display:inline-block;background:rgba(61,220,110,.15);color:var(--teal-light);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(61,220,110,.25)}
 .pr-h1{font-size:clamp(36px,5vw,56px);font-weight:700;color:#fff;line-height:1.15;margin:0 0 20px}
 .pr-sub{font-size:18px;color:rgba(255,255,255,.92);line-height:1.6;margin:0}
@@ -1549,7 +2080,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
   <div class="pr-hero-inner">
     <div class="pr-badge">Pricing</div>
     <h1 class="pr-h1">Refreshingly simple.<br>Awesomely affordable.</h1>
-    <p class="pr-sub">One clear price. No onboarding fees. No hidden charges. No fine print. Free first-class support.</p>
+    <p class="pr-sub pricing-one-line">One clear price. No onboarding fees. No hidden charges. No fine print. Free first-class support.</p>
   </div>
 </section>
 
@@ -1798,7 +2329,56 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 .app-shot-table-row:last-child{border-bottom:none}
 .app-shot-table-row strong{color:#fff;font-weight:700}
 .app-shot-table-row span.val{color:var(--teal);font-weight:700;font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums}
-@media(max-width:760px){.app-shot-sidebar{display:none}.app-shot-topbar-btn{display:none}.app-shot-search{max-width:none}.app-shot-stats{grid-template-columns:1fr 1fr}}
+.app-shot-section-label{font-size:12px;font-weight:800;color:#fff;margin:20px 0 10px}
+.app-shot-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.app-shot-card{background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--teal);border-radius:8px;padding:12px 14px}
+.app-shot-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
+.app-shot-card-title{font-size:11.5px;font-weight:700;color:#fff;line-height:1.3}
+.app-shot-card-meta{font-size:9px;color:rgba(255,255,255,.45);margin-bottom:8px}
+.app-shot-card-reward{font-size:11px;font-weight:800;color:var(--teal);white-space:nowrap}
+.app-shot-card-bar{height:5px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:8px}
+.app-shot-card-bar-fill{height:100%;background:var(--teal);border-radius:3px}
+.app-shot-list{display:flex;flex-direction:column;gap:8px}
+.app-shot-list-row{background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.app-shot-list-row-title{font-size:11.5px;font-weight:700;color:#fff;margin-bottom:3px}
+.app-shot-list-row-meta{font-size:9.5px;color:rgba(255,255,255,.45)}
+.app-shot-list-row-right{text-align:right;flex-shrink:0}
+.app-shot-list-row-val{font-size:12px;font-weight:800;color:var(--teal);font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums}
+.app-shot-list-row-sub{font-size:9px;color:rgba(255,255,255,.45)}
+.app-shot-post{background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px 16px;margin-top:12px}
+.app-shot-post-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.app-shot-post-who{display:flex;align-items:center;gap:8px}
+.app-shot-post-avatar{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--teal),#5b8def);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#06170e;flex-shrink:0}
+.app-shot-post-name{font-size:11.5px;font-weight:700;color:#fff}
+.app-shot-post-time{font-size:9px;color:rgba(255,255,255,.4)}
+.app-shot-post-badge{font-size:9px;font-weight:700;color:var(--teal-light);background:rgba(61,220,110,.14);padding:3px 9px;border-radius:20px;white-space:nowrap}
+.app-shot-post-recognizing{font-size:10.5px;color:var(--teal-light);font-weight:600;margin-bottom:10px}
+.app-shot-post-art{height:90px;border-radius:8px;background:linear-gradient(135deg,rgba(61,220,110,.18),rgba(91,141,239,.18));display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.app-shot-post-caption{font-size:11px;color:rgba(255,255,255,.75);line-height:1.5;margin-bottom:8px}
+.app-shot-post-actions{display:flex;gap:16px;font-size:10px;color:rgba(255,255,255,.45)}
+.app-shot-chat{display:grid;grid-template-columns:150px 1fr;gap:10px;margin-top:12px;background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+.app-shot-chat-list{border-right:1px solid rgba(255,255,255,.08);padding:10px}
+.app-shot-chat-list-item{padding:7px 8px;border-radius:6px;font-size:10px;color:rgba(255,255,255,.7);margin-bottom:2px}
+.app-shot-chat-list-item.active{background:rgba(61,220,110,.14);color:#fff;font-weight:700}
+.app-shot-chat-thread{padding:14px;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.app-shot-chat-bubble{background:var(--teal);color:#06170e;font-size:10.5px;font-weight:600;padding:7px 11px;border-radius:10px 10px 2px 10px;max-width:80%}
+.app-shot-chat-file{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:6px 10px;font-size:9.5px;color:#fff;align-self:flex-end}
+.app-shot-gridtable{margin-top:12px;background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+.app-shot-gridtable-head{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:8px 14px;font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(255,255,255,.4);border-bottom:1px solid rgba(255,255,255,.08)}
+.app-shot-gridtable-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:10px 14px;font-size:10.5px;color:#fff;border-bottom:1px solid rgba(255,255,255,.06);align-items:center}
+.app-shot-gridtable-row:last-child{border-bottom:none}
+.app-shot-gridtable-row span{color:rgba(255,255,255,.6)}
+.app-shot-gridtable-row span.val{color:var(--teal);font-weight:700}
+.app-shot-chart{margin-top:12px;background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px}
+.app-shot-chart-label{font-size:9.5px;color:rgba(255,255,255,.5);margin-bottom:8px}
+.app-shot-kanban{display:flex;gap:10px;margin-top:12px;overflow:hidden}
+.app-shot-kanban-col{flex:1;min-width:0;background:var(--navy2);border-radius:8px;padding:8px}
+.app-shot-kanban-head{display:flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;color:#fff;margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app-shot-kanban-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.app-shot-kanban-card{background:var(--navy);border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--teal);border-radius:6px;padding:8px 9px;margin-bottom:7px}
+.app-shot-kanban-card-title{font-size:9.5px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app-shot-kanban-card-val{font-size:10px;font-weight:800;color:var(--teal);font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums}
+@media(max-width:760px){.app-shot-sidebar{display:none}.app-shot-topbar-btn{display:none}.app-shot-search{max-width:none}.app-shot-stats{grid-template-columns:1fr 1fr}.app-shot-cards{grid-template-columns:1fr}.app-shot-kanban{display:none}}
 @media(max-width:520px){.app-shot-stats{grid-template-columns:1fr}}
 </style>
 
@@ -1837,10 +2417,13 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
@@ -1850,10 +2433,31 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
           <div class="app-shot-title">Pipeline</div>
           <div class="app-shot-sub">Every deal, contact, and account, organized by stage.</div>
           <div class="app-shot-stats">
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Open Deals</div><div class="app-shot-stat-val">86</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Pipeline Value</div><div class="app-shot-stat-val">$612,400</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Accounts</div><div class="app-shot-stat-val">214</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Contacts</div><div class="app-shot-stat-val">1,308</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Total Value</div><div class="app-shot-stat-val">$5,428,550</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Opportunities</div><div class="app-shot-stat-val dark" style="font-size:16px">262</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Avg Size</div><div class="app-shot-stat-val dark" style="font-size:16px">$20,720</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Win Rate</div><div class="app-shot-stat-val">81%</div></div>
+          </div>
+          <div class="app-shot-kanban">
+            <div class="app-shot-kanban-col">
+              <div class="app-shot-kanban-head"><span class="app-shot-kanban-dot" style="background:#8b7cf6"></span>Prospect</div>
+              <div class="app-shot-kanban-card"><div class="app-shot-kanban-card-title">Stonebridge Realty LLP</div><div class="app-shot-kanban-card-val">$27,850</div></div>
+              <div class="app-shot-kanban-card"><div class="app-shot-kanban-card-title">Juniper Manufacturing</div><div class="app-shot-kanban-card-val">$16,450</div></div>
+            </div>
+            <div class="app-shot-kanban-col">
+              <div class="app-shot-kanban-head"><span class="app-shot-kanban-dot" style="background:#f59e0b"></span>Contact Made</div>
+              <div class="app-shot-kanban-card"><div class="app-shot-kanban-card-title">Lakeside Cleaning LLP</div><div class="app-shot-kanban-card-val">$39,800</div></div>
+            </div>
+            <div class="app-shot-kanban-col">
+              <div class="app-shot-kanban-head"><span class="app-shot-kanban-dot" style="background:#5b8def"></span>Qualification</div>
+              <div class="app-shot-kanban-card"><div class="app-shot-kanban-card-title">Hawthorne Legal Group</div><div class="app-shot-kanban-card-val">$28,150</div></div>
+              <div class="app-shot-kanban-card"><div class="app-shot-kanban-card-title">Trailblazer Grill Services</div><div class="app-shot-kanban-card-val">$34,550</div></div>
+            </div>
+            <div class="app-shot-kanban-col">
+              <div class="app-shot-kanban-head"><span class="app-shot-kanban-dot" style="background:var(--teal)"></span>Won</div>
+              <div class="app-shot-kanban-card"><div class="app-shot-kanban-card-title">Golden Gate Distillery</div><div class="app-shot-kanban-card-val">$16,550</div></div>
+              <div class="app-shot-kanban-card"><div class="app-shot-kanban-card-title">Ivy League Manufacturing</div><div class="app-shot-kanban-card-val">$2,000</div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -2027,23 +2631,32 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
           </div>
         </div>
         <div class="app-shot-content">
-          <div class="app-shot-title">Goals / 2026 Annual Performance</div>
+          <div class="app-shot-title">Sales Goals</div>
           <div class="app-shot-sub">Live quota attainment and YTD pace for every rep.</div>
           <div class="app-shot-stats">
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Annual Sales Goal</div><div class="app-shot-stat-val">$19,355,000</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Sales YTD</div><div class="app-shot-stat-val">$7.95M</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">YTD Pace</div><div class="app-shot-stat-val">41%</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Win Rate</div><div class="app-shot-stat-val">58%</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Annual Team Goal</div><div class="app-shot-stat-val">$2,430,000</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Sales YTD</div><div class="app-shot-stat-val">$2.54M</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">YTD Pace</div><div class="app-shot-stat-val">104%</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Win Rate</div><div class="app-shot-stat-val">83%</div></div>
+          </div>
+          <div class="app-shot-section-label">Goal Attainment by Rep</div>
+          <div class="app-shot-table">
+            <div class="app-shot-table-row"><strong>Jordan Hayes</strong><span>Goal $420K</span><span class="val">+119%</span></div>
+            <div class="app-shot-table-row"><strong>Kelsey Armstrong</strong><span>Goal $420K</span><span class="val">+46%</span></div>
+            <div class="app-shot-table-row"><strong>Tyler Dawson</strong><span>Goal $475K</span><span class="val">-4%</span></div>
           </div>
         </div>
       </div>
@@ -2217,23 +2830,32 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
           </div>
         </div>
         <div class="app-shot-content">
-          <div class="app-shot-title">Reports / Sales Performance</div>
-          <div class="app-shot-sub">Revenue, pipeline, and performance, updated live for every rep and team.</div>
+          <div class="app-shot-title">Reports</div>
+          <div class="app-shot-sub">Export and analyze company data, revenue, pipeline, and performance.</div>
           <div class="app-shot-stats">
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Sales YTD</div><div class="app-shot-stat-val">$7.95M</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Pipeline Value</div><div class="app-shot-stat-val">$612,400</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Win Rate</div><div class="app-shot-stat-val">58%</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Avg Deal Size</div><div class="app-shot-stat-val">$82K</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Revenue YTD</div><div class="app-shot-stat-val">$2.54M</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Opportunities</div><div class="app-shot-stat-val dark" style="font-size:16px">288</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Win Rate</div><div class="app-shot-stat-val">83%</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Avg Deal Size</div><div class="app-shot-stat-val dark" style="font-size:16px">$26,447</div></div>
+          </div>
+          <div class="app-shot-section-label">Report Categories</div>
+          <div class="app-shot-list">
+            <div class="app-shot-list-row"><div><div class="app-shot-list-row-title">Opportunities</div><div class="app-shot-list-row-meta">288 in period &middot; $8.09M combined</div></div><div class="app-shot-list-row-right"><div class="app-shot-list-row-val">CSV</div></div></div>
+            <div class="app-shot-list-row"><div><div class="app-shot-list-row-title">Activities</div><div class="app-shot-list-row-meta">14 calls &middot; 15 emails &middot; 2 meetings</div></div><div class="app-shot-list-row-right"><div class="app-shot-list-row-val">CSV</div></div></div>
+            <div class="app-shot-list-row"><div><div class="app-shot-list-row-title">Goals &amp; Performance</div><div class="app-shot-list-row-meta">Rep targets, pace, attainment</div></div><div class="app-shot-list-row-right"><div class="app-shot-list-row-val">CSV</div></div></div>
           </div>
         </div>
       </div>
@@ -2377,7 +2999,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <section class="cm-hero">
   <div class="cm-hero-inner">
     <div class="cm-badge">AI Insights &amp; Coaching</div>
-    <h1 class="cm-h1">Your team's <em>built-in intelligence layer.</em></h1>
+    <h1 class="cm-h1">Your team's<br><em>built-in intelligence&nbsp;layer.</em></h1>
     <p class="cm-sub">Personalized insights, coaching, priorities, risks, and recommendations for every sales rep and manager, powered by Ace AI.</p>
     <div class="cm-hero-actions">
       <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="btn-hero">Book a Demo</a>
@@ -2577,23 +3199,39 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
           </div>
         </div>
         <div class="app-shot-content">
-          <div class="app-shot-title">Highlights / Team Feed</div>
+          <div class="app-shot-title">Highlights</div>
           <div class="app-shot-sub">Wins post automatically, so recognition stays visible without anyone doing extra work.</div>
           <div class="app-shot-stats">
             <div class="app-shot-stat"><div class="app-shot-stat-label">Highlights Posted</div><div class="app-shot-stat-val">128</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">Team Reactions</div><div class="app-shot-stat-val">642</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">Top Performer</div><div class="app-shot-stat-val">Tyler R.</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">This Month</div><div class="app-shot-stat-val">31</div></div>
+          </div>
+          <div class="app-shot-post">
+            <div class="app-shot-post-top">
+              <div class="app-shot-post-who">
+                <div class="app-shot-post-avatar">SM</div>
+                <div><div class="app-shot-post-name">Sean Manager</div><div class="app-shot-post-time">3d ago</div></div>
+              </div>
+              <div class="app-shot-post-badge">&#9733; Goals Reach</div>
+            </div>
+            <div class="app-shot-post-recognizing">Recognizing &rarr; Tyler R.</div>
+            <div class="app-shot-post-art"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M17 5h3a2 2 0 0 1-2 4M7 5H4a2 2 0 0 0 2 4"/></svg></div>
+            <div class="app-shot-post-caption">Tyler has outdone themselves by hitting their monthly goal with flair! Keep up the amazing work.</div>
+            <div class="app-shot-post-actions"><span>0 Likes</span><span>0 Comments</span></div>
           </div>
         </div>
       </div>
@@ -2736,7 +3374,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 <section class="cm-hero">
   <div class="cm-hero-inner">
     <div class="cm-badge">Chat</div>
-    <h1 class="cm-h1">Keep sales conversations,<br>collaboration, and&nbsp;communication<br>inside the platform.</h1>
+    <h1 class="cm-h1" style="font-size:clamp(30px,3.6vw,42px)">Keep sales conversations,&nbsp;collaboration,<br>and communication inside the&nbsp;platform.</h1>
     <p class="cm-sub">Message teammates directly, post in channels, and share files without ever leaving Goals.com: so context never gets lost across apps.</p>
     <div class="cm-hero-actions">
       <a href="https://calendly.com/goals-demo/30min?month=2026-07" rel="noopener" class="btn-hero">Book a Demo</a>
@@ -2766,23 +3404,38 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
           </div>
         </div>
         <div class="app-shot-content">
-          <div class="app-shot-title">Chat / #deals</div>
+          <div class="app-shot-title">Chat</div>
           <div class="app-shot-sub">Messages, channels, and shared files stay attached to the platform where the work is happening.</div>
           <div class="app-shot-stats">
             <div class="app-shot-stat"><div class="app-shot-stat-label">Active Conversations</div><div class="app-shot-stat-val">14</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">Messages This Week</div><div class="app-shot-stat-val">312</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">Response Time</div><div class="app-shot-stat-val">4m</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">Files Shared</div><div class="app-shot-stat-val">22</div></div>
+          </div>
+          <div class="app-shot-chat">
+            <div class="app-shot-chat-list">
+              <div class="app-shot-chat-list-item active">Casey Morales</div>
+              <div class="app-shot-chat-list-item">Sales rockstars &#11088;</div>
+              <div class="app-shot-chat-list-item">Strategic Manufacturing</div>
+            </div>
+            <div class="app-shot-chat-thread">
+              <div class="app-shot-chat-bubble">Did you talk to Jordan about the invoice?</div>
+              <div class="app-shot-chat-file">&#128206; invoice_003_keystone.pdf &middot; 3 KB</div>
+              <div class="app-shot-chat-bubble">Yes, the accounting team is working on it.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -2927,7 +3580,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 /* ── COMMISSIONS VIEW ──────────────────────────────── */
 .cm-hero{background:var(--navy);padding:120px 72px 80px;text-align:center;position:relative;overflow:hidden}
 .cm-hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(61,220,110,.12) 0%,transparent 70%);pointer-events:none}
-.cm-hero-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.cm-hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1}
 .cm-badge{display:inline-block;background:rgba(61,220,110,.15);color:var(--teal-light);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:24px;border:1px solid rgba(61,220,110,.25)}
 .cm-h1{font-size:clamp(36px,5vw,56px);font-weight:700;color:#fff;line-height:1.15;margin:0 0 20px}
 .cm-sub{font-size:18px;color:rgba(255,255,255,.92);line-height:1.6;margin:0 0 32px}
@@ -3041,10 +3694,13 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
@@ -3058,6 +3714,19 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
             <div class="app-shot-stat"><div class="app-shot-stat-label">Next Payout</div><div class="app-shot-stat-val dark" style="font-size:16px">Jun 30</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">My Earnings</div><div class="app-shot-stat-val">$27,300</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">My Rate</div><div class="app-shot-stat-val dark" style="font-size:16px">6.5%</div></div>
+          </div>
+          <div class="app-shot-section-label">Ace Commission Plans</div>
+          <div class="app-shot-cards">
+            <div class="app-shot-card" style="border-left-color:#5b8def">
+              <div class="app-shot-card-top"><div class="app-shot-card-title">Q4 2026 Tiered<br>Commission Plan</div></div>
+              <div class="app-shot-card-meta">5% / 8% / 11% tiered &middot; Built by Ace</div>
+              <div class="app-shot-card-meta">4 people &middot; Monthly payout</div>
+            </div>
+            <div class="app-shot-card">
+              <div class="app-shot-card-top"><div class="app-shot-card-title">Flat 7%<br>Commission Plan</div></div>
+              <div class="app-shot-card-meta">7% on all sales &middot; Built by Ace</div>
+              <div class="app-shot-card-meta">4 people &middot; Monthly payout</div>
+            </div>
           </div>
         </div>
       </div>
@@ -3312,10 +3981,13 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
@@ -3326,9 +3998,27 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
           <div class="app-shot-sub">Team and individual bonuses your reps can actually see.</div>
           <div class="app-shot-stats">
             <div class="app-shot-stat"><div class="app-shot-stat-label">Total Awarded YTD</div><div class="app-shot-stat-val">$20,750</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Avg Bonus / Rep</div><div class="app-shot-stat-val dark" style="font-size:16px">$4,150</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Active Bonuses</div><div class="app-shot-stat-val dark" style="font-size:16px">4</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">Pending Payout</div><div class="app-shot-stat-val">$5,500</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Active Bonuses</div><div class="app-shot-stat-val dark" style="font-size:16px">3</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Avg Bonus / Rep</div><div class="app-shot-stat-val dark" style="font-size:16px">$4,150</div></div>
+          </div>
+          <div class="app-shot-section-label">Active Bonuses</div>
+          <div class="app-shot-cards">
+            <div class="app-shot-card">
+              <div class="app-shot-card-top"><div class="app-shot-card-title">Quarterly Individual<br>Deals Bonus</div><div class="app-shot-card-reward">$300</div></div>
+              <div class="app-shot-card-meta">Individual Threshold &middot; Q4</div>
+              <div class="app-shot-card-bar"><div class="app-shot-card-bar-fill" style="width:32%"></div></div>
+            </div>
+            <div class="app-shot-card" style="border-left-color:#5b8def">
+              <div class="app-shot-card-top"><div class="app-shot-card-title">October Team<br>Revenue Bonus</div><div class="app-shot-card-reward" style="color:#5b8def">$500 pool</div></div>
+              <div class="app-shot-card-meta">Team Bonus &middot; Even Split</div>
+              <div class="app-shot-card-bar"><div class="app-shot-card-bar-fill" style="width:18%;background:#5b8def"></div></div>
+            </div>
+            <div class="app-shot-card" style="border-left-color:#f59e0b">
+              <div class="app-shot-card-top"><div class="app-shot-card-title">September Revenue<br>Boost</div><div class="app-shot-card-reward" style="color:#f59e0b">Gift Card</div></div>
+              <div class="app-shot-card-meta">Team Bonus &middot; $500 Value</div>
+              <div class="app-shot-card-bar"><div class="app-shot-card-bar-fill" style="width:64%;background:#f59e0b"></div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -3551,10 +4241,13 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
@@ -3563,11 +4256,20 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
         <div class="app-shot-content">
           <div class="app-shot-title">Contests</div>
           <div class="app-shot-sub">Active competitions and leaderboards.</div>
-          <div class="app-shot-stats">
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Prize Pool</div><div class="app-shot-stat-val">$500</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Participants</div><div class="app-shot-stat-val dark" style="font-size:16px">5</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Leader</div><div class="app-shot-stat-val dark" style="font-size:16px">Taylor Williams</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Days Left</div><div class="app-shot-stat-val">127</div></div>
+          <div class="app-shot-section-label" style="margin-top:0">Active Contests</div>
+          <div class="app-shot-list">
+            <div class="app-shot-list-row">
+              <div><div class="app-shot-list-row-title">September Quota Achievement Challenge</div><div class="app-shot-list-row-meta">Prize Pool $500 &middot; 3 Participants</div></div>
+              <div class="app-shot-list-row-right"><div class="app-shot-list-row-val">17 days left</div><div class="app-shot-list-row-sub">Leader: Madison B.</div></div>
+            </div>
+            <div class="app-shot-list-row">
+              <div><div class="app-shot-list-row-title">September Revenue Contest</div><div class="app-shot-list-row-meta">Prize Pool $2,500 &middot; 3 Participants</div></div>
+              <div class="app-shot-list-row-right"><div class="app-shot-list-row-val">17 days left</div><div class="app-shot-list-row-sub">Leader: Madison B.</div></div>
+            </div>
+            <div class="app-shot-list-row">
+              <div><div class="app-shot-list-row-title">September Goal Achievement Contest</div><div class="app-shot-list-row-meta">Prize Pool $450 &middot; 3 Participants</div></div>
+              <div class="app-shot-list-row-right"><div class="app-shot-list-row-val">24 days left</div><div class="app-shot-list-row-sub">Leader: Madison B.</div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -3785,10 +4487,13 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
@@ -3802,6 +4507,12 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
             <div class="app-shot-stat"><div class="app-shot-stat-label">Outstanding</div><div class="app-shot-stat-val dark" style="font-size:16px">$18,200</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">Avg Days to Pay</div><div class="app-shot-stat-val dark" style="font-size:16px">9 days</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">Success Rate</div><div class="app-shot-stat-val">98.2%</div></div>
+          </div>
+          <div class="app-shot-section-label">Recent Invoices</div>
+          <div class="app-shot-table">
+            <div class="app-shot-table-row"><strong>Acme Corp &middot; Cloud Migration</strong><span>Net 30 &middot; San Francisco, CA</span><span class="val">Paid</span></div>
+            <div class="app-shot-table-row"><strong>Global Finance &middot; Analytics Platform</strong><span>Net 30 &middot; New York, NY</span><span class="val">Sent</span></div>
+            <div class="app-shot-table-row"><strong>Bright Media &middot; Q4 Campaign</strong><span>Net 15 &middot; Miami, FL</span><span class="val">Overdue</span></div>
           </div>
         </div>
       </div>
@@ -4067,10 +4778,13 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
@@ -4078,12 +4792,19 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
         </div>
         <div class="app-shot-content">
           <div class="app-shot-title">Forecast</div>
-          <div class="app-shot-sub">Projected revenue, blended with your open pipeline.</div>
+          <div class="app-shot-sub">Company revenue outlook from closed wins and probability-weighted pipeline.</div>
           <div class="app-shot-stats">
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Projected EOY</div><div class="app-shot-stat-val">$1.37M</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Annual Goal</div><div class="app-shot-stat-val dark" style="font-size:16px">$1.39M</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Goal Gap</div><div class="app-shot-stat-val dark" style="font-size:16px">$14.1K</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Top Rep</div><div class="app-shot-stat-val" style="font-size:15px">Sean Manager &middot; 107%</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Forecast EOY</div><div class="app-shot-stat-val">$5.75M</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Annual Goal</div><div class="app-shot-stat-val dark" style="font-size:16px">$2.43M</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Pipeline Value</div><div class="app-shot-stat-val dark" style="font-size:16px">$6.58M</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Win Rate</div><div class="app-shot-stat-val">84%</div></div>
+          </div>
+          <div class="app-shot-chart">
+            <div class="app-shot-chart-label">Company Revenue Forecast vs Goal</div>
+            <svg width="100%" height="90" viewBox="0 0 400 90" preserveAspectRatio="none">
+              <polyline points="0,80 40,75 80,70 120,60 160,45 200,38 240,30 280,26 320,18 360,10 400,4" fill="none" stroke="var(--teal)" stroke-width="2.5"/>
+              <line x1="0" y1="55" x2="400" y2="55" stroke="rgba(255,255,255,.2)" stroke-dasharray="4 4"/>
+            </svg>
           </div>
         </div>
       </div>
@@ -4317,10 +5038,13 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
@@ -4334,6 +5058,12 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
             <div class="app-shot-stat"><div class="app-shot-stat-label">Avg Click Rate</div><div class="app-shot-stat-val dark" style="font-size:16px">12.7%</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">Campaigns Sent</div><div class="app-shot-stat-val dark" style="font-size:16px">24</div></div>
             <div class="app-shot-stat"><div class="app-shot-stat-label">Total Lists</div><div class="app-shot-stat-val">12</div></div>
+          </div>
+          <div class="app-shot-gridtable">
+            <div class="app-shot-gridtable-head"><span>Campaign</span><span>Recipients</span><span>Open Rate</span><span>Click Rate</span></div>
+            <div class="app-shot-gridtable-row"><strong>Q3 Renewal Reminder</strong><span>412</span><span class="val">41%</span><span>12%</span></div>
+            <div class="app-shot-gridtable-row"><strong>New Feature Announcement</strong><span>894</span><span class="val">36%</span><span>15%</span></div>
+            <div class="app-shot-gridtable-row"><strong>Metalworks &amp; Fabrication List</strong><span>187</span><span class="val">29%</span><span>9%</span></div>
           </div>
         </div>
       </div>
@@ -4582,10 +5312,13 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
       </div>
       <div class="app-shot-main">
         <div class="app-shot-topbar">
-          <span class="app-shot-topbar-btn" style="border:1px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.05)">+ Quick Add</span>
+          <span class="app-shot-topbar-btn" style="background:var(--teal);color:#06170e;border-color:var(--teal)">+ Quick Add</span>
           <span class="app-shot-topbar-btn" style="background:#12141c;color:#fff">&check; Today's Outreach</span>
+          <span class="app-shot-topbar-btn" style="background:rgba(255,255,255,.06);color:#fff">&#9873; Pipeline</span>
           <div class="app-shot-search">Search people, accounts, opportunities&hellip; &#8984;K</div>
           <span class="app-shot-topbar-btn" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff">+ Ask Ace</span>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg class="app-shot-topbar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <div class="app-shot-avatar">
             <div class="app-shot-avatar-circle">SB</div>
             <div class="app-shot-avatar-text"><b>Sean Bennings</b><span>Sales Manager</span></div>
@@ -4595,10 +5328,25 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
           <div class="app-shot-title">Automations</div>
           <div class="app-shot-sub">Workflows and recipes running on autopilot.</div>
           <div class="app-shot-stats">
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Active Workflows</div><div class="app-shot-stat-val">9</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Actions Triggered</div><div class="app-shot-stat-val dark" style="font-size:16px">1,284</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Recipe</div><div class="app-shot-stat-val dark" style="font-size:15px">Rescue a stalled deal</div></div>
-            <div class="app-shot-stat"><div class="app-shot-stat-label">Status</div><div class="app-shot-stat-val" style="font-size:16px">Active</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Active Workflows</div><div class="app-shot-stat-val">7</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Workflows Triggered</div><div class="app-shot-stat-val dark" style="font-size:16px">77</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Emails Auto-Sent</div><div class="app-shot-stat-val dark" style="font-size:16px">312</div></div>
+            <div class="app-shot-stat"><div class="app-shot-stat-label">Tasks Auto-Created</div><div class="app-shot-stat-val" style="font-size:16px">96</div></div>
+          </div>
+          <div class="app-shot-section-label">Automation Rules</div>
+          <div class="app-shot-list">
+            <div class="app-shot-list-row">
+              <div><span class="app-shot-card-meta" style="background:rgba(61,220,110,.16);color:var(--teal-light);padding:2px 7px;border-radius:4px;margin-right:8px">WHEN</span><span class="app-shot-list-row-title" style="display:inline">Person created</span><div class="app-shot-list-row-meta" style="margin-top:4px">Add tag High Priority &middot; Create call: First-touch call</div></div>
+              <div class="app-shot-card-bar" style="width:28px;background:var(--teal);border-radius:8px;height:14px;flex-shrink:0"></div>
+            </div>
+            <div class="app-shot-list-row">
+              <div><span class="app-shot-card-meta" style="background:rgba(61,220,110,.16);color:var(--teal-light);padding:2px 7px;border-radius:4px;margin-right:8px">WHEN</span><span class="app-shot-list-row-title" style="display:inline">Account created</span><div class="app-shot-list-row-meta" style="margin-top:4px">Assign owner to Kelsey Armstrong</div></div>
+              <div class="app-shot-card-bar" style="width:28px;background:var(--teal);border-radius:8px;height:14px;flex-shrink:0"></div>
+            </div>
+            <div class="app-shot-list-row">
+              <div><span class="app-shot-card-meta" style="background:rgba(61,220,110,.16);color:var(--teal-light);padding:2px 7px;border-radius:4px;margin-right:8px">WHEN</span><span class="app-shot-list-row-title" style="display:inline">Opportunity marked won</span><div class="app-shot-list-row-meta" style="margin-top:4px">Send email template: Welcome &middot; new company onboard</div></div>
+              <div class="app-shot-card-bar" style="width:28px;background:var(--teal);border-radius:8px;height:14px;flex-shrink:0"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -5595,6 +6343,49 @@ function showViewFromHash() {
 window.addEventListener('load', showViewFromHash);
 document.addEventListener('DOMContentLoaded', showViewFromHash);
 window.addEventListener('hashchange', showViewFromHash);
+
+// ── SCROLL POSITION PERSISTENCE (per view, survives refresh) ──────────
+// Continuously remember how far down the user has scrolled on the current
+// view, so a hard refresh lands them back where they were instead of at
+// the top. Keyed per-view (sessionStorage) so switching pages still starts
+// fresh at the top like normal navigation, but reloading the SAME page/hash
+// restores the scroll position.
+(function(){
+  var saveTimer = null;
+  function activeViewId(){
+    var v = document.querySelector('.view.active');
+    return v ? v.id : null;
+  }
+  function saveScroll(){
+    var id = activeViewId();
+    if (!id) return;
+    try { sessionStorage.setItem('goalsScroll_' + id, String(window.scrollY)); } catch(e) {}
+  }
+  window.addEventListener('scroll', function(){
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(saveScroll, 120);
+  }, {passive:true});
+  // Also save right before an actual page unload/refresh, to catch the
+  // final scroll position even if the debounce timer hasn't fired yet.
+  window.addEventListener('beforeunload', saveScroll);
+
+  function restoreScroll(){
+    var id = activeViewId();
+    if (!id) return;
+    var saved;
+    try { saved = sessionStorage.getItem('goalsScroll_' + id); } catch(e) { saved = null; }
+    if (saved === null) return;
+    var y = parseInt(saved, 10);
+    if (isNaN(y)) return;
+    // showViewFromHash (which runs on 'load') resets scroll to the top as
+    // part of normal navigation; run this restore slightly after so it
+    // wins that race, only on the initial page load/refresh.
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ window.scrollTo(0, y); });
+    });
+  }
+  window.addEventListener('load', restoreScroll);
+})();
 
 // ── ARTICLE ROUTING ────────────────────────────────────────
 function openArticle(id) {
