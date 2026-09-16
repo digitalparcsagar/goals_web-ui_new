@@ -760,11 +760,10 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     </div>
     <a href="#" onclick="showView('pricing');return false;" id="pricingNavBtn" class="nav-page-btn">Pricing</a>
     <a href="#" onclick="showView('podcast');return false;" id="podcastNavBtn" class="nav-page-btn">Podcast</a>
-    <button class="nav-kc-btn" id="kcNavBtn" onclick="showView('kc')">Knowledge Center</button>
     <a href="#" onclick="showView('contact');return false;" id="contactNavBtn" class="nav-page-btn">Contact</a>
   </div>
   <div class="nav-cta">
-    <a href="#" class="btn-login" onclick="var e=document.getElementById('view-login');if(e){e.style.cssText='display:flex!important;position:fixed!important;inset:0!important;z-index:9999!important;background:#141827!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;overflow-y:auto!important;padding:100px 24px 60px!important;color:#fff!important';}else{alert('view-login element not found in DOM');}return false;">Platform Login</a>
+    <a href="https://platform.goals.com/" target="_blank" rel="noopener" class="btn-login">Platform Login</a>
     <a href="https://youtu.be/tBPIBbe_51U?si=aDW-Y0HTQnjYcUY-" target="_blank" rel="noopener" class="btn-ghost">Watch the overview</a>
     <a href="https://calendly.com/goals-demo/30min?month=2026-07" class="btn-primary">Book a Demo</a>
   </div>
@@ -6052,11 +6051,11 @@ document.addEventListener('DOMContentLoaded', function() { renderPodEpisodes(); 
         </div>
         <p style="margin-top:14px">Sales Performance Software built around winning. Pipeline, goals, commissions, contests, and AI, all in one place.</p>
       </div>
-      <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#pipeline" onclick="showView('home')">Pipeline CRM</a><a href="#ace" onclick="showView('home')">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
+      <div class="fc"><h4>Platform</h4><a href="#goals" onclick="showView('home')">Goals &amp; Quotas</a><a href="#" onclick="showView('crm');return false;">Pipeline CRM</a><a href="#" onclick="showView('ai-insights');return false;">Ace AI</a><a href="#pricing" onclick="showView('home')">Pricing</a></div>
       <div class="fc"><h4>Features</h4>
         <div class="fc-2col">
-          <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('crm');return false;" style="display:flex;align-items:center;gap:7px">CRM <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('goals');return false;" style="display:flex;align-items:center;gap:7px">Sales Goal Setting <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('reporting');return false;" style="display:flex;align-items:center;gap:7px">Sales Reporting <span class="cm-soon-tag">Coming Soon</span></a></div>
-          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('ai-insights');return false;" style="display:flex;align-items:center;gap:7px">AI Insights &amp; Coaching <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('highlights');return false;" style="display:flex;align-items:center;gap:7px">Highlights <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('chat');return false;" style="display:flex;align-items:center;gap:7px">Chat <span class="cm-soon-tag">Coming Soon</span></a></div>
+          <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions</a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses</a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests</a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing</a><a href="#" onclick="showView('crm');return false;" style="display:flex;align-items:center;gap:7px">CRM</a><a href="#" onclick="showView('goals');return false;" style="display:flex;align-items:center;gap:7px">Sales Goal Setting</a><a href="#" onclick="showView('reporting');return false;" style="display:flex;align-items:center;gap:7px">Sales Reporting</a></div>
+          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations</a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices</a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting</a><a href="#" onclick="showView('ai-insights');return false;" style="display:flex;align-items:center;gap:7px">AI Insights &amp; Coaching</a><a href="#" onclick="showView('highlights');return false;" style="display:flex;align-items:center;gap:7px">Highlights</a><a href="#" onclick="showView('chat');return false;" style="display:flex;align-items:center;gap:7px">Chat</a></div>
         </div>
       </div>
     </div>
@@ -6249,7 +6248,7 @@ function showView(id) {
 
   if (id === 'login') {
     if (loginEl) { loginEl.classList.add('show'); window.scrollTo(0,0); }
-    document.getElementById('kcNavBtn').classList.toggle('active', false);
+    var _kcBtn0 = document.getElementById('kcNavBtn'); if (_kcBtn0) _kcBtn0.classList.toggle('active', false);
     if (location.hash !== '#login') { try { history.replaceState(null, '', '#login'); } catch(e) { location.hash = 'login'; } }
     return;
   }
@@ -6257,7 +6256,7 @@ function showView(id) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   const el = document.getElementById('view-' + id);
   if (el) { el.classList.add('active'); window.scrollTo(0,0); }
-  document.getElementById('kcNavBtn').classList.toggle('active', id === 'kc');
+  var _kcBtn1 = document.getElementById('kcNavBtn'); if (_kcBtn1) _kcBtn1.classList.toggle('active', id === 'kc');
   // hide article if switching views
   document.querySelectorAll('.art-view').forEach(a => a.classList.remove('show'));
   document.getElementById('kc-list-page').style.display = '';
