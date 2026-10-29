@@ -3590,23 +3590,28 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 #view-insurance .ins-q b{display:block;font-size:15.5px;margin-bottom:4px}#view-insurance .ins-q span{font-size:13px;line-height:1.55;color:rgba(255,255,255,.62)}
 @media(max-width:1100px){#view-insurance .ins-qgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){#view-insurance .ins-qgrid{grid-template-columns:1fr}}
+
+#view-insurance .ins-hero-c{text-align:center}
+#view-insurance .ins-hero-c h1{margin:0 auto 28px}
+#view-insurance .ins-hero-body{max-width:780px;margin:0 auto 44px}
+#view-insurance .ins-hero-body p{font-size:17px;line-height:1.75}
+#view-insurance .ins-hero-c .ins-hero-viz{max-width:1020px;margin:0 auto;text-align:left}
+#view-insurance .ins-hero-cta{margin-top:44px}
+#view-insurance .ins-hero-cta .ins-support{margin-top:18px}
 @media(prefers-reduced-motion:reduce){
  #view-insurance *,#view-insurance *:before,#view-insurance *:after{animation:none!important;transition:none!important}
  #view-insurance .ins-line{stroke-dashoffset:0}#view-insurance .ins-life:after{width:90%}
 }
 </style>
 
-<section class="ins-hero" aria-labelledby="ins-h1">
+<section class="ins-hero ins-hero-c" aria-labelledby="ins-h1">
   <div class="ins-in">
     <h1 id="ins-h1">Your Distribution Network.<br>Your Platform.<br><em>Built Your Way.</em></h1>
-    <div class="ins-hero-grid">
-      <div class="ins-hero-copy">
-        <p>Imagine having one powerful platform that connects your entire insurance distribution organization&mdash;from corporate leadership to every agency and producer. A platform that helps your producers manage clients, compare insurance products, streamline applications, track commissions, and write more business&mdash;while giving leadership unprecedented visibility into production performance.</p>
-        <p>Now imagine being able to customize that platform around exactly how your organization operates, without the enormous expense of developing your own software. <span class="ins-strong">That&rsquo;s the opportunity we&rsquo;re offering at Goals.com.</span></p>
-        <div style="margin-top:28px"><a href="#ins-form" class="ins-btn" data-cta="hero_consultation" onclick="insGoForm('Customized Insurance Production Platform','hero_consultation');return false;">Schedule an Enterprise Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06070F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
-        <div class="ins-support">Built for IMOs, FMOs, BGAs, insurance agencies, annuity distributors, and financial advisor networks.</div>
-      </div>
-      <div class="ins-hero-viz">
+    <div class="ins-hero-body">
+      <p>Imagine having one powerful platform that connects your entire insurance distribution organization&mdash;from corporate leadership to every agency and producer. A platform that helps your producers manage clients, compare insurance products, streamline applications, track commissions, and write more business&mdash;while giving leadership unprecedented visibility into production performance.</p>
+      <p>Now imagine being able to customize that platform around exactly how your organization operates, without the enormous expense of developing your own software. <span class="ins-strong">That&rsquo;s the opportunity we&rsquo;re offering at Goals.com.</span></p>
+    </div>
+    <div class="ins-hero-viz">
         <div class="ins-dash ins-dash-hero" role="img" aria-label="Illustrative executive insurance production dashboard">
   <div class="ins-dash-bar"><span></span><span></span><span></span><div class="ins-dash-title">Executive Production Overview</div><div class="ins-pill-c">Illustrative data</div></div>
   <div class="ins-dash-body">
@@ -3624,8 +3629,8 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
   </div>
 </div>
         <div class="ins-strip" aria-hidden="true"><div><b>84%</b><span>Goal attainment</span></div><div><b>47</b><span>Cases at risk</span></div><div><b>9</b><span>Producers flagged for coaching</span></div></div>
-      </div>
     </div>
+    <div class="ins-hero-cta"><div><a href="#ins-form" class="ins-btn" data-cta="hero_consultation" onclick="insGoForm('Customized Insurance Production Platform','hero_consultation');return false;">Schedule an Enterprise Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06070F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div><div class="ins-support">Built for IMOs, FMOs, BGAs, insurance agencies, annuity distributors, and financial advisor networks.</div></div>
   </div>
 </section>
 
@@ -3815,6 +3820,504 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Insurance Production Platform for IMOs & FMOs | Goals.com","description":"Discover a customizable AI-powered insurance production platform for IMOs, FMOs, agencies, and financial advisors. Explore enterprise partnerships.","url":"https://www.goals.com/goals-for-insurance/","isPartOf":{"@type":"WebSite","name":"Goals.com","url":"https://www.goals.com/"}}</script>
 </div><!-- /view-insurance -->
+
+<!-- FRANCHISE CRM VIEW -->
+<div class="view" id="view-franchise">
+<style>
+#view-franchise{--ins-line:rgba(255,255,255,.1)}
+#view-franchise .ins-sec{padding:104px 72px;position:relative}
+#view-franchise .ins-in{max-width:1200px;margin:0 auto}
+#view-franchise .ins-dark{background:var(--navy);color:#fff}
+#view-franchise .ins-dark2{background:var(--navy2);color:#fff}
+#view-franchise .ins-light{background:#fff;color:var(--dark)}
+#view-franchise .ins-off{background:var(--off);color:var(--dark)}
+#view-franchise .ins-eb{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-light);margin-bottom:16px}
+#view-franchise .ins-light .ins-eb,#view-franchise .ins-off .ins-eb{color:#16a34a}
+#view-franchise .ins-h2{font-size:clamp(30px,3.7vw,48px);font-weight:800;letter-spacing:-.025em;line-height:1.12;margin:0 0 20px}
+#view-franchise .ins-h2 em{font-style:normal;background:linear-gradient(90deg,var(--teal-light),#5b8def);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+#view-franchise .ins-lead{font-size:17px;line-height:1.7;color:rgba(255,255,255,.7);max-width:720px}
+#view-franchise .ins-light .ins-lead,#view-franchise .ins-off .ins-lead{color:var(--g500)}
+#view-franchise .ins-center{text-align:center}
+#view-franchise .ins-center .ins-lead{margin-left:auto;margin-right:auto}
+#view-franchise .ins-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#06070F;font-weight:800;font-size:16px;padding:17px 32px;border-radius:12px;border:0;cursor:pointer;text-decoration:none;transition:all .25s;box-shadow:0 10px 30px rgba(61,220,110,.28)}
+#view-franchise .ins-btn:hover{background:var(--teal2);transform:translateY(-2px);box-shadow:0 14px 34px rgba(61,220,110,.4)}
+#view-franchise .ins-btn-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);box-shadow:none}
+#view-franchise .ins-btn-o:hover{background:rgba(255,255,255,.08);box-shadow:none}
+/* hero */
+#view-franchise .ins-hero{padding:150px 72px 96px;background:radial-gradient(circle at 85% 10%,rgba(61,220,110,.18),transparent 45%),radial-gradient(circle at 5% 90%,rgba(91,141,239,.16),transparent 50%),var(--navy);color:#fff;overflow:hidden}
+#view-franchise .ins-hero-grid{display:grid;grid-template-columns:1fr 1.12fr;gap:56px;align-items:center}
+#view-franchise .ins-hero h1{font-size:clamp(34px,4.3vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0 0 24px}
+#view-franchise .ins-hero h1 em{font-style:normal;color:var(--teal-light)}
+#view-franchise .ins-hero p{font-size:16px;line-height:1.75;color:rgba(255,255,255,.72);margin:0 0 14px}
+#view-franchise .ins-hero .ins-strong{color:#fff;font-weight:600}
+#view-franchise .ins-support{margin-top:22px;font-size:13.5px;color:rgba(255,255,255,.55)}
+/* dashboards */
+#view-franchise .ins-dash{background:#f8fafc;border-radius:16px;border:1px solid rgba(255,255,255,.18);box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.04);overflow:hidden;color:var(--dark);text-align:left}
+#view-franchise .ins-dash-hero{animation:insRise 1s cubic-bezier(.2,.7,.2,1) both;transform:perspective(1400px) rotateY(-4deg) rotateX(2deg)}
+@keyframes insRise{from{opacity:0;transform:perspective(1400px) rotateY(-4deg) rotateX(2deg) translateY(40px)}to{opacity:1;transform:perspective(1400px) rotateY(-4deg) rotateX(2deg) translateY(0)}}
+#view-franchise .ins-dash-bar{display:flex;align-items:center;gap:6px;padding:11px 16px;background:#fff;border-bottom:1px solid #e2e8f0}
+#view-franchise .ins-dash-bar>span{width:9px;height:9px;border-radius:50%;background:#e2e8f0}
+#view-franchise .ins-dash-title{font-size:12px;font-weight:700;margin-left:10px;flex:1}
+#view-franchise .ins-pill-c{font-size:9.5px;font-weight:700;color:#7c6ff0;background:rgba(139,124,246,.12);padding:3px 9px;border-radius:20px;white-space:nowrap}
+#view-franchise .ins-dash-body{padding:16px}
+#view-franchise .ins-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+#view-franchise .ins-kpi{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px}
+#view-franchise .ins-kpi-l{font-size:9.5px;color:var(--g500);font-weight:600}
+#view-franchise .ins-kpi-v{font-size:19px;font-weight:800;margin:2px 0}
+#view-franchise .ins-kpi-d{font-size:9.5px;font-weight:700}
+#view-franchise .ins-kpi-d.up{color:#16a34a}#view-franchise .ins-kpi-d.dn{color:#d97706}
+#view-franchise .ins-dash-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;margin-bottom:12px}
+#view-franchise .ins-dash-grid3{grid-template-columns:1.2fr 1fr 1fr;margin-bottom:0}
+#view-franchise .ins-panel{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px}
+#view-franchise .ins-panel-h{font-size:11px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+#view-franchise .ins-panel-ai{background:linear-gradient(180deg,#f5f3ff,#fff);border-color:#ddd6fe}
+#view-franchise .ins-bars{display:flex;align-items:flex-end;gap:7px}
+#view-franchise .ins-bar{flex:1;border-radius:4px 4px 0 0;transform-origin:bottom;animation:insBar .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes insBar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+#view-franchise .ins-axis{display:flex;justify-content:space-between;font-size:9px;color:var(--g400);margin-top:6px}
+#view-franchise .ins-rg{display:grid;grid-template-columns:84px 1fr 38px;gap:8px;align-items:center;font-size:10.5px;margin-bottom:8px}
+#view-franchise .ins-rg b{text-align:right;font-size:10.5px}
+#view-franchise .ins-rg-t{height:7px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+#view-franchise .ins-rg-t i{display:block;height:100%;background:var(--teal2);border-radius:4px}
+#view-franchise .ins-ai{background:linear-gradient(90deg,rgba(139,124,246,.12),rgba(91,141,239,.08));border:1px solid #ddd6fe;border-radius:10px;padding:11px 14px;font-size:11px;line-height:1.55;color:#334155}
+#view-franchise .ins-ai-h{display:flex;align-items:center;gap:6px;font-weight:800;color:#7c6ff0;font-size:10.5px;margin-bottom:3px;text-transform:uppercase;letter-spacing:.05em}
+#view-franchise .ins-rec{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:8px 10px;margin-bottom:7px;font-size:11px}
+#view-franchise .ins-rec b{display:block;font-size:11px}#view-franchise .ins-rec span{color:var(--g500);font-size:10px}
+#view-franchise .ins-panel-ai .ins-rec{border-color:#ddd6fe}
+#view-franchise .ins-leg{display:flex;gap:14px;font-size:10px;color:var(--g500);margin-top:6px}
+#view-franchise .ins-leg i{display:inline-block;width:10px;height:3px;margin-right:5px;vertical-align:middle;border-radius:2px}
+#view-franchise .ins-line{stroke-dasharray:420;stroke-dashoffset:420;animation:insDraw 2s ease .3s forwards}
+@keyframes insDraw{to{stroke-dashoffset:0}}
+/* video */
+#view-franchise .ins-video{position:relative;max-width:900px;margin:44px auto 0;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:radial-gradient(circle at 70% 20%,rgba(61,220,110,.25),transparent 50%),radial-gradient(circle at 15% 85%,rgba(91,141,239,.25),transparent 55%),linear-gradient(135deg,#0A0B13,#111631);box-shadow:0 40px 90px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;text-align:left}
+#view-franchise .ins-video:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px}
+#view-franchise .ins-play{position:relative;width:92px;height:92px;border-radius:50%;background:var(--teal-light);color:#06070F;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 14px rgba(61,220,110,.18),0 16px 40px rgba(0,0,0,.5);border:0;cursor:not-allowed}
+#view-franchise .ins-play svg{width:34px;height:34px}
+#view-franchise .ins-video-cap{position:absolute;left:24px;right:24px;bottom:20px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+#view-franchise .ins-video-cap b{font-size:18px;display:block}#view-franchise .ins-video-cap span{font-size:12.5px;color:rgba(255,255,255,.65)}
+#view-franchise .ins-ph{font-size:11px;font-weight:700;background:rgba(245,158,11,.18);color:#fbbf24;border:1px solid rgba(245,158,11,.4);padding:5px 12px;border-radius:20px;white-space:nowrap}
+/* features */
+#view-franchise .ins-grid-big{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+#view-franchise .ins-grid-sm{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+#view-franchise .ins-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:26px;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
+#view-franchise .ins-card:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(15,23,42,.12);border-color:rgba(61,220,110,.5)}
+#view-franchise .ins-card:before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal-light),#5b8def);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+#view-franchise .ins-card:hover:before{transform:scaleX(1)}
+#view-franchise .ins-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
+#view-franchise .ins-ico{width:44px;height:44px;border-radius:12px;background:#0A0B13;display:flex;align-items:center;justify-content:center}
+#view-franchise .ins-card h3{font-size:18px;font-weight:800;margin:0 0 10px;line-height:1.25;color:var(--dark)}
+#view-franchise .ins-card p{font-size:14px;line-height:1.65;color:var(--g500);margin:0}
+#view-franchise .ins-card-sm{padding:22px}#view-franchise .ins-card-sm h3{font-size:15.5px}#view-franchise .ins-card-sm p{font-size:13px}
+#view-franchise .ins-tag{font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:20px}
+#view-franchise .ins-tag-f{background:rgba(61,220,110,.14);color:#15803d}
+#view-franchise .ins-tag-c{background:rgba(139,124,246,.14);color:#6d5ce0}
+#view-franchise .ins-note{margin-top:28px;padding:18px 22px;border-radius:12px;background:#fff;border:1px dashed #cbd5e1;font-size:13.5px;line-height:1.6;color:var(--g600);display:flex;gap:12px;align-items:flex-start}
+#view-franchise .ins-legend{display:flex;gap:18px;justify-content:center;margin-top:22px;font-size:12.5px;color:var(--g500);flex-wrap:wrap}
+/* ai section */
+#view-franchise .ins-ai-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center}
+#view-franchise .ins-ai-list{list-style:none;padding:0;margin:22px 0 26px}
+#view-franchise .ins-ai-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.55;color:rgba(255,255,255,.85);margin-bottom:12px}
+#view-franchise .ins-ai-list li svg{flex-shrink:0;margin-top:3px}
+#view-franchise .ins-closing{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.01em}#view-franchise .ins-closing span{color:var(--teal-light)}
+/* tabs */
+#view-franchise .ins-tabs{display:inline-flex;gap:6px;padding:6px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;margin:36px auto 40px;box-shadow:0 8px 24px rgba(15,23,42,.06)}
+#view-franchise .ins-tab{border:0;background:transparent;font:inherit;font-size:14.5px;font-weight:700;color:var(--g500);padding:12px 24px;border-radius:10px;cursor:pointer;transition:all .2s}
+#view-franchise .ins-tab.on{background:#0A0B13;color:#fff;box-shadow:0 6px 16px rgba(10,11,19,.3)}
+#view-franchise .ins-tabpanel{display:none;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;text-align:left;animation:insFade .5s ease both}
+#view-franchise .ins-tabpanel.on{display:grid}
+@keyframes insFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+#view-franchise .ins-tp-eb{font-size:11.5px;font-weight:700;color:#16a34a;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+#view-franchise .ins-tabpanel h3{font-size:clamp(24px,2.6vw,34px);font-weight:800;margin:0 0 14px;letter-spacing:-.02em;color:var(--dark)}
+#view-franchise .ins-tabpanel p{font-size:16px;line-height:1.7;color:var(--g500)}
+#view-franchise .ins-tabpanel .ins-dash{box-shadow:0 30px 70px rgba(15,23,42,.18);border-color:#e2e8f0}
+#view-franchise .ins-tabpanel .ins-kpis{grid-template-columns:repeat(4,1fr)}
+/* custom */
+#view-franchise .ins-custom-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+#view-franchise .ins-hub{position:relative;padding:28px;border-radius:22px;background:rgba(255,255,255,.04);border:1px solid var(--ins-line)}
+#view-franchise .ins-core{margin:0 auto 26px;max-width:300px;text-align:center;padding:20px;border-radius:16px;background:linear-gradient(135deg,rgba(61,220,110,.2),rgba(91,141,239,.2));border:1px solid rgba(61,220,110,.5);box-shadow:0 0 50px rgba(61,220,110,.2);position:relative}
+#view-franchise .ins-core b{display:block;font-size:19px}#view-franchise .ins-core span{font-size:12px;color:rgba(255,255,255,.7)}
+#view-franchise .ins-core:after{content:"";position:absolute;left:50%;top:100%;width:2px;height:26px;background:linear-gradient(var(--teal-light),transparent)}
+#view-franchise .ins-mods{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+#view-franchise .ins-mod{background:rgba(255,255,255,.06);border:1px solid var(--ins-line);border-radius:12px;padding:12px;font-size:12.5px;line-height:1.4;font-weight:600;color:rgba(255,255,255,.9);transition:all .25s}
+#view-franchise .ins-mod:hover{background:rgba(61,220,110,.12);border-color:rgba(61,220,110,.5);transform:translateY(-3px)}
+#view-franchise .ins-mod-n{display:block;font-size:10px;color:var(--teal-light);font-weight:800;margin-bottom:5px}
+#view-franchise .ins-why{font-size:16px;line-height:1.75;color:rgba(255,255,255,.72)}
+/* lifecycle */
+#view-franchise .ins-life{list-style:none;padding:0;margin:64px 0 0;display:grid;grid-template-columns:repeat(10,1fr);position:relative}
+#view-franchise .ins-life:before{content:"";position:absolute;left:5%;right:5%;top:19px;height:3px;background:#e2e8f0;border-radius:3px}
+#view-franchise .ins-life:after{content:"";position:absolute;left:5%;top:19px;height:3px;width:0;background:linear-gradient(90deg,var(--teal-light),#5b8def);border-radius:3px;animation:insGrow 3.5s ease .4s forwards}
+@keyframes insGrow{to{width:90%}}
+#view-franchise .ins-stage{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding:0 4px;animation:insPop .5s ease both;animation-delay:calc(var(--i)*.28s + .3s)}
+@keyframes insPop{from{opacity:.15;transform:translateY(8px)}to{opacity:1;transform:none}}
+#view-franchise .ins-stage-dot{width:40px;height:40px;border-radius:50%;background:#0A0B13;color:var(--teal-light);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;border:3px solid #fff;box-shadow:0 0 0 2px #0A0B13}
+#view-franchise .ins-stage-l{font-size:12.5px;font-weight:700;color:var(--dark);line-height:1.3}
+/* benefits */
+#view-franchise .ins-bens{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:52px}
+#view-franchise .ins-ben{grid-column:span 2;background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:28px;position:relative;transition:transform .25s,box-shadow .25s}
+#view-franchise .ins-ben:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(15,23,42,.1)}
+#view-franchise .ins-ben-4{grid-column:2 / span 2}#view-franchise .ins-ben-5{grid-column:4 / span 2}
+#view-franchise .ins-ben-n{position:absolute;right:24px;top:20px;font-size:34px;font-weight:800;color:#eef2f6}
+#view-franchise .ins-ben .ins-ico{margin-bottom:18px}
+#view-franchise .ins-ben h3{font-size:18px;font-weight:800;margin:0 0 10px;color:var(--dark)}#view-franchise .ins-ben p{font-size:14px;line-height:1.65;color:var(--g500);margin:0}
+#view-franchise .ins-vs{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+#view-franchise .ins-vs>div{border-radius:16px;padding:22px 26px;font-size:14.5px;line-height:1.6}
+#view-franchise .ins-vs-a{background:#e9edf2;color:var(--g600)}#view-franchise .ins-vs-b{background:#0A0B13;color:#fff}
+#view-franchise .ins-vs b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}#view-franchise .ins-vs-b b{color:var(--teal-light)}
+/* equity */
+#view-franchise .ins-equity{background:radial-gradient(circle at 50% 0%,rgba(212,196,160,.14),transparent 55%),radial-gradient(circle at 90% 90%,rgba(91,141,239,.14),transparent 50%),#0b0d14;color:#fff;text-align:center}
+#view-franchise .ins-equity .ins-eb{color:#d9c9a0}
+#view-franchise .ins-equity .ins-h2{font-size:clamp(34px,4.6vw,60px);max-width:980px;margin-left:auto;margin-right:auto}
+#view-franchise .ins-equity .ins-h2 em{background:linear-gradient(90deg,#f1e6c8,#c9b27c);-webkit-background-clip:text;background-clip:text}
+#view-franchise .ins-mark{display:flex;justify-content:center;margin-bottom:28px}
+#view-franchise .ins-eq-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:52px 0 40px;text-align:left}
+#view-franchise .ins-eq-card{padding:34px;border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(217,201,160,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+#view-franchise .ins-eq-num{font-size:12px;font-weight:800;letter-spacing:.12em;color:#d9c9a0;margin-bottom:14px}
+#view-franchise .ins-eq-card h3{font-size:22px;font-weight:800;margin:0 0 12px}#view-franchise .ins-eq-card p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.7);margin:0}
+#view-franchise .ins-eq-close{font-size:clamp(20px,2.2vw,28px);font-weight:800;line-height:1.35;max-width:820px;margin:0 auto 28px;letter-spacing:-.01em}
+#view-franchise .ins-eq-close span{color:#d9c9a0}
+#view-franchise .ins-btn-g{background:linear-gradient(90deg,#f1e6c8,#c9b27c);color:#1a1405;box-shadow:0 10px 30px rgba(201,178,124,.25)}
+#view-franchise .ins-btn-g:hover{background:linear-gradient(90deg,#fff3d6,#d9c28a);box-shadow:0 14px 34px rgba(201,178,124,.4)}
+#view-franchise .ins-disc{max-width:820px;margin:34px auto 0;font-size:11.5px;line-height:1.65;color:rgba(255,255,255,.45)}
+/* final + form */
+#view-franchise .ins-final{background:radial-gradient(circle at 20% 10%,rgba(61,220,110,.2),transparent 45%),radial-gradient(circle at 90% 90%,rgba(91,141,239,.2),transparent 50%),var(--navy);color:#fff}
+#view-franchise .ins-final-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+#view-franchise .ins-final p{font-size:16px;line-height:1.75;color:rgba(255,255,255,.72);margin:0 0 14px}
+#view-franchise .ins-ctas{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0}
+#view-franchise .ins-tagline{font-size:15px;font-weight:700;color:var(--teal-light)}
+#view-franchise .ins-form{background:#fff;color:var(--dark);border-radius:20px;padding:32px;box-shadow:0 40px 90px rgba(0,0,0,.5)}
+#view-franchise .ins-form h3{font-size:22px;font-weight:800;margin:0 0 4px}#view-franchise .ins-form .ins-fs{font-size:13.5px;color:var(--g500);margin:0 0 22px}
+#view-franchise .ins-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#view-franchise .ins-f{margin-bottom:12px}
+#view-franchise .ins-f label{display:block;font-size:12px;font-weight:700;margin-bottom:5px;color:var(--g600)}
+#view-franchise .ins-f input,#view-franchise .ins-f select,#view-franchise .ins-f textarea{width:100%;font:inherit;font-size:14px;padding:11px 13px;border:1.5px solid #e2e8f0;border-radius:10px;background:#f8fafc;color:var(--dark);transition:border-color .2s,box-shadow .2s}
+#view-franchise .ins-f input:focus,#view-franchise .ins-f select:focus,#view-franchise .ins-f textarea:focus{outline:0;border-color:var(--teal2);box-shadow:0 0 0 3px rgba(61,220,110,.2);background:#fff}
+#view-franchise .ins-form .ins-btn{width:100%;justify-content:center;margin-top:6px}
+#view-franchise .ins-ok{display:none;text-align:center;padding:20px 6px}
+#view-franchise .ins-ok h3{margin-bottom:10px}
+#view-franchise .ins-priv{font-size:11.5px;color:var(--g400);margin-top:12px;text-align:center}
+/* sticky cta */
+#view-franchise .ins-sticky{position:fixed;right:24px;bottom:24px;z-index:90;opacity:0;transform:translateY(20px);pointer-events:none;transition:all .3s}
+#view-franchise .ins-sticky.show{opacity:1;transform:none;pointer-events:auto}
+#view-franchise .ins-sticky .ins-btn{padding:14px 22px;font-size:14px;box-shadow:0 16px 40px rgba(0,0,0,.45)}
+@media(max-width:1100px){
+ #view-franchise .ins-sec{padding:80px 36px}#view-franchise .ins-hero{padding:130px 36px 72px}
+ #view-franchise .ins-hero-grid,#view-franchise .ins-ai-grid,#view-franchise .ins-custom-grid,#view-franchise .ins-final-grid,#view-franchise .ins-tabpanel.on{grid-template-columns:1fr}
+ #view-franchise .ins-dash-hero{transform:none;animation:insFade .9s ease both}
+ #view-franchise .ins-grid-big{grid-template-columns:repeat(2,1fr)}#view-franchise .ins-grid-sm{grid-template-columns:repeat(2,1fr)}
+ #view-franchise .ins-bens{grid-template-columns:repeat(2,1fr)}#view-franchise .ins-ben,#view-franchise .ins-ben-4,#view-franchise .ins-ben-5{grid-column:auto}
+}
+@media(max-width:760px){
+ #view-franchise .ins-sec{padding:64px 20px}#view-franchise .ins-hero{padding:112px 20px 56px}
+ #view-franchise .ins-grid-big,#view-franchise .ins-grid-sm,#view-franchise .ins-bens,#view-franchise .ins-eq-cards,#view-franchise .ins-vs,#view-franchise .ins-row2{grid-template-columns:1fr}
+ #view-franchise .ins-kpis{grid-template-columns:1fr 1fr}#view-franchise .ins-dash-grid,#view-franchise .ins-dash-grid3{grid-template-columns:1fr}
+ #view-franchise .ins-mods{grid-template-columns:1fr 1fr}
+ #view-franchise .ins-tabs{display:flex;width:100%}#view-franchise .ins-tab{flex:1;padding:11px 6px;font-size:13px}
+ #view-franchise .ins-life{grid-template-columns:1fr;margin-top:40px;padding-left:8px}
+ #view-franchise .ins-life:before{left:27px;right:auto;top:20px;bottom:20px;width:3px;height:auto}
+ #view-franchise .ins-life:after{left:27px;top:20px;width:3px;height:0;animation:insGrowV 3.5s ease .4s forwards}
+ @keyframes insGrowV{to{height:calc(100% - 40px)}}
+ #view-franchise .ins-stage{flex-direction:row;text-align:left;gap:16px;padding:10px 0}
+ #view-franchise .ins-video-cap{flex-direction:column;align-items:flex-start}
+ #view-franchise .ins-sticky{display:none}
+}
+
+#view-franchise .ins-hero h1{font-size:clamp(34px,5vw,66px);line-height:1.06;margin:0 0 44px;max-width:none}
+#view-franchise .ins-hero-grid{align-items:stretch;gap:56px}
+#view-franchise .ins-hero-copy{display:flex;flex-direction:column;justify-content:center}
+#view-franchise .ins-hero-copy p{font-size:17px;line-height:1.75}
+#view-franchise .ins-hero-viz{position:relative;display:flex;flex-direction:column;gap:12px}
+#view-franchise .ins-hero-viz .ins-dash{width:100%;flex:1;display:flex;flex-direction:column;transform:none;animation:insRise 1s cubic-bezier(.2,.7,.2,1) both}
+#view-franchise .ins-hero-viz .ins-dash-body{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+#view-franchise .ins-hero-viz .ins-dash-grid{flex:1;margin-bottom:0}
+#view-franchise .ins-hero-viz .ins-panel{display:flex;flex-direction:column}
+#view-franchise .ins-hero-viz .ins-bars{flex:1;min-height:90px}
+#view-franchise .ins-split2{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center;text-align:left}
+#view-franchise .ins-split2 .ins-lead{margin-left:0;margin-right:0}
+#view-franchise .ins-split2 .ins-video{margin:0;max-width:none}
+@media(max-width:1100px){
+ #view-franchise .ins-hero h1{white-space:normal}
+ #view-franchise .ins-split2{grid-template-columns:1fr}
+ }
+@media(max-width:760px){#view-franchise .ins-strip{grid-template-columns:1fr}#view-franchise .ins-strip>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}}
+
+#view-franchise .ins-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(255,255,255,.14);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));overflow:hidden}
+#view-franchise .ins-strip>div{padding:14px 18px;border-right:1px solid rgba(255,255,255,.1)}#view-franchise .ins-strip>div:last-child{border-right:0}
+#view-franchise .ins-strip b{display:block;font-size:24px;font-weight:800;color:var(--teal-light);line-height:1.1}
+#view-franchise .ins-strip span{font-size:11px;color:rgba(255,255,255,.62)}
+
+#view-franchise .ins-ai-stage{position:relative;max-width:1040px;margin:52px auto 0}
+#view-franchise .ins-ai-glow{position:absolute;inset:-6% -4%;background:radial-gradient(ellipse at 50% 40%,rgba(61,220,110,.22),transparent 62%);filter:blur(30px);z-index:0}
+#view-franchise .ins-ai-stage .ins-dash{position:relative;z-index:1}
+#view-franchise .ins-ai-stage .ins-kpi-v{font-size:24px}
+#view-franchise .ins-ai-stage .ins-dash-body{padding:22px}
+#view-franchise .ins-ai-note{position:relative;font-size:11.5px;color:rgba(255,255,255,.45);margin-top:14px}
+#view-franchise .ins-ai-q{margin-top:64px;color:#fff;font-weight:600}
+#view-franchise .ins-qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;text-align:left}
+#view-franchise .ins-q{display:flex;gap:14px;align-items:flex-start;padding:20px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:all .25s}
+#view-franchise .ins-q:hover{background:rgba(61,220,110,.08);border-color:rgba(61,220,110,.4);transform:translateY(-3px)}
+#view-franchise .ins-q-i{width:38px;height:38px;border-radius:10px;background:rgba(61,220,110,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+#view-franchise .ins-q b{display:block;font-size:15.5px;margin-bottom:4px}#view-franchise .ins-q span{font-size:13px;line-height:1.55;color:rgba(255,255,255,.62)}
+@media(max-width:1100px){#view-franchise .ins-qgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){#view-franchise .ins-qgrid{grid-template-columns:1fr}}
+
+#view-franchise .ins-hero-c{text-align:center}
+#view-franchise .ins-hero-c h1{margin:0 auto 28px}
+#view-franchise .ins-hero-body{max-width:780px;margin:0 auto 44px}
+#view-franchise .ins-hero-body p{font-size:17px;line-height:1.75}
+#view-franchise .ins-hero-c .ins-hero-viz{max-width:1020px;margin:0 auto;text-align:left}
+#view-franchise .ins-hero-cta{margin-top:44px}
+#view-franchise .ins-hero-cta .ins-support{margin-top:18px}
+@media(prefers-reduced-motion:reduce){
+ #view-franchise *,#view-franchise *:before,#view-franchise *:after{animation:none!important;transition:none!important}
+ #view-franchise .ins-line{stroke-dashoffset:0}#view-franchise .ins-life:after{width:90%}
+}
+
+#view-franchise .ins-hero-f{padding:140px 72px 0;background:radial-gradient(circle at 85% 8%,rgba(61,220,110,.2),transparent 45%),radial-gradient(circle at 5% 90%,rgba(91,141,239,.16),transparent 50%),var(--navy);color:#fff;overflow:hidden}
+#view-franchise .fch-hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;padding-bottom:64px}
+#view-franchise .ins-hero-f h1{font-size:clamp(36px,5vw,66px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:0 0 24px}
+#view-franchise .ins-hero-f h1 em{font-style:normal;color:var(--teal-light)}
+#view-franchise .ins-hero-f p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.75);margin:0 0 14px}
+#view-franchise .ins-hero-f .ins-strong{color:#fff;font-weight:600}
+#view-franchise .fch-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+#view-franchise .fch-trust{border-top:1px solid rgba(255,255,255,.1);display:grid;grid-template-columns:repeat(4,1fr);margin:0 -72px;padding:0 72px;background:rgba(255,255,255,.03)}
+#view-franchise .fch-trust div{padding:20px 14px;text-align:center;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.85);border-right:1px solid rgba(255,255,255,.08)}
+#view-franchise .fch-trust div:last-child{border-right:0}
+#view-franchise .fch-trust span{color:var(--teal-light);margin-right:8px}
+#view-franchise .fch-vid{margin:0;max-width:none}
+#view-franchise .fch-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;text-align:left}
+#view-franchise .fch-pc{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:26px;transition:transform .25s,box-shadow .25s}
+#view-franchise .fch-pc:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(15,23,42,.1)}
+#view-franchise .fch-pc h3{font-size:17px;font-weight:800;margin:16px 0 8px;color:var(--dark)}
+#view-franchise .fch-pc p{font-size:14px;line-height:1.6;color:var(--g500);margin:0}
+#view-franchise .fch-pc .ins-ico{background:#fef3c7}
+#view-franchise .fch-h2s{font-size:clamp(20px,2.2vw,26px);font-weight:700;margin:34px 0 0;color:var(--dark);letter-spacing:-.01em}
+#view-franchise .fch-hier{max-width:1040px;margin:52px auto 0;position:relative}
+#view-franchise .fch-corp{background:#f8fafc;border-radius:16px;box-shadow:0 40px 90px rgba(0,0,0,.5);overflow:hidden;color:var(--dark);text-align:left;position:relative;z-index:1}
+#view-franchise .fch-corp .ins-kpis{grid-template-columns:repeat(3,1fr)}
+#view-franchise .fch-corp .ins-kpi-v{font-size:26px}
+#view-franchise .fch-links{height:46px;position:relative;margin:0 auto;max-width:760px}
+#view-franchise .fch-links svg{position:absolute;inset:0;width:100%;height:100%}
+#view-franchise .fch-ws{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#view-franchise .fch-w{background:#f8fafc;border-radius:14px;padding:16px;text-align:left;color:var(--dark);box-shadow:0 20px 50px rgba(0,0,0,.4);border-top:3px solid var(--teal2)}
+#view-franchise .fch-w.ai{border-top-color:#8b7cf6}
+#view-franchise .fch-w h4{font-size:14px;margin:0 0 2px;font-weight:800}#view-franchise .fch-w small{font-size:11px;color:var(--g500);display:block;margin-bottom:12px}
+#view-franchise .fch-w .ins-rg{grid-template-columns:70px 1fr 30px}
+#view-franchise .fch-caps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;text-align:left}
+#view-franchise .fch-ba{max-width:980px;margin:48px auto 0;display:grid;grid-template-columns:1fr 60px 1fr;gap:12px;align-items:center}
+#view-franchise .fch-ba-l{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;color:rgba(255,255,255,.55)}
+#view-franchise .fch-ba .ins-dash{box-shadow:0 20px 50px rgba(0,0,0,.4)}
+#view-franchise .fch-ba-after{position:relative}
+#view-franchise .fch-ba-after .ins-dash{border-color:rgba(61,220,110,.55);box-shadow:0 0 0 1px rgba(61,220,110,.4),0 0 60px rgba(61,220,110,.25),0 20px 50px rgba(0,0,0,.4);animation:fchGlow 4s ease-in-out infinite}
+@keyframes fchGlow{0%,100%{box-shadow:0 0 0 1px rgba(61,220,110,.3),0 0 30px rgba(61,220,110,.12),0 20px 50px rgba(0,0,0,.4)}50%{box-shadow:0 0 0 1px rgba(61,220,110,.7),0 0 70px rgba(61,220,110,.35),0 20px 50px rgba(0,0,0,.4)}}
+#view-franchise .fch-ba-after .fch-new{animation:fchNew 5s ease-in-out infinite}
+@keyframes fchNew{0%,35%{opacity:0;transform:translateY(8px)}50%,100%{opacity:1;transform:none}}
+#view-franchise .fch-arrow{display:flex;justify-content:center}
+#view-franchise .fch-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:40px auto 0;max-width:960px}
+#view-franchise .fch-chip{padding:11px 18px;border-radius:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);font-size:13.5px;font-weight:600;color:rgba(255,255,255,.92);transition:all .25s}
+#view-franchise .fch-chip:hover{background:rgba(61,220,110,.14);border-color:rgba(61,220,110,.5);transform:translateY(-2px)}
+#view-franchise .fch-scope{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:18px}
+#view-franchise .fch-adv{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px;text-align:left}
+#view-franchise .fch-ab{background:linear-gradient(160deg,#fff,#f8fafc);border:1px solid #e2e8f0;border-radius:20px;padding:34px;transition:transform .25s,box-shadow .25s}
+#view-franchise .fch-ab:hover{transform:translateY(-5px);box-shadow:0 26px 54px rgba(15,23,42,.1)}
+#view-franchise .fch-ab h3{font-size:22px;font-weight:800;margin:18px 0 10px;color:var(--dark)}
+#view-franchise .fch-ab p{font-size:15px;line-height:1.7;color:var(--g500);margin:0}
+#view-franchise .fch-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;position:relative;text-align:left}
+#view-franchise .fch-steps:before{content:"";position:absolute;left:8%;right:8%;top:27px;height:3px;background:linear-gradient(90deg,var(--teal-light),#5b8def);opacity:.5;border-radius:3px}
+#view-franchise .fch-step{position:relative;padding:0 22px;text-align:center}
+#view-franchise .fch-step b{display:flex;width:56px;height:56px;border-radius:50%;background:#0A0B13;color:var(--teal-light);font-size:18px;font-weight:800;align-items:center;justify-content:center;margin:0 auto 20px;border:4px solid var(--off);box-shadow:0 0 0 2px #0A0B13;position:relative;z-index:1}
+#view-franchise .fch-step h3{font-size:20px;font-weight:800;margin:0 0 10px;color:var(--dark)}
+#view-franchise .fch-step p{font-size:14.5px;line-height:1.65;color:var(--g500);margin:0}
+#view-franchise .fch-faq{max-width:820px;margin:44px auto 0;text-align:left}
+#view-franchise .fch-faq details{border:1px solid #e2e8f0;border-radius:14px;background:#fff;margin-bottom:12px;overflow:hidden}
+#view-franchise .fch-faq summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:700;font-size:16px;color:var(--dark);display:flex;justify-content:space-between;gap:14px;align-items:center}
+#view-franchise .fch-faq summary::-webkit-details-marker{display:none}
+#view-franchise .fch-faq summary:after{content:"+";font-size:22px;color:#16a34a;transition:transform .2s}
+#view-franchise .fch-faq details[open] summary:after{transform:rotate(45deg)}
+#view-franchise .fch-faq details p{padding:0 22px 20px;margin:0;font-size:15px;line-height:1.7;color:var(--g500)}
+#view-franchise .fch-hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+@media(max-width:1100px){
+ #view-franchise .ins-hero-f{padding:120px 36px 0}#view-franchise .fch-hero-grid{grid-template-columns:1fr}
+ #view-franchise .fch-trust{margin:0 -36px;padding:0 36px;grid-template-columns:1fr 1fr}
+ #view-franchise .fch-4,#view-franchise .fch-caps{grid-template-columns:repeat(2,1fr)}
+ #view-franchise .fch-ba{grid-template-columns:1fr}#view-franchise .fch-arrow{transform:rotate(90deg);padding:6px 0}
+}
+@media(max-width:760px){
+ #view-franchise .ins-hero-f{padding:104px 20px 0}#view-franchise .fch-trust{margin:0 -20px;padding:0 20px;grid-template-columns:1fr}
+ #view-franchise .fch-trust div{border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}
+ #view-franchise .fch-4,#view-franchise .fch-caps,#view-franchise .fch-adv,#view-franchise .fch-ws{grid-template-columns:1fr}
+ #view-franchise .fch-links{display:none}#view-franchise .fch-ws{margin-top:16px}
+ #view-franchise .fch-corp .ins-kpis{grid-template-columns:1fr}
+ #view-franchise .fch-steps{grid-template-columns:1fr;gap:34px}#view-franchise .fch-steps:before{display:none}
+}
+
+#view-franchise .ins-hero-f{background:radial-gradient(circle at 82% 12%,rgba(61,220,110,.28),transparent 46%),radial-gradient(circle at 4% 95%,rgba(91,141,239,.22),transparent 52%),var(--navy);position:relative}
+#view-franchise .ins-hero-f:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 75%);pointer-events:none}
+#view-franchise .ins-hero-f .ins-in{position:relative}
+#view-franchise .fch-hero-grid{grid-template-columns:1fr 1.18fr;gap:60px}
+#view-franchise .ins-hero-f h1{font-size:clamp(40px,5.6vw,76px);line-height:1.02;margin-bottom:28px}
+#view-franchise .ins-hero-f h1 em{background:linear-gradient(90deg,var(--teal-light),#5b8def);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+#view-franchise .ins-hero-f p:not(.ins-strong){font-size:18px}
+#view-franchise .fch-vid{aspect-ratio:16/10;box-shadow:0 50px 110px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08),0 0 80px rgba(61,220,110,.14);text-align:left}
+#view-franchise .fch-net{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+#view-franchise .fch-vid-logo{position:absolute;top:22px;left:26px;z-index:2}
+#view-franchise .fch-vid-t{position:absolute;right:28px;top:26px;z-index:2;text-align:right;font-weight:800;font-size:clamp(16px,1.8vw,24px);line-height:1.2;color:#fff;letter-spacing:-.01em}
+#view-franchise .fch-vid-t em{font-style:normal;color:var(--teal-light)}
+#view-franchise .fch-play{z-index:2;animation:fchPulse 2.6s ease-out infinite}
+@keyframes fchPulse{0%{box-shadow:0 0 0 0 rgba(61,220,110,.5),0 16px 40px rgba(0,0,0,.5)}100%{box-shadow:0 0 0 30px rgba(61,220,110,0),0 16px 40px rgba(0,0,0,.5)}}
+#view-franchise .fch-vid .ins-video-cap{z-index:2;background:linear-gradient(0deg,rgba(6,7,15,.85),transparent);margin:0;left:0;right:0;bottom:0;padding:34px 26px 20px}
+#view-franchise .fch-trust{background:rgba(255,255,255,.05)}
+@media(max-width:1100px){#view-franchise .fch-vid{aspect-ratio:16/9}}
+@media(prefers-reduced-motion:reduce){#view-franchise .fch-ba-after .fch-new{opacity:1;transform:none}}
+</style>
+
+<section class="ins-hero-f" aria-labelledby="fch-h1">
+  <div class="ins-in">
+    <div class="fch-hero-grid">
+      <div>
+        <h1 id="fch-h1">Your Franchise.<br>Your Vision.<br><em>Your Platform.</em></h1>
+        <p>Imagine having a powerful CRM and sales performance platform built specifically for your franchise organization&mdash;giving every franchisee the tools to sell more, while giving corporate leadership complete visibility across the entire network.</p>
+        <p class="ins-strong">Customized around your organization. Without the enormous expense of building your own software.</p>
+        <div class="fch-ctas"><a href="#fch-form" class="ins-btn" data-cta="hero_partnership" onclick="fchGoForm('hero_partnership');return false;">Explore a Franchise Partnership <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06070F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="#fch-video" class="ins-btn ins-btn-o" data-cta="hero_watch_overview" onclick="document.getElementById('fch-video').scrollIntoView({behavior:'smooth',block:'center'});return false;">Watch the 2-Minute Overview</a></div>
+      </div>
+      <div class="ins-video fch-vid" id="fch-video" role="img" aria-label="Placeholder for the forthcoming Goals.com franchise partnership overview video">
+        <svg class="fch-net" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><line x1="300" y1="150" x2="120" y2="70" stroke="rgba(61,220,110,.35)" stroke-width="1.2" stroke-dasharray="3 5"/><line x1="300" y1="150" x2="480" y2="64" stroke="rgba(61,220,110,.35)" stroke-width="1.2" stroke-dasharray="3 5"/><line x1="300" y1="150" x2="80" y2="200" stroke="rgba(61,220,110,.35)" stroke-width="1.2" stroke-dasharray="3 5"/><line x1="300" y1="150" x2="520" y2="190" stroke="rgba(61,220,110,.35)" stroke-width="1.2" stroke-dasharray="3 5"/><line x1="300" y1="150" x2="190" y2="255" stroke="rgba(61,220,110,.35)" stroke-width="1.2" stroke-dasharray="3 5"/><line x1="300" y1="150" x2="410" y2="262" stroke="rgba(61,220,110,.35)" stroke-width="1.2" stroke-dasharray="3 5"/><line x1="300" y1="150" x2="250" y2="40" stroke="rgba(61,220,110,.35)" stroke-width="1.2" stroke-dasharray="3 5"/><line x1="300" y1="150" x2="350" y2="60" stroke="rgba(61,220,110,.35)" stroke-width="1.2" stroke-dasharray="3 5"/><line x1="300" y1="150" x2="60" y2="120" stroke="rgba(61,220,110,.35)" stroke-width="1.2" stroke-dasharray="3 5"/><line x1="300" y1="150" x2="545" y2="120" stroke="rgba(61,220,110,.35)" stroke-width="1.2" stroke-dasharray="3 5"/><circle cx="300" cy="150" r="14" fill="none" stroke="#3ddc6e" stroke-width="1.5" opacity=".6"><animate attributeName="r" values="10;38" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;0" dur="3s" repeatCount="indefinite"/></circle><circle cx="300" cy="150" r="6" fill="#3ddc6e" opacity="1"><animate attributeName="opacity" values="1;.35;1" dur="2.0s" repeatCount="indefinite"/></circle><circle cx="120" cy="70" r="4" fill="#3ddc6e" opacity="0.85"><animate attributeName="opacity" values="1;.35;1" dur="2.6s" repeatCount="indefinite"/></circle><circle cx="480" cy="64" r="4" fill="#3ddc6e" opacity="0.85"><animate attributeName="opacity" values="1;.35;1" dur="3.2s" repeatCount="indefinite"/></circle><circle cx="80" cy="200" r="4" fill="#3ddc6e" opacity="0.85"><animate attributeName="opacity" values="1;.35;1" dur="3.8s" repeatCount="indefinite"/></circle><circle cx="520" cy="190" r="4" fill="#3ddc6e" opacity="0.85"><animate attributeName="opacity" values="1;.35;1" dur="2.0s" repeatCount="indefinite"/></circle><circle cx="190" cy="255" r="4" fill="#3ddc6e" opacity="0.85"><animate attributeName="opacity" values="1;.35;1" dur="2.6s" repeatCount="indefinite"/></circle><circle cx="410" cy="262" r="4" fill="#3ddc6e" opacity="0.85"><animate attributeName="opacity" values="1;.35;1" dur="3.2s" repeatCount="indefinite"/></circle><circle cx="250" cy="40" r="4" fill="#3ddc6e" opacity="0.85"><animate attributeName="opacity" values="1;.35;1" dur="3.8s" repeatCount="indefinite"/></circle><circle cx="350" cy="60" r="4" fill="#3ddc6e" opacity="0.85"><animate attributeName="opacity" values="1;.35;1" dur="2.0s" repeatCount="indefinite"/></circle><circle cx="60" cy="120" r="4" fill="#3ddc6e" opacity="0.85"><animate attributeName="opacity" values="1;.35;1" dur="2.6s" repeatCount="indefinite"/></circle><circle cx="545" cy="120" r="4" fill="#3ddc6e" opacity="0.85"><animate attributeName="opacity" values="1;.35;1" dur="3.2s" repeatCount="indefinite"/></circle></svg>
+        <div class="fch-vid-logo"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="132" height="83" viewBox="0 0 115.245 72.029" > <g id="Group_431" data-name="Group 431"> <path id="Path_965" data-name="Path 965" d="M923.533,288.136a.569.569,0,0,0-.445.326c-1.032,2.243-8.727,15.094-3.092,16.044,3.366.568,6.608-3.472,9.867-8.338.561-.57,0-.616-.488-.254-3.2,4.5-5.528,6.782-7.217,6.654-2.154-.163,4.979-11.671,4.678-13.3-.256-1.393-2.442-1.24-3.3-1.129" transform="translate(-847.476 -265.951)" fill="#ffffff"/> <path id="Path_966" data-name="Path 966" d="M817.8,292.888c1.577-2.97,1.2-4.435.3-4.606-2.864-.545-8.309,10.353-5.45,10.592,2.051.171,5.152-5.986,5.152-5.986l.632,2.48s-3.457,7.654-8.371,6.905c-6.019-.917-1.339-16.714,7.231-16.512,3.514.083,3.727,2.622,3.137,5.571-.313,1.567-2.925,2.112-2.629,1.556" transform="translate(-745.359 -263.82)" fill="#ffffff"/> <path id="Path_967" data-name="Path 967" d="M374.992,278.237c.416-3.038.407-5.53-.706-5.572-3.551-.133-9.132,13.84-5.64,13.512,3.847-.362,6.346-7.94,6.346-7.94l-.017,4.438s-2.993,6.62-8.315,6.518c-7.448-.143-3.021-18.665,6.508-19.351,4.286-.309,4.245,3.583,3.472,6.849-.45,1.9-1.753,2.315-1.648,1.546" transform="translate(-335.05 -249.109)" fill="#ffffff"/> <path id="Path_968" data-name="Path 968" d="M766.4,319.932s.045,2.046,1.094,2.783c.892.627,3.059.352,4.816-1.2.18.538-.4,1.146-.4,1.146-1.668,1.235-3.887,1.694-5.259,1.086Z" transform="translate(-707.556 -295.369)" fill="#ffffff"/> <path id="Path_969" data-name="Path 969" d="M1141.115,283.344c-2.015-.438-9.943-.206-16.766.93a4.114,4.114,0,0,1-1.066-3.458c.691-1.895,3.456-2.132,5.806-1.726,0,0,.857-2.182-.4-3.094-2.334-1.7-7.691-.342-8.586,3.094a6.916,6.916,0,0,0,1.382,5.7c-3.719.888-6.883,2.015-7.573,3.775-2.536,6.467,11.169,6.068,12.549,1.488a2.811,2.811,0,0,0,.119-.469c.286-2.434-2.274-3.272-2.286-3.273s.349-.057,1.252-.118h.019c.212-.012.426-.022.642-.031.544-.024.944-.041,1.5-.052h.052a79.214,79.214,0,0,1,8.583.306l.018,0a25.62,25.62,0,0,1,6.409,1.2s2.074-3.458-1.658-4.271m-17.863,4.676c-.138,1.759-6.665,2.985-6.585.682.039-1.139,2.763-1.868,6.053-2.258a3.05,3.05,0,0,1,.532,1.576" transform="translate(-1028.104 -254.132)" fill="#ffffff"/> <path id="Path_970" data-name="Path 970" d="M1165.923,576.208a1.1,1.1,0,0,0-.836-.384,1.225,1.225,0,1,0,.874,2.094l.874,1.066a2.593,2.593,0,0,1-1.768.615,2.549,2.549,0,1,1-.01-5.091,2.634,2.634,0,0,1,1.777.644Z" transform="translate(-1073.145 -530.4)" fill="#ffffff"/> <path id="Path_971" data-name="Path 971" d="M1232.978,579.6a2.531,2.531,0,0,1-2.651-2.565,2.659,2.659,0,0,1,5.312,0,2.534,2.534,0,0,1-2.661,2.565m0-3.785a1.135,1.135,0,0,0-1.124,1.22,1.137,1.137,0,1,0,1.124-1.22" transform="translate(-1135.868 -530.399)" fill="#ffffff"/> <path id="Path_972" data-name="Path 972" d="M1321.142,579.676v-2.613c0-.548-.125-1.009-.682-1.009-.538,0-.8.5-.8,1.037v2.584h-1.575v-2.728c0-.548-.211-.893-.682-.893-.5,0-.788.451-.788,1.028v2.594h-1.585v-4.784h1.527v.663h.019a1.6,1.6,0,0,1,1.431-.8,1.507,1.507,0,0,1,1.441.817,1.711,1.711,0,0,1,1.527-.817,1.75,1.75,0,0,1,1.739,1.96v2.959Z" transform="translate(-1214.07 -530.63)" fill="#ffffff"/> <path id="Path_973" data-name="Path 973" d="M1086.832,589.725a1.732,1.732,0,1,1-1.732-1.732,1.732,1.732,0,0,1,1.732,1.732" transform="translate(-1000.192 -542.849)" fill="#ffffff"/> <path id="Path_974" data-name="Path 974" d="M1409.885,416.474h0l-.018,0,.019,0" transform="translate(-1301.624 -384.497)" fill="#ffffff"/> <path id="Path_975" data-name="Path 975" d="M993.839,0c-7.377.292-16.969,20.887-21.887,36.3a21.435,21.435,0,0,0,2.618-2.427,21.092,21.092,0,0,1-3.23,4.041,58.708,58.708,0,0,0-2.6,12.695c-.089,4.423,2.9,4.9,2.9,4.9a98.882,98.882,0,0,1,5.773-23.883C987.223,22.251,1002.943-.356,993.839,0m.187,2.134c3.628.39-7.663,19.3-15.848,27.338,5.976-15.388,14.007-27.536,15.848-27.338" transform="translate(-894.36 0)" fill="#ffffff"/> <path id="Path_976" data-name="Path 976" d="M613.139,285.37a6.333,6.333,0,0,0,2.065.164c.729-3.589.057-6.834-2.307-6.953a3.088,3.088,0,0,0-1.262.178,3.4,3.4,0,0,0-2.349-.478c-8.482.322-12.937,16.656-4.307,17.373,5.181.431,8.787-4.714,10.059-9.38a7.113,7.113,0,0,1-1.9-.905m-6.979,7.213c-4.025.229-.389-10.041,3.8-11.395a3.869,3.869,0,0,0,1.522,3.737s-1.713,7.452-5.323,7.658" transform="translate(-554.223 -256.91)" fill="#ffffff"/> <path id="Path_977" data-name="Path 977" d="M64.422,290.467a154.386,154.386,0,0,0-23.86-.807c3.425-11.131,4.656-21.578,7.629-22.422-.718-1.217-3.121-1.965-5.125-.636-2.592,1.719-3.606,12.342-6.9,23.246C17.607,290.923.261,296,0,307.563c-.25,11.234,14.615,12.234,24.467,6.591,6.545-3.749,10.943-10.356,13.661-17.61.452-1.207,1.1-2.941,1.1-2.941l-1.985-.568c.778-.061,2.234-.07,2.235-.073q2.493-.077,5.074-.073h0a167.017,167.017,0,0,1,22.723,1.753s.927-3.661-2.861-4.174M17.645,313.439c-10.3,2.585-15.388-1.473-14.842-6.393.983-8.86,15.337-12.8,32.284-13.879-3.236,9.3-8.3,17.977-17.443,20.272" transform="translate(0 -245.484)" fill="#ffffff"/> </g> </svg></div>
+        <button class="ins-play fch-play" type="button" aria-disabled="true" aria-label="Video coming soon" tabindex="-1"><svg width="34" height="34" viewBox="0 0 24 24" fill="#06070F" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        <div class="fch-vid-t">Your Franchise.<br>Your Vision. <em>Your Platform.</em></div>
+        <div class="ins-video-cap"><div><b>The 2-Minute Overview</b><span>Goals.com for franchise organizations</span></div><div class="ins-ph">Placeholder &middot; Video coming soon</div></div>
+      </div>
+    </div>
+    <div class="fch-trust"><div><span>&#10022;</span>Custom CRM &amp; Workflows</div><div><span>&#10022;</span>AI-Powered Coaching</div><div><span>&#10022;</span>Network-Wide Visibility</div><div><span>&#10022;</span>Affordable Enterprise Pricing</div></div>
+  </div>
+</section>
+
+<section class="ins-sec ins-off" aria-labelledby="fch-prob-h">
+  <div class="ins-in ins-center">
+    <h2 class="ins-h2" id="fch-prob-h">One Franchise Network. Dozens of Sales Processes. <em>Limited Visibility.</em></h2>
+    <p class="ins-lead">As your franchise organization grows, maintaining consistent sales performance becomes increasingly challenging.</p>
+    <p class="ins-lead" style="margin-top:14px">Different locations. Different processes. Disconnected systems. And limited visibility into what&rsquo;s actually driving results.</p>
+    <div class="fch-4"><div class="fch-pc reveal"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 12l10 5 10-5M2 17l10 5 10-5"/></svg></div><h3>Disconnected Systems</h3><p>Fragmented data and inconsistent sales processes.</p></div><div class="fch-pc reveal"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5L6 17M12 11.5l6 5.5"/></svg></div><h3>Limited Visibility</h3><p>Difficulty understanding performance across locations.</p></div><div class="fch-pc reveal"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></div><h3>Missed Opportunities</h3><p>Inconsistent follow-up and overlooked sales opportunities.</p></div><div class="fch-pc reveal"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Inconsistent Performance</h3><p>Limited insight into which locations need support.</p></div></div>
+    <p class="fch-h2s">How can corporate leadership effectively coach, support, and grow an entire franchise network without the right tools and insights?</p>
+    <p class="ins-lead" style="margin-top:10px;color:#16a34a;font-weight:700">It&rsquo;s time for a better approach.</p>
+  </div>
+</section>
+
+<section class="ins-sec ins-dark" aria-labelledby="fch-sol-h">
+  <div class="ins-in ins-center">
+    <h2 class="ins-h2" id="fch-sol-h">One Platform. Every Franchisee. <em>Complete Visibility.</em></h2>
+    <p class="ins-lead">Goals.com brings CRM, sales management, AI-powered coaching, goal setting, forecasting, and performance tracking together in one powerful platform.</p>
+    <p class="ins-lead" style="margin-top:14px">Give every franchisee the tools they need to succeed, while providing corporate leadership with the insights needed to drive performance across the entire organization.</p>
+    <div class="fch-hier reveal">
+  <div class="fch-corp" role="img" aria-label="Conceptual corporate leadership dashboard">
+    <div class="ins-dash-bar"><span></span><span></span><span></span><div class="ins-dash-title">Corporate Leadership Dashboard</div><div class="ins-pill-c">Conceptual &middot; sample metrics</div></div>
+    <div class="ins-dash-body"><div class="ins-kpis"><div class="ins-kpi"><div class="ins-kpi-l">Network Revenue</div><div class="ins-kpi-v">$2.4M</div><div class="ins-kpi-d up">Across all locations</div></div><div class="ins-kpi"><div class="ins-kpi-l">Active Opportunities</div><div class="ins-kpi-v">1,248</div><div class="ins-kpi-d up">Network-wide</div></div><div class="ins-kpi"><div class="ins-kpi-l">Goal Attainment</div><div class="ins-kpi-v">92%</div><div class="ins-kpi-d up">On pace</div></div></div>
+    <div class="ins-panel"><div class="ins-panel-h">Network Performance</div><div class="ins-bars" style="height:80px"><div class="ins-bar" style="height:52%;animation-delay:0ms;background:#3ddc6e"></div><div class="ins-bar" style="height:60%;animation-delay:60ms;background:#3ddc6e"></div><div class="ins-bar" style="height:58%;animation-delay:120ms;background:#3ddc6e"></div><div class="ins-bar" style="height:70%;animation-delay:180ms;background:#3ddc6e"></div><div class="ins-bar" style="height:66%;animation-delay:240ms;background:#3ddc6e"></div><div class="ins-bar" style="height:78%;animation-delay:300ms;background:#3ddc6e"></div><div class="ins-bar" style="height:74%;animation-delay:360ms;background:#3ddc6e"></div><div class="ins-bar" style="height:88%;animation-delay:420ms;background:#3ddc6e"></div><div class="ins-bar" style="height:92%;animation-delay:480ms;background:#3ddc6e"></div></div></div></div>
+  </div>
+  <div class="fch-links" aria-hidden="true"><svg viewBox="0 0 760 46" preserveAspectRatio="none"><path d="M380 0V16M380 16H126M380 16H634M126 16V46M634 16V46M380 16V46" fill="none" stroke="#3ddc6e" stroke-width="2" stroke-dasharray="5 5" opacity=".7"/></svg></div>
+  <div class="fch-ws"><div class="fch-w"><h4>Franchisee CRM</h4><small>Leads &middot; Deals &middot; Activities</small><div class="ins-rg"><span>Leads</span><div class="ins-rg-t"><i style="width:82%"></i></div><b>82%</b></div><div class="ins-rg"><span>Deals</span><div class="ins-rg-t"><i style="width:64%"></i></div><b>64%</b></div><div class="ins-rg"><span>Activities</span><div class="ins-rg-t"><i style="width:91%"></i></div><b>91%</b></div></div><div class="fch-w"><h4>Franchisee CRM</h4><small>Leads &middot; Deals &middot; Activities</small><div class="ins-rg"><span>Leads</span><div class="ins-rg-t"><i style="width:58%"></i></div><b>58%</b></div><div class="ins-rg"><span>Deals</span><div class="ins-rg-t"><i style="width:73%"></i></div><b>73%</b></div><div class="ins-rg"><span>Activities</span><div class="ins-rg-t"><i style="width:66%"></i></div><b>66%</b></div></div><div class="fch-w ai"><h4>AI Sales Coach</h4><small>Insights &middot; Recommendations</small><div class="ins-rec"><b>Follow up with 3 stalled leads</b><span>No activity in 7+ days</span></div><div class="ins-rec"><b>Prep for tomorrow&rsquo;s demo</b><span>Talking points ready</span></div></div></div>
+  <div class="ins-ai-note" style="margin-top:14px;text-align:center">Illustrative hierarchy and sample metrics only.</div>
+</div>
+  </div>
+</section>
+
+<section class="ins-sec ins-light" aria-labelledby="fch-cap-h">
+  <div class="ins-in ins-center">
+    <h2 class="ins-h2" id="fch-cap-h">Everything Your Franchise<br>Network Needs to <em>Drive Sales Performance.</em></h2>
+    <p class="ins-lead">One intelligent platform designed to help your franchisees manage opportunities, improve productivity, and achieve better results.</p>
+    <div class="fch-caps"><div class="ins-card ins-card-sm reveal"><div class="ins-card-top"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div></div><h3>CRM &amp; Pipeline Management</h3><p>Manage leads, accounts, activities, and opportunities.</p></div><div class="ins-card ins-card-sm reveal"><div class="ins-card-top"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></div></div><h3>Goal Setting</h3><p>Set individual, location, and organizational sales goals.</p></div><div class="ins-card ins-card-sm reveal"><div class="ins-card-top"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></svg></div></div><h3>AI-Powered Sales Coaching</h3><p>Equip salespeople with personalized guidance and insights.</p></div><div class="ins-card ins-card-sm reveal"><div class="ins-card-top"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5L6 17M12 11.5l6 5.5"/></svg></div></div><h3>Pipeline Intelligence</h3><p>Identify opportunities, risks, and conversion trends.</p></div><div class="ins-card ins-card-sm reveal"><div class="ins-card-top"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div></div><h3>Performance Tracking</h3><p>Track achievements, leaderboards, and sales activity.</p></div><div class="ins-card ins-card-sm reveal"><div class="ins-card-top"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 12l10 5 10-5M2 17l10 5 10-5"/></svg></div></div><h3>Sales Forecasting</h3><p>Improve visibility into future revenue and performance.</p></div><div class="ins-card ins-card-sm reveal"><div class="ins-card-top"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 10v4M18 10v4"/></svg></div></div><h3>Commissions &amp; Bonuses</h3><p>Manage incentive programs and compensation tracking.</p></div><div class="ins-card ins-card-sm reveal"><div class="ins-card-top"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div></div><h3>Reporting &amp; Insights</h3><p>Understand performance across teams and locations.</p></div></div>
+    <div class="ins-note" style="text-align:left;max-width:860px;margin:32px auto 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Note.</b> Network-wide rollups and multi-location permissions are proposed franchise configurations, defined with your team during discovery.</div></div>
+  </div>
+</section>
+
+<section class="ins-sec ins-dark2" aria-labelledby="fch-cu-h">
+  <div class="ins-in ins-center">
+    <h2 class="ins-h2" id="fch-cu-h">Your Organization Shouldn&rsquo;t Have to Adapt to Its Software.<br><em>Your Software Should Adapt to You.</em></h2>
+    <p class="ins-lead">Every franchise organization is unique. Your sales processes, workflows, reporting requirements, and performance objectives shouldn&rsquo;t be forced into a one-size-fits-all solution.</p>
+    <p class="ins-lead" style="margin-top:14px">At Goals.com, we&rsquo;re offering franchise organizations the opportunity to work directly with our team to shape a platform around their specific needs.</p>
+    <p class="ins-lead" style="margin-top:14px;color:#fff;font-weight:700">Imagine what we could create together.</p>
+    <div class="fch-ba reveal">
+      <div><div class="fch-ba-l">Standard CRM</div><div class="ins-dash"><div class="ins-dash-bar"><span></span><span></span><span></span><div class="ins-dash-title">Standard CRM</div></div><div class="ins-dash-body"><div class="ins-kpis" style="grid-template-columns:1fr 1fr"><div class="ins-kpi"><div class="ins-kpi-l">Leads</div><div class="ins-kpi-v">412</div><div class="ins-kpi-d up">Total</div></div><div class="ins-kpi"><div class="ins-kpi-l">Deals</div><div class="ins-kpi-v">96</div><div class="ins-kpi-d up">Open</div></div></div><div class="ins-panel"><div class="ins-panel-h">Pipeline</div><div class="ins-bars" style="height:60px"><div class="ins-bar" style="height:40%;animation-delay:0ms;background:#94a3b8"></div><div class="ins-bar" style="height:52%;animation-delay:60ms;background:#94a3b8"></div><div class="ins-bar" style="height:46%;animation-delay:120ms;background:#94a3b8"></div><div class="ins-bar" style="height:60%;animation-delay:180ms;background:#94a3b8"></div></div></div></div></div></div>
+      <div class="fch-arrow" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      <div class="fch-ba-after"><div class="fch-ba-l" style="color:var(--teal-light)">Customized for your franchise</div><div class="ins-dash"><div class="ins-dash-bar"><span></span><span></span><span></span><div class="ins-dash-title">Your Franchise Dashboard</div><div class="ins-pill-c">Customized</div></div><div class="ins-dash-body"><div class="ins-kpis" style="grid-template-columns:1fr 1fr 1fr"><div class="ins-kpi"><div class="ins-kpi-l">Network Revenue</div><div class="ins-kpi-v">$2.4M</div><div class="ins-kpi-d up">+11%</div></div><div class="ins-kpi"><div class="ins-kpi-l">Locations On Goal</div><div class="ins-kpi-v">38/46</div><div class="ins-kpi-d up">83%</div></div><div class="ins-kpi"><div class="ins-kpi-l">Needs Support</div><div class="ins-kpi-v">5</div><div class="ins-kpi-d dn">locations</div></div></div><div class="ins-panel fch-new"><div class="ins-panel-h">Location Scorecard</div><div class="ins-rg"><span>Austin</span><div class="ins-rg-t"><i style="width:96%"></i></div><b>96%</b></div><div class="ins-rg"><span>Denver</span><div class="ins-rg-t"><i style="width:81%"></i></div><b>81%</b></div><div class="ins-rg"><span>Tampa</span><div class="ins-rg-t"><i style="width:44%;background:#f59e0b"></i></div><b>44%</b></div></div></div></div></div>
+    </div>
+    <div class="fch-chips"><div class="fch-chip">Custom CRM workflows</div><div class="fch-chip">Franchise-specific dashboards</div><div class="fch-chip">Multi-location reporting</div><div class="fch-chip">Custom sales stages</div><div class="fch-chip">Performance scorecards</div><div class="fch-chip">Commission structures</div><div class="fch-chip">AI coaching experiences</div><div class="fch-chip">Third-party integrations</div></div>
+    <p class="ins-lead" style="margin-top:40px">Whether you&rsquo;re looking to improve an existing process or envision an entirely new sales management experience, Goals.com is ready to explore the possibilities.</p>
+    <div class="fch-scope">Included development is scoped during discovery and subject to feasibility.</div>
+  </div>
+</section>
+
+<section class="ins-sec ins-off" aria-labelledby="fch-adv-h">
+  <div class="ins-in ins-center">
+    <h2 class="ins-h2" id="fch-adv-h">Enterprise-Level Capabilities.<br><em>A Refreshingly Different Partnership.</em></h2>
+    <p class="ins-lead">We believe powerful technology should be accessible, affordable, and supported by people who genuinely care about your organization&rsquo;s success.</p>
+    <div class="fch-adv"><div class="fch-ab reveal"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 10v4M18 10v4"/></svg></div><h3>Awesomely Affordable</h3><p>No outrageous enterprise licensing fees or endless add-ons that inflate your costs. Just powerful technology with straightforward, competitive pricing.</p></div><div class="fch-ab reveal"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div><h3>Customizations Included</h3><p>Work directly with our development team to implement agreed customizations that make the platform a better fit for your organization, without additional development fees for the included scope.</p></div><div class="fch-ab reveal"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Free Onboarding &amp; Training</h3><p>We help your team get started with onboarding, data migration planning, training, and ongoing support.</p></div><div class="fch-ab reveal"><div class="ins-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Direct Access to Leadership</h3><p>Work directly with Goals.com&rsquo;s leadership and development teams. Your organization has a meaningful voice in shaping its technology experience.</p></div></div>
+  </div>
+</section>
+
+<section class="ins-sec ins-equity" aria-labelledby="fch-pt-h">
+  <div class="ins-in">
+    <div class="ins-mark" aria-hidden="true"><svg width="86" height="54" viewBox="0 0 86 54" fill="none" stroke="#d9c9a0" stroke-width="1.6"><circle cx="30" cy="27" r="22"/><circle cx="56" cy="27" r="22"/><path d="M43 9a22 22 0 0 1 0 36 22 22 0 0 1 0-36z" fill="rgba(217,201,160,.18)"/></svg></div>
+    <h2 class="ins-h2" id="fch-pt-h">More Than a Technology Partnership.<br><em>A Voice in What We Build.</em></h2>
+    <p class="ins-lead" style="margin:0 auto 14px">We&rsquo;re not simply looking for customers. We&rsquo;re looking for strategic partners who want to help shape the future of Goals.com.</p>
+    <p class="ins-lead" style="margin:0 auto 14px">For select franchise organizations, we&rsquo;re developing an exclusive strategic partnership opportunity designed around long-term collaboration, direct access to our leadership, and a platform shaped around your network.</p>
+    <p class="ins-lead" style="margin:0 auto 34px">Because when our partners help us succeed, we believe we should succeed alongside them.</p>
+    <a href="#fch-form" class="ins-btn ins-btn-g" data-cta="partnership_invite" onclick="fchGoForm('partnership_invite');return false;">Explore a Franchise Partnership <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1405" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</section>
+
+<section class="ins-sec ins-light" aria-labelledby="fch-how-h">
+  <div class="ins-in ins-center">
+    <h2 class="ins-h2" id="fch-how-h">Your Vision. Our Technology. <em>One Powerful Partnership.</em></h2>
+    <p class="ins-lead">Creating a platform tailored to your franchise organization starts with a conversation.</p>
+    <div class="fch-steps" style="--off:#fff"><div class="fch-step reveal"><b>01</b><h3>Let&rsquo;s Explore Your Vision</h3><p>We&rsquo;ll learn about your franchise network, existing systems, sales processes, and opportunities for improvement.</p></div><div class="fch-step reveal"><b>02</b><h3>Design Your Ideal Experience</h3><p>Together, we&rsquo;ll identify the workflows, dashboards, reporting, and capabilities that would make Goals.com an ideal fit.</p></div><div class="fch-step reveal"><b>03</b><h3>Launch, Optimize &amp; Grow</h3><p>Start with a defined implementation, train your team, and build toward broader franchise-wide adoption.</p></div></div>
+  </div>
+</section>
+
+<section class="ins-sec ins-off" aria-labelledby="fch-faq-h">
+  <div class="ins-in ins-center">
+    <h2 class="ins-h2" id="fch-faq-h">Franchise CRM <em>Questions &amp; Answers.</em></h2>
+    <div class="fch-faq"><details><summary>Can Goals.com be customized for our franchise organization?</summary><p>Goals.com is a configurable CRM and sales performance platform today. Deeper franchise-specific customizations, such as custom workflows, dashboards and integrations, are scoped with our team during discovery and are subject to feasibility.</p></details><details><summary>Can franchisees have their own CRM and sales dashboards?</summary><p>Yes. Each salesperson or location can manage leads, deals, activities, and goals in Goals.com. Franchise-specific location workspaces and permissions can be configured and, where needed, developed as part of an implementation.</p></details><details><summary>Can corporate leadership monitor performance across locations?</summary><p>Goals.com provides reporting, goal tracking, and forecasting that leaders can use to see performance across teams. Network-wide rollups and multi-location permissions are proposed franchise configurations that we would define together during discovery.</p></details><details><summary>Does Goals.com integrate with our existing software?</summary><p>Goals.com connects with a number of common business tools today. Additional or custom integrations are evaluated during discovery and scoped before implementation.</p></details><details><summary>How does enterprise pricing work?</summary><p>Goals.com is designed to be straightforward and affordable, without outrageous enterprise licensing fees. Pricing for franchise organizations depends on the size of your network and the agreed scope, which we&rsquo;ll outline in a consultation.</p></details></div>
+  </div>
+</section>
+
+<section class="ins-sec ins-final" id="fch-form" aria-labelledby="fch-fin-h">
+  <div class="ins-in ins-final-grid">
+    <div>
+      <h2 class="ins-h2" id="fch-fin-h">Let&rsquo;s Build Your Ideal Franchise Sales Platform. <em>Together.</em></h2>
+      <p>You&rsquo;ve built a franchise organization with its own vision, processes, and ambitions.</p>
+      <p style="color:#fff;font-weight:600">Isn&rsquo;t it time you had a sales performance platform designed around them?</p>
+      <p>Discover what&rsquo;s possible when your organization partners directly with Goals.com.</p>
+      <div class="ins-ctas"><a href="#fch-form" class="ins-btn" data-cta="final_partnership" onclick="fchGoForm('final_partnership');return false;">Explore a Franchise Partnership</a><a href="https://calendly.com/goals-demo/30min?month=2026-07" target="_blank" rel="noopener" class="ins-btn ins-btn-o" data-cta="schedule_meeting">Book a Meeting Now</a></div>
+    </div>
+    <div>
+      <form class="ins-form" id="fch-form-el" onsubmit="return fchSubmit(event)" novalidate>
+        <div id="fch-form-main">
+          <h3>Tell us a little about your organization.</h3><p class="ins-fs">Connect directly with the Goals.com team.</p>
+          <div class="ins-f"><label for="fch-n">Full name *</label><input id="fch-n" name="full_name" required autocomplete="name"></div>
+          <div class="ins-f"><label for="fch-e">Work email *</label><input id="fch-e" name="email" type="email" required autocomplete="email"></div>
+          <div class="ins-f"><label for="fch-o">Organization *</label><input id="fch-o" name="organization" required autocomplete="organization"></div>
+          <div class="ins-f"><label for="fch-l">Number of franchise locations *</label><input id="fch-l" name="locations" inputmode="numeric" required></div>
+          <div class="fch-hp" aria-hidden="true"><label>Leave blank<input id="fch-hp" name="website_hp" tabindex="-1" autocomplete="off"></label></div>
+          <input type="hidden" id="fch-cta" name="cta_type"><input type="hidden" id="fch-src" name="lead_source"><input type="hidden" id="fch-camp" name="campaign">
+          <button class="ins-btn" type="submit">Request a Partnership Consultation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#06070F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          <div class="ins-priv" id="fch-err" style="color:#dc2626;display:none">Please complete the required fields.</div>
+          <div class="ins-priv">We respect your privacy. Your information is used only to respond to your inquiry.</div>
+        </div>
+        <div class="ins-ok" id="fch-ok" role="status" aria-live="polite">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(61,220,110,.16);display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3>Thank you. Let&rsquo;s find a time.</h3><p class="ins-fs" style="margin-bottom:20px">Prefer to book now? Pick a time that works for you.</p>
+          <a class="ins-btn" style="width:auto;display:inline-flex" href="https://calendly.com/goals-demo/30min?month=2026-07" target="_blank" rel="noopener" data-cta="book_consultation">Book Your Consultation</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="ins-sticky" id="fch-sticky"><a href="#fch-form" class="ins-btn" data-cta="sticky_partnership" onclick="fchGoForm('sticky_partnership');return false;">Explore a Franchise Partnership</a></div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Franchise CRM Software & Custom Sales Platform | Goals.com","description":"Discover an AI-powered franchise CRM and sales performance platform customized for your organization. Manage leads, track goals, and improve network-wide visibility.","url":"https://www.goals.com/franchise-crm/"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can Goals.com be customized for our franchise organization?","acceptedAnswer":{"@type":"Answer","text":"Goals.com is a configurable CRM and sales performance platform today. Deeper franchise-specific customizations, such as custom workflows, dashboards and integrations, are scoped with our team during discovery and are subject to feasibility."}},{"@type":"Question","name":"Can franchisees have their own CRM and sales dashboards?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each salesperson or location can manage leads, deals, activities, and goals in Goals.com. Franchise-specific location workspaces and permissions can be configured and, where needed, developed as part of an implementation."}},{"@type":"Question","name":"Can corporate leadership monitor performance across locations?","acceptedAnswer":{"@type":"Answer","text":"Goals.com provides reporting, goal tracking, and forecasting that leaders can use to see performance across teams. Network-wide rollups and multi-location permissions are proposed franchise configurations that we would define together during discovery."}},{"@type":"Question","name":"Does Goals.com integrate with our existing software?","acceptedAnswer":{"@type":"Answer","text":"Goals.com connects with a number of common business tools today. Additional or custom integrations are evaluated during discovery and scoped before implementation."}},{"@type":"Question","name":"How does enterprise pricing work?","acceptedAnswer":{"@type":"Answer","text":"Goals.com is designed to be straightforward and affordable, without outrageous enterprise licensing fees. Pricing for franchise organizations depends on the size of your network and the agreed scope, which we'll outline in a consultation."}}]}]}</script>
+</div><!-- /view-franchise -->
+
 
 
 <!-- SALES GOAL SETTING VIEW -->
@@ -8349,7 +8852,7 @@ document.addEventListener('DOMContentLoaded', function() { renderPodEpisodes(); 
       <div class="fc"><h4>Features</h4>
         <div class="fc-2col">
           <div><a href="#" onclick="showView('commissions');return false;" style="display:flex;align-items:center;gap:7px">Commissions</a><a href="#" onclick="showView('bonuses');return false;" style="display:flex;align-items:center;gap:7px">Bonuses</a><a href="#" onclick="showView('contests');return false;" style="display:flex;align-items:center;gap:7px">Contests</a><a href="#" onclick="showView('email-marketing');return false;" style="display:flex;align-items:center;gap:7px">Email Marketing</a><a href="#" onclick="showView('crm');return false;" style="display:flex;align-items:center;gap:7px">CRM</a><a href="#" onclick="showView('goals');return false;" style="display:flex;align-items:center;gap:7px">Sales Goal Setting</a><a href="#" onclick="showView('reporting');return false;" style="display:flex;align-items:center;gap:7px">Sales Reporting</a></div>
-          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations</a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices</a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting</a><a href="#" onclick="showView('ai-insights');return false;" style="display:flex;align-items:center;gap:7px">AI Insights &amp; Coaching</a><a href="#" onclick="showView('highlights');return false;" style="display:flex;align-items:center;gap:7px">Highlights</a><a href="#" onclick="showView('chat');return false;" style="display:flex;align-items:center;gap:7px">Chat</a><a href="#" onclick="showView('insurance');return false;" style="display:flex;align-items:center;gap:7px">Goals for Insurance <span class="cm-soon-tag">Coming Soon</span></a></div>
+          <div><a href="#" onclick="showView('automations');return false;" style="display:flex;align-items:center;gap:7px">Automations</a><a href="#" onclick="showView('marketing');return false;" style="display:flex;align-items:center;gap:7px">Contracts &amp; Invoices</a><a href="#" onclick="showView('forecast');return false;" style="display:flex;align-items:center;gap:7px">Forecasting</a><a href="#" onclick="showView('ai-insights');return false;" style="display:flex;align-items:center;gap:7px">AI Insights &amp; Coaching</a><a href="#" onclick="showView('highlights');return false;" style="display:flex;align-items:center;gap:7px">Highlights</a><a href="#" onclick="showView('chat');return false;" style="display:flex;align-items:center;gap:7px">Chat</a><a href="#" onclick="showView('insurance');return false;" style="display:flex;align-items:center;gap:7px">Goals for Insurance <span class="cm-soon-tag">Coming Soon</span></a><a href="#" onclick="showView('franchise');return false;" style="display:flex;align-items:center;gap:7px">Franchise CRM <span class="cm-soon-tag">Coming Soon</span></a></div>
         </div>
       </div>
     </div>
@@ -8575,6 +9078,41 @@ function insSubmit(e){
     var v=document.getElementById('view-insurance'); if(!v||!v.classList.contains('active')){ st.classList.remove('show'); return; }
     var f=document.getElementById('ins-form'), y=window.scrollY, top=f?f.getBoundingClientRect().top+window.scrollY:1e9;
     st.classList.toggle('show', y>600 && y<top-500);
+  },{passive:true});
+})();
+
+
+// ── Franchise CRM landing page ──
+function fchGoForm(cta){
+  var c=document.getElementById('fch-cta'); if(c) c.value=cta||'';
+  var f=document.getElementById('fch-form'); if(f) f.scrollIntoView({behavior:'smooth',block:'start'});
+  try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'franchise_cta_click',cta_type:cta}); }catch(e){}
+}
+function fchSubmit(e){
+  e.preventDefault();
+  if(document.getElementById('fch-hp').value) return false;
+  var form=document.getElementById('fch-form-el'), err=document.getElementById('fch-err'), ok=true;
+  form.querySelectorAll('[required]').forEach(function(el){ if(!el.value.trim()){ ok=false; el.style.borderColor='#dc2626'; } else { el.style.borderColor=''; } });
+  var em=document.getElementById('fch-e'); if(em.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value)){ ok=false; em.style.borderColor='#dc2626'; }
+  if(err) err.style.display=ok?'none':'block';
+  if(!ok) return false;
+  var q=new URLSearchParams(location.search);
+  document.getElementById('fch-src').value=document.referrer||'direct';
+  document.getElementById('fch-camp').value=['utm_source','utm_medium','utm_campaign','utm_content'].map(function(k){return q.get(k)||'';}).join('|');
+  if(!document.getElementById('fch-cta').value) document.getElementById('fch-cta').value='form_direct';
+  var data={}; new FormData(form).forEach(function(v,k){data[k]=v;});
+  try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'franchise_form_submit',cta_type:data.cta_type,locations:data.locations}); }catch(x){}
+  // TODO: POST `data` to the CRM / form endpoint here.
+  document.getElementById('fch-form-main').style.display='none';
+  document.getElementById('fch-ok').style.display='block';
+  return false;
+}
+(function(){
+  var st=document.getElementById('fch-sticky'); if(!st) return;
+  window.addEventListener('scroll',function(){
+    var v=document.getElementById('view-franchise'); if(!v||!v.classList.contains('active')){ st.classList.remove('show'); return; }
+    var f=document.getElementById('fch-form'), y=window.scrollY, top=f?f.getBoundingClientRect().top+window.scrollY:1e9;
+    st.classList.toggle('show', y>700 && y<top-500);
   },{passive:true});
 })();
 
