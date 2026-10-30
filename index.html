@@ -3599,14 +3599,17 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 #view-insurance .ins-hero-cta{margin-top:44px}
 #view-insurance .ins-hero-cta .ins-support{margin-top:18px}
 #view-insurance .ins-hero-2{text-align:left}
-#view-insurance .ins-h2col{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:center}
-#view-insurance .ins-hero-2 h1{font-size:clamp(24px,2.95vw,38px);line-height:1.15;margin:0 0 22px}
+#view-insurance .ins-h2col{display:grid;grid-template-columns:1.12fr 1fr;gap:48px;align-items:center}
+#view-insurance .ins-hero-2 h1{font-size:clamp(28px,3.4vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin:0 0 24px}
 #view-insurance .ins-l1{white-space:nowrap}
 @media(max-width:1100px){#view-insurance .ins-hero-2 h1{font-size:clamp(30px,6vw,48px)}}
 @media(max-width:560px){#view-insurance .ins-l1{white-space:normal}}
 #view-insurance .ins-hero-2 .ins-hero-body{max-width:none;margin:0}
 #view-insurance .ins-hero-2 .ins-hero-body p{font-size:16.5px;line-height:1.7;margin:0 0 12px}
 #view-insurance .ins-hero-2 .ins-hero-viz{max-width:none;margin:0}
+#view-insurance .ins-hero-2 .ins-hero-left{padding:0}
+#view-insurance .ins-hero-2 .ins-hero-viz .ins-dash{transform:none!important;animation:insFlat 1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes insFlat{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
 #view-insurance .ins-hero-2 .ins-hero-cta{margin-top:26px}
 @media(max-width:1100px){#view-insurance .ins-h2col{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){
@@ -3616,9 +3619,10 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
 </style>
 
 <section class="ins-hero ins-hero-c ins-hero-2" aria-labelledby="ins-h1">
-  <div class="ins-in ins-h2col">
+  <div class="ins-in">
+    <div class="ins-h2col">
     <div class="ins-hero-left">
-      <h1 id="ins-h1"><span class="ins-l1">Your Distribution Network.</span><br><span class="ins-l1">Your Platform. <em>Built Your Way.</em></span></h1>
+      <h1 id="ins-h1" class="ins-h1-top"><span class="ins-l1">Your Distribution Network.</span><br>Your Platform.<br><em>Built Your Way.</em></h1>
       <div class="ins-hero-body">
         <p>One powerful platform that connects your entire distribution organization&mdash;from corporate leadership to every agency and producer&mdash;with unprecedented visibility into production performance.</p>
         <p>Customized around how your organization operates, without the expense of building your own software. <span class="ins-strong">That&rsquo;s the opportunity we&rsquo;re offering at Goals.com.</span></p>
@@ -3643,6 +3647,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
   </div>
 </div>
         <div class="ins-strip" aria-hidden="true"><div><b>84%</b><span>Goal attainment</span></div><div><b>47</b><span>Cases at risk</span></div><div><b>9</b><span>Producers flagged for coaching</span></div></div>
+    </div>
     </div>
   </div>
 </section>
