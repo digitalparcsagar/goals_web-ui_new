@@ -58,6 +58,18 @@ html.nav-open,body.nav-open{overflow:hidden}
 .btn-primary:hover{background:var(--teal2)}
 
 /* ── FEATURES NAV DROPDOWN ─────────────────────────────────────────── */
+.ind-nav-item{position:relative}
+.ind-trigger{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.ind-trigger svg{transition:transform .2s}
+.ind-nav-item:hover .ind-trigger svg,.ind-nav-item:focus-within .ind-trigger svg{transform:rotate(180deg)}
+.ind-dd{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);margin-top:14px;width:320px;background:#0e101b;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:8px;box-shadow:0 24px 60px rgba(0,0,0,.55);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s ease,transform .15s ease,visibility .15s;z-index:260}
+.ind-dd:before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px}
+.ind-nav-item:hover .ind-dd,.ind-nav-item:focus-within .ind-dd{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.ind-item{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:10px;transition:background .15s}
+.ind-item:hover{background:rgba(255,255,255,.07)}
+.ind-ico{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ind-t b{display:block;font-size:14px;font-weight:700;color:#fff}
+.ind-t span{display:block;font-size:12px;color:rgba(255,255,255,.55);margin-top:1px}
 .feat-nav-item{position:relative}
 .feat-dropdown{display:block;opacity:0;visibility:hidden;pointer-events:none;position:fixed;top:var(--nav-height);padding-top:14px;left:50%;transform:translateX(-50%);width:1188px;max-width:calc(100vw - 32px);z-index:250;transition:opacity .15s ease,visibility .15s ease}
 .feat-nav-item:hover .feat-dropdown,.feat-nav-item:focus-within .feat-dropdown,.feat-dropdown.feat-open{opacity:1;visibility:visible;pointer-events:auto}
@@ -758,6 +770,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
         </div>
       </div>
     </div>
+    <div class="ind-nav-item"><a href="#" class="ind-trigger" onclick="return false;" aria-haspopup="true">Industries <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a><div class="ind-dd" role="menu"><a href="#" class="ind-item" onclick="showView('crm');return false;"><span class="ind-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5b8def" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span><span class="ind-t"><b>SMB</b><span>Small &amp; mid-size sales teams</span></span></a><a href="#" class="ind-item" onclick="showView('insurance');return false;"><span class="ind-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8b7cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="ind-t"><b>Insurance</b><span>IMOs, FMOs, BGAs &amp; agency networks</span></span></a><a href="#" class="ind-item" onclick="showView('franchise');return false;"><span class="ind-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--teal-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5L6 17M12 11.5l6 5.5"/></svg></span><span class="ind-t"><b>Franchises</b><span>Franchisors &amp; multi-location networks</span></span></a></div></div>
     <a href="#" onclick="showView('pricing');return false;" id="pricingNavBtn" class="nav-page-btn">Pricing</a>
     <a href="#" onclick="showView('podcast');return false;" id="podcastNavBtn" class="nav-page-btn">Podcast</a>
     <a href="#" onclick="showView('contact');return false;" id="contactNavBtn" class="nav-page-btn">Contact</a>
