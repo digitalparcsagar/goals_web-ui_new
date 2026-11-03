@@ -62,6 +62,7 @@ html.nav-open,body.nav-open{overflow:hidden}
 .ind-trigger{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
 .ind-trigger svg{transition:transform .2s}
 .ind-nav-item:hover .ind-trigger svg,.ind-nav-item:focus-within .ind-trigger svg{transform:rotate(180deg)}
+.feat-nav-item:hover .ind-trigger svg,.feat-nav-item:focus-within .ind-trigger svg{transform:rotate(180deg)}
 .ind-dd{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);margin-top:14px;width:320px;background:#0e101b;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:8px;box-shadow:0 24px 60px rgba(0,0,0,.55);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s ease,transform .15s ease,visibility .15s;z-index:260}
 .ind-dd:before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px}
 .ind-nav-item:hover .ind-dd,.ind-nav-item:focus-within .ind-dd{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
@@ -643,7 +644,7 @@ li.art-step::before{content:counter(step);min-width:26px;height:26px;border-radi
     </div>
   <div class="nav-links">
     <div class="feat-nav-item" onmouseenter="featMenuOpen()" onmouseleave="featMenuScheduleClose()">
-      <a href="#" onclick="showView('home');return false;" tabindex="0">Platform</a>
+      <a href="#" onclick="showView('home');return false;" tabindex="0" class="ind-trigger">Platform <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
       <div class="feat-dropdown" onmouseenter="featMenuOpen()" onmouseleave="featMenuScheduleClose()">
         <div class="plat-mega">
           <div class="plat-header">
